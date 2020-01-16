@@ -1,0 +1,24 @@
+<div class="col-md-12">
+    <div>
+        <span class="step-title">STEP 2: Provide Flat Carpet Area</span>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label" for="inputPassword">Flat Area in Square Feet</label>
+        <div class="col-sm-4">
+            <ipx-text-field ipx-data-type="integer" [textField]="'value'" name="paintArea" 
+            placeholder="Please enter" [(ngModel)]="formData.area" (change)="calculateCost()">
+            </ipx-text-field>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div>
+        <span class="step-title">STEP 3: Provide Type of Paint</span>
+    </div>
+    <div class="form-group">
+            <ipx-dropdown class="col-sm-12" [options]="paintTypes" [label]="'Type of Paint'" [displayField]="'name'" 
+            [(ngModel)]="formData.selectedType" (change)="calculateCost()"></ipx-dropdown>
+    </div>
+
+</div>

@@ -1,0 +1,15 @@
+<div class="sidebar col-sm-12 col-md-4">
+    <div class="widget">
+        <div class="widget-title">
+            <h3 class="title">{{ title }}: <span style="color: red; padding-left: 15px;"> INR. {{ value }}</span></h3>
+        </div>
+        <button type="button" class="btn btn-primary btn-xs">TALK TO AN EXPERT</button>
+        <ul class="clearfix shop">
+            <li *ngFor="let item of items">
+                    <div class="description">
+                            <span style="text-transform:uppercase">{{ item.value}} PRICE:  INR. {{ item.cost }}</span>
+                    </div>
+            </li>
+        </ul>
+    </div>
+</div>

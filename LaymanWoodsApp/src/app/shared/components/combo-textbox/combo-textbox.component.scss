@@ -1,0 +1,174 @@
+/*------------------------------
+  HOST
+------------------------------*/
+:host(.ng-cint) {
+    display: block;
+    font-family: Arial;
+  }
+  
+  /*------------------------------
+    NOTIFICATION
+  ------------------------------*/
+  .ng-cint__notification {
+    padding: 10px;
+    background-color: #ff0000;
+    color: #fff;
+  }
+  
+  /*------------------------------
+    TITLE
+  ------------------------------*/
+  .ng-cint__ng-cint-title {
+    position: relative;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .ng-cint-title__required {
+    color: #ff0000;
+    margin-left: 3px;
+  }
+  
+  .ng-cint-title__helper {
+    display: block;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    width: 22px;
+    height: 22px;
+      cursor: pointer;
+  }
+  
+  .ng-cint-title__helper span {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1;
+    background: #fafafa;
+    width: 300px;
+    font-size: 12px;
+    line-height: 1.2;
+    padding: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .ng-cint-title__helper:hover span {
+    opacity: 1;
+  }
+  
+  .ng-cint-title__helper img {
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+  }
+  .ng-cint-title__helper:hover img {
+    opacity: 1;
+  }
+  
+  /*------------------------------
+    CONTENT
+  ------------------------------*/
+  .ng-cint__ng-cint-content {
+    width: 50%;
+    height: 35px;
+    display: flex;
+    // align-items: center;
+    justify-content: space-between;
+  }
+  
+  /*----------
+    FIELD
+  ----------*/
+  .ng-cint-content__ng-cint-field {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgb(217, 217, 217);
+    transition: border-color 0.2s ease;
+  }
+  
+  /* input */
+  .ng-cint-field__input {
+    position: relative;
+    display: block;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 1;
+    padding: 0 10px;
+    border: none;
+  }
+  
+  /* controls */
+  .ng-cint-field__ng-cint-controls {
+    width: auto;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    // border-left: 1px solid rgb(217, 217, 217);
+    padding-top: 6px;
+  }
+  
+  .ng-cint-controls__single-control {
+    position: relative;
+    display: block;
+    flex: 1;
+    padding: 0 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .ng-cint-controls__single-control:hover {
+    background-color: rgb(217, 217, 217);
+  }
+  
+  .ng-cint-controls__single-control:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 10px;
+    width: 8px;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: contain;
+    background-image: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ2IDQ2IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0NiA0NjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiPgo8Zz4KCTxwb2x5Z29uIHBvaW50cz0iNDYsMy4wMDQgMCwzIDIzLjAwMiw0MyAgIiBmaWxsPSIjNjY2NjY2Ii8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==");
+  }
+  
+  .ng-cint-controls__single-control_increment:before {
+    transform: rotateZ(180deg);
+    transform-origin: 50% 25%;
+  }
+  
+  .ng-cint-controls__single-control_decrement:before {
+  
+  }
+  
+  /* prefix/suffix */
+  .ng-cint-content__label {
+    width: auto;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  .ng-cint-content__label_prefix {
+    border: 1px solid rgb(217, 217, 217);
+    border-right: none;
+  }
+  
+  .ng-cint-content__label_suffix {
+    border-left: none;
+    background-color: #eee;
+    border: 1px solid #ccc;
+  }

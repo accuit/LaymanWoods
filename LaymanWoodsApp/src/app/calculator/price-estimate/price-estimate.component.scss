@@ -1,0 +1,47 @@
+.widget .widget-title .title {
+    color: white;
+    font-size: 17px;
+    margin: 12px 0 12px;
+}
+
+.widget .widget-title {
+    color: white;
+    background-color: black;
+    padding: 20px;
+    vertical-align: middle;
+}
+
+.description {
+    text-align: left;
+    color: black;
+    margin-left: 20%;
+    font-weight: 600;
+}
+
+.title {
+    font-family: sans-serif;
+}
+
+.sidebar {
+    padding-right: 50px;
+}
+
+.widget ul {
+    padding: 15px 0 0 0;
+}
+
+.sidebar .widget {
+	padding-bottom:40px;
+	border: #cec7c7;
+	border-width: thin;
+	border-style: solid;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:hover .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #05abc1;
+    border-color: #05abc1;
+    width: 82%;
+    margin: 10%;
+    font-size: unset;
+}

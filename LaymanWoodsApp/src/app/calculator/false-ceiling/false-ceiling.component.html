@@ -1,0 +1,40 @@
+<div class="col-md-12">
+    <div>
+        <span class="step-title">STEP 2: Input Area Measurements</span>
+    </div>
+
+    <ipx-combo-textbox [label1]="'Feet'" [label2]="'Inches'" [textField1]="'feet'" [textField2]="'inches'"
+        [label2]="'Inches'" [name]="'A'" [(ngModel)]="formData.A" (valueChanged)="formData.totalArea = calculateArea()"
+        [minValue]="'0'" [maxValue]="100" [placeholder1]="'Feet'" [placeholder2]="'Inches'">
+    </ipx-combo-textbox>
+
+    <ipx-combo-textbox [label1]="'Feet'" [label2]="'Inches'" [textField1]="'feet'" [textField2]="'inches'"
+        [label2]="'Inches'" [name]="'B'" [(ngModel)]="formData.B" (valueChanged)="formData.totalArea = calculateArea()"
+        [minValue]="'0'" [maxValue]="100" [placeholder1]="'Feet'" [placeholder2]="'Inches'">
+    </ipx-combo-textbox>
+</div>
+
+<!-- <div class="col-md-12" style="padding-bottom: 50px;">
+    <div>
+        <span class="step-title">STEP 3: Type of False Ceiling</span>
+    </div>
+    <label class="radio-inline" *ngFor="let type of ['Cover','Corner']">
+        <input type="radio" name="type" (click)="formData.type = type"  (change)="onCeilingTypeChange(type)" [checked]="type === formData.type">{{ type }}
+    </label>
+</div> -->
+<!-- 
+<div class="col-md-12" style="padding-bottom: 50px;">
+    <div class="price-details">
+        <h3>Type of False Ceiling</h3>
+        <span class="price">False Ceiling Includes</span>
+    </div>
+    <ipx-checkbox class="checkbox-inline" label="Base" name="fc_plain"
+        [(ngModel)]="formData.includes.plain" apply-edited disabled>
+    </ipx-checkbox>
+    <ipx-checkbox class="checkbox-inline" label="Moulding" name="fc_plain"
+        [(ngModel)]="formData.includes.moulding" apply-edited disabled>
+    </ipx-checkbox>
+    <ipx-checkbox class="checkbox-inline" label="POP" name="fc_plain" [(ngModel)]="formData.includes.pop"
+        apply-edited disabled>
+    </ipx-checkbox>
+</div> -->

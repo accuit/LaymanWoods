@@ -1,0 +1,32 @@
+<div *ngIf="type==='basic'" class="page-header">
+    <div class="container">
+        <h1 class="title">{{title}}</h1>
+    </div>
+    <div class="breadcrumb-box">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li>
+                    <a [routerLink]="parentPath">{{parent}}</a>
+                </li>
+                <li class="active">{{current}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="type==='advance'" class="page-header page-title-left page-title-transparent">
+    <div class="image-bg content-in fixed" [ngStyle]="{'background-image': 'url(' + bgImage + ')'}" data-background="http://wex.com.pk/images/calculator-banner.png"></div>
+    <div class="container white">
+        <div class="col-md-12">
+            <h1 class="title">{{title}}</h1>
+            <h5>{{ subTitle }}</h5>
+            <ul class="breadcrumb white">
+                <li>
+                    <a [routerLink]="parentPath">{{parent}}</a>
+                </li>
+                <li class="active">{{current}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

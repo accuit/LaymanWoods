@@ -1,0 +1,90 @@
+<!-- .product -->
+<div class="col-md-12">
+
+    <div>
+        <span class="step-title">STEP 2: Provide Wardrobe Measurements</span>
+    </div>
+
+    <div class="post-image opacity"><img src="../../../assets/img/Wardrobe/wardrobe.jpg"
+            style="max-width: 700px; max-height: 300px;" [alt]="'Wardrobe Image'" [title]="Wardrobe"></div>
+    </div>
+
+<div class="col-md-12">
+    <div>
+        <span class="step-title">STEP 3: Input Wardrobe Measurements</span>
+    </div>
+
+    <ipx-combo-textbox
+    [label1]="'Feet'" 
+    [label2]="'Inches'" 
+    [textField1]="'feet'" 
+    [textField2]="'inches'" 
+    [label2]="'Inches'" 
+    [name]="'A'" 
+    [(ngModel)]="formData.A" 
+    (valueChanged)="formData.totalArea = calculateArea()"
+    [minValue]="'0'" 
+    [maxValue]="30"
+    [placeholder1]="'Feet'" 
+    [placeholder2]="'Inches'">
+</ipx-combo-textbox>
+    
+    
+<ipx-combo-textbox
+  [label1]="'Feet'" 
+  [label2]="'Inches'" 
+  [textField1]="'feet'" 
+  [textField2]="'inches'" 
+  [label2]="'Inches'" 
+  [name]="'B'" 
+  [(ngModel)]="formData.B"
+  (valueChanged)="formData.totalArea = calculateArea()" 
+  [minValue]="'0'" 
+  [maxValue]="30"
+  [placeholder1]="'Feet'" 
+  [placeholder2]="'Inches'">
+</ipx-combo-textbox>
+</div>
+
+<div class="col-md-12">
+    <div>
+        <span class="step-title">STEP 4: Input Wardrobe Measurements</span>
+    </div>
+    <div class="row">
+    <div class="col-md-3">
+    <span style="vertical-align: bottom;"> Slider Required: </span>
+</div>
+    <div class="col-md-6">
+    <label class="radio-inline" *ngFor="let slider of ['Yes','No']">
+      <input type="radio" name="isSlider" (click)="formData.isSlider = slider"
+      [checked]="slider === formData.isSlider">{{ slider }}
+    </label>
+</div>
+</div>
+</div>
+
+<div class="col-md-12">
+    <div>
+        <span class="step-title">STEP 5: Material Quality / Brand Selection</span>
+    </div>
+    <div class="row">
+
+        <div class="form-group">
+            <div class="col-sm-3">
+                <h4>Material</h4>
+            </div>
+            <div class="col-sm-4">
+                <h4>Brand</h4>
+            </div>
+        </div>
+     
+        <ipx-dropdown class="col-sm-8" [options]="product1Brands" [label]="'Ply and Board'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand1" (change)="calculateCostByBrand()"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product2Brands" [label]="'Inner Laminate'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand2" (change)="calculateCostByBrand()"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product3Brands" [label]="'Outer Finish'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand3" (change)="calculateCostByBrand()"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product4Brands" [label]="'Hinges'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand4" (change)="calculateCostByBrand()"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product5Brands" [label]="'Channels'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand5" (change)="calculateCostByBrand()"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product6Brands" [label]="'Full Size'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand6" (change)="calculateCostByBrand()"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product7Brands" [label]="'Border and Corners'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand7" (change)="calculateCostByBrand()"></ipx-dropdown>
+    </div>
+
+</div>
