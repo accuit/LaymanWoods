@@ -17,6 +17,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaymanWoods.CommonLayer.AOP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaymanWoods.PersistenceLayer.Data", "LaymanWoods.PersistenceLayer.Data\LaymanWoods.PersistenceLayer.Data.csproj", "{F7EAEEC0-35D1-4412-AC38-48C8AC010A60}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PresentationLayer", "PresentationLayer", "{6043AE7E-4AD3-4774-9B9E-FCC5C0428B04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLayer", "BusinessLayer", "{FAE724CC-81E7-4CE4-B8E3-31AF983374BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommonLayer", "CommonLayer", "{3E098861-BA2C-46AE-A62F-FEAD84222B8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PersistenceLayer", "PersistenceLayer", "{A554B16D-2F18-4478-9A40-AF5D511A648A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +58,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{45EEAB90-E4E8-4822-A255-869BC70C7A0A} = {6043AE7E-4AD3-4774-9B9E-FCC5C0428B04}
+		{AC7FB333-9949-42D1-A64A-75C9B5349617} = {FAE724CC-81E7-4CE4-B8E3-31AF983374BF}
+		{97342150-013C-491B-B296-4214AFAD37B3} = {FAE724CC-81E7-4CE4-B8E3-31AF983374BF}
+		{6BE56F1B-C58C-483D-9729-E86D82ACD144} = {3E098861-BA2C-46AE-A62F-FEAD84222B8B}
+		{A4BA07CA-94DC-47F2-8820-80F6AEDDE970} = {3E098861-BA2C-46AE-A62F-FEAD84222B8B}
+		{F7EAEEC0-35D1-4412-AC38-48C8AC010A60} = {A554B16D-2F18-4478-9A40-AF5D511A648A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2C4286B-25E0-422B-B68A-784BE4E28E03}
