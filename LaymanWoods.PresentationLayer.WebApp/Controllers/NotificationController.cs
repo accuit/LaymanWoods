@@ -37,7 +37,7 @@ namespace MVC_Ecommerce.Controllers
                     string rawURL = AppUtil.GetAppSettings(AspectEnums.ConfigKeys.ForgotPasswordURL);
                     string PasswordResetURL = String.Format(rawURL, hostName) + "?id=" + UniqueString;
 
-                    EmailTemplateDTO objEmailTemplate = securityBusinessInstance.GetEmailTemplate(AspectEnums.EmailTemplateType.ForgotPassword);
+                    EmailTemplateDTO objEmailTemplate = SecurityBusinessInstance.GetEmailTemplate(AspectEnums.EmailTemplateType.ForgotPassword);
                     var userProfile = UserBusinessInstance.DisplayUserProfile(UserId);
                     EmailServiceDTO emailService = new EmailServiceDTO();
                     emailService.Body = string.Format(objEmailTemplate.Body, userProfile.FirstName, OTPString, PasswordResetURL);
