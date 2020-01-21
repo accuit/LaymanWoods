@@ -5,12 +5,11 @@ using LaymanWoods.BusinessLayer.Services.BO;
 using LaymanWoods.CommonLayer.Aspects;
 using System;
 using Unity;
-using Unity.Injection;
 using LaymanWoods.PersistenceLayer.Data.Repository;
 using LaymanWoods.PersistenceLayer.Data.Impl;
 using LaymanWoods.PersistenceLayer.Data.EDMX;
 
-namespace LaymanWoods.CommonLayer.AOPEngine
+namespace LaymanWoods.CommonLayer.AOPRegistrations
 {
     public class UnityRegistration
     {

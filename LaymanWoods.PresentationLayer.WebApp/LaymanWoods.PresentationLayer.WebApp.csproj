@@ -300,9 +300,9 @@
       <Project>{97342150-013C-491B-B296-4214AFAD37B3}</Project>
       <Name>LaymanWoods.BusinessLayer.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LaymanWoods.CommonLayer.AOPEngine\LaymanWoods.CommonLayer.AOPEngine.csproj">
+    <ProjectReference Include="..\LaymanWoods.CommonLayer.AOPRegistrations\LaymanWoods.CommonLayer.AOPRegistrations.csproj">
       <Project>{A4BA07CA-94DC-47F2-8820-80F6AEDDE970}</Project>
-      <Name>LaymanWoods.CommonLayer.AOPEngine</Name>
+      <Name>LaymanWoods.CommonLayer.AOPRegistrations</Name>
     </ProjectReference>
     <ProjectReference Include="..\LaymanWoods.CommonLayer.Aspects\LaymanWoods.CommonLayer.Aspects.csproj">
       <Project>{6BE56F1B-C58C-483D-9729-E86D82ACD144}</Project>
