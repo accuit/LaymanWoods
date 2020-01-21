@@ -9,12 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Unity;
-using static LaymanWoods.BusinessLayer.Base.BaseService;
+using static LaymanWoods.BusinessLayer.Base.ServiceBase;
 using LaymanWoods.PersistenceLayer.Data.EDMX;
 
 namespace LaymanWoods.BusinessLayer.Base
 {
-    public class UserManager : BaseService, IUserService
+    public class UserManager : ServiceBase, IUserService
     {
         [Unity.Dependency(ContainerDataLayerInstanceNames.USER_REPOSITORY)]
         public IUserRepository UserRepository { get; set; }

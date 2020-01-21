@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace LaymanWoods.BusinessLayer.Base
 {
 
-    public abstract class BaseService : MarshalByRefObject
+    public abstract class ServiceBase : MarshalByRefObject
     {
         /// <summary>
         /// Property to get set object mapping instance
@@ -25,7 +25,8 @@ namespace LaymanWoods.BusinessLayer.Base
         /// </summary>
         public struct ContainerDataLayerInstanceNames
         {
-            public const string USER_REPOSITORY = "ECommerce_UserDataImpl";
+            public const string USER_REPOSITORY = "LaymanWoods_UserDataImpl";
+            public const string SECURITY_REPOSITORY = "LaymanWoods_SecurityDataImpl";
 
         }
 
@@ -34,7 +35,8 @@ namespace LaymanWoods.BusinessLayer.Base
         /// </summary>
         public struct ContainerBusinessLayerInstanceNames
         {
-            public const string USER_MANAGER = "ECommerce_UserManager";
+            public const string USER_MANAGER = "LaymanWoods_UserManager";
+            public const string SECURITY_MANAGER = "LaymanWoods_SecurityManager";
         }
 
     }

@@ -29,7 +29,7 @@ namespace LaymanWoods.CommonLayer.AOPRegistrations
 
         private static void InitializeLibraryPersistenceLayer()
         {
-            AopEngine.Container.RegisterType<IUserRepository, UserDataImpl>(GetPersistenceRegisterInstanceName(AspectEnums.PeristenceInstanceNames.UserDataImpl, AspectEnums.ApplicationName.ECommerce));
+            AopEngine.Container.RegisterType<IUserRepository, UserDataImpl>(GetPersistenceRegisterInstanceName(AspectEnums.PeristenceInstanceNames.UserDataImpl, AspectEnums.ApplicationName.LaymanWoods));
         }
 
         private static string GetPersistenceRegisterInstanceName(AspectEnums.PeristenceInstanceNames aspectName, AspectEnums.ApplicationName application)
@@ -44,7 +44,7 @@ namespace LaymanWoods.CommonLayer.AOPRegistrations
 
         private static void InitializeLibraryBusinessLayer()
         {
-            AopEngine.Container.RegisterType<IUserService, UserManager>(GetBusinessRegisterInstanceName(AspectEnums.AspectInstanceNames.UserManager, AspectEnums.ApplicationName.ECommerce));
+            AopEngine.Container.RegisterType<IUserService, UserManager>(GetBusinessRegisterInstanceName(AspectEnums.AspectInstanceNames.UserManager, AspectEnums.ApplicationName.LaymanWoods));
         }
 
         private static void MapEntities()

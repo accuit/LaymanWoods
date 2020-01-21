@@ -33,7 +33,7 @@ namespace MVC_Ecommerce.CustomFilters
             {
                 if (userBusinessInstance == null)
                 {
-                    userBusinessInstance = AopEngine.Resolve<IUserService>(AspectEnums.AspectInstanceNames.UserManager, AspectEnums.ApplicationName.ECommerce);
+                    userBusinessInstance = AopEngine.Resolve<IUserService>(AspectEnums.AspectInstanceNames.UserManager, AspectEnums.ApplicationName.LaymanWoods);
                 }
                 return userBusinessInstance;
             }

@@ -10,12 +10,13 @@ namespace LaymanWoods.CommonLayer.Aspects
     {
         public enum ApplicationName
         {
-            ECommerce,
+            LaymanWoods
         }
 
         public enum AspectInstanceNames
         {
-            UserManager
+            UserManager,
+            SecurityManager
         }
 
         public enum PeristenceInstanceNames
@@ -46,7 +47,22 @@ namespace LaymanWoods.CommonLayer.Aspects
             APKDownloadURL,
             HostName,
             FileProcessorURL,
-            ImagesPath
+            ImagesPath,
+            ForgotPasswordURL
+        }
+
+        public enum EmailStatus
+        {
+            None = 0,
+            Pending = 1,
+            InProcess = 2,
+            Delivered = 3,
+            Failed = 4,
+        }
+
+        public enum EmailTemplateType
+        {
+            ForgotPassword = 1
         }
 
     }
