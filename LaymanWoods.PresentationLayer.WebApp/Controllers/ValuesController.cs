@@ -11,7 +11,7 @@ namespace MVC_Ecommerce.Controllers
     [System.Web.Http.RoutePrefix("test")]
     public class ValuesController : BaseAPIController
     {
-        
+
         // GET api/values
         [System.Web.Http.Route("values")]
         public IEnumerable<string> Get()
@@ -53,7 +53,7 @@ namespace MVC_Ecommerce.Controllers
         //{
         //    try
         //    {
-               
+
         //        _context.UserMasters.Add(user);
         //        _context.SaveChanges();
         //        return Request.CreateResponse(HttpStatusCode.OK, user);
@@ -62,8 +62,8 @@ namespace MVC_Ecommerce.Controllers
         //    {
         //        return Request.CreateResponse(HttpStatusCode.InternalServerError, "Error occured please check.");
         //    }
-           
-         
+
+
         //}
 
         // PUT api/values/5

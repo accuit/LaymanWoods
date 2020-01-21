@@ -30,5 +30,24 @@ namespace LaymanWoods.CommonLayer.Aspects
             Customer = 3,
             Default = 99
         }
+
+        public enum ImageFileTypes
+        {
+            Survey,
+            User,
+            General,
+            Store,
+            Expense,
+            DealerCreation
+        }
+
+        public enum ConfigKeys
+        {
+            APKDownloadURL,
+            HostName,
+            FileProcessorURL,
+            ImagesPath
+        }
+
     }
 }

@@ -1,8 +1,6 @@
 ﻿using LaymanWoods.BusinessLayer.Services.BO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace MVC_Ecommerce.ViewModels
 {
