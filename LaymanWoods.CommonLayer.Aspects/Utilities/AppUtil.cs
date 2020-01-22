@@ -9,7 +9,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI.WebControls;
 
-namespace ECommerce.CommonLayer.Utilities
+namespace LaymanWoods.CommonLayer.Aspects.Utilities
 {
     public static class AppUtil
     {

@@ -8,6 +8,7 @@ using Unity;
 using LaymanWoods.PersistenceLayer.Data.Repository;
 using LaymanWoods.PersistenceLayer.Data.Impl;
 using LaymanWoods.PersistenceLayer.Data.EDMX;
+using LaymanWoods.CommonLayer.Aspects.DTO;
 
 namespace LaymanWoods.CommonLayer.AOPRegistrations
 {
@@ -60,17 +61,17 @@ namespace LaymanWoods.CommonLayer.AOPRegistrations
             var config = new MapperConfiguration(cfg =>
             {
                 //Create all maps here
-                cfg.CreateMap<UserMaster, UserMasterBO>();
-                cfg.CreateMap<UserMasterBO, UserMaster>();
+                cfg.CreateMap<CommonSetup, CommonSetupDTO>();
+                cfg.CreateMap<CommonSetupDTO, CommonSetup>();
 
-                cfg.CreateMap<UserLog, UserLogBO>();
-                cfg.CreateMap<UserLogBO, UserLog>();
+                cfg.CreateMap<EmailTemplate, EmailTemplateDTO>();
+                cfg.CreateMap<EmailTemplateDTO, EmailTemplate>();
 
-                cfg.CreateMap<UserRole, UserMasterBO>();
-                cfg.CreateMap<UserMasterBO, UserRole>();
+                cfg.CreateMap<OTPMaster, OTPDTO>();
+                cfg.CreateMap<OTPDTO, OTPMaster>();
 
-                cfg.CreateMap<RoleMaster, UserMasterBO>();
-                cfg.CreateMap<UserMasterBO, RoleMaster>();
+                cfg.CreateMap<CategoryMaster, CategoryMasterDTO>();
+                cfg.CreateMap<CategoryMasterDTO, CategoryMaster>();
             });
 
             return config;

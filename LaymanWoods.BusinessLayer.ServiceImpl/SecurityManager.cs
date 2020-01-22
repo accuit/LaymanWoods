@@ -3,16 +3,18 @@ using LaymanWoods.BusinessLayer.Base;
 using LaymanWoods.CommonLayer.Aspects;
 using LaymanWoods.CommonLayer.Aspects.DTO;
 using System;
+using Unity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LaymanWoods.PersistenceLayer.Data.Repository;
 
 namespace LaymanWoods.BusinessLayer.ServiceImpl
 {
     public class SecurityManager : ServiceBase, ISecurityService
     {
-        [Microsoft.Practices.Unity.Dependency(ContainerDataLayerInstanceNames.SECURITY_REPOSITORY)]
+        [Unity.Dependency(ContainerDataLayerInstanceNames.SECURITY_REPOSITORY)]
         public ISecurityRepository SecurityRepository { get; set; }
 
 

@@ -1,28 +1,29 @@
 ﻿using LaymanWoods.CommonLayer.Aspects.DTO;
-using ECommerce.CommonLayer.Utilities;
 using LaymanWoods.CommonLayer.Aspects;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using LaymanWoods.CommonLayer.Aspects.Utilities;
+using System.Collections.Generic;
 
-namespace MVC_Ecommerce.Controllers
+namespace LaymanWoods.PresentationLayer.WebApp.Controllers
 {
-    [RoutePrefix("api/notification")]
+    [RoutePrefix("api")]
     public class NotificationController : BaseAPIController
     {
+        [Route("values")]
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
 
-        [Route("email-appointment")]
-        [HttpPost]
+        [Route("appointment")]
+        [HttpPut]
         public JsonResponse<int> SendAppointmentEmail(int UserId)
         {
             JsonResponse<int> response = new JsonResponse<int>();
 
             try
             {
-                bool IsSuccess = false;
                 #region Prepare OTP Data
                 string UniqueString = AppUtil.GetUniqueGuidString();
                 string OTPString = AppUtil.GetUniqueRandomNumber(100000, 999999); // Generate a Six Digit OTP
@@ -38,25 +39,23 @@ namespace MVC_Ecommerce.Controllers
                     string PasswordResetURL = String.Format(rawURL, hostName) + "?id=" + UniqueString;
 
                     EmailTemplateDTO objEmailTemplate = SecurityBusinessInstance.GetEmailTemplate(AspectEnums.EmailTemplateType.ForgotPassword);
-                    var userProfile = UserBusinessInstance.DisplayUserProfile(UserId);
+                    var userProfile = new Object(); // UserBusinessInstance.DisplayUserProfile(UserId);
                     EmailServiceDTO emailService = new EmailServiceDTO();
-                    emailService.Body = string.Format(objEmailTemplate.Body, userProfile.FirstName, OTPString, PasswordResetURL);
-                    emailService.Priority = 1;
-                    emailService.IsHtml = true;
-                    emailService.Status = (int)AspectEnums.EmailStatus.Pending;
-                    emailService.ToName = userProfile.FirstName;
-                    emailService.ToEmail = userProfile.EmailID;
-                    emailService.FromEmail = userProfile.EmailID;
-                    emailService.Subject = objEmailTemplate.Subject;
+                    //emailService.Body = string.Format(objEmailTemplate.Body, userProfile.FirstName, OTPString, PasswordResetURL);
+                    //emailService.Priority = 1;
+                    //emailService.IsHtml = true;
+                    //emailService.Status = (int)AspectEnums.EmailStatus.Pending;
+                    //emailService.ToName = userProfile.FirstName;
+                    //emailService.ToEmail = userProfile.EmailID;
+                    //emailService.FromEmail = userProfile.EmailID;
+                    //emailService.Subject = objEmailTemplate.Subject;
                     //BatchBusinessInstance.InsertEmailRecord(emailService);
 
-                    IsSuccess = true;
-
+                    response.IsSuccess = true;
                     #endregion
                 }
                 #endregion
 
-                return IsSuccess;
             }
             catch (Exception ex)
             {

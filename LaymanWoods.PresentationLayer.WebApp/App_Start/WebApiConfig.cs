@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
@@ -15,7 +16,10 @@ namespace MVC_Ecommerce
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
-
+            bool isDebugMode = ConfigurationManager.AppSettings["IsDebugMode"] == "Y" ? true : false;
+            string CorsUrl = isDebugMode ? ConfigurationManager.AppSettings["DBugCORSUrl"] : ConfigurationManager.AppSettings["CORSUrl"];
+            //var corsAttr = new EnableCorsAttribute(CorsUrl, "*", "*");
+            //config.EnableCors(corsAttr);
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

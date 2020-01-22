@@ -10,7 +10,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace MVC_Ecommerce.CustomFilters
+namespace LaymanWoods.PresentationLayer.WebApp.CustomFilters
 {
     /// <summary>
     /// Application OAUTH Provider class.
@@ -73,7 +73,7 @@ namespace MVC_Ecommerce.CustomFilters
             // Initialization.
             string usernameVal = context.UserName;
             string passwordVal = context.Password;
-            var user = UserBusinessInstance.UserLogin(usernameVal, passwordVal);
+            var user = new Object(); // UserBusinessInstance.UserLogin(usernameVal, passwordVal);
 
             // Verification.
             if (user == null )
@@ -89,19 +89,20 @@ namespace MVC_Ecommerce.CustomFilters
             var claims = new List<Claim>();
             var userInfo = user;
 
-            // Setting
-            claims.Add(new Claim(ClaimTypes.Name, userInfo.cemailaddress));
+
+
+            //claims.Add(new Claim(ClaimTypes.Name, userInfo.cemailaddress));
 
             // Setting Claim Identities for OAUTH 2 protocol.
             ClaimsIdentity oAuthClaimIdentity = new ClaimsIdentity(claims, OAuthDefaults.AuthenticationType);
             ClaimsIdentity cookiesClaimIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationType);
 
             // Setting user authentication.
-            AuthenticationProperties properties = CreateProperties(userInfo.cemailaddress);
-            AuthenticationTicket ticket = new AuthenticationTicket(oAuthClaimIdentity, properties);
+            //AuthenticationProperties properties = CreateProperties(userInfo.cemailaddress);
+            //AuthenticationTicket ticket = new AuthenticationTicket(oAuthClaimIdentity, properties);
 
             // Grant access to authorize user.
-            context.Validated(ticket);
+            //context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesClaimIdentity);
         }
 

@@ -65,9 +65,12 @@
   <ItemGroup>
     <Compile Include="AopEngine.cs" />
     <Compile Include="AspectEnums.cs" />
+    <Compile Include="DTO\CategoryMasterDTO.cs" />
+    <Compile Include="DTO\CommonSetupDTO.cs" />
     <Compile Include="DTO\EmailServiceDTO.cs" />
     <Compile Include="DTO\EmailTemplateDTO.cs" />
     <Compile Include="DTO\OTPDTO.cs" />
+    <Compile Include="DTO\ProductMasterDTO.cs" />
     <Compile Include="DTO\Response.cs" />
     <Compile Include="IMapper.cs" />
     <Compile Include="Mapper.cs" />

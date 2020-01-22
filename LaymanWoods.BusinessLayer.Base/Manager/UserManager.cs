@@ -25,31 +25,31 @@ namespace LaymanWoods.BusinessLayer.Base
             this.mapper = mapper;
         }
 
-        public UserMasterBO UserLogin(string email, string password)
-        {
-            //UserMasterBO user = new UserMasterBO();
-            //UserMaster result = UserRepository.UserLogin(email, password);
-            //user = Mapper.Map<UserMaster, UserMasterBO> result;
-            //ObjectMapper.Map(UserRepository.UserLogin(email, password), user);
+        //public UserMasterBO UserLogin(string email, string password)
+        //{
+        //    //UserMasterBO user = new UserMasterBO();
+        //    //UserMaster result = UserRepository.UserLogin(email, password);
+        //    //user = Mapper.Map<UserMaster, UserMasterBO> result;
+        //    //ObjectMapper.Map(UserRepository.UserLogin(email, password), user);
 
-            return mapper.Map<UserMasterBO>(UserRepository.UserLogin(email, password));
-        }
+        //    return mapper.Map<UserMasterBO>(UserRepository.UserLogin(email, password));
+        //}
 
-        public List<UserMasterBO> GetUser()
-        {
-            return mapper.Map<List<UserMasterBO>>(UserRepository.GetUser());
-        }
+        //public List<UserMasterBO> GetUser()
+        //{
+        //    return mapper.Map<List<UserMasterBO>>(UserRepository.GetUser());
+        //}
 
-        public int SubmitUser(UserMasterBO user)
-        {
-            UserMaster U = mapper.Map<UserMaster>(user);
+        //public int SubmitUser(UserMasterBO user)
+        //{
+        //    UserMaster U = mapper.Map<UserMaster>(user);
 
-            return UserRepository.SubmitUser(U);
-        }
+        //    return UserRepository.SubmitUser(U);
+        //}
 
-        public int GetUserRoleID(int userID)
-        {
-            return UserRepository.GetUserRoleID(userID);
-        }
+        //public int GetUserRoleID(int userID)
+        //{
+        //    return UserRepository.GetUserRoleID(userID);
+        //}
     }
 }

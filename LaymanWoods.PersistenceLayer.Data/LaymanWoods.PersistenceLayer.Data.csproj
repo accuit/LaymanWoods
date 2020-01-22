@@ -8,8 +8,8 @@
     <ProjectGuid>{F7EAEEC0-35D1-4412-AC38-48C8AC010A60}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ECommerce.DataLayer</RootNamespace>
-    <AssemblyName>ECommerce.DataLayer</AssemblyName>
+    <RootNamespace>LaymanWoods.PersistenceLayer.Data</RootNamespace>
+    <AssemblyName>LaymanWoods.PersistenceLayer.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -83,554 +83,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EDMX\author.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
+    <Compile Include="EDMX\CategoryMaster.cs">
+      <DependentUpon>LaymanWoodsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EDMX\BestSellerProduct.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
+    <Compile Include="EDMX\CommonSetup.cs">
+      <DependentUpon>LaymanWoodsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EDMX\Brand.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
+    <Compile Include="EDMX\EmailTemplate.cs">
+      <DependentUpon>LaymanWoodsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EDMX\CashDeliveryCity.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\category.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\CategoryMenuLevel_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\categroynavigation_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\city.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\CityPincode.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\countproductbycategory_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\country.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\coupenstatu.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\coupentype.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\discountcoupen.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\downloadform.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\ECommerceDataEntities.Context.cs">
+    <Compile Include="EDMX\LaymanWoodsModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ECommerceDataEntities.Context.tt</DependentUpon>
+      <DependentUpon>LaymanWoodsModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="EDMX\ECommerceDataEntities.cs">
+    <Compile Include="EDMX\LaymanWoodsModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
+      <DependentUpon>LaymanWoodsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EDMX\ECommerceDataEntities.Designer.cs">
+    <Compile Include="EDMX\LaymanWoodsModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ECommerceDataEntities.edmx</DependentUpon>
+      <DependentUpon>LaymanWoodsModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="EDMX\ExceptionLog.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
+    <Compile Include="EDMX\OTPMaster.cs">
+      <DependentUpon>LaymanWoodsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EDMX\featureproduct.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\fiction.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\ForthComingProduct.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\getchildnodelist_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\getproductbyid_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\giftdetail.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\hotdeal.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\ledger.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\Manufacturer.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\masterdiscount.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\MyEmployee.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\newaddedcity.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\newrelease.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\nonfiction.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\occassion.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\order1.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\OrderDelivery.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\orderdescription.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\orderhistory.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\orderlist.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\paymentcurrency.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\paymentdetail.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\paymentmode.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\paymenttype.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\pbkup.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\product.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\ProductColor.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\productnavigation_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\ProductPrice.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\ProductReview.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\ProductSize.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\Product_Image.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\RoleMaster.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\SearchSuperCategory_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\SelectAllSpecificationdetails_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\selectCategoryBySuperCategory_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\SelectCitiesofIndiaOnly_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\SelectCityforCD_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\SelectIndiaOnly_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\SelectOrderInfo_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\SelectProductCountByCategory_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\SelectSpecificationdetailsBySpecificatiod_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\SelectSpecificationdetails_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\SelectStatesOfIndiaOnly_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\SelectSuperCategory_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\Select_AllProduct_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\Select_For_ApproveProduct_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\Select_ProductColor_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\Select_Productsize_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\Select_SpecificationDetails_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\Select_SpecificationHead_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\Select_User_OrderList_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\shoppingcart.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\showmenu_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\ShowOtherProductOfSamecategory_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\ShowPreviewsByProductId_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\ShowPreviews_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\showsupercategorymenu_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\ShowTop10Product_HomePage_Cwise_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\smsdata.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\specificationdetail.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\SpecificationHead.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\Splitmain_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_author_search_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_author_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_author_select_search_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_category_all_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_category_name_select_by_sequence_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_category_select3_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_category_select_for_user_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_category_select_undercategory_zero_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_category_under_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_check_newrelease_hotdeal_discount_by_productid_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_cityname_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_city_select_by_stateid_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_country_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_coupen_type_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_coupon_check_for_user_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_discount_coupen_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_dispatch_pending_report_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_downloadform_select_new_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_downloadform_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_giftdetail_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_hotdeal_select_by_date_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_main_category_select_under_zero_super_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_manufacturer_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_Manufacturer_select_search_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_master_discount_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_mega_menu_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_newrelease_select_by_date_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_Open_Order_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_orderstatus_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_order_cancelbyuser_afterdeliver_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_order_list_select_by_order_id_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_order_reach_status_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_order_select_user_id_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_paymentcurrency_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_payment_mode_select2_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_payment_mode_select3_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_payment_select_order_id2_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_payment_select_order_id_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_product_description_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_product_select_withoutbook_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_selectallcategory_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_selectCategoryBySuper_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_select_billingiformation_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_select_category_all_by_super_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_select_category_by_super_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_select_occassion_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_select_orderstatusbyorderstatusid_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_select_order_status_one_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_select_product_by_category_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_shipping_address_select_by_description_id_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_shopping_cart_select_directto_billing_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_shopping_cart_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_shopping_cart_select_temporary_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_state_countrycode_select_by_stateid_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_state_country_select_by_cityid_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_state_selectbycountryid_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_state_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_sub_category_select_by_under_category_id_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_supercategory_category_select_by_product_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_supercategory_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_super_category_select_by_category_id_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_taxclass_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_top10category_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_tradelogin_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_trader_discount_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_trader_orderdescription_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_trader_order_list_select_by_orderid_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_trader_order_list_select_by_order_id2_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_trader_order_list_select_by_order_id_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_trader_order_search_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_trader_order_select_all_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_trader_order_select_new_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_trader_order_select_user_id_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_trader_registration_authentication_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_trader_reg_password_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_trader_select_email_by_order_id_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_trader_select_new_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_userauthentication_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\sp_userlogin_select_Result.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\state.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\supercategory.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\taxclass.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\temptablenew.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\temptableproductid.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\temptabletraderproductid.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\top10category.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\traderdiscount.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\traderlogin.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\traderorder.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\traderorderdescription.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\traderorderlist.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\tradershoppingcart.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\traderwishlist.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\UserLog.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\userlogin.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\UserMaster.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\UserRole.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\Vendor.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EDMX\Wallet.cs">
-      <DependentUpon>ECommerceDataEntities.tt</DependentUpon>
+    <Compile Include="EDMX\ProductMaster.cs">
+      <DependentUpon>LaymanWoodsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Impl\BaseDataImpl.cs" />
     <Compile Include="Impl\UserDataImpl.cs" />
@@ -640,12 +121,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="EDMX\ECommerceDataEntities.edmx">
+    <EntityDeploy Include="EDMX\LaymanWoodsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ECommerceDataEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>LaymanWoodsModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="EDMX\ECommerceDataEntities.edmx.diagram">
-      <DependentUpon>ECommerceDataEntities.edmx</DependentUpon>
+    <None Include="EDMX\LaymanWoodsModel.edmx.diagram">
+      <DependentUpon>LaymanWoodsModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -658,16 +139,17 @@
       <Name>LaymanWoods.CommonLayer.Aspects</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Content Include="EDMX\ECommerceDataEntities.Context.tt">
+    <Content Include="EDMX\LaymanWoodsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ECommerceDataEntities.edmx</DependentUpon>
-      <LastGenOutput>ECommerceDataEntities.Context.cs</LastGenOutput>
+      <DependentUpon>LaymanWoodsModel.edmx</DependentUpon>
+      <LastGenOutput>LaymanWoodsModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="EDMX\ECommerceDataEntities.tt">
+    <Content Include="EDMX\LaymanWoodsModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ECommerceDataEntities.edmx</DependentUpon>
-      <LastGenOutput>ECommerceDataEntities.cs</LastGenOutput>
+      <DependentUpon>LaymanWoodsModel.edmx</DependentUpon>
+      <LastGenOutput>LaymanWoodsModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

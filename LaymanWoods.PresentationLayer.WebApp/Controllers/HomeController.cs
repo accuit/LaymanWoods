@@ -1,12 +1,7 @@
-﻿using MVC_Ecommerce.CustomFilters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿
 using System.Web.Mvc;
-using LaymanWoods.BusinessLayer.Services;
 using LaymanWoods.CommonLayer.Aspects;
-using LaymanWoods.BusinessLayer.Services.BO;
+using LaymanWoods.PresentationLayer.WebApp.CustomFilters;
 
 namespace MVC_Ecommerce.Controllers
 {
@@ -18,18 +13,18 @@ namespace MVC_Ecommerce.Controllers
             
             return View();
         }
-        [HttpGet]
-        public JsonResult EmpDetails()
-        {
-            List<UserMasterBO> users = UserBusinessInstance.GetUser();
-            return Json(users, JsonRequestBehavior.AllowGet);
+        //[HttpGet]
+        //public JsonResult EmpDetails()
+        //{
+        //    List<UserMasterBO> users = UserBusinessInstance.GetUser();
+        //    return Json(users, JsonRequestBehavior.AllowGet);
 
-        }
-        public ActionResult PartialGetUsers()
-        {
-            List<UserMasterBO> users = UserBusinessInstance.GetUser();
-            return PartialView("_PartialGetUsers", users);
-        }
+        //}
+        //public ActionResult PartialGetUsers()
+        //{
+        //    List<UserMasterBO> users = UserBusinessInstance.GetUser();
+        //    return PartialView("_PartialGetUsers", users);
+        //}
 
         [OutputCache(Duration = 1000)]
         [AuthorizePage((int)AspectEnums.RoleType.Admin)]

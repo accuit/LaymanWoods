@@ -23,7 +23,7 @@ namespace MVC_Ecommerce.Controllers
         [HttpPost]
         public ActionResult Login(string email, string password)
         {
-            UserMasterBO user = UserBusinessInstance.UserLogin(email, password); //.Where(x => x.cemailaddress == email && x.cpassword == password).FirstOrDefault();
+            UserMasterBO user = new UserMasterBO()  ;// UserBusinessInstance.UserLogin(email, password); //.Where(x => x.cemailaddress == email && x.cpassword == password).FirstOrDefault();
             if (user != null)
             {
                 ViewBag.LoginMessage = "User Logged In successfully!";
@@ -54,7 +54,7 @@ namespace MVC_Ecommerce.Controllers
             bool isSuccess = false;
             if (ModelState.IsValid)
             {
-                isSuccess = UserBusinessInstance.SubmitUser(user) > 0 ? true : false;
+                //isSuccess = UserBusinessInstance.SubmitUser(user) > 0 ? true : false;
             }
             else
                 ViewBag.Message = "Model Validation error";
@@ -96,7 +96,7 @@ namespace MVC_Ecommerce.Controllers
 
             CreateFreshSession();
 
-            int roleID = UserBusinessInstance.GetUserRoleID(userID);
+            int roleID = 0; // UserBusinessInstance.GetUserRoleID(userID);
             bool IsAdmin = roleID == 1 ? true : false;
             HttpContext.Session["SESSION_USER_ID"] = userID;
             HttpContext.Session["SESSION_PROFILE_KEY"] = USERPROFILE;

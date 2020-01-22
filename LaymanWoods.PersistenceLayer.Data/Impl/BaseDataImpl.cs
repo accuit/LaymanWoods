@@ -9,7 +9,7 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
 {
     public abstract class BaseDataImpl
     {
-        private ECommerceDataEntities ecommerceDbContext;
+        private LaymanWoodsEntities laymanWoodsDbContext;
 
         #region Constructors
 
@@ -18,7 +18,7 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
         /// </summary>
         public BaseDataImpl()
         {
-            ecommerceDbContext = new ECommerceDataEntities();
+            laymanWoodsDbContext = new LaymanWoodsEntities();
         }
 
         #endregion
@@ -26,11 +26,11 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
         /// <summary>
         /// Property to get db context instance of Entity Framework Database
         /// </summary>
-        public ECommerceDataEntities EcommerceDbContext
+        public LaymanWoodsEntities LaymanWoodsDbContext
         {
             get
             {
-                return ecommerceDbContext;
+                return laymanWoodsDbContext;
             }
         }
     }

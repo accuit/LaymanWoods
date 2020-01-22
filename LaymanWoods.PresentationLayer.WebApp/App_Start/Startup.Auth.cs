@@ -5,9 +5,10 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 using Microsoft.Owin.Security.OAuth;
-using MVC_Ecommerce.CustomFilters;
 
-namespace MVC_Ecommerce
+using LaymanWoods.PresentationLayer.WebApp.CustomFilters;
+
+namespace LaymanWoods.PresentationLayer.WebApp
 {
     public partial class Startup
     {

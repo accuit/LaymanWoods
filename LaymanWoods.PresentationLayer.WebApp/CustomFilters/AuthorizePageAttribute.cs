@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace MVC_Ecommerce.CustomFilters
+namespace LaymanWoods.PresentationLayer.WebApp.CustomFilters
 {
     public class AuthorizePageAttribute: AuthorizeAttribute
     {

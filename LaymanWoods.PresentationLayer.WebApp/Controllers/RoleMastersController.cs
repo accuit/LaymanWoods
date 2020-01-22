@@ -6,7 +6,7 @@
 //using System.Net;
 //using System.Web;
 //using System.Web.Mvc;
-//using MVC_Ecommerce.CustomFilters;
+//
 //using MVC_Ecommerce.ViewModels;
 
 //namespace MVC_Ecommerce.Controllers
