@@ -2,13 +2,8 @@
 using LaymanWoods.BusinessLayer.Base;
 using LaymanWoods.CommonLayer.Aspects;
 using LaymanWoods.CommonLayer.Aspects.DTO;
-using System;
-using Unity;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LaymanWoods.PersistenceLayer.Data.Repository;
+using LaymanWoods.PersistenceLayer.Data.EDMX;
 
 namespace LaymanWoods.BusinessLayer.ServiceImpl
 {
@@ -20,7 +15,9 @@ namespace LaymanWoods.BusinessLayer.ServiceImpl
 
         public bool SaveOTP(OTPDTO otp)
         {
-            throw new NotImplementedException();
+            OTPMaster otpmaster = new OTPMaster();
+            ObjectMapper.Map(otp, otpmaster);
+            return SecurityRepository.SaveOTP(otpmaster);
         }
 
         /// <summary>

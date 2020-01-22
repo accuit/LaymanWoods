@@ -114,6 +114,7 @@
       <DependentUpon>LaymanWoodsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Impl\BaseDataImpl.cs" />
+    <Compile Include="Impl\SecurityDataImpl.cs" />
     <Compile Include="Impl\UserDataImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ISecurityRepository.cs" />

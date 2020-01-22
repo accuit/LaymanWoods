@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace LaymanWoods.PresentationLayer.WebApp.Controllers
 {
-    [RoutePrefix("api")]
+    [RoutePrefix("api/notification")]
     public class NotificationController : BaseAPIController
     {
         [Route("values")]
@@ -16,8 +16,8 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        [Route("appointment")]
-        [HttpPut]
+        [Route("appointment/{UserId}")]
+        [HttpGet]
         public JsonResponse<int> SendAppointmentEmail(int UserId)
         {
             JsonResponse<int> response = new JsonResponse<int>();

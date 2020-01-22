@@ -21,7 +21,8 @@ namespace LaymanWoods.CommonLayer.Aspects
 
         public enum PeristenceInstanceNames
         {
-            UserDataImpl
+            UserDataImpl,
+            SecurityDataImpl
         }
 
         public enum RoleType
@@ -48,7 +49,9 @@ namespace LaymanWoods.CommonLayer.Aspects
             HostName,
             FileProcessorURL,
             ImagesPath,
-            ForgotPasswordURL
+            ForgotPasswordURL,
+            OTPExirationHrs,
+            LastAttemptDuration
         }
 
         public enum EmailStatus
