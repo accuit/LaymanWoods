@@ -4,6 +4,7 @@ using LaymanWoods.PersistenceLayer.Data.EDMX;
 using LaymanWoods.PersistenceLayer.Data.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -126,7 +127,7 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
             // Use this validation to restrict user to generate multiple OTPs
             //if (ValidateEmployee(otp.UserID, AspectEnums.EmployeeValidationType.LastAttemptDuration))
             //{
-            LaymanWoodsDbContext.Entry<OTPMaster>(otp).State = System.Data.Entity.EntityState.Modified;
+            LaymanWoodsDbContext.OTPMasters.Add(otp);
             IsSuccess = LaymanWoodsDbContext.SaveChanges() > 0;
             //}
             return IsSuccess;

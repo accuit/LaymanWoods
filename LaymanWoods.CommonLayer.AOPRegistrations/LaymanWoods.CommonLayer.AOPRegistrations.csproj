@@ -68,6 +68,10 @@
       <Project>{AC7FB333-9949-42D1-A64A-75C9B5349617}</Project>
       <Name>LaymanWoods.BusinessLayer.Base</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LaymanWoods.BusinessLayer.ServiceImpl\LaymanWoods.BusinessLayer.ServiceImpl.csproj">
+      <Project>{C7699E0F-9757-4BDE-BA3A-848DFBDF7CC2}</Project>
+      <Name>LaymanWoods.BusinessLayer.ServiceImpl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LaymanWoods.BusinessLayer.Services\LaymanWoods.BusinessLayer.Services.csproj">
       <Project>{97342150-013C-491B-B296-4214AFAD37B3}</Project>
       <Name>LaymanWoods.BusinessLayer.Services</Name>

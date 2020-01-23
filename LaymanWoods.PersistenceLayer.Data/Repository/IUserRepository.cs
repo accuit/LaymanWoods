@@ -9,7 +9,7 @@ namespace LaymanWoods.PersistenceLayer.Data.Repository
 {
     public interface IUserRepository
     {
-        //UserMaster UserLogin(string email, string password);
+        UserMaster UserLogin(string email, string password);
         //List<UserMaster> GetUser();
         //int SubmitUser(UserMaster user);
         //int GetUserRoleID(int userID);

@@ -23,7 +23,7 @@ namespace MVC_Ecommerce.Controllers
         [HttpPost]
         public ActionResult Login(string email, string password)
         {
-            UserMasterBO user = new UserMasterBO()  ;// UserBusinessInstance.UserLogin(email, password); //.Where(x => x.cemailaddress == email && x.cpassword == password).FirstOrDefault();
+            UserMasterBO user = UserBusinessInstance.UserLogin(email, password); //.Where(x => x.cemailaddress == email && x.cpassword == password).FirstOrDefault();
             if (user != null)
             {
                 ViewBag.LoginMessage = "User Logged In successfully!";

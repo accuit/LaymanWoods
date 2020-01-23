@@ -1,16 +1,9 @@
 ﻿using AutoMapper;
 using LaymanWoods.BusinessLayer.Services;
 using LaymanWoods.BusinessLayer.Services.BO;
-using LaymanWoods.PersistenceLayer.Data.Repository;
-using LaymanWoods.PersistenceLayer.Data.Impl;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Unity;
-using static LaymanWoods.BusinessLayer.Base.ServiceBase;
 using LaymanWoods.PersistenceLayer.Data.EDMX;
+using LaymanWoods.PersistenceLayer.Data.Repository;
+using System.Collections.Generic;
 
 namespace LaymanWoods.BusinessLayer.Base
 {
@@ -25,15 +18,15 @@ namespace LaymanWoods.BusinessLayer.Base
             this.mapper = mapper;
         }
 
-        //public UserMasterBO UserLogin(string email, string password)
-        //{
-        //    //UserMasterBO user = new UserMasterBO();
-        //    //UserMaster result = UserRepository.UserLogin(email, password);
-        //    //user = Mapper.Map<UserMaster, UserMasterBO> result;
-        //    //ObjectMapper.Map(UserRepository.UserLogin(email, password), user);
+        public UserMasterBO UserLogin(string email, string password)
+        {
+            UserMasterBO user = new UserMasterBO();
+            UserMaster result = UserRepository.UserLogin(email, password);
+            user = mapper.Map<UserMasterBO>(result);
+            ObjectMapper.Map(UserRepository.UserLogin(email, password), user);
 
-        //    return mapper.Map<UserMasterBO>(UserRepository.UserLogin(email, password));
-        //}
+            return mapper.Map<UserMasterBO>(UserRepository.UserLogin(email, password));
+        }
 
         //public List<UserMasterBO> GetUser()
         //{

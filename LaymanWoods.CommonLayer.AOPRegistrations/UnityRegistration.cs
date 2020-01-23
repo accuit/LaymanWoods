@@ -9,6 +9,8 @@ using LaymanWoods.PersistenceLayer.Data.Repository;
 using LaymanWoods.PersistenceLayer.Data.Impl;
 using LaymanWoods.PersistenceLayer.Data.EDMX;
 using LaymanWoods.CommonLayer.Aspects.DTO;
+using ECommerce.BusinessLayer.Services.Contracts;
+using LaymanWoods.BusinessLayer.ServiceImpl;
 
 namespace LaymanWoods.CommonLayer.AOPRegistrations
 {
@@ -47,6 +49,7 @@ namespace LaymanWoods.CommonLayer.AOPRegistrations
         private static void InitializeLibraryBusinessLayer()
         {
             AopEngine.Container.RegisterType<IUserService, UserManager>(GetBusinessRegisterInstanceName(AspectEnums.AspectInstanceNames.UserManager, AspectEnums.ApplicationName.LaymanWoods));
+            AopEngine.Container.RegisterType<ISecurityService, SecurityManager>(GetBusinessRegisterInstanceName(AspectEnums.AspectInstanceNames.SecurityManager, AspectEnums.ApplicationName.LaymanWoods));
         }
 
         private static void MapEntities()

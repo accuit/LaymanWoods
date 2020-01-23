@@ -4,6 +4,7 @@ using System;
 using System.Web.Http;
 using LaymanWoods.CommonLayer.Aspects.Utilities;
 using System.Collections.Generic;
+using LaymanWoods.BusinessLayer.Services.BO;
 
 namespace LaymanWoods.PresentationLayer.WebApp.Controllers
 {
@@ -14,6 +15,16 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
+        }
+
+        [Route("login/{email}/{password}")]
+        [HttpGet]
+        public JsonResponse<UserMasterBO> Login(string email, string password)
+        {
+            JsonResponse<UserMasterBO> response = new JsonResponse<UserMasterBO>();
+            UserMasterBO user = UserBusinessInstance.UserLogin(email, password); //.Where(x => x.cemailaddress == email && x.cpassword == password).FirstOrDefault();
+            response.SingleResult = user;
+            return response;
         }
 
         [Route("appointment/{UserId}")]

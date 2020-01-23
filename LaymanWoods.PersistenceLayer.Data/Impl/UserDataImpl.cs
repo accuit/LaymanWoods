@@ -14,7 +14,7 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
         //{
         //    try
         //    {
-        //        return EcommerceDbContext.UserMasters.ToList();
+        //        return LaymanWoodsDbContext.UserMasters.ToList();
         //    }
         //    catch (Exception ex)
         //    {
@@ -23,20 +23,20 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
 
         //}
 
-        //public UserMaster UserLogin(string email, string password)
-        //{
-        //    return EcommerceDbContext.UserMasters.Where(x => x.cemailaddress == email && x.cpassword == password).FirstOrDefault();
-        //}
+        public UserMaster UserLogin(string email, string password)
+        {
+            return LaymanWoodsDbContext.UserMasters.Where(x => x.EmailID == email && x.Password == password).FirstOrDefault();
+        }
 
         //public int SubmitUser(UserMaster user)
         //{
-        //    EcommerceDbContext.UserMasters.Add(user);
-        //    return EcommerceDbContext.SaveChanges();
+        //    LaymanWoodsDbContext.UserMasters.Add(user);
+        //    return LaymanWoodsDbContext.SaveChanges();
         //}
 
         //public int GetUserRoleID(int userID)
         //{
-        //    return Convert.ToInt32(EcommerceDbContext.UserRoles.Where(x => x.UserID == userID).FirstOrDefault().RoleID);
+        //    return Convert.ToInt32(LaymanWoodsDbContext.UserRoles.Where(x => x.UserID == userID).FirstOrDefault().RoleID);
         //}
     }
 }
