@@ -8,16 +8,17 @@ import { IpxTextFieldComponent } from './text-field/text-field.component';
 import { IpxDropdownComponent } from './custom-dropdown/ipx-dropdown.component';
 import { IpxRadioButtonComponent } from './radio-button/ipx-radio-button.component';
 import { IpxCheckboxComponent } from './check-box/check-box.component';
+import { HelpButtonComponent } from './help-button/help-button.component';
 
 
 
 @NgModule({
-  declarations: [ComboTextboxComponent, IpxDropdownComponent, ElementBaseComponent, IpxTextFieldComponent, IpxRadioButtonComponent, IpxCheckboxComponent],
+  declarations: [ComboTextboxComponent, IpxDropdownComponent, ElementBaseComponent, IpxTextFieldComponent, IpxRadioButtonComponent, IpxCheckboxComponent, HelpButtonComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  exports: [ComboTextboxComponent, IpxDropdownComponent, ElementBaseComponent, IpxTextFieldComponent, IpxRadioButtonComponent, IpxCheckboxComponent]
+  exports: [ComboTextboxComponent, HelpButtonComponent, IpxDropdownComponent, ElementBaseComponent, IpxTextFieldComponent, IpxRadioButtonComponent, IpxCheckboxComponent]
 })
 export class ComponentsModule { }

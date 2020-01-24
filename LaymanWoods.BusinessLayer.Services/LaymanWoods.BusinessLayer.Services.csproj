@@ -60,6 +60,7 @@
     <Compile Include="BO\UserLogBO.cs" />
     <Compile Include="BO\UserMasterBO.cs" />
     <Compile Include="BO\UserRoleBO.cs" />
+    <Compile Include="Contracts\IProductService.cs" />
     <Compile Include="Contracts\ISecurityService.cs" />
     <Compile Include="IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

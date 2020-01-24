@@ -1,7 +1,7 @@
 ﻿using LaymanWoods.CommonLayer.Aspects;
 using LaymanWoods.CommonLayer.Aspects.DTO;
 
-namespace ECommerce.BusinessLayer.Services.Contracts
+namespace LaymanWoods.BusinessLayer.Services.Contracts
 {
     public interface ISecurityService
     {

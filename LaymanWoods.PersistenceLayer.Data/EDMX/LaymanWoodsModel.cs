@@ -8,7 +8,7 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
     public partial class LaymanWoodsModel : DbContext
     {
         public LaymanWoodsModel()
-            : base("name=LaymanWoodsDBModel")
+            : base("name=LaymanWoodsDBContext")
         {
         }
 
@@ -29,6 +29,11 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
             modelBuilder.Entity<CategoryMaster>()
                 .Property(e => e.CategoryCode)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<CategoryMaster>()
+                .HasMany(e => e.ProductMasters)
+                .WithRequired(e => e.CategoryMaster)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<CommonSetup>()
                 .Property(e => e.MainType)
@@ -67,27 +72,19 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
                 .IsUnicode(false);
 
             modelBuilder.Entity<ProductMaster>()
-                .Property(e => e.ProductTypeCode)
+                .Property(e => e.Name)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ProductMaster>()
-                .Property(e => e.ProductTypeName)
+                .Property(e => e.Title)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ProductMaster>()
-                .Property(e => e.ProductGroupCode)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ProductMaster>()
-                .Property(e => e.ProductGroupName)
+                .Property(e => e.ImageUrl)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ProductMaster>()
                 .Property(e => e.CategoryCode)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ProductMaster>()
-                .Property(e => e.CategoryName)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ProductMaster>()

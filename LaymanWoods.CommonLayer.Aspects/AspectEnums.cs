@@ -16,13 +16,15 @@ namespace LaymanWoods.CommonLayer.Aspects
         public enum AspectInstanceNames
         {
             UserManager,
-            SecurityManager
+            SecurityManager,
+            ProductManager
         }
 
         public enum PeristenceInstanceNames
         {
             UserDataImpl,
-            SecurityDataImpl
+            SecurityDataImpl,
+            ProductDataImpl
         }
 
         public enum RoleType
@@ -38,6 +40,7 @@ namespace LaymanWoods.CommonLayer.Aspects
             Survey,
             User,
             General,
+            Product,
             Store,
             Expense,
             DealerCreation

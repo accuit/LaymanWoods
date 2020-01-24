@@ -1,9 +1,9 @@
-﻿using ECommerce.BusinessLayer.Services.Contracts;
-using LaymanWoods.BusinessLayer.Base;
+﻿using LaymanWoods.BusinessLayer.Base;
 using LaymanWoods.CommonLayer.Aspects;
 using LaymanWoods.CommonLayer.Aspects.DTO;
 using LaymanWoods.PersistenceLayer.Data.Repository;
 using LaymanWoods.PersistenceLayer.Data.EDMX;
+using LaymanWoods.BusinessLayer.Services.Contracts;
 
 namespace LaymanWoods.BusinessLayer.ServiceImpl
 {

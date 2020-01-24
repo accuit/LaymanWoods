@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ServicesComponent } from './services/services.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ServiceDetailsComponent } from './services/service-details/service-details.component';
+import { HelpPageComponent } from './help-page/help-page.component';
 
 const routes: Routes = [
   {
@@ -37,8 +38,16 @@ const routes: Routes = [
     path: 'portfolio',
     component: PortfolioComponent
   },
-  { path: 'calculator', loadChildren: () => import(`./calculator/calculator.module`).then(m => m.CalculatorModule) }
-  // { path: 'example-page', loadChildren: () => import(`./dev-pages/dev-pages.module`).then(m => m.DevPagesModule) },
+  { path: 'calculator', loadChildren: () => import(`./calculator/calculator.module`).then(m => m.CalculatorModule) },
+  {
+    path: 'help-page',
+    component: HelpPageComponent
+  },
+  {
+    path: '**',
+    component: HelpPageComponent
+  }
+
 ];
 
 @NgModule({

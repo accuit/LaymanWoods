@@ -35,8 +35,6 @@ CREATE TABLE [dbo].[ProductMaster](
 	[CompanyID] [int] NULL,
 	[ProductTypeCode] [varchar](50) NOT NULL,
 	[ProductTypeName] [varchar](50) NOT NULL,
-	[ProductGroupCode] [varchar](50) NOT NULL,
-	[ProductGroupName] [varchar](50) NOT NULL,
 	[CategoryCode] [varchar](50) NOT NULL,
 	[CategoryName] [varchar](50) NOT NULL,
 	[BasicModelCode] [varchar](50) NOT NULL,

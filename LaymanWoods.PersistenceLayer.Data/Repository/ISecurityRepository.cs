@@ -1,10 +1,5 @@
 ﻿using LaymanWoods.CommonLayer.Aspects;
 using LaymanWoods.PersistenceLayer.Data.EDMX;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaymanWoods.PersistenceLayer.Data.Repository
 {

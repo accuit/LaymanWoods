@@ -3,11 +3,7 @@ using LaymanWoods.CommonLayer.Aspects.Utilities;
 using LaymanWoods.PersistenceLayer.Data.EDMX;
 using LaymanWoods.PersistenceLayer.Data.Repository;
 using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaymanWoods.PersistenceLayer.Data.Impl
 {

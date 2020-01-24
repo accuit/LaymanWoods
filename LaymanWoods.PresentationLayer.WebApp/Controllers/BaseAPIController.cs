@@ -1,10 +1,6 @@
-﻿using ECommerce.BusinessLayer.Services.Contracts;
-using LaymanWoods.BusinessLayer.Services;
+﻿using LaymanWoods.BusinessLayer.Services;
+using LaymanWoods.BusinessLayer.Services.Contracts;
 using LaymanWoods.CommonLayer.Aspects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace LaymanWoods.PresentationLayer.WebApp.Controllers
@@ -13,6 +9,7 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
     {
         private IUserService userBusinessInstance;
         private ISecurityService securityBusinessInstance;
+        private IProductService productBusinessInstance;
 
         public IUserService UserBusinessInstance
         {
@@ -35,6 +32,18 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
                     securityBusinessInstance = AopEngine.Resolve<ISecurityService>(AspectEnums.AspectInstanceNames.SecurityManager, AspectEnums.ApplicationName.LaymanWoods);
                 }
                 return securityBusinessInstance;
+            }
+        }
+
+        public IProductService ProductBusinessInstance
+        {
+            get
+            {
+                if (productBusinessInstance == null)
+                {
+                    productBusinessInstance = AopEngine.Resolve<IProductService>(AspectEnums.AspectInstanceNames.ProductManager, AspectEnums.ApplicationName.LaymanWoods);
+                }
+                return productBusinessInstance;
             }
         }
 
