@@ -42,8 +42,6 @@ export class KitchenComponent implements OnInit {
 
   ngOnInit() {
     this.initializeFormData();
-
-
     this.service.getProducts().subscribe(result => {
       console.log(result);
       this.kitchenProducts = result;
@@ -92,6 +90,7 @@ export class KitchenComponent implements OnInit {
 
     this.formData.accessories = this.kitchenProducts.filter(x => x.categoryCode === '100');
     this.formData.accessories.forEach((x) => { x.isChecked = false; });
+
   }
 
   onKitchenChange(event) {
@@ -120,11 +119,19 @@ export class KitchenComponent implements OnInit {
 
   reset() {
     this.formData = {};
+    this.kitchenPrice.emit(0);
     this.initializeFormData();
+    this.formData.accessories = this.kitchenProducts.filter(x => x.categoryCode === '100');
+    this.formData.accessories.forEach((x) => { x.isChecked = false; });
   }
 
   onSubmit() {
     this.calculateCostByBrand();
+    window.scroll({ 
+      top: 100, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
   }
 
   calculateArea = (): number => {
@@ -133,7 +140,7 @@ export class KitchenComponent implements OnInit {
     const sideB = +this.formData.selectedKitchen.sides > 1 ? (+this.formData.B.feet + (+this.formData.B.inches) / 12) : 0; // Feet
     const sideC = +this.formData.selectedKitchen.sides > 2 ? (+this.formData.C.feet + (+this.formData.C.inches) / 12) : 0; // Feet
     this.formData.totalArea = (sideA + sideB + sideC)
-    // this.calculateCostByBrand();
+
     return this.formData.totalArea;
   };
 
@@ -142,6 +149,7 @@ export class KitchenComponent implements OnInit {
     this.formData.accessories.filter(x => x.isChecked).forEach(x => {
       totalAccessories += x.mrp;
     });
+
     return totalAccessories;
   };
 }
