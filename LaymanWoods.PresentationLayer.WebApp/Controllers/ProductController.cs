@@ -11,6 +11,16 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
     [RoutePrefix("api/product")]
     public class ProductController : BaseAPIController
     {
+        [Route("getCategories")]
+        [HttpGet]
+        public JsonResponse<List<CategoryMasterDTO>> GetAllCategories()
+        {
+            JsonResponse<List<CategoryMasterDTO>> response = new JsonResponse<List<CategoryMasterDTO>>();
+            response.SingleResult = ProductBusinessInstance.GetAllCategories(); //.Where(x => x.cemailaddress == email && x.cpassword == password).FirstOrDefault();
+            response.IsSuccess = true;
+            return response;
+        }
+
         [Route("getProductsList")]
         [HttpGet]
         public JsonResponse<List<ProductMasterDTO>> GetAllProducts()

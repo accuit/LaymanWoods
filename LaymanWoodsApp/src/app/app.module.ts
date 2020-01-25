@@ -15,6 +15,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
 import { ServiceDetailsComponent } from './services/service-details/service-details.component';
 import { HelpPageComponent } from './help-page/help-page.component';
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { HelpPageComponent } from './help-page/help-page.component';
     AppRoutingModule,
     CalculatorModule,
     SharedModule,
-    DevPagesModule
+    DevPagesModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent, HomeComponent, AboutComponent, PortfolioComponent, ServicesComponent]

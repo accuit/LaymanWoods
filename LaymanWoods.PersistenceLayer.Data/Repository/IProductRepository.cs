@@ -6,6 +6,7 @@ namespace LaymanWoods.PersistenceLayer.Data.Repository
 {
     public interface IProductRepository
     {
+        List<CategoryMaster> GetAllCategories();
         List<ProductMaster> GetAllProducts();
         List<ProductMaster> GetAllProductsByCategory(string code);
     }

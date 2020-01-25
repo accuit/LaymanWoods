@@ -1,5 +1,7 @@
-export class ProductCategory {
-    id: number;
-    name: string;
-    title: string;
+
+export class CategoryMaster {
+    CategoryID: string;
+    CategoryName: string;
+    CategoryCode: string;
+    CompanyID: number = 1; 
 }

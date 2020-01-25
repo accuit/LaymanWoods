@@ -96,44 +96,45 @@
             </div>
         </div>
      
-        <ipx-dropdown class="col-sm-8" [options]="product1Brands" [label]="'Ply and Board'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand1" (change)="calculateCostByBrand()"></ipx-dropdown>
-        <ipx-dropdown class="col-sm-8" [options]="product2Brands" [label]="'Inner Laminate'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand2" (change)="calculateCostByBrand()"></ipx-dropdown>
-        <ipx-dropdown class="col-sm-8" [options]="product3Brands" [label]="'Outer Finish'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand3" (change)="calculateCostByBrand()"></ipx-dropdown>
-        <ipx-dropdown class="col-sm-8" [options]="product4Brands" [label]="'Hinges'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand4" (change)="calculateCostByBrand()"></ipx-dropdown>
-        <ipx-dropdown class="col-sm-8" [options]="product5Brands" [label]="'Channels'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand5" (change)="calculateCostByBrand()"></ipx-dropdown>
-        <ipx-dropdown class="col-sm-8" [options]="product6Brands" [label]="'Full Size'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand6" (change)="calculateCostByBrand()"></ipx-dropdown>
-        <ipx-dropdown class="col-sm-8" [options]="product7Brands" [label]="'Border and Corners'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand7" (change)="calculateCostByBrand()"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product1Brands" [label]="'Ply and Board'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand1"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product2Brands" [label]="'Inner Laminate'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand2"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product3Brands" [label]="'Outer Finish'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand3"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product8Brands" [label]="'Carpenter Cost'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand8"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product4Brands" [label]="'Hinges'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand4"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product5Brands" [label]="'Channels'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand5"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product6Brands" [label]="'Baskets'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand6"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product7Brands" [label]="'Handles'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand7"></ipx-dropdown>
+        <ipx-dropdown class="col-sm-8" [options]="product9Brands" [label]="'Others'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand9"></ipx-dropdown>
+        
     </div>
 
 </div>
-
 
 <div class="col-md-12">
     <div class="price-details">
         <h3>Step 6</h3>
         <span class="price"> Extra Hardware Accessories</span>
     </div>
-    <label class="checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox1" value="option1"> Tall Unit
-      </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox2" value="option2"> Rolling Shutter
-      </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox3" value="option3"> Owen/ Microwave Unit
-      </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox4" value="option4"> S Corner Unit
-      </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox5" value="option5"> Glass Aluminium Shutters
-      </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox6" value="option6"> Door Lift System
-      </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox7" value="option7"> Chminey
+    <label *ngFor="let acc of formData.accessories" class="checkbox-inline">
+        <input type="checkbox" name="acc.productId" id="acc.productId" [(ngModel)]="acc.isChecked" value="acc.productId"> 
+        {{ acc.name}}
       </label>
 </div>
 
+</div>
+
+<div class="row" style="margin: 10% 6% 0 10%">
+  <div class="col-md-8"> 
+    <button type="submit" class="btn btn-default btn-md btn-block" (click)="onSubmit()">Submit</button>
+  </div> 
+</div>
+
+<div class="row" style="margin-top: 5%">
+  <div class="col-md-6"> 
+    <button type="button" style="width:50%" class="btn btn-md btn-danger" (click)="reset()">Reset</button>
+  </div> 
+  <div class="col-md-6"> 
+    <button type="button" class="btn btn-md btn-danger">Add Another Product</button>
+  </div> 
+  
 </div>

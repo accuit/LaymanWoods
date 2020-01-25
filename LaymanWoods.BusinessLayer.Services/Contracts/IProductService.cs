@@ -6,6 +6,7 @@ namespace LaymanWoods.BusinessLayer.Services.Contracts
 {
     public interface IProductService
     {
+        List<CategoryMasterDTO> GetAllCategories();
         List<ProductMasterDTO> GetAllProducts();
         List<ProductMasterDTO> GetAllProductsByCategory(string code);
     }

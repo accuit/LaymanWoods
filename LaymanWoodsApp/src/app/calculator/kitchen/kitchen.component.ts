@@ -1,9 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataService } from 'src/app/shared/services/data.service';
-import { Product } from 'src/app/shared/model/product';
+import { ProductMaster } from 'src/app/shared/model/product';
 import { Dimension } from 'src/app/shared/enums/app.enums';
 import * as _ from 'underscore';
+import { ProductsService } from 'src/app/shared/services/products.services';
 
 @Component({
   selector: 'app-kitchen',
@@ -14,7 +15,7 @@ export class KitchenComponent implements OnInit {
 
   @Output() readonly kitchenPrice: EventEmitter<any> = new EventEmitter<any>();
   formGroup: FormGroup;
-  kitchenProducts: Product[];
+  kitchenProducts: ProductMaster[];
   kitchenCategoryID = 1;
   layout = 'L';
   kitchens: Kitchen[] = [
@@ -27,22 +28,27 @@ export class KitchenComponent implements OnInit {
   selectedKitchen: Kitchen;
   formData: any = {};
 
-  product1Brands: any;
-  product2Brands: any;
-  product3Brands: any;
-  product4Brands: any;
-  product5Brands: any;
-  product6Brands: any;
-  product7Brands: any;
-  product8Brands: any;
+  product1Brands: ProductMaster[];
+  product2Brands: ProductMaster[];
+  product3Brands: ProductMaster[];
+  product4Brands: ProductMaster[];
+  product5Brands: ProductMaster[];
+  product6Brands: ProductMaster[];
+  product7Brands: ProductMaster[];
+  product8Brands: ProductMaster[];
+  product9Brands: ProductMaster[];
 
-  constructor(private readonly dataService: DataService) { }
+  constructor(private readonly service: ProductsService) { }
 
   ngOnInit() {
     this.initializeFormData();
-    this.initializeBrands();
 
-    this.kitchenProducts = this.dataService.getProducts().filter(x => x.categories.filter(y => y === this.kitchenCategoryID));
+
+    this.service.getProducts().subscribe(result => {
+      console.log(result);
+      this.kitchenProducts = result;
+      this.initializeBrands();
+    })
   }
 
   initializeFormData() {
@@ -57,30 +63,35 @@ export class KitchenComponent implements OnInit {
   }
 
   initializeBrands() {
-    this.product1Brands = this.dataService.getBrands().filter(x => x.productID === 1);
-    this.formData.selectedBrand1 = null; //_.first(this.product1Brands);
+    this.product1Brands = this.kitchenProducts.filter(x => x.categoryCode === '101');
+    this.formData.selectedBrand1 = _.first(this.product1Brands);
 
-    this.product2Brands = this.dataService.getBrands().filter(x => x.productID === 2);
-    this.formData.selectedBrand2 = null;//_.first(this.product2Brands);
+    this.product2Brands = this.kitchenProducts.filter(x => x.categoryCode === '102');
+    this.formData.selectedBrand2 = _.first(this.product2Brands);
 
-    this.product3Brands = this.dataService.getBrands().filter(x => x.productID === 3);
-    this.formData.selectedBrand3 = null; // _.first(this.product3Brands);
+    this.product3Brands = this.kitchenProducts.filter(x => x.categoryCode === '103');
+    this.formData.selectedBrand3 = _.first(this.product3Brands);
 
-    this.product4Brands = this.dataService.getBrands().filter(x => x.productID === 4);
+    this.product4Brands = this.kitchenProducts.filter(x => x.categoryCode === '104');
     this.formData.selectedBrand4 = null; // _.first(this.product4Brands);
 
-    this.product5Brands = this.dataService.getBrands().filter(x => x.productID === 5);
+    this.product5Brands = this.kitchenProducts.filter(x => x.categoryCode === '105');
     this.formData.selectedBrand5 = null; //  _.first(this.product5Brands);
 
-    this.product6Brands = this.dataService.getBrands().filter(x => x.productID === 6);
+    this.product6Brands = this.kitchenProducts.filter(x => x.categoryCode === '106');
     this.formData.selectedBrand6 = null; //  _.first(this.product6Brands);
 
-    this.product7Brands = this.dataService.getBrands().filter(x => x.productID === 7);
+    this.product7Brands = this.kitchenProducts.filter(x => x.categoryCode === '107');
     this.formData.selectedBrand7 = null; // _.first(this.product7Brands);
 
-    this.product8Brands = this.dataService.getBrands().filter(x => x.productID === 8);
+    this.product8Brands = this.kitchenProducts.filter(x => x.categoryCode === '200');
     this.formData.selectedBrand8 = null; //  _.first(this.product8Brands);
 
+    this.product9Brands = this.kitchenProducts.filter(x => x.categoryCode === '300');
+    this.formData.selectedBrand9 = null; //  _.first(this.product8Brands);
+
+    this.formData.accessories = this.kitchenProducts.filter(x => x.categoryCode === '100');
+    this.formData.accessories.forEach((x) => { x.isChecked = false; });
   }
 
   onKitchenChange(event) {
@@ -92,17 +103,28 @@ export class KitchenComponent implements OnInit {
   calculateCostByBrand(): number {
     const area = this.formData.totalArea;
     let totalCost: number = 0;
-    totalCost = this.formData.selectedBrand1 ? +this.formData.selectedBrand1.price : 0;
-    totalCost = this.formData.selectedBrand2 ? (totalCost + this.formData.selectedBrand2.price) : totalCost;
-    totalCost = this.formData.selectedBrand3 ? (totalCost + this.formData.selectedBrand3.price) : totalCost;
-    totalCost = this.formData.selectedBrand4 ? (totalCost + this.formData.selectedBrand4.price) : totalCost;
-    totalCost = this.formData.selectedBrand5 ? (totalCost + this.formData.selectedBrand5.price) : totalCost;
-    totalCost = this.formData.selectedBrand6 ? (totalCost + this.formData.selectedBrand6.price) : totalCost;
-    totalCost = this.formData.selectedBrand7 ? (totalCost + this.formData.selectedBrand7.price) : totalCost;
-    const cumulativeSum = Math.round(totalCost * area)
+    totalCost = this.formData.selectedBrand1 ? +this.formData.selectedBrand1.mrp : 0;
+    totalCost = this.formData.selectedBrand2 ? (totalCost + this.formData.selectedBrand2.mrp) : totalCost;
+    totalCost = this.formData.selectedBrand3 ? (totalCost + this.formData.selectedBrand3.mrp) : totalCost;
+    totalCost = this.formData.selectedBrand4 ? (totalCost + this.formData.selectedBrand4.mrp) : totalCost;
+    totalCost = this.formData.selectedBrand5 ? (totalCost + this.formData.selectedBrand5.mrp) : totalCost;
+    totalCost = this.formData.selectedBrand6 ? (totalCost + this.formData.selectedBrand6.mrp) : totalCost;
+    totalCost = this.formData.selectedBrand7 ? (totalCost + this.formData.selectedBrand7.mrp) : totalCost;
+    totalCost = this.formData.selectedBrand8 ? (totalCost + this.formData.selectedBrand8.mrp) : totalCost;
+    totalCost = this.formData.selectedBrand9 ? (totalCost + this.formData.selectedBrand9.mrp) : totalCost;
+    const cumulativeSum = Math.round(totalCost * area) + this.calculateAccessories();
     this.kitchenPrice.emit(cumulativeSum);
     this.formData.totalPrice = cumulativeSum;
     return cumulativeSum;
+  }
+
+  reset() {
+    this.formData = {};
+    this.initializeFormData();
+  }
+
+  onSubmit() {
+    this.calculateCostByBrand();
   }
 
   calculateArea = (): number => {
@@ -111,10 +133,20 @@ export class KitchenComponent implements OnInit {
     const sideB = +this.formData.selectedKitchen.sides > 1 ? (+this.formData.B.feet + (+this.formData.B.inches) / 12) : 0; // Feet
     const sideC = +this.formData.selectedKitchen.sides > 2 ? (+this.formData.C.feet + (+this.formData.C.inches) / 12) : 0; // Feet
     this.formData.totalArea = (sideA + sideB + sideC)
-    this.calculateCostByBrand();
+    // this.calculateCostByBrand();
     return this.formData.totalArea;
   };
+
+  calculateAccessories = (): number => {
+    let totalAccessories = 0;
+    this.formData.accessories.filter(x => x.isChecked).forEach(x => {
+      totalAccessories += x.mrp;
+    });
+    return totalAccessories;
+  };
 }
+
+
 
 export class Kitchen {
   sides: number;

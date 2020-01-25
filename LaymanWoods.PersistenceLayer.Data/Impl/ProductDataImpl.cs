@@ -7,6 +7,11 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
 {
     public class ProductDataImpl : BaseDataImpl, IProductRepository
     {
+        public List<CategoryMaster> GetAllCategories()
+        {
+            return LaymanWoodsDbContext.CategoryMasters.ToList();
+        }
+
         public List<ProductMaster> GetAllProducts()
         {
             return LaymanWoodsDbContext.ProductMasters.Where(x=>!x.IsDeleted).ToList();

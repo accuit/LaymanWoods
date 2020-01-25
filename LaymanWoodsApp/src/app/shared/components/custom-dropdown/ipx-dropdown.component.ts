@@ -21,6 +21,7 @@ export class IpxDropdownComponent extends ElementBaseComponent implements OnInit
   @Input() keyField: string;
   @Input() displayField: string;
   @Input() optionalValue: string;
+  @Input('show-help') showHelp?: boolean;
   @ViewChild('selectref', { static: false }) select: ElementRef;
   isOptional: boolean;
   identifier: string;

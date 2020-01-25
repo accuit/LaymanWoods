@@ -11,6 +11,8 @@ namespace LaymanWoods.BusinessLayer.Base.Manager
 
     public class ProductManager : ServiceBase, IProductService
     {
+        #region initialize private fields
+
         [Unity.Dependency(ContainerDataLayerInstanceNames.PRODUCT_REPOSITORY)]
         public IProductRepository ProductRepository { get; set; }
         private readonly IMapper mapper;
@@ -19,22 +21,29 @@ namespace LaymanWoods.BusinessLayer.Base.Manager
             this.mapper = mapper;
         }
 
+        #endregion
+
+        public List<CategoryMasterDTO> GetAllCategories()
+        {
+            List<CategoryMasterDTO> categories = new List<CategoryMasterDTO>();
+            List<CategoryMaster> result = ProductRepository.GetAllCategories();
+            return mapper.Map<List<CategoryMasterDTO>>(result);
+        }
+
         public List<ProductMasterDTO> GetAllProducts()
         {
             List<ProductMasterDTO> products = new List<ProductMasterDTO>();
             List<ProductMaster> result = ProductRepository.GetAllProducts();
-            products = mapper.Map<List<ProductMasterDTO>>(result);
-
             return mapper.Map<List<ProductMasterDTO>>(result);
+
         }
 
         public List<ProductMasterDTO> GetAllProductsByCategory(string code)
         {
             List<ProductMasterDTO> products = new List<ProductMasterDTO>();
             List<ProductMaster> result = ProductRepository.GetAllProductsByCategory(code);
-            products = mapper.Map<List<ProductMasterDTO>>(result);
-
             return mapper.Map<List<ProductMasterDTO>>(result);
+
         }
     }
 }

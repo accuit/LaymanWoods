@@ -7,6 +7,7 @@ import { TitleHeaderComponent } from './title-header/title-header.component';
 import { ComponentsModule } from './components/components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DirectiveModule } from './directive/directive.module';
+import { ProductsService } from './services/products.services';
 
 
 @NgModule({
@@ -25,6 +26,9 @@ import { DirectiveModule } from './directive/directive.module';
     MenuHeaderComponent,
     TopHeaderComponent,
     TitleHeaderComponent
+  ],
+  providers: [
+    ProductsService
   ]
 })
 export class SharedModule { }

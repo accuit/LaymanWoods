@@ -1,40 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../model/product';
-import { ProductCategory } from '../model/product-category';
 import { Brand } from '../model/brand';
+import { CategoryMaster } from '../model/product-category';
+import { ProductsService } from './products.services';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  constructor() { }
+  constructor(private readonly service: ProductsService) { }
 
-  getProducts(): Array<Product> {
-
-    const products: Product[] = [
-      { id: 1, name: 'Ply Board', title: 'Ply and Board', categories: [1, 2] },
-      { id: 2, name: 'Inner Laminate', title: 'Inner Laminate', categories: [1, 2] },
-      { id: 3, name: 'Outer Finish', title: 'Outer Finish', categories: [1, 2] },
-      { id: 4, name: 'Hinges', title: 'Hinges', categories: [1, 2] },
-      { id: 5, name: 'Channels', title: 'Channels', categories: [1, 2] },
-      { id: 6, name: 'Full', title: 'Full Size', categories: [3] },
-      { id: 7, name: 'Border', title: 'Border and Corners', categories: [3] },
-      { id: 8, name: 'Labour Work', title: 'Labour Work', categories: [3] }
-    ];
-
-    return products;
+  getProducts(): any {
+    this.service.getProducts().subscribe((res) => {
+      return res;
+    })
   }
 
-  getCategories(): Array<ProductCategory> {
+  getCategories(): any {
 
-    const products: ProductCategory[] = [
-      { id: 1, name: 'Kitchen', title: 'Kitchen' },
-      { id: 2, name: 'Wardrobe', title: 'Wardrobe' },
-      { id: 3, name: 'False Ceiling', title: 'False Ceiling' }
-    ];
-
-    return products;
+    this.service.getCategories().subscribe((res) => {
+      return res;
+    })
   }
 
   getBrands(): Array<Brand> {

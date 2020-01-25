@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Product } from 'src/app/shared/model/product';
 import { Dimension } from 'src/app/shared/enums/app.enums';
 import { DataService } from 'src/app/shared/services/data.service';
+import { ProductMaster } from 'src/app/shared/model/product';
 
 @Component({
   selector: 'app-wardrobe',
@@ -13,7 +13,7 @@ export class WardrobeComponent implements OnInit {
 
   @Output() readonly wardrobePrice: EventEmitter<any> = new EventEmitter<any>();
   formGroup: FormGroup;
-  wardrobeProducts: Product[];
+  wardrobeProducts: ProductMaster[];
   kitchenCategoryID = 1;
   layout = 'L';
   wardrobe: any;
@@ -98,10 +98,5 @@ export class WardrobeComponent implements OnInit {
     return Math.round(sideA * sideB)
 
   };
-
-}
-
-
-export class Wardrobe {
 
 }
