@@ -12,19 +12,12 @@ export class FalseCeilingComponent implements OnInit {
   constructor() { }
   ngOnInit() {
     this.initializeFormData();
-
   }
 
   initializeFormData() {
     this.formData.totalPrice = 0;
-    this.formData.type = 'Corner'
+    this.formData.type = {id: 2, name: 'Corner'};
     this.formData.totalArea = 0;
-
-    this.formData.includes = {};
-    this.formData.includes.plain = true;
-    this.formData.includes.cover = true;
-    this.formData.includes.moulding = true;
-    this.formData.includes.pop = true;
 
     this.formData.A = { feet: 0, inches: 0, type: Dimension.LENGTH };
     this.formData.B = { feet: 0, inches: 0, type: Dimension.WIDTH }
@@ -36,34 +29,44 @@ export class FalseCeilingComponent implements OnInit {
     this.calculatePrice();
   }
 
-  onSubmit(){
-    this.calculatePrice();
-  }
-
   calculateArea = (): number => {
     const sideA = (+this.formData.A.feet + (+this.formData.A.inches) / 12); // Feet
     const sideB = (+this.formData.B.feet + (+this.formData.B.inches) / 12); // Feet
-    this.calculatePrice();
-    return Math.round(sideA * sideB)
+    return Math.round(sideA + sideB)
 
   };
 
-  calculatePrice(event = null) {
+  calculatePrice() {
     const area = this.formData.totalArea;
     const basicPrice = area * 120;
     const sideA: number = +this.formData.A.feet + +(this.formData.A.inches / 12);
     const sideB: number = +this.formData.B.feet + +(this.formData.B.inches / 12);
-    const coverPrice = 2 * (sideA + sideB) * 240;
-    const mouldingPrice: number = this.formData.includes.moulding ? 40 * 2 * (sideA + sideB) : 0;
+    const coverPrice = 2 * area * 240;
+    const mouldingPrice: number =  40 * 2 * area;
     const C = .25;
-    const wallPOP: number = this.formData.includes.pop ? 22 * (2 * area + 2 * sideB * C + C * sideA) : 0;
+    const wallPOP: number =  22 * (2 * area + 2 * sideB * C + C * sideA);
 
-    if (this.formData.type === 'Cover') {
+    if (this.formData.type.name === 'Cover') {
       this.formData.totalPrice = coverPrice + mouldingPrice + wallPOP;
     } else {
       this.formData.totalPrice = basicPrice + mouldingPrice + wallPOP;
     }
     this.ceilingPrice.emit(this.formData.totalPrice);
+  }
+
+  reset(): any {
+    this.formData = {};
+    this.ceilingPrice.emit(0);
+    this.initializeFormData();
+  }
+
+  onSubmit(): any {
+    this.calculatePrice();
+    window.scroll({
+      top: 100,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 
 }

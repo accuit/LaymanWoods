@@ -16,6 +16,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ServiceDetailsComponent } from './services/service-details/service-details.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { HttpClientModule }    from '@angular/common/http';
+import { TalkToExpertComponent } from './talk-to-expert/talk-to-expert.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule }    from '@angular/common/http';
     PortfolioComponent,
     ContactComponent,
     ServiceDetailsComponent,
-    HelpPageComponent
+    HelpPageComponent,
+    TalkToExpertComponent
   ],
   imports: [
     BrowserModule,

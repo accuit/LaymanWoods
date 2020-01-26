@@ -14,14 +14,17 @@
     </ipx-combo-textbox>
 </div>
 
-<!-- <div class="col-md-12" style="padding-bottom: 50px;">
+<div class="col-md-12" style="padding-bottom: 50px;">
     <div>
         <span class="step-title">STEP 3: Type of False Ceiling</span>
     </div>
-    <label class="radio-inline" *ngFor="let type of ['Cover','Corner']">
+
+    <ipx-dropdown [options]="[{id: 1, name: 'Cover'} , {id: 2, name: 'Corner'}]" [label]="'Type of False Ceiling'" [displayField]="'name'" [(ngModel)]="formData.type"></ipx-dropdown>
+
+    <!-- <label class="radio-inline" *ngFor="let type of ['Cover','Corner']">
         <input type="radio" name="type" (click)="formData.type = type"  (change)="onCeilingTypeChange(type)" [checked]="type === formData.type">{{ type }}
-    </label>
-</div> -->
+    </label> -->
+</div>
 <!-- 
 <div class="col-md-12" style="padding-bottom: 50px;">
     <div class="price-details">
@@ -38,3 +41,21 @@
         apply-edited disabled>
     </ipx-checkbox>
 </div> -->
+
+<div class="row" style="margin: 10% 6% 0 10%">
+    <div class="col-md-8"> 
+      <button type="submit" class="btn btn-default btn-md btn-block" (click)="onSubmit()">Submit</button>
+    </div> 
+  </div>
+  
+  <div class="row" style="margin-top: 5%">
+    <div class="col-md-6"> 
+      <button type="button" style="width:50%" class="btn btn-md btn-danger" (click)="reset()">Reset</button>
+    </div> 
+    <div class="col-md-6"> 
+      <button type="button" class="btn btn-md btn-danger" (click)="onSubmit()">Add Another Product</button>
+    </div> 
+    
+  </div>
+
+  {{ formData | json }}
