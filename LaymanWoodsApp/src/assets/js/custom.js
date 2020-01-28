@@ -279,87 +279,87 @@ var appMaster = {
 	/* ---------------------	
 		Contact Form  
 	/* --------------------- */
-	simplecontactForm: function(){	
-		if ( $( "#contactform" ).length !== 0 ) {
-		$('#contactform').bootstrapValidator({
-				container: 'tooltip',
-				feedbackIcons: {
-					valid: 'fa fa-check',
-					warning: 'fa fa-user',
-					invalid: 'fa fa-times',
-					validating: 'fa fa-refresh'
-				},
-				fields: { 
-					contact_name: {
-                        validators: {
-                            notEmpty: {
-                                message: ''
-                            }
-                        }
-                    },
-                    contact_email: {
-                        validators: {
-                            notEmpty: {
-                                message: ''
-                            },
-                            emailAddress: {
-                                message: ''
-                            }
-                        }
-                    },
-					contact_phone: {
-                        validators: {
-                            notEmpty: {
-                                message: ''
-                            }
-                        }
-                    },
-                    contact_message: {
-                        validators: {
-                            notEmpty: {
-                                message: ''
-                            }
-                        }
-                    },
-				}
-			})	
-			.on('success.form.bv', function(e) {
-				e.preventDefault();
-				var $form        = $(e.target),
-				validator    = $form.data('bootstrapValidator'),
-				submitButton = validator.getSubmitButton();
-				var form_data = $('#contactform').serialize();
-				$.ajax({
-						type: "POST",
-						dataType: 'json',
-						url: "php/contact-form.php",					
-						data: form_data,
-						success: function(msg){						
-							$('.form-message').html(msg.data);
-							$('.form-message').show();
-							submitButton.removeAttr("disabled");
-							resetForm($('#contactform'));						
-						},
-						error: function(msg){}
-				 });
-				return false;
-			});
-		}
-		function resetForm($form) {
+	// simplecontactForm: function(){	
+	// 	if ( $( "#contactform" ).length !== 0 ) {
+	// 	$('#contactform').bootstrapValidator({
+	// 			container: 'tooltip',
+	// 			feedbackIcons: {
+	// 				valid: 'fa fa-check',
+	// 				warning: 'fa fa-user',
+	// 				invalid: 'fa fa-times',
+	// 				validating: 'fa fa-refresh'
+	// 			},
+	// 			fields: { 
+	// 				contact_name: {
+    //                     validators: {
+    //                         notEmpty: {
+    //                             message: ''
+    //                         }
+    //                     }
+    //                 },
+    //                 contact_email: {
+    //                     validators: {
+    //                         notEmpty: {
+    //                             message: ''
+    //                         },
+    //                         emailAddress: {
+    //                             message: ''
+    //                         }
+    //                     }
+    //                 },
+	// 				contact_phone: {
+    //                     validators: {
+    //                         notEmpty: {
+    //                             message: ''
+    //                         }
+    //                     }
+    //                 },
+    //                 contact_message: {
+    //                     validators: {
+    //                         notEmpty: {
+    //                             message: ''
+    //                         }
+    //                     }
+    //                 },
+	// 			}
+	// 		})	
+	// 		.on('success.form.bv', function(e) {
+	// 			e.preventDefault();
+	// 			var $form        = $(e.target),
+	// 			validator    = $form.data('bootstrapValidator'),
+	// 			submitButton = validator.getSubmitButton();
+	// 			var form_data = $('#contactform').serialize();
+	// 			$.ajax({
+	// 					type: "POST",
+	// 					dataType: 'json',
+	// 					url: "php/contact-form.php",					
+	// 					data: form_data,
+	// 					success: function(msg){						
+	// 						$('.form-message').html(msg.data);
+	// 						$('.form-message').show();
+	// 						submitButton.removeAttr("disabled");
+	// 						resetForm($('#contactform'));						
+	// 					},
+	// 					error: function(msg){}
+	// 			 });
+	// 			return false;
+	// 		});
+	// 	}
+	// 	function resetForm($form) {
 
-            $form.find(
-                    'input:text, input:password, input, input:file, select, textarea'
-                )
-                .val('');
+    //         $form.find(
+    //                 'input:text, input:password, input, input:file, select, textarea'
+    //             )
+    //             .val('');
 
-            $form.find('input:radio, input:checkbox')
-                .removeAttr('checked')
-                .removeAttr('selected');
-			$form.find('button[type=submit]')
-                .attr("disabled", "disabled");	
+    //         $form.find('input:radio, input:checkbox')
+    //             .removeAttr('checked')
+    //             .removeAttr('selected');
+	// 		$form.find('button[type=submit]')
+    //             .attr("disabled", "disabled");	
 
-        }
-	},
+    //     }
+	// },
 	/* --------------------------------------------
 	Career Form
 	-------------------------------------------- */	
@@ -1097,9 +1097,9 @@ $(document).ready(function() {
 	appMaster.portfolioFilter();
 	appMaster.prettyPhoto();
 	appMaster.backgroundVideo();
-	appMaster.simplecontactForm();
-	appMaster.careersform();
-	appMaster.subscribeForm();
+	// appMaster.simplecontactForm();
+	// appMaster.careersform();
+	// appMaster.subscribeForm();
 	appMaster.navMenu();
 	appMaster.typedSlider();
 	appMaster.videotextSlider();

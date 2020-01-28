@@ -15,8 +15,9 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
 import { ServiceDetailsComponent } from './services/service-details/service-details.component';
 import { HelpPageComponent } from './help-page/help-page.component';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { TalkToExpertComponent } from './talk-to-expert/talk-to-expert.component';
+import { NotificationService } from './core/notification.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { TalkToExpertComponent } from './talk-to-expert/talk-to-expert.component
     DevPagesModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [NotificationService],
   bootstrap: [AppComponent, HomeComponent, AboutComponent, PortfolioComponent, ServicesComponent]
 })
 export class AppModule { }

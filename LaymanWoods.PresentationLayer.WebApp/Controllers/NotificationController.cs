@@ -5,6 +5,10 @@ using System.Web.Http;
 using LaymanWoods.CommonLayer.Aspects.Utilities;
 using System.Collections.Generic;
 using LaymanWoods.BusinessLayer.Services.BO;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace LaymanWoods.PresentationLayer.WebApp.Controllers
 {
@@ -24,6 +28,56 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
             JsonResponse<UserMasterBO> response = new JsonResponse<UserMasterBO>();
             UserMasterBO user = UserBusinessInstance.UserLogin(email, password); //.Where(x => x.cemailaddress == email && x.cpassword == password).FirstOrDefault();
             response.SingleResult = user;
+            return response;
+        }
+
+        [Route("verify-otp")]
+        [HttpPost]
+        public async Task<JsonResponse<int>> VerifyOTP(OTPDTO otp)
+        {
+            JsonResponse<int> response = new JsonResponse<int>();
+
+            //#region Prepare OTP Data
+            //string UniqueString = AppUtil.GetUniqueGuidString();
+            //string OTPString = AppUtil.GetUniqueRandomNumber(100000, 999999); // Generate a Six Digit OTP
+            //OTPDTO objOTP = new OTPDTO() { GUID = otp.GUID, OTP = otp.OTP, CreatedDate = DateTime.Now, UserID = 0, Attempts = 0 };
+            //#endregion
+
+            string BaseUrl = "https://2factor.in/API/V1/070815b0-3e08-11ea-9fa5-0200cd936042/SMS/VERIFY/"+ otp.GUID + "/" + otp.OTP;
+
+            using (var client = new HttpClient())
+            {
+                //Passing service base url  
+                client.BaseAddress = new Uri(BaseUrl);
+
+                client.DefaultRequestHeaders.Clear();
+                //Define request data format  
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //Sending request to find web api REST service resource GetAllEmployees using HttpClient  
+                HttpResponseMessage Res = await client.GetAsync(BaseUrl);
+
+                //Checking the response is successful or not which is sent using HttpClient  
+                if (Res.IsSuccessStatusCode)
+                {
+                    //Storing the response details recieved from web api   
+                    var Response = Res.Content.ReadAsStringAsync().Result;
+
+                    //Deserializing the response recieved from web api and storing into the Employee list  
+                    var res = JsonConvert.DeserializeObject<OtpResponse>(Response);
+                    if (res.Status == "Success")
+                    {
+                        OTPDTO objOTP = new OTPDTO() { GUID = otp.GUID, OTP = otp.OTP, CreatedDate = DateTime.Now, UserID = 0, Attempts = 0 };
+                        response.IsSuccess = SecurityBusinessInstance.SaveOTP(objOTP);
+                        response.StatusCode = "200";
+                    }
+                    else
+                    {
+                        response.IsSuccess = false;
+                        response.StatusCode = "500";
+                    }
+                }
+            }
             return response;
         }
 
@@ -78,5 +132,11 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
 
             return response;
         }
+    }
+
+    public class OtpResponse
+    {
+        public string Status { get; set; }
+        public string Details { get; set; }
     }
 }
