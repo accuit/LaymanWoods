@@ -19,28 +19,10 @@
         <span class="step-title">STEP 3: Type of False Ceiling</span>
     </div>
 
-    <ipx-dropdown [options]="[{id: 1, name: 'Cover'} , {id: 2, name: 'Corner'}]" [label]="'Type of False Ceiling'" [displayField]="'name'" [(ngModel)]="formData.type"></ipx-dropdown>
+    <ipx-dropdown [options]="[{id: 1, name: 'Cover'} , {id: 2, name: 'Corner'}]" [label]="'Type of False Ceiling'" 
+        [displayField]="'name'" [(ngModel)]="formData.type"></ipx-dropdown>
 
-    <!-- <label class="radio-inline" *ngFor="let type of ['Cover','Corner']">
-        <input type="radio" name="type" (click)="formData.type = type"  (change)="onCeilingTypeChange(type)" [checked]="type === formData.type">{{ type }}
-    </label> -->
 </div>
-<!-- 
-<div class="col-md-12" style="padding-bottom: 50px;">
-    <div class="price-details">
-        <h3>Type of False Ceiling</h3>
-        <span class="price">False Ceiling Includes</span>
-    </div>
-    <ipx-checkbox class="checkbox-inline" label="Base" name="fc_plain"
-        [(ngModel)]="formData.includes.plain" apply-edited disabled>
-    </ipx-checkbox>
-    <ipx-checkbox class="checkbox-inline" label="Moulding" name="fc_plain"
-        [(ngModel)]="formData.includes.moulding" apply-edited disabled>
-    </ipx-checkbox>
-    <ipx-checkbox class="checkbox-inline" label="POP" name="fc_plain" [(ngModel)]="formData.includes.pop"
-        apply-edited disabled>
-    </ipx-checkbox>
-</div> -->
 
 <div class="row" style="margin: 10% 6% 0 10%">
     <div class="col-md-8"> 
@@ -49,13 +31,11 @@
   </div>
   
   <div class="row" style="margin-top: 5%">
-    <div class="col-md-6"> 
+    <div class="col-md-5"> 
       <button type="button" style="width:50%" class="btn btn-md btn-danger" (click)="reset()">Reset</button>
     </div> 
-    <div class="col-md-6"> 
+    <div class="col-md-5"> 
       <button type="button" class="btn btn-md btn-danger" (click)="onSubmit()">Add Another Product</button>
     </div> 
     
   </div>
-
-  {{ formData | json }}

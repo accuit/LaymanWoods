@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { dataTypeEnum } from 'src/app/shared/enums/app.enums';
 import * as _ from 'underscore';
+import { ProductMaster } from 'src/app/shared/model/product';
+import { ProductsService } from 'src/app/shared/services/products.services';
 
 @Component({
   selector: 'app-paint',
@@ -13,25 +15,39 @@ export class PaintComponent implements OnInit {
   @Output() readonly paintPrice: EventEmitter<any> = new EventEmitter<any>();
   dataType: any = dataTypeEnum;
   formData: any = {};
-  constructor() { }
+  constructor(private readonly service: ProductsService) { }
 
-  paintTypes = [
-    { id: 1, name: 'OBD DISTAMPER', cost: 12 },
-    { id: 2, name: 'TRACTOR EMULSION DISTAMPER', cost: 22 },
-    { id: 3, name: 'ASIAN ROYAL SHINE', cost: 45 },
-    { id: 4, name: 'DULEX VELVET TOUCH', cost: 45 },
-    { id: 5, name: 'BERGER PAINTS', cost: 45 }
-  ]
+  paintTypes: ProductMaster[];
 
   ngOnInit() {
-    this.formData.totalPrice = 0;
-    this.formData.area = 0;
-    this.formData.selectedType = _.first(this.paintTypes);
+
+    this.service.getProductsByCategory(400).subscribe(result => {
+      this.paintTypes = result;
+
+      this.formData.totalPrice = 0;
+      this.formData.area = 0;
+      this.formData.selectedType = _.first(this.paintTypes);
+    })
+
   }
 
   calculateCost() {
-    this.formData.totalPrice = this.formData.area * this.formData.selectedType.cost;
+    this.formData.totalPrice = this.formData.area * this.formData.selectedType.mrp;
     this.paintPrice.emit(this.formData.totalPrice);
+  }
+
+  reset(): any {
+    this.formData = {};
+    this.paintPrice.emit(0);
+  }
+
+  onSubmit(): any {
+    this.calculateCost();
+    window.scroll({
+      top: 100,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 
 }

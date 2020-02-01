@@ -46,6 +46,18 @@ export class ProductsService {
           }));
   }
 
+  getProductsByCategory(code): Observable<ProductMaster[]> {
+
+    return this.httpClient.get<APIResponse>(this.baseUrl + 'api/product/productsByCategory/'+ code, { headers: this.headers })
+    .pipe(
+        map(res => {
+          if (!res.isSuccess) {
+            throw new Error(res.message);
+          }
+          return res.singleResult;
+        }));
+  }
+
   getBrands(): Array<Brand> {
 
     const brands: Brand[] = [
