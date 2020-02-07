@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Dimension } from 'src/app/shared/enums/app.enums';
 import { ProductMaster } from 'src/app/shared/model/product';
 import * as _ from 'underscore';
@@ -12,6 +12,9 @@ import { ProductsService } from 'src/app/shared/services/products.services';
 export class WardrobeComponent implements OnInit {
 
   @Output() readonly wardrobePrice: EventEmitter<any> = new EventEmitter<any>();
+  @Output() readonly addAnother: EventEmitter<any> = new EventEmitter<any>();
+  @Input('next') nextProduct: number;
+  
   wardrobeProducts: ProductMaster[];
   kitchenCategoryID = 1;
   wardrobe: any;
@@ -45,6 +48,10 @@ export class WardrobeComponent implements OnInit {
 
     this.formData.A = { feet: 0, inches: 0, type: Dimension.LENGTH };
     this.formData.B = { feet: 0, inches: 0, type: Dimension.WIDTH }
+  }
+
+  addAnotherProduct(prod) {
+    this.addAnother.emit(prod);
   }
 
   initializeBrands() {

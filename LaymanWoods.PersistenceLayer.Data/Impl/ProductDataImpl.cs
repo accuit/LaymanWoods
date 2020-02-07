@@ -14,13 +14,13 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
 
         public List<ProductMaster> GetAllProducts()
         {
-            return LaymanWoodsDbContext.ProductMasters.Where(x=>!x.IsDeleted).ToList();
+            return LaymanWoodsDbContext.ProductMasters.Where(x=>!x.IsDeleted && x.IsActive).ToList();
             
         }
 
         public List<ProductMaster> GetAllProductsByCategory(string code)
         {
-            return LaymanWoodsDbContext.ProductMasters.Where(x=>x.CategoryCode == code).ToList();
+            return LaymanWoodsDbContext.ProductMasters.Where(x=>x.CategoryCode == code && !x.IsDeleted && x.IsActive).ToList();
         }
     }
 }

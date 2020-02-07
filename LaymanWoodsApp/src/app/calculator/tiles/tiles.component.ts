@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { dataTypeEnum } from 'src/app/shared/enums/app.enums';
 import * as _ from 'underscore';
 import { ProductsService } from 'src/app/shared/services/products.services';
@@ -12,6 +12,9 @@ import { ProductMaster } from 'src/app/shared/model/product';
 export class TilesComponent implements OnInit {
 
   @Output() readonly tilesPrice: EventEmitter<any> = new EventEmitter<any>();
+  @Output() readonly addAnother: EventEmitter<any> = new EventEmitter<any>();
+  @Input('next') nextProduct: number;
+  
   dataType: any = dataTypeEnum;
   formData: any = {};
   tileTypes: ProductMaster[];
@@ -36,6 +39,10 @@ export class TilesComponent implements OnInit {
   reset(): any {
     this.formData = {};
     this.tilesPrice.emit(0);
+  }
+
+  addAnotherProduct(prod) {
+    this.addAnother.emit(prod);
   }
 
   onSubmit(): any {

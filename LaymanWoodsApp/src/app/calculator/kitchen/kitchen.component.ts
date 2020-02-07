@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataService } from 'src/app/shared/services/data.service';
 import { ProductMaster } from 'src/app/shared/model/product';
@@ -14,10 +14,13 @@ import { ProductsService } from 'src/app/shared/services/products.services';
 export class KitchenComponent implements OnInit {
 
   @Output() readonly kitchenPrice: EventEmitter<any> = new EventEmitter<any>();
+  @Output() readonly addAnother: EventEmitter<any> = new EventEmitter<any>();
+  @Input('next') nextProduct: number;
   formGroup: FormGroup;
   kitchenProducts: ProductMaster[];
   kitchenCategoryID = 1;
   layout = 'L';
+
   kitchens: Kitchen[] = [
     { sides: 2, value: 'L', name: 'L Shape', imageUrl: 'https://interioreradotin.files.wordpress.com/2019/02/l-shape-kitchen-banner-4.jpg?w=775' },
     { sides: 3, value: 'U', name: 'U Shape', imageUrl: 'http://digitalb2btrade.com/static/listing-image/1551787072u-shape.jpg' },
@@ -143,6 +146,10 @@ export class KitchenComponent implements OnInit {
 
     return this.formData.totalArea;
   };
+
+  addAnotherProduct(prod) {
+    this.addAnother.emit(prod);
+  }
 
   calculateAccessories = (): number => {
     let totalAccessories = 0;

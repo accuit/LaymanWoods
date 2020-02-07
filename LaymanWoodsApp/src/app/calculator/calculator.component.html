@@ -29,10 +29,10 @@
                                     [checked]="item.value === formData.product.value">{{ item.value }}
                             </label>
                         </div>
-                        <app-kitchen *ngIf="formData.product.key === 1" (kitchenPrice)="getPrice($event, 1)"></app-kitchen>
-                        <app-wardrobe *ngIf="formData.product.key === 2" (wardrobePrice)="getPrice($event, 2)"></app-wardrobe>
-                        <app-false-ceiling *ngIf="formData.product.key === 3" (ceilingPrice)="getPrice($event, 3)"></app-false-ceiling>
-                        <app-paint *ngIf="formData.product.key === 4" (paintPrice)="getPrice($event, 4)"></app-paint>
+                        <app-kitchen *ngIf="formData.product.key === 1" (addAnother)="nextproduct($event)" next="2" (kitchenPrice)="getPrice($event, 1)"></app-kitchen>
+                        <app-wardrobe *ngIf="formData.product.key === 2" next="3" (addAnother)="nextproduct($event)" (wardrobePrice)="getPrice($event, 2)"></app-wardrobe>
+                        <app-false-ceiling *ngIf="formData.product.key === 3" next="4" (addAnother)="nextproduct($event)" (ceilingPrice)="getPrice($event, 3)"></app-false-ceiling>
+                        <app-paint *ngIf="formData.product.key === 4" next="5" (addAnother)="nextproduct($event)" (paintPrice)="getPrice($event, 4)"></app-paint>
                         <app-tiles *ngIf="formData.product.key === 5" (tilesPrice)="getPrice($event, 5)"></app-tiles>
                     </div>
                 </div>

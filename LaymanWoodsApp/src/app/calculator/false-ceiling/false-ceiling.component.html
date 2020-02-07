@@ -35,7 +35,7 @@
       <button type="button" style="width:50%" class="btn btn-md btn-danger" (click)="reset()">Reset</button>
     </div> 
     <div class="col-md-5"> 
-      <button type="button" class="btn btn-md btn-danger" (click)="onSubmit()">Add Another Product</button>
+      <app-add-another-button (addAnother)="addAnotherProduct($event)" [next]="nextProduct"></app-add-another-button>
     </div> 
     
   </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { dataTypeEnum } from 'src/app/shared/enums/app.enums';
 import * as _ from 'underscore';
 import { ProductMaster } from 'src/app/shared/model/product';
@@ -13,6 +13,9 @@ export class PaintComponent implements OnInit {
 
 
   @Output() readonly paintPrice: EventEmitter<any> = new EventEmitter<any>();
+  @Output() readonly addAnother: EventEmitter<any> = new EventEmitter<any>();
+  @Input('next') nextProduct: number;
+
   dataType: any = dataTypeEnum;
   formData: any = {};
   constructor(private readonly service: ProductsService) { }
@@ -34,6 +37,10 @@ export class PaintComponent implements OnInit {
   calculateCost() {
     this.formData.totalPrice = this.formData.area * this.formData.selectedType.mrp;
     this.paintPrice.emit(this.formData.totalPrice);
+  }
+
+  addAnotherProduct(prod) {
+    this.addAnother.emit(prod);
   }
 
   reset(): any {

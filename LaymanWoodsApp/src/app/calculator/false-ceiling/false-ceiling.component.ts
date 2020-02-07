@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Dimension } from 'src/app/shared/enums/app.enums';
 
 @Component({
@@ -8,6 +8,9 @@ import { Dimension } from 'src/app/shared/enums/app.enums';
 })
 export class FalseCeilingComponent implements OnInit {
   @Output() readonly ceilingPrice: EventEmitter<any> = new EventEmitter<any>();
+  @Output() readonly addAnother: EventEmitter<any> = new EventEmitter<any>();
+  @Input('next') nextProduct: number;
+  
   formData: any = {};
   constructor() { }
   ngOnInit() {
@@ -27,6 +30,10 @@ export class FalseCeilingComponent implements OnInit {
     this.formData.type = item;
     this.formData.totalPrice = 0;
     this.calculatePrice();
+  }
+
+  addAnotherProduct(prod) {
+    this.addAnother.emit(prod);
   }
 
   calculateArea = (): number => {
