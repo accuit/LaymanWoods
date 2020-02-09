@@ -9,5 +9,9 @@ namespace LaymanWoods.PersistenceLayer.Data.Repository
         List<CategoryMaster> GetAllCategories();
         List<ProductMaster> GetAllProducts();
         List<ProductMaster> GetAllProductsByCategory(string code);
+
+        ProductHelp GetProductHelp(int productID);
+        ProductHelp GetCategoryHelp(int productID);
+
     }
 }

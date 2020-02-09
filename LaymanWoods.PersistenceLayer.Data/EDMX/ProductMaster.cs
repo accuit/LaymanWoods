@@ -50,8 +50,7 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
 
         public DateTime? ModifiedDate { get; set; }
 
-        [StringLength(50)]
-        public string ModifiedBy { get; set; }
+        public int? ModifiedBy { get; set; }
 
         public bool IsDeleted { get; set; }
 

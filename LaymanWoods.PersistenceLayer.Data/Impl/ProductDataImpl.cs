@@ -22,5 +22,15 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
         {
             return LaymanWoodsDbContext.ProductMasters.Where(x=>x.CategoryCode == code && !x.IsDeleted && x.IsActive).ToList();
         }
+
+        public ProductHelp GetCategoryHelp(int categoryID)
+        {
+            return LaymanWoodsDbContext.ProductHelps.Where(x => !x.IsDeleted && x.CategoryID == categoryID).FirstOrDefault();
+        }
+
+        public ProductHelp GetProductHelp(int productID)
+        {
+            return LaymanWoodsDbContext.ProductHelps.Where(x => !x.IsDeleted && x.ProductID == productID).FirstOrDefault();
+        }
     }
 }

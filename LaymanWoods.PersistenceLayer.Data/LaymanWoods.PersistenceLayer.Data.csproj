@@ -89,6 +89,7 @@
     <Compile Include="EDMX\EmailTemplate.cs" />
     <Compile Include="EDMX\LaymanWoodsModel.cs" />
     <Compile Include="EDMX\OTPMaster.cs" />
+    <Compile Include="EDMX\ProductHelp.cs" />
     <Compile Include="EDMX\ProductMaster.cs" />
     <Compile Include="EDMX\UserMaster.cs" />
     <Compile Include="Impl\BaseDataImpl.cs" />

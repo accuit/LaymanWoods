@@ -71,6 +71,7 @@
     <Compile Include="DTO\EmailServiceDTO.cs" />
     <Compile Include="DTO\EmailTemplateDTO.cs" />
     <Compile Include="DTO\OTPDTO.cs" />
+    <Compile Include="DTO\ProductHelpDTO.cs" />
     <Compile Include="DTO\ProductMasterDTO.cs" />
     <Compile Include="DTO\Response.cs" />
     <Compile Include="IMapper.cs" />

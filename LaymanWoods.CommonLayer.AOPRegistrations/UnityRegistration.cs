@@ -21,7 +21,7 @@ namespace LaymanWoods.CommonLayer.AOPRegistrations
         {
             AopEngine.Initialize();
             InitializeLibrary();
-            
+
             MapEntities();
         }
 
@@ -82,10 +82,13 @@ namespace LaymanWoods.CommonLayer.AOPRegistrations
 
                 cfg.CreateMap<ProductMaster, ProductMasterDTO>();
                 cfg.CreateMap<ProductMasterDTO, ProductMaster>();
+
+                cfg.CreateMap<ProductHelp, ProductHelpDTO>();
+                cfg.CreateMap<ProductHelpDTO, ProductHelp>();
             });
 
             return config;
-           
+
 
         }
     }

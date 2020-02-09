@@ -20,6 +20,8 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
         public virtual DbSet<UserMaster> UserMasters { get; set; }
         public virtual DbSet<DictionaryEncryptDecrypt> DictionaryEncryptDecrypts { get; set; }
 
+        public virtual DbSet<ProductHelp> ProductHelps { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CategoryMaster>()
@@ -101,10 +103,6 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
 
             modelBuilder.Entity<ProductMaster>()
                 .Property(e => e.SKUName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ProductMaster>()
-                .Property(e => e.ModifiedBy)
                 .IsUnicode(false);
 
             modelBuilder.Entity<UserMaster>()

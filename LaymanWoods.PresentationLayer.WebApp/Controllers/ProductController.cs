@@ -40,5 +40,25 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
             response.IsSuccess = true;
             return response;
         }
+
+        [Route("productHelp/{id}")]
+        [HttpGet]
+        public JsonResponse<ProductHelpDTO> GetProductHelpByID(int id)
+        {
+            JsonResponse<ProductHelpDTO> response = new JsonResponse<ProductHelpDTO>();
+            response.SingleResult = ProductBusinessInstance.GetProductHelp(id);
+            response.IsSuccess = true;
+            return response;
+        }
+
+        [Route("productHelpByCatg/{id}")]
+        [HttpGet]
+        public JsonResponse<ProductHelpDTO> GetProductHelpByCatgID(int id)
+        {
+            JsonResponse<ProductHelpDTO> response = new JsonResponse<ProductHelpDTO>();
+            response.SingleResult = ProductBusinessInstance.GetCategoryHelp(id);
+            response.IsSuccess = true;
+            return response;
+        }
     }
 }

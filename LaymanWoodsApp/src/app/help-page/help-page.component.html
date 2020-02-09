@@ -5,72 +5,67 @@
 <section class="page-section">
     <div class="container shop">
         <div class="row">
-            <div class="col-md-12 product-page">
+            <div *ngIf="helpContent" class="col-md-12 product-page">
                 <div class="row">
                     <div class="col-md-4 col-sm-6">
                         <div class="single-product">
-                            <img id="zoom-product" src="http://placehold.it/500x600" width="500" height="600" data-zoom-image="img/sections/shop/w1-1.jpg">
-                                <div id="zoom-product-thumb" class="zoom-product-thumb">
-                                    <div class="owl-carousel navigation-shop dark-switch lr-pad-20 owl-theme" data-pagination="false" data-autoplay="true" data-navigation="true" data-items="3" data-tablet="4" data-mobile="3" style="opacity: 1; display: block;">
-                    
-                                        <div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 1090px; left: 0px; display: block; transition: all 1000ms ease 0s; transform: translate3d(0px, 0px, 0px);"><div class="owl-item" style="width: 109px;"><a href="#" data-image="img/sections/shop/w1-0.jpg" data-zoom-image="img/sections/shop/w1-0.jpg">
-                                            <img id="img_01" src="http://placehold.it/80x16">
-                                        </a></div><div class="owl-item" style="width: 109px;"><a href="#" data-image="img/sections/shop/w1-1.jpg" data-zoom-image="img/sections/shop/w1-1.jpg">
-                                            <img id="img_01" src="http://placehold.it/80x16">
-                                        </a></div><div class="owl-item" style="width: 109px;"><a href="#" data-image="img/sections/shop/w1-2.jpg" data-zoom-image="img/sections/shop/w1-2.jpg">
-                                            <img id="img_01" src="http://placehold.it/80x16">
-                                        </a></div><div class="owl-item" style="width: 109px;"><a href="#" data-image="img/sections/shop/w1-1.jpg" data-zoom-image="img/sections/shop/w1-1.jpg">
-                                            <img id="img_01" src="http://placehold.it/80x16">
-                                        </a></div><div class="owl-item" style="width: 109px;"><a href="#" data-image="img/sections/shop/w1-2.jpg" data-zoom-image="img/sections/shop/w1-2.jpg">
-                                            <img id="img_01" src="http://placehold.it/80x16">
-                                        </a></div></div></div> 
-                                         
-                                         
-                                        
-                                         
-                                    <div class="owl-controls clickable"><div class="owl-buttons"><div class="owl-prev"><i class="fa fa-angle-left"></i></div><div class="owl-next"><i class="fa fa-angle-right"></i></div></div></div></div>
+                            <img id="zoom-product" [src]="helpContent.imageUrl? helpContent.imageUrl: product.imageUrl"
+                                width="500" height="600" data-zoom-image="img/sections/shop/w1-1.jpg">
+                            <div id="zoom-product-thumb" class="zoom-product-thumb">
+                                <div class="owl-carousel navigation-shop dark-switch lr-pad-20 owl-theme"
+                                    data-pagination="false" data-autoplay="true" data-navigation="true" data-items="3"
+                                    data-tablet="4" data-mobile="3" style="opacity: 1; display: block;">
+                                    <div class="owl-wrapper-outer">
+                                        <div class="owl-wrapper"
+                                            style="width: 1090px; left: 0px; display: block; transition: all 1000ms ease 0s; transform: translate3d(0px, 0px, 0px);">
+                                            <div class="owl-item" style="width: 109px;"><a href="#"
+                                                    data-image="img/sections/shop/w1-0.jpg"
+                                                    data-zoom-image="img/sections/shop/w1-0.jpg">
+                                                    <img id="img_01" src="http://placehold.it/80x16">
+                                                </a></div>
+                                            <div class="owl-item" style="width: 109px;"><a href="#"
+                                                    data-image="img/sections/shop/w1-1.jpg"
+                                                    data-zoom-image="img/sections/shop/w1-1.jpg">
+                                                    <img id="img_01" src="http://placehold.it/80x16">
+                                                </a></div>
+                                            <div class="owl-item" style="width: 109px;"><a href="#"
+                                                    data-image="img/sections/shop/w1-2.jpg"
+                                                    data-zoom-image="img/sections/shop/w1-2.jpg">
+                                                    <img id="img_01" src="http://placehold.it/80x16">
+                                                </a></div>
+                                            <div class="owl-item" style="width: 109px;"><a href="#"
+                                                    data-image="img/sections/shop/w1-1.jpg"
+                                                    data-zoom-image="img/sections/shop/w1-1.jpg">
+                                                    <img id="img_01" src="http://placehold.it/80x16">
+                                                </a></div>
+                                            <div class="owl-item" style="width: 109px;"><a href="#"
+                                                    data-image="img/sections/shop/w1-2.jpg"
+                                                    data-zoom-image="img/sections/shop/w1-2.jpg">
+                                                    <img id="img_01" src="http://placehold.it/80x16">
+                                                </a></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="owl-controls clickable">
+                                        <div class="owl-buttons">
+                                            <div class="owl-prev"><i class="fa fa-angle-left"></i></div>
+                                            <div class="owl-next"><i class="fa fa-angle-right"></i></div>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
                     <!-- .product -->
                     <div class="col-md-8 col-sm-6">
-                        <div class="product-rating pull-right">
-                            <div class="star-rating">
-                            <i class="fa fa-star"></i> 
-                            <i class="fa fa-star"></i> 
-                            <i class="fa fa-star"></i> 
-                            <i class="fa fa-star"></i> 
-                            <i class="fa fa-star-half-o"></i></div>
-                        </div>
                         <div class="price-details">
-                        <!-- <span class="actual-price">$98.00</span>  -->
-                        <span class="price">{{product.mrp}}</span></div>
-                        <div class="description">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec posuere odio.Phasellus odio lectus, ultrices non pretium ac, mollis id elit.</p>
-                            <p>Fusce tempor tellus non felis tempus vestibulum. Donec molestie purus sem. Suspendisse a neque quam.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec posuere odio.Phasellus odio lectus, ultrices non pretium ac, mollis id elit.</p>
+                            <span class="price">{{helpContent.title}}</span></div>
+                        <div id="apiContent" [innerHtml]="helpContent.description">
                         </div>
-                        <ul class="arrow-style">
-                            <li>Type: Analog Watch</li>
-                            <li>Dial: Round Dial</li>
-                            <li>Strap: Leatherette</li>
-                        </ul>
-                        <div class="product-regulator">
-                            <button id="minus" type="button">
-                                <i class="fa fa-minus"></i>
-                            </button>
-                            <div id="output">0</div>
-                            <button id="plus" type="button">
-                                <i class="fa fa-plus"></i>
-                            </button>
-                        </div>
-                        <a href="#" class="btn btn-default btn-lg">Add To Cart</a>
                         <div class="product-meta-details">
-                        <span class="product-code">SKU: 51259</span> 
-                        <span class="product-code pull-right">Category: Watch, Men Watch</span>
-                        <div class="product-tag">
-                        <strong>Tags:</strong> 
-                        <span class="text-color">Watch, Men Watch, round</span></div></div>
+                            <span class="product-code">SKU: {{product.categoryCode}}</span>
+                            <span class="product-code pull-right">Category: Watch, Men Watch</span>
+                        </div>
                     </div>
                 </div>
                 <div class="row top-pad-80">
@@ -82,111 +77,20 @@
                                     <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a>
                                 </li>
                                 <li role="presentation">
-                                    <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Additional Info</a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Reviews</a>
+                                    <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Additional
+                                        Info</a>
                                 </li>
                             </ul>
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="home">
                                     <h5>Description</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae odit iste exercitationem praesentium deleniti nostrum laborum rem id nihil tempora. Adipisci ea commodi unde nam placeat cupiditate quasi a ducimus rem consequuntur ex eligendi minima voluptatem assumenda voluptas quidem sit maiores odio velit voluptate.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae odit iste exercitationem praesentium deleniti nostrum laborum rem id nihil tempora. Adipisci ea commodi unde nam placeat cupiditate quasi a ducimus rem consequuntur ex eligendi minima voluptatem assumenda voluptas quidem sit maiores odio velit voluptate.</p>
-                                    <ul class="list-style">
-                                        <li>Type: Analog Watch</li>
-                                        <li>Dial: Round Dial</li>
-                                        <li>Strap: Leatherette</li>
-                                    </ul>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae odit iste exercitationem praesentium deleniti nostrum laborum rem id nihil tempora. Adipisci ea commodi unde nam placeat cupiditate quasi a ducimus rem consequuntur ex eligendi minima voluptatem assumenda voluptas quidem sit maiores odio velit voluptate.</p>
+                                    <div [innerHtml]="helpContent.description">
+                                    </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="profile">
                                     <h5>Additional Info</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae odit iste exercitationem praesentium deleniti nostrum laborum rem id nihil tempora. Adipisci ea commodi unde nam placeat cupiditate quasi a ducimus rem consequuntur ex eligendi minima voluptatem assumenda voluptas quidem sit maiores odio velit voluptate.</p>
-                                    <ul class="arrow-style">
-                                        <li>Type: Analog Watch</li>
-                                        <li>Dial: Round Dial</li>
-                                        <li>Strap: Leatherette</li>
-                                        <li>Clasp Type: Buckle</li>
-                                        <li>Occasion: Casual</li>
-                                        <li>Movement: PC21 Movement</li>
-                                        <li>Others: One Year Warranty</li>
-                                        <li>Style Tip: Try with polo tees and Yepme chinos!</li>
-                                    </ul>
-                                </div>
-                                <div role="tabpanel" class="tab-pane" id="messages">
-                                    <h5>Reviews</h5>
-                                    <div class="item">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae odit iste exercitationem praesentium deleniti nostrum laborum rem id nihil tempora. Adipisci ea commodi unde nam placeat cupiditate quasi a ducimus rem consequuntur ex eligendi minima voluptatem assumenda voluptas quidem sit maiores odio velit voluptate.</p>
-                                        <div class="post-meta">
-                                        <!-- Author  -->
-                                        <span class="author">
-                                        <i class="fa fa-user"></i> John Deo</span> 
-                                        <!-- Meta Date -->
-                                         
-                                        <span class="time">
-                                        <i class="fa fa-calendar"></i> 03.11.2014</span> 
-                                        <!-- Category -->
-                                         
-                                        <span class="pull-right"></span>
-                                        <div class="star-rating">
-                                            <span class="pull-right">
-                                            <i class="fa fa-star"></i> 
-                                            <i class="fa fa-star"></i> 
-                                            <i class="fa fa-star"></i> 
-                                            <i class="fa fa-star"></i> 
-                                            <i class="fa fa-star-half-o"></i></span>
-                                        </div>
-                                        <span class="pull-right"></span></div>
-                                    </div>
-                                    <hr>
-                                    <div class="item">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae odit iste exercitationem praesentium deleniti nostrum laborum rem id nihil tempora. Adipisci ea commodi unde nam placeat cupiditate quasi a ducimus rem consequuntur ex eligendi minima voluptatem assumenda voluptas quidem sit maiores odio velit voluptate.</p>
-                                        <div class="post-meta">
-                                        <!-- Author  -->
-                                        <span class="author">
-                                        <i class="fa fa-user"></i> John Deo</span> 
-                                        <!-- Meta Date -->
-                                         
-                                        <span class="time">
-                                        <i class="fa fa-calendar"></i> 03.11.2014</span> 
-                                        <!-- Category -->
-                                         
-                                        <span class="pull-right"></span>
-                                        <div class="star-rating">
-                                            <span class="pull-right">
-                                            <i class="fa fa-star"></i> 
-                                            <i class="fa fa-star"></i> 
-                                            <i class="fa fa-star"></i> 
-                                            <i class="fa fa-star"></i> 
-                                            <i class="fa fa-star-half-o"></i></span>
-                                        </div>
-                                        <span class="pull-right"></span></div>
-                                    </div>
-                                    <hr>
-                                    <div class="item">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae odit iste exercitationem praesentium deleniti nostrum laborum rem id nihil tempora. Adipisci ea commodi unde nam placeat cupiditate quasi a ducimus rem consequuntur ex eligendi minima voluptatem assumenda voluptas quidem sit maiores odio velit voluptate.</p>
-                                        <div class="post-meta">
-                                        <!-- Author  -->
-                                        <span class="author">
-                                        <i class="fa fa-user"></i> John Deo</span> 
-                                        <!-- Meta Date -->
-                                         
-                                        <span class="time">
-                                        <i class="fa fa-calendar"></i> 03.11.2014</span> 
-                                        <!-- Category -->
-                                         
-                                        <span class="pull-right"></span>
-                                        <div class="star-rating">
-                                            <span class="pull-right">
-                                            <i class="fa fa-star"></i> 
-                                            <i class="fa fa-star"></i> 
-                                            <i class="fa fa-star"></i> 
-                                            <i class="fa fa-star"></i> 
-                                            <i class="fa fa-star-half-o"></i></span>
-                                        </div>
-                                        <span class="pull-right"></span></div>
+                                    <div [innerHtml]="helpContent.additionalInfo">
                                     </div>
                                 </div>
                             </div>

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'ipx-help-button',
-  template: `<button class="btn btn-default" (click)="navigate()" role="button" style="font-size: medium;" [ngStyle]="{'margin-left': position === 'right'? '50px': 0, 'margin-right': position === 'left'? '50px': 0 }">{{text}}</button> {{product | json}}`,
+  template: `<button class="btn btn-default" (click)="navigate()" role="button" style="font-size: medium;" [ngStyle]="{'margin-left': position === 'right'? '50px': 0, 'margin-right': position === 'left'? '50px': 0 }">{{text}}</button>`,
   styleUrls: ['./help-button.component.scss']
 })
 export class HelpButtonComponent implements OnInit {

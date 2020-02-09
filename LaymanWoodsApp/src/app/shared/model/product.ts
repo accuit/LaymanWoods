@@ -1,5 +1,4 @@
 export class ProductMaster {
-
     productID: number;
     name: string;
     title: string;
@@ -16,4 +15,17 @@ export class ProductMaster {
     categoryID: number;
     companyID: number;
     measurementUnit: number;
+}
+
+export class ProductHelp {
+    iD: number;
+    title: string;
+    imageUrl: string;
+    categoryID: number;
+    productID: number;
+    description: string;
+    additionalInfo: string;
+    specification: string;
+    isDeleted: boolean;
+    companyID: number;
 }

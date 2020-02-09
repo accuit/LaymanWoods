@@ -7,8 +7,6 @@ using LaymanWoods.PersistenceLayer.Data.Repository;
 
 namespace LaymanWoods.BusinessLayer.Base.Manager
 {
-
-
     public class ProductManager : ServiceBase, IProductService
     {
         #region initialize private fields
@@ -35,15 +33,24 @@ namespace LaymanWoods.BusinessLayer.Base.Manager
             List<ProductMasterDTO> products = new List<ProductMasterDTO>();
             List<ProductMaster> result = ProductRepository.GetAllProducts();
             return mapper.Map<List<ProductMasterDTO>>(result);
-
         }
 
         public List<ProductMasterDTO> GetAllProductsByCategory(string code)
         {
-            List<ProductMasterDTO> products = new List<ProductMasterDTO>();
             List<ProductMaster> result = ProductRepository.GetAllProductsByCategory(code);
             return mapper.Map<List<ProductMasterDTO>>(result);
+        }
 
+        public ProductHelpDTO GetProductHelp(int productID)
+        {
+            ProductHelp result = ProductRepository.GetProductHelp(productID);
+            return mapper.Map<ProductHelpDTO>(result);
+        }
+
+        public ProductHelpDTO GetCategoryHelp(int categoryID)
+        {
+            ProductHelp result = ProductRepository.GetCategoryHelp(categoryID);
+            return mapper.Map<ProductHelpDTO>(result);
         }
     }
 }
