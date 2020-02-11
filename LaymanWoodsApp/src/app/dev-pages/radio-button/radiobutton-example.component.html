@@ -45,26 +45,5 @@
       <div class="col-sm-4"> Selected Value: {{ selectedValue }} </div>
   </div>
   
-  <div class="row">
-    <div class="col-sm-6">
-      <h4 class="sample-title">User Preference Radio Buttons in Reactive Form</h4>
-        <div class="two-step-verification-option">
-          <ipx-radio-button-group [formControl]="userPref" name="userPreference" (change)="changeUserPreferenceDebounce()">
-              <ipx-radio-button value="email">
-                  {{ "twoFactorPreference.emailName" }} 
-              </ipx-radio-button>
-              <ipx-radio-button value="app" [disabled]="appsDisabled" id="radioUserPreferenceApp">
-                  {{ "twoFactorPreference.appName" }}
-                  <a (click)="removeExistingConfiguration($event)" id="lnkRemoveMobileAppTwoFactor" *ngIf="!appsDisabled; else configureLink">{{ "twoFactorPreference.removeText" }}</a>
-                  <ng-template #configureLink>
-                      <a (click)="startConfiguringApp($event)" id="lnkConfigureMobileAppTwoFactor">{{ "twoFactorPreference.configureText" }}</a>
-                  </ng-template><br />
-                  {{ "twoFactorPreference.appDescription" }}
-              </ipx-radio-button>
-          </ipx-radio-button-group>
-        </div>
-    </div>
-    <div class="col-sm-6"> Selected User Preference: {{ selectedPref }} </div>
-  </div>
   
   

@@ -8,6 +8,8 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ServiceDetailsComponent } from './services/service-details/service-details.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { TalkToExpertComponent } from './talk-to-expert/talk-to-expert.component';
+import { CalculatorComponent } from './calculator/calculator.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -39,7 +41,10 @@ const routes: Routes = [
     path: 'portfolio',
     component: PortfolioComponent
   },
-  { path: 'calculator', loadChildren: () => import(`./calculator/calculator.module`).then(m => m.CalculatorModule) },
+  {
+    path: 'calculator',
+    component: CalculatorComponent
+  },
   {
     path: 'help-page',
     component: HelpPageComponent
@@ -50,7 +55,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: HelpPageComponent
+    component: PageNotFoundComponent
   }
 
 ];

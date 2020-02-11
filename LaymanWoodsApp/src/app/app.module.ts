@@ -18,6 +18,7 @@ import { HelpPageComponent } from './help-page/help-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TalkToExpertComponent } from './talk-to-expert/talk-to-expert.component';
 import { NotificationService } from './core/notification.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NotificationService } from './core/notification.service';
     ContactComponent,
     ServiceDetailsComponent,
     HelpPageComponent,
-    TalkToExpertComponent
+    TalkToExpertComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
