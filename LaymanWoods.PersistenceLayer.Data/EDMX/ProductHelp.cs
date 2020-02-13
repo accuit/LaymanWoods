@@ -14,7 +14,7 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
         [StringLength(50)]
         public string Title { get; set; }
 
-        public int ProductID { get; set; }
+        public int? ProductID { get; set; }
 
         public string ImageUrl { get; set; }
 
@@ -33,6 +33,8 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
         public bool IsDeleted { get; set; }
 
         public int? CategoryID { get; set; }
+        public string CategoryCode { get; set; }
+
 
         public int CompanyID { get; set; }
 

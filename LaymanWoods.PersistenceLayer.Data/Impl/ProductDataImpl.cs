@@ -14,23 +14,23 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
 
         public List<ProductMaster> GetAllProducts()
         {
-            return LaymanWoodsDbContext.ProductMasters.Where(x=>!x.IsDeleted && x.IsActive).ToList();
-            
+            return LaymanWoodsDbContext.ProductMasters.Where(x => !x.IsDeleted && x.IsActive).ToList();
+
         }
 
         public List<ProductMaster> GetAllProductsByCategory(string code)
         {
-            return LaymanWoodsDbContext.ProductMasters.Where(x=>x.CategoryCode == code && !x.IsDeleted && x.IsActive).ToList();
+            return LaymanWoodsDbContext.ProductMasters.Where(x => x.CategoryCode == code && !x.IsDeleted && x.IsActive).ToList();
         }
 
-        public ProductHelp GetCategoryHelp(int categoryID)
+        public ProductHelp GetCategoryHelp(string code)
         {
-            return LaymanWoodsDbContext.ProductHelps.Where(x => !x.IsDeleted && x.CategoryID == categoryID).FirstOrDefault();
+            return LaymanWoodsDbContext.ProductHelps.Where(x => !x.IsDeleted && x.CategoryCode == code).FirstOrDefault();
         }
 
-        public ProductHelp GetProductHelp(int productID)
+        public ProductHelp GetProductHelp(int productID, string code)
         {
-            return LaymanWoodsDbContext.ProductHelps.Where(x => !x.IsDeleted && x.ProductID == productID).FirstOrDefault();
+            return LaymanWoodsDbContext.ProductHelps.Where(x => !x.IsDeleted && (x.ProductID == productID || x.CategoryCode == code)).FirstOrDefault();
         }
     }
 }

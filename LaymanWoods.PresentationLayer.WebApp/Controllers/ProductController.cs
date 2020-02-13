@@ -41,22 +41,34 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
             return response;
         }
 
-        [Route("productHelp/{id}")]
+        [Route("productHelp/{code}/{id}")]
         [HttpGet]
-        public JsonResponse<ProductHelpDTO> GetProductHelpByID(int id)
+        public JsonResponse<ProductHelpDTO> GetProductHelpByID(string code, int? id = 0)
         {
             JsonResponse<ProductHelpDTO> response = new JsonResponse<ProductHelpDTO>();
-            response.SingleResult = ProductBusinessInstance.GetProductHelp(id);
-            response.IsSuccess = true;
+            try
+            {
+
+                response.SingleResult = ProductBusinessInstance.GetProductHelp((int)id, code);
+                response.IsSuccess = true;
+                response.StatusCode = "200";
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.StatusCode = "500";
+                response.Message = ex.Message;
+            }
+
             return response;
         }
 
         [Route("productHelpByCatg/{id}")]
         [HttpGet]
-        public JsonResponse<ProductHelpDTO> GetProductHelpByCatgID(int id)
+        public JsonResponse<ProductHelpDTO> GetProductHelpByCatgID(string code)
         {
             JsonResponse<ProductHelpDTO> response = new JsonResponse<ProductHelpDTO>();
-            response.SingleResult = ProductBusinessInstance.GetCategoryHelp(id);
+            response.SingleResult = ProductBusinessInstance.GetCategoryHelp(code);
             response.IsSuccess = true;
             return response;
         }

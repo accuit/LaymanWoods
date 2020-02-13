@@ -11,22 +11,22 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class ProductsService {
 
-    baseUrl = environment.apiUrl;
-    headers: HttpHeaders;
-  
-    constructor(private readonly httpClient: HttpClient) {
+  baseUrl = environment.apiUrl;
+  headers: HttpHeaders;
 
-      this.headers = new HttpHeaders({
-        'Content-Type': 'application/json; charset=utf-8',
-        'Access-Control-Allow-Origin': '*',
-        'No-Auth': 'True'
-      });
-    }
+  constructor(private readonly httpClient: HttpClient) {
+
+    this.headers = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'Access-Control-Allow-Origin': '*',
+      'No-Auth': 'True'
+    });
+  }
 
   getProducts(): Observable<ProductMaster[]> {
 
     return this.httpClient.get<APIResponse>(this.baseUrl + 'api/product/getProductsList/', { headers: this.headers })
-    .pipe(
+      .pipe(
         map(res => {
           if (!res.isSuccess) {
             throw new Error(res.message);
@@ -37,19 +37,19 @@ export class ProductsService {
 
   getCategories(): Observable<CategoryMaster[]> {
     return this.httpClient.get<APIResponse>(this.baseUrl + 'api/product/getCategories/', { headers: this.headers })
-    .pipe(
+      .pipe(
         map(res => {
-            if (!res.isSuccess) {
-              throw new Error(res.message);
-            }
-            return res.singleResult;
-          }));
+          if (!res.isSuccess) {
+            throw new Error(res.message);
+          }
+          return res.singleResult;
+        }));
   }
 
   getProductsByCategory(code): Observable<ProductMaster[]> {
 
-    return this.httpClient.get<APIResponse>(this.baseUrl + 'api/product/productsByCategory/'+ code, { headers: this.headers })
-    .pipe(
+    return this.httpClient.get<APIResponse>(this.baseUrl + 'api/product/productsByCategory/' + code, { headers: this.headers })
+      .pipe(
         map(res => {
           if (!res.isSuccess) {
             throw new Error(res.message);
@@ -58,10 +58,10 @@ export class ProductsService {
         }));
   }
 
-  getProductHelp(id: number): Observable<ProductHelp[]> {
+  getProductHelp(code: string, id?: number): Observable<APIResponse> {
 
-    return this.httpClient.get<APIResponse>(this.baseUrl + 'api/product/productHelp/' + id, { headers: this.headers })
-    .pipe(
+    return this.httpClient.get<APIResponse>(this.baseUrl + 'api/product/productHelp/' + code + '/' + id, { headers: this.headers })
+      .pipe(
         map(res => {
           if (!res.isSuccess) {
             throw new Error(res.message);
@@ -69,5 +69,6 @@ export class ProductsService {
           return res.singleResult;
         }));
   }
+
 
 }

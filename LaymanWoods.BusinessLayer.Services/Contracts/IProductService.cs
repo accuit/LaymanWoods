@@ -10,7 +10,7 @@ namespace LaymanWoods.BusinessLayer.Services.Contracts
         List<ProductMasterDTO> GetAllProducts();
         List<ProductMasterDTO> GetAllProductsByCategory(string code);
 
-        ProductHelpDTO GetProductHelp(int productID);
-        ProductHelpDTO GetCategoryHelp(int categgoryID);
+        ProductHelpDTO GetProductHelp(int productID, string code);
+        ProductHelpDTO GetCategoryHelp(string code);
     }
 }

@@ -41,15 +41,15 @@ namespace LaymanWoods.BusinessLayer.Base.Manager
             return mapper.Map<List<ProductMasterDTO>>(result);
         }
 
-        public ProductHelpDTO GetProductHelp(int productID)
+        public ProductHelpDTO GetProductHelp(int productID, string code)
         {
-            ProductHelp result = ProductRepository.GetProductHelp(productID);
+            ProductHelp result = ProductRepository.GetProductHelp(productID, code);
             return mapper.Map<ProductHelpDTO>(result);
         }
 
-        public ProductHelpDTO GetCategoryHelp(int categoryID)
+        public ProductHelpDTO GetCategoryHelp(string code)
         {
-            ProductHelp result = ProductRepository.GetCategoryHelp(categoryID);
+            ProductHelp result = ProductRepository.GetCategoryHelp(code);
             return mapper.Map<ProductHelpDTO>(result);
         }
     }

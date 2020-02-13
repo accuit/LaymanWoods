@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductsService } from '../shared/services/products.services';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProductMaster, ProductHelp } from '../shared/model/product';
+import { APIResponse } from '../shared/model/core.model';
 
 @Component({
   selector: 'app-help-page',
@@ -11,19 +12,24 @@ import { ProductMaster, ProductHelp } from '../shared/model/product';
 export class HelpPageComponent implements OnInit {
 
   helpContent: ProductHelp;
-  product: ProductMaster;
-  constructor(private readonly service: ProductsService, private router: Router) {
 
-    const navigation = this.router.getCurrentNavigation();
-    this.product = navigation.extras as ProductMaster;
+  constructor(private readonly service: ProductsService, private router: Router, private routerAct: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.service.getProductHelp(this.product.productID).subscribe((res: any) => {
-      this.helpContent = res;
-    }
-    );
+    this.routerAct.params.subscribe(res => {
+      this.getData(res.code, res.id);
+    })
 
+  }
+
+  getData(code, id) {
+    this.service.getProductHelp(code, id).subscribe((res: APIResponse) => {
+      if (res.isSuccess)
+        this.helpContent = res.singleResult;
+      else
+        this.router.navigate(['**']);
+    });
   }
 
 }

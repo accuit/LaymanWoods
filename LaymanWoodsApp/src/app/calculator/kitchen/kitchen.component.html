@@ -48,7 +48,7 @@
   [(ngModel)]="formData.B"
   (valueChanged)="formData.totalArea = calculateArea()" 
   [minValue]="'0'" 
-  [maxValue]="30"
+  [maxValue]="11"
   [placeholder1]="'Feet'" 
   [placeholder2]="'Inches'">
 </ipx-combo-textbox>
@@ -63,13 +63,14 @@
   [(ngModel)]="formData.C" 
   (valueChanged)="formData.totalArea = calculateArea()"
   [minValue]="'0'" 
-  [maxValue]="30"
+  [maxValue]="11"
   [placeholder1]="'Feet'" 
   [placeholder2]="'Inches'">
 </ipx-combo-textbox>
 </div>
 
 <div class="col-md-12" style="padding-bottom: 10px;">
+
     <div class="step-title">
         <span>STEP 4: Kitchen Height</span>
     </div>
@@ -77,8 +78,7 @@
       <input type="radio" name="kitchenHeight" (click)="formData.kitchenHeight = height"
       [checked]="height === formData.kitchenHeight">{{ height }}
     </label>
-
-    <ipx-help-button product="Kitchen" position="right"></ipx-help-button>
+    <ipx-help-button style="margin-left: 20px;" margin="20px" product="Kitchen" position="right"></ipx-help-button>
 </div>
 
 <div class="col-md-12">
@@ -88,7 +88,7 @@
     <div class="row">
 
         <div class="form-group">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <h4>Material</h4>
             </div>
             <div class="col-sm-4">
@@ -96,15 +96,15 @@
             </div>
         </div>
      
-        <ipx-dropdown class="col-sm-8" [options]="product1Brands" [label]="'Ply and Board'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand1"></ipx-dropdown>
-        <ipx-dropdown class="col-sm-8" [options]="product2Brands" [label]="'Inner Laminate'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand2"></ipx-dropdown>
-        <ipx-dropdown class="col-sm-8" [options]="product3Brands" [label]="'Outer Finish'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand3"></ipx-dropdown>
-        <ipx-dropdown class="col-sm-8" [options]="product8Brands" [label]="'Carpenter Cost'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand8"></ipx-dropdown>
-        <ipx-dropdown class="col-sm-8" [options]="product4Brands" [label]="'Hinges'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand4"></ipx-dropdown>
-        <ipx-dropdown class="col-sm-8" [options]="product5Brands" [label]="'Channels'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand5"></ipx-dropdown>
-        <ipx-dropdown class="col-sm-8" [options]="product6Brands" [label]="'Baskets'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand6"></ipx-dropdown>
-        <ipx-dropdown class="col-sm-8" [options]="product7Brands" [label]="'Handles'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand7"></ipx-dropdown>
-        <ipx-dropdown class="col-sm-8" [options]="product9Brands" [label]="'Others'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand9"></ipx-dropdown>
+        <ipx-dropdown  [options]="product1Brands" [label]="'Ply and Board'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand1"></ipx-dropdown>
+        <ipx-dropdown  [options]="product2Brands" [label]="'Inner Laminate'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand2"></ipx-dropdown>
+        <ipx-dropdown  [options]="product3Brands" [label]="'Outer Finish'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand3"></ipx-dropdown>
+        <ipx-dropdown  [options]="product8Brands" [label]="'Carpenter Cost'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand8"></ipx-dropdown>
+        <ipx-dropdown  [options]="product4Brands" [label]="'Hinges'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand4"></ipx-dropdown>
+        <ipx-dropdown  [options]="product5Brands" [label]="'Channels'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand5"></ipx-dropdown>
+        <ipx-dropdown  [options]="product6Brands" [label]="'Baskets'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand6"></ipx-dropdown>
+        <ipx-dropdown  [options]="product7Brands" [label]="'Handles'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand7"></ipx-dropdown>
+        <ipx-dropdown  [options]="product9Brands" [label]="'Others'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand9"></ipx-dropdown>
         
     </div>
 

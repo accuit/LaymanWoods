@@ -1,7 +1,8 @@
 
 <div class="row">
+    <div class="col-md-12">
     <div class="form-group">
-        <label class="col-sm-4 control-label" [attr.for]="identifier"> {{label}}</label>
+        <label style="font-weight: 500;" class="col-sm-4 control-label" [attr.for]="identifier"> {{label}}</label>
         <div class="col-sm-6">
             <select class="form-control" [ngModelOptions]="{standalone: true}" [attr.id]="identifier" [(ngModel)]="value" (change)="change(value)" #selectref
                 [ngClass]="{ 'edited' :controledited()}">
@@ -13,6 +14,7 @@
                 </option>
             </select>
         </div>
-        <div class="col-md-2"><ipx-help-button [product]="value" position="right"></ipx-help-button></div>
+        <div *ngIf="showHelp && value" class="col-md-2"><ipx-help-button [product]="value" position="right"></ipx-help-button></div>
     </div>
+</div>
 </div>

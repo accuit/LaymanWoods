@@ -13,7 +13,7 @@ namespace LaymanWoods.CommonLayer.Aspects.DTO
 
         public string Title { get; set; }
 
-        public int ProductID { get; set; }
+        public int? ProductID { get; set; }
 
         public string ImageUrl { get; set; }
 

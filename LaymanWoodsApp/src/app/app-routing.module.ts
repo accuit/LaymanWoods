@@ -46,7 +46,7 @@ const routes: Routes = [
     component: CalculatorComponent
   },
   {
-    path: 'help-page',
+    path: 'help-page/:code/:id',
     component: HelpPageComponent
   },
   {
