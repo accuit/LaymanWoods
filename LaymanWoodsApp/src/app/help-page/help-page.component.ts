@@ -12,7 +12,7 @@ import { APIResponse } from '../shared/model/core.model';
 export class HelpPageComponent implements OnInit {
 
   helpContent: ProductHelp;
-
+  noDataFound = false;
   constructor(private readonly service: ProductsService, private router: Router, private routerAct: ActivatedRoute) {
   }
 
@@ -27,8 +27,8 @@ export class HelpPageComponent implements OnInit {
     this.service.getProductHelp(code, id).subscribe((res: APIResponse) => {
       if (res.isSuccess)
         this.helpContent = res.singleResult;
-      else
-        this.router.navigate(['**']);
+        else
+        this.noDataFound = true;
     });
   }
 

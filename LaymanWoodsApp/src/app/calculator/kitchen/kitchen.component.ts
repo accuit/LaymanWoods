@@ -130,11 +130,6 @@ export class KitchenComponent implements OnInit {
 
   onSubmit() {
     this.calculateCostByBrand();
-    window.scroll({ 
-      top: 100, 
-      left: 0, 
-      behavior: 'smooth' 
-    });
   }
 
   calculateArea = (): number => {

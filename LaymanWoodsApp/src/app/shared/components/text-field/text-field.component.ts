@@ -12,6 +12,7 @@ export class IpxTextFieldComponent extends ElementBaseComponent<string> implemen
     @Input() mask: boolean;
     @Input() placeholder: string;
     @Input() errorParam: any;
+    @Input() type: any;
 
     getCustomErrorParams = () => ({
         errorParam: this.errorParam

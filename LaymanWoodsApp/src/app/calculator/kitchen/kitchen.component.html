@@ -32,7 +32,7 @@
     [(ngModel)]="formData.A" 
     (valueChanged)="formData.totalArea = calculateArea()"
     [minValue]="'0'" 
-    [maxValue]="30"
+    [maxValue]="11"
     [placeholder1]="'Feet'" 
     [placeholder2]="'Inches'">
 </ipx-combo-textbox>
@@ -78,7 +78,7 @@
       <input type="radio" name="kitchenHeight" (click)="formData.kitchenHeight = height"
       [checked]="height === formData.kitchenHeight">{{ height }}
     </label>
-    <ipx-help-button style="margin-left: 20px;" margin="20px" product="Kitchen" position="right"></ipx-help-button>
+    <ipx-help-button style="margin-left: 20px;" margin="20px"  position="right"></ipx-help-button>
 </div>
 
 <div class="col-md-12">
@@ -123,19 +123,11 @@
 
 </div>
 
-<div class="row" style="margin: 10% 6% 0 10%">
-  <div class="col-md-8"> 
-    <button type="submit" class="btn btn-default btn-md btn-block" (click)="onSubmit()">Submit</button>
+<div class="row" style="margin: 10% 6% 0 0">
+  <div class="col-md-8 text-center"> 
+    <button type="submit" class="btn btn-default btn-md btn-block" (click)="onSubmit()">Submit <i class="icon-paper-plane"></i></button>
   </div> 
 </div>
 
-<div class="row" style="margin-top: 5%">
-  <div class="col-md-6"> 
-    <button type="button" style="width:50%" class="btn btn-md btn-danger" (click)="reset()">Reset</button>
-  </div> 
-  <div class="col-md-6"> 
-    <app-add-another-button (addAnother)="addAnotherProduct($event)" [next]="nextProduct"></app-add-another-button>
-    <!-- <button type="button" class="btn btn-md btn-danger"  (click)="addAnotherProduct()">Add Another Product</button> -->
-  </div> 
-  
-</div>
+<app-add-another-button (reset)="reset()" (addAnother)="addAnotherProduct($event)" [next]="nextProduct"></app-add-another-button>
+      

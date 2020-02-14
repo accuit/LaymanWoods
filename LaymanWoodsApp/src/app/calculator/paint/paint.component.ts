@@ -25,7 +25,7 @@ export class PaintComponent implements OnInit {
   ngOnInit() {
 
     this.service.getProductsByCategory(400).subscribe(result => {
-      this.paintTypes = result;
+      this.paintTypes = result.singleResult;
 
       this.formData.totalPrice = 0;
       this.formData.area = 0;

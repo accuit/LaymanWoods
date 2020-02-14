@@ -23,7 +23,7 @@ export class TilesComponent implements OnInit {
   ngOnInit() {
 
     this.service.getProductsByCategory(500).subscribe(result => {
-      this.tileTypes = result;
+      this.tileTypes = result.singleResult;
 
       this.formData.totalPrice = 0;
       this.formData.area = 0;

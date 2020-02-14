@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterContentInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterContentInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-calculator',
@@ -8,6 +8,7 @@ import { Component, OnInit, AfterContentInit, ViewChild } from '@angular/core';
 export class CalculatorComponent implements OnInit, AfterContentInit {
 
   formData: any = {};
+  @ViewChild('scrollToPrice', {static: true}) el : ElementRef; 
   constructor() { }
 
   ngOnInit() {
@@ -29,6 +30,7 @@ export class CalculatorComponent implements OnInit, AfterContentInit {
     this.formData.products.find(x => x.key === productType).cost = cost;
 
     this.formData.totalPrice = this.formData.products.reduce((a, b) => a + b.cost, 0);
+    this.el.nativeElement.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   }
 
   onRadioChange(event): any {

@@ -46,7 +46,7 @@ export class ProductsService {
         }));
   }
 
-  getProductsByCategory(code): Observable<ProductMaster[]> {
+  getProductsByCategory(code): Observable<APIResponse> {
 
     return this.httpClient.get<APIResponse>(this.baseUrl + 'api/product/productsByCategory/' + code, { headers: this.headers })
       .pipe(
@@ -54,7 +54,7 @@ export class ProductsService {
           if (!res.isSuccess) {
             throw new Error(res.message);
           }
-          return res.singleResult;
+          return res;
         }));
   }
 
@@ -66,7 +66,7 @@ export class ProductsService {
           if (!res.isSuccess) {
             throw new Error(res.message);
           }
-          return res.singleResult;
+          return res;
         }));
   }
 

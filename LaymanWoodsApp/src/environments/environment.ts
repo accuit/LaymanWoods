@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   environmentName: 'QA',
-  //apiUrl: 'http://localhost:49743/'
-  apiUrl: 'http://laymanwood.in/'
+  apiUrl: 'http://localhost:49743/'
+  //apiUrl: 'http://laymanwood.in/'
 };
 
 /*

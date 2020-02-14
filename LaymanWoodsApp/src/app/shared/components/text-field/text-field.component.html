@@ -2,9 +2,9 @@
 <ng-container *ngTemplateOutlet="multiLine ? textarearef : textfieldref"></ng-container>
 <ng-template #textfieldref>
     <div class="form-group" [ngClass]="{ 'has-error': showError(), warning: !invalid && warning() }" (click)="touch()">
-        <label *ngIf="label" [attr.for]="identifier"> {{ label }}</label>
+        <label *ngIf="label"  [attr.for]="identifier"> {{ label }}</label>
 
-        <input class="form-control" [type]="mask ? 'password' : 'text'" [(ngModel)]="value" [disabled]="disabled" [id]="identifier" 
+        <input class="form-control" [type]="type" [(ngModel)]="value" [disabled]="disabled" [id]="identifier" 
         [ngClass]="{edited: controledited()}" [placeholder]="placeholder ? placeholder : ''" (change)="change($event)" (keyup)="onKeyup($event)"
             (ngModelChange)="onModelChange($event)" (blur)="blur()" autocomplete="off" />
 

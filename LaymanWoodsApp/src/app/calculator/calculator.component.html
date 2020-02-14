@@ -37,7 +37,9 @@
                     </div>
                 </div>
             </div>
-            <app-price-estimate [title]="'Estimated Price'" [items]="formData.products" [value]="formData.totalPrice"></app-price-estimate>
+            <div #scrollToPrice>
+                <app-price-estimate  [title]="'Estimated Price'" [items]="formData.products" [value]="formData.totalPrice"></app-price-estimate>
+            </div>
         </div>
     </div>
 </section>
