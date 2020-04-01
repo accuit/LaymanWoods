@@ -60,6 +60,10 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
 
         public int CompanyID { get; set; }
 
+        public bool IsDefault { get; set; }
+        public decimal? Multiplier { get; set; }
+        public decimal? Divisor { get; set; }
+
         public int? MeasurementUnit { get; set; }
 
         public virtual CategoryMaster CategoryMaster { get; set; }

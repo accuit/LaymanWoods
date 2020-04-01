@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { DataService } from 'src/app/shared/services/data.service';
+import { FormGroup } from '@angular/forms';
 import { ProductMaster } from 'src/app/shared/model/product';
 import { Dimension } from 'src/app/shared/enums/app.enums';
 import * as _ from 'underscore';
@@ -58,38 +57,38 @@ export class KitchenComponent implements OnInit {
     this.formData.selectedKitchen = _.first(this.kitchens);
     this.formData.kitchenHeight = 'Standard';
 
-    this.formData.A = { feet: 0, inches: 0, type: Dimension.LENGTH };
-    this.formData.B = this.formData.selectedKitchen.sides > 1 ? { feet: 0, inches: 0, type: Dimension.WIDTH } : null;
-    this.formData.C = this.formData.selectedKitchen.sides > 2 ? { feet: 0, inches: 0, type: Dimension.HEIGHT } : null;
+    this.formData.A = { feet: 10, inches: 0, type: Dimension.LENGTH };
+    this.formData.B = this.formData.selectedKitchen.sides > 1 ? { feet: 10, inches: 0, type: Dimension.WIDTH } : null;
+    this.formData.C = this.formData.selectedKitchen.sides > 2 ? { feet: 10, inches: 0, type: Dimension.HEIGHT } : null;
   }
 
   initializeBrands() {
     this.product1Brands = this.kitchenProducts.filter(x => x.categoryCode === '101');
-    this.formData.selectedBrand1 = _.first(this.product1Brands);
+    this.formData.selectedBrand1 = _.first(this.product1Brands.filter(x => x.isDefault));
 
     this.product2Brands = this.kitchenProducts.filter(x => x.categoryCode === '102');
-    this.formData.selectedBrand2 = _.first(this.product2Brands);
+    this.formData.selectedBrand2 = _.first(this.product2Brands.filter(x => x.isDefault));
 
     this.product3Brands = this.kitchenProducts.filter(x => x.categoryCode === '103');
-    this.formData.selectedBrand3 = _.first(this.product3Brands);
+    this.formData.selectedBrand3 = _.first(this.product3Brands.filter(x => x.isDefault));
 
     this.product4Brands = this.kitchenProducts.filter(x => x.categoryCode === '104');
-    this.formData.selectedBrand4 = null; // _.first(this.product4Brands);
+    this.formData.selectedBrand4 = _.first(this.product4Brands.filter(x => x.isDefault));
 
     this.product5Brands = this.kitchenProducts.filter(x => x.categoryCode === '105');
-    this.formData.selectedBrand5 = null; //  _.first(this.product5Brands);
+    this.formData.selectedBrand5 = _.first(this.product5Brands.filter(x => x.isDefault));
 
     this.product6Brands = this.kitchenProducts.filter(x => x.categoryCode === '106');
-    this.formData.selectedBrand6 = null; //  _.first(this.product6Brands);
+    this.formData.selectedBrand6 = _.first(this.product6Brands.filter(x => x.isDefault));
 
     this.product7Brands = this.kitchenProducts.filter(x => x.categoryCode === '107');
-    this.formData.selectedBrand7 = null; // _.first(this.product7Brands);
+    this.formData.selectedBrand7 = _.first(this.product7Brands.filter(x => x.isDefault));
 
     this.product8Brands = this.kitchenProducts.filter(x => x.categoryCode === '200');
-    this.formData.selectedBrand8 = null; //  _.first(this.product8Brands);
+    this.formData.selectedBrand8 = _.first(this.product8Brands.filter(x => x.isDefault));
 
     this.product9Brands = this.kitchenProducts.filter(x => x.categoryCode === '300');
-    this.formData.selectedBrand9 = null; //  _.first(this.product8Brands);
+    this.formData.selectedBrand9 = _.first(this.product9Brands.filter(x => x.isDefault));
 
     this.formData.accessories = this.kitchenProducts.filter(x => x.categoryCode === '100');
     this.formData.accessories.forEach((x) => { x.isChecked = false; });
@@ -103,21 +102,22 @@ export class KitchenComponent implements OnInit {
   }
 
   calculateCostByBrand(): number {
-    const area = this.formData.totalArea;
+    const area = this.calculateArea();
     let totalCost: number = 0;
-    totalCost = this.formData.selectedBrand1 ? +this.formData.selectedBrand1.mrp : 0;
-    totalCost = this.formData.selectedBrand2 ? (totalCost + this.formData.selectedBrand2.mrp) : totalCost;
-    totalCost = this.formData.selectedBrand3 ? (totalCost + this.formData.selectedBrand3.mrp) : totalCost;
-    totalCost = this.formData.selectedBrand4 ? (totalCost + this.formData.selectedBrand4.mrp) : totalCost;
-    totalCost = this.formData.selectedBrand5 ? (totalCost + this.formData.selectedBrand5.mrp) : totalCost;
-    totalCost = this.formData.selectedBrand6 ? (totalCost + this.formData.selectedBrand6.mrp) : totalCost;
-    totalCost = this.formData.selectedBrand7 ? (totalCost + this.formData.selectedBrand7.mrp) : totalCost;
-    totalCost = this.formData.selectedBrand8 ? (totalCost + this.formData.selectedBrand8.mrp) : totalCost;
+    totalCost = this.formData.selectedBrand1 ? (+this.formData.selectedBrand1.mrp * this.formData.selectedBrand1.multiplier) * (area / this.formData.selectedBrand1.divisor) : 0;
+    totalCost = this.formData.selectedBrand2 ? totalCost + (this.formData.selectedBrand2.mrp * this.formData.selectedBrand2.multiplier) * (area / this.formData.selectedBrand2.divisor) : totalCost;
+    totalCost = this.formData.selectedBrand3 ? totalCost + (this.formData.selectedBrand3.mrp * this.formData.selectedBrand3.multiplier) * (area / this.formData.selectedBrand3.divisor) : totalCost;
+    totalCost = this.formData.selectedBrand4 ? totalCost + (this.formData.selectedBrand4.mrp * this.formData.selectedBrand4.multiplier) * (area / this.formData.selectedBrand4.divisor) : totalCost;
+    totalCost = this.formData.selectedBrand5 ? totalCost + (this.formData.selectedBrand5.mrp * this.formData.selectedBrand5.multiplier) * (area / this.formData.selectedBrand5.divisor) : totalCost;
+    totalCost = this.formData.selectedBrand6 ? totalCost + (this.formData.selectedBrand6.mrp * this.formData.selectedBrand6.multiplier) * (area / this.formData.selectedBrand6.divisor) : totalCost;
+    totalCost = this.formData.selectedBrand7 ? totalCost + (this.formData.selectedBrand7.mrp * this.formData.selectedBrand7.multiplier) * (area / this.formData.selectedBrand7.divisor) : totalCost;
+    totalCost = this.formData.selectedBrand8 ? totalCost + (this.formData.selectedBrand8.mrp * this.formData.selectedBrand8.multiplier) * (area / this.formData.selectedBrand8.divisor) : totalCost;
+
+    totalCost = Math.round(totalCost) + this.calculateAccessories();
     totalCost = this.formData.selectedBrand9 ? (totalCost + this.formData.selectedBrand9.mrp) : totalCost;
-    const cumulativeSum = Math.round(totalCost * area) + this.calculateAccessories();
-    this.kitchenPrice.emit(cumulativeSum);
-    this.formData.totalPrice = cumulativeSum;
-    return cumulativeSum;
+    this.kitchenPrice.emit(totalCost);
+    this.formData.totalPrice = totalCost;
+    return totalCost;
   }
 
   reset() {
@@ -138,6 +138,10 @@ export class KitchenComponent implements OnInit {
     const sideB = +this.formData.selectedKitchen.sides > 1 ? (+this.formData.B.feet + (+this.formData.B.inches) / 12) : 0; // Feet
     const sideC = +this.formData.selectedKitchen.sides > 2 ? (+this.formData.C.feet + (+this.formData.C.inches) / 12) : 0; // Feet
     this.formData.totalArea = (sideA + sideB + sideC)
+    if (this.formData.kitchenHeight === 'Standard')
+      this.formData.totalArea = (this.formData.totalArea) * 5;
+    else
+      this.formData.totalArea = (this.formData.totalArea) * 6.5;
 
     return this.formData.totalArea;
   };

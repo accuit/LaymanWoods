@@ -1,10 +1,10 @@
 <!-- .product -->
 <div class="row">
 
-<div class="col-md-12">
+    <div class="col-md-12">
 
-    <div class="step-title">
-        <span>STEP 2: Choose the Layout of Kitchen</span >
+        <div class="step-title">
+            <span>STEP 2: Choose the Layout of Kitchen</span >
     </div>
 
     <div class="description">
@@ -21,113 +21,80 @@
 <div class="col-md-12">
     <div class="step-title"> 
         <span>STEP 3: Input Kitchen Measurements</span>
+        </div>
+        <ipx-combo-textbox *ngIf="formData.selectedKitchen.sides > 0" [label1]="'Feet'" [label2]="'Inches'" [textField1]="'feet'" [textField2]="'inches'" [label2]="'Inches'" [name]="'A'" [(ngModel)]="formData.A" (valueChanged)="formData.totalArea = calculateArea()"
+            [minValue]="'0'" [maxValue]="11" [placeholder1]="'Feet'" [placeholder2]="'Inches'">
+        </ipx-combo-textbox>
+
+
+        <ipx-combo-textbox *ngIf="formData.selectedKitchen.sides > 1" [label1]="'Feet'" [label2]="'Inches'" [textField1]="'feet'" [textField2]="'inches'" [label2]="'Inches'" [name]="'B'" [(ngModel)]="formData.B" (valueChanged)="formData.totalArea = calculateArea()"
+            [minValue]="'0'" [maxValue]="11" [placeholder1]="'Feet'" [placeholder2]="'Inches'">
+        </ipx-combo-textbox>
+
+        <ipx-combo-textbox *ngIf="formData.selectedKitchen.sides > 2" [label1]="'Feet'" [label2]="'Inches'" [textField1]="'feet'" [textField2]="'inches'" [label2]="'Inches'" [name]="'C'" [(ngModel)]="formData.C" (valueChanged)="formData.totalArea = calculateArea()"
+            [minValue]="'0'" [maxValue]="11" [placeholder1]="'Feet'" [placeholder2]="'Inches'">
+        </ipx-combo-textbox>
     </div>
-    <ipx-combo-textbox *ngIf="formData.selectedKitchen.sides > 0"
-    [label1]="'Feet'" 
-    [label2]="'Inches'" 
-    [textField1]="'feet'" 
-    [textField2]="'inches'" 
-    [label2]="'Inches'" 
-    [name]="'A'" 
-    [(ngModel)]="formData.A" 
-    (valueChanged)="formData.totalArea = calculateArea()"
-    [minValue]="'0'" 
-    [maxValue]="11"
-    [placeholder1]="'Feet'" 
-    [placeholder2]="'Inches'">
-</ipx-combo-textbox>
-    
-    
-<ipx-combo-textbox *ngIf="formData.selectedKitchen.sides > 1"
-  [label1]="'Feet'" 
-  [label2]="'Inches'" 
-  [textField1]="'feet'" 
-  [textField2]="'inches'" 
-  [label2]="'Inches'" 
-  [name]="'B'" 
-  [(ngModel)]="formData.B"
-  (valueChanged)="formData.totalArea = calculateArea()" 
-  [minValue]="'0'" 
-  [maxValue]="11"
-  [placeholder1]="'Feet'" 
-  [placeholder2]="'Inches'">
-</ipx-combo-textbox>
 
-<ipx-combo-textbox *ngIf="formData.selectedKitchen.sides > 2"
-  [label1]="'Feet'" 
-  [label2]="'Inches'" 
-  [textField1]="'feet'" 
-  [textField2]="'inches'" 
-  [label2]="'Inches'" 
-  [name]="'C'" 
-  [(ngModel)]="formData.C" 
-  (valueChanged)="formData.totalArea = calculateArea()"
-  [minValue]="'0'" 
-  [maxValue]="11"
-  [placeholder1]="'Feet'" 
-  [placeholder2]="'Inches'">
-</ipx-combo-textbox>
-</div>
+    <div class="col-md-12" style="padding-bottom: 10px;">
 
-<div class="col-md-12" style="padding-bottom: 10px;">
-
-    <div class="step-title">
-        <span>STEP 4: Kitchen Height</span>
-    </div>
-    <label class="radio-inline" *ngFor="let height of ['Standard','Roof Top']">
+        <div class="step-title">
+            <span>STEP 4: Kitchen Height</span>
+        </div>
+        <label class="radio-inline" *ngFor="let height of ['Standard','Roof Top']">
       <input type="radio" name="kitchenHeight" (click)="formData.kitchenHeight = height"
       [checked]="height === formData.kitchenHeight">{{ height }}
     </label>
-    <ipx-help-button style="margin-left: 20px;" margin="20px"  position="right"></ipx-help-button>
-</div>
+        <ipx-help-button style="margin-left: 20px;" margin="20px" position="right"></ipx-help-button>
+    </div>
 
-<div class="col-md-12">
-    <div class="step-title">
-      <span>STEP 5: Material Quality / Brand Selection </span>
-  </div>
-    <div class="row">
-
-        <div class="form-group">
-            <div class="col-sm-4">
-                <h4>Material</h4>
-            </div>
-            <div class="col-sm-4">
-                <h4>Brand</h4>
-            </div>
+    <div class="col-md-12">
+        <div class="step-title">
+            <span>STEP 5: Material Quality / Brand Selection </span>
         </div>
-     
-        <ipx-dropdown  [options]="product1Brands" [label]="'Ply and Board'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand1"></ipx-dropdown>
-        <ipx-dropdown  [options]="product2Brands" [label]="'Inner Laminate'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand2"></ipx-dropdown>
-        <ipx-dropdown  [options]="product3Brands" [label]="'Outer Finish'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand3"></ipx-dropdown>
-        <ipx-dropdown  [options]="product8Brands" [label]="'Carpenter Cost'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand8"></ipx-dropdown>
-        <ipx-dropdown  [options]="product4Brands" [label]="'Hinges'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand4"></ipx-dropdown>
-        <ipx-dropdown  [options]="product5Brands" [label]="'Channels'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand5"></ipx-dropdown>
-        <ipx-dropdown  [options]="product6Brands" [label]="'Baskets'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand6"></ipx-dropdown>
-        <ipx-dropdown  [options]="product7Brands" [label]="'Handles'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand7"></ipx-dropdown>
-        <ipx-dropdown  [options]="product9Brands" [label]="'Others'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand9"></ipx-dropdown>
-        
+        <div class="row">
+
+            <div class="form-group">
+                <div class="col-sm-4">
+                    <h4>Material</h4>
+                </div>
+                <div class="col-sm-4">
+                    <h4>Brand</h4>
+                </div>
+            </div>
+
+            <ipx-dropdown [options]="product1Brands" [label]="'Ply and Board'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand1"></ipx-dropdown>
+            <ipx-dropdown [options]="product2Brands" [label]="'Inner Laminate'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand2"></ipx-dropdown>
+            <ipx-dropdown [options]="product3Brands" [label]="'Outer Finish'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand3"></ipx-dropdown>
+            <ipx-dropdown [options]="product8Brands" [label]="'Carpenter Cost'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand8"></ipx-dropdown>
+            <ipx-dropdown [options]="product4Brands" [label]="'Hinges'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand4"></ipx-dropdown>
+            <ipx-dropdown [options]="product5Brands" [label]="'Channels'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand5"></ipx-dropdown>
+            <ipx-dropdown [options]="product6Brands" [label]="'Baskets'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand6"></ipx-dropdown>
+            <ipx-dropdown [options]="product7Brands" [label]="'Handles'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand7"></ipx-dropdown>
+            <ipx-dropdown [options]="product9Brands" [label]="'Others'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand9"></ipx-dropdown>
+
+        </div>
+
     </div>
 
-</div>
+    <div class="col-md-12">
+        <div class="price-details">
+            <h3>Step 6</h3>
+            <span class="price"> Extra Hardware Accessories</span>
+        </div>
 
-<div class="col-md-12">
-    <div class="price-details">
-        <h3>Step 6</h3>
-        <span class="price"> Extra Hardware Accessories</span>
-    </div>
-    <label *ngFor="let acc of formData.accessories" class="checkbox-inline">
+        <label *ngFor="let acc of formData.accessories" class="checkbox-inline" style="margin-left: 10px;">
         <input type="checkbox" name="acc.productId" id="acc.productId" [(ngModel)]="acc.isChecked" value="acc.productId"> 
         {{ acc.name}}
       </label>
-</div>
+    </div>
 
 </div>
 
 <div class="row" style="margin: 10% 6% 0 0">
-  <div class="col-md-8 text-center"> 
-    <button type="submit" class="btn btn-default btn-md btn-block" (click)="onSubmit()">Submit <i class="icon-paper-plane"></i></button>
-  </div> 
+    <div class="col-md-8 text-center">
+        <button type="submit" class="btn btn-default btn-md btn-block" (click)="onSubmit()">Submit <i class="icon-paper-plane"></i></button>
+    </div>
 </div>
 
 <app-add-another-button (reset)="reset()" (addAnother)="addAnotherProduct($event)" [next]="nextProduct"></app-add-another-button>
-      

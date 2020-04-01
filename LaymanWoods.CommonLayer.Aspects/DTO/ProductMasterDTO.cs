@@ -38,6 +38,10 @@ namespace LaymanWoods.CommonLayer.Aspects.DTO
         [StringLength(50)]
         public string SKUName { get; set; }
 
+        public bool IsDefault { get; set; }
+        public decimal? Multiplier { get; set; }
+        public decimal? Divisor { get; set; }
+
         public decimal? MRP { get; set; }
 
         public DateTime CreatedDate { get; set; }

@@ -12,9 +12,12 @@ export class ProductMaster {
     mrp: string;
     isDeleted: boolean;
     isActive: boolean;
+    isDefault: boolean;
     categoryID: number;
     companyID: number;
     measurementUnit: number;
+    multiplier: number;
+    divisor: number;
 }
 
 export class ProductHelp {
