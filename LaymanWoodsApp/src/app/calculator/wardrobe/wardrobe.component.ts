@@ -14,7 +14,7 @@ export class WardrobeComponent implements OnInit {
   @Output() readonly wardrobePrice: EventEmitter<any> = new EventEmitter<any>();
   @Output() readonly addAnother: EventEmitter<any> = new EventEmitter<any>();
   @Input('next') nextProduct: number;
-  
+
   wardrobeProducts: ProductMaster[];
   kitchenCategoryID = 1;
   wardrobe: any;
@@ -46,8 +46,8 @@ export class WardrobeComponent implements OnInit {
     this.formData.isSlider = 'No'
     this.formData.totalArea = 0;
 
-    this.formData.A = { feet: 0, inches: 0, type: Dimension.LENGTH };
-    this.formData.B = { feet: 0, inches: 0, type: Dimension.WIDTH }
+    this.formData.A = { feet: 10, inches: 0, type: Dimension.LENGTH };
+    this.formData.B = { feet: 10, inches: 0, type: Dimension.WIDTH }
   }
 
   addAnotherProduct(prod) {
@@ -56,52 +56,51 @@ export class WardrobeComponent implements OnInit {
 
   initializeBrands() {
     this.product1Brands = this.wardrobeProducts.filter(x => x.categoryCode === '101');
-    this.formData.selectedBrand1 = _.first(this.product1Brands);
+    this.formData.selectedBrand1 = _.first(this.product1Brands.filter(x => x.isDefault));
 
     this.product2Brands = this.wardrobeProducts.filter(x => x.categoryCode === '102');
-    this.formData.selectedBrand2 = _.first(this.product2Brands);
+    this.formData.selectedBrand2 = _.first(this.product2Brands.filter(x => x.isDefault));
 
     this.product3Brands = this.wardrobeProducts.filter(x => x.categoryCode === '103');
-    this.formData.selectedBrand3 = _.first(this.product3Brands);
+    this.formData.selectedBrand3 = _.first(this.product3Brands.filter(x => x.isDefault));
 
     this.product4Brands = this.wardrobeProducts.filter(x => x.categoryCode === '104');
-    this.formData.selectedBrand4 = null; // _.first(this.product4Brands);
+    this.formData.selectedBrand4 = _.first(this.product4Brands.filter(x => x.isDefault));
 
     this.product5Brands = this.wardrobeProducts.filter(x => x.categoryCode === '105');
-    this.formData.selectedBrand5 = null; //  _.first(this.product5Brands);
+    this.formData.selectedBrand5 = _.first(this.product5Brands.filter(x => x.isDefault));
 
     this.product6Brands = this.wardrobeProducts.filter(x => x.categoryCode === '106');
-    this.formData.selectedBrand6 = null; //  _.first(this.product6Brands);
+    this.formData.selectedBrand6 = _.first(this.product6Brands.filter(x => x.isDefault));
 
     this.product7Brands = this.wardrobeProducts.filter(x => x.categoryCode === '107');
-    this.formData.selectedBrand7 = null; // _.first(this.product7Brands);
+    this.formData.selectedBrand7 = _.first(this.product7Brands.filter(x => x.isDefault));
 
     this.product8Brands = this.wardrobeProducts.filter(x => x.categoryCode === '200');
-    this.formData.selectedBrand8 = null; //  _.first(this.product8Brands);
+    this.formData.selectedBrand8 = _.first(this.product8Brands.filter(x => x.isDefault));
 
     this.product9Brands = this.wardrobeProducts.filter(x => x.categoryCode === '300');
-    this.formData.selectedBrand9 = null; //  _.first(this.product8Brands);
-
+    this.formData.selectedBrand9 = _.first(this.product9Brands.filter(x => x.isDefault));
 
   }
 
   calculateCostByBrand(): number {
-    const area = this.formData.totalArea;
+    const area = this.calculateArea();
     let totalCost: number = 0;
-    totalCost = this.formData.selectedBrand1 ? +this.formData.selectedBrand1.mrp : 0;
-    totalCost = this.formData.selectedBrand2 ? (totalCost + this.formData.selectedBrand2.mrp) : totalCost;
-    totalCost = this.formData.selectedBrand3 ? (totalCost + this.formData.selectedBrand3.mrp) : totalCost;
-    totalCost = this.formData.selectedBrand4 ? (totalCost + this.formData.selectedBrand4.mrp) : totalCost;
-    totalCost = this.formData.selectedBrand5 ? (totalCost + this.formData.selectedBrand5.mrp) : totalCost;
-    totalCost = this.formData.selectedBrand6 ? (totalCost + this.formData.selectedBrand6.mrp) : totalCost;
-    totalCost = this.formData.selectedBrand7 ? (totalCost + this.formData.selectedBrand7.mrp) : totalCost;
-    totalCost = this.formData.selectedBrand8 ? (totalCost + this.formData.selectedBrand8.mrp) : totalCost;
+    totalCost = this.formData.selectedBrand1 ? (+this.formData.selectedBrand1.mrp * this.formData.selectedBrand1.multiplier) * (area / this.formData.selectedBrand1.divisor) : 0;
+    totalCost = this.formData.selectedBrand2 ? totalCost + (this.formData.selectedBrand2.mrp * this.formData.selectedBrand2.multiplier) * (area / this.formData.selectedBrand2.divisor) : totalCost;
+    totalCost = this.formData.selectedBrand3 ? totalCost + (this.formData.selectedBrand3.mrp * this.formData.selectedBrand3.multiplier) * (area / 20) : totalCost;
+    totalCost = this.formData.selectedBrand4 ? totalCost + (this.formData.selectedBrand4.mrp * this.formData.selectedBrand4.multiplier) * (area / 6) : totalCost;
+    totalCost = this.formData.selectedBrand5 ? totalCost + (this.formData.selectedBrand5.mrp * this.formData.selectedBrand5.multiplier) * (area / 12) : totalCost;
+    totalCost = this.formData.selectedBrand6 ? totalCost + (this.formData.selectedBrand6.mrp * this.formData.selectedBrand6.multiplier) * (area / this.formData.selectedBrand6.divisor) : totalCost;
+    totalCost = this.formData.selectedBrand7 ? totalCost + (this.formData.selectedBrand7.mrp * this.formData.selectedBrand7.multiplier) * (area / 10) : totalCost;
+    totalCost = this.formData.selectedBrand8 ? totalCost + (this.formData.selectedBrand8.mrp * this.formData.selectedBrand8.multiplier) * (area / this.formData.selectedBrand8.divisor) : totalCost;
     totalCost = this.formData.selectedBrand9 ? (totalCost + this.formData.selectedBrand9.mrp) : totalCost;
-    const cumulativeSum = totalCost * area
-    this.wardrobePrice.emit(cumulativeSum);
-    this.formData.totalPrice = cumulativeSum;
-    
-    return cumulativeSum;
+    totalCost = Math.round(totalCost);
+    this.wardrobePrice.emit(totalCost);
+    this.formData.totalPrice = totalCost;
+
+    return totalCost;
   }
 
   calculateArea = (): number => {
@@ -121,10 +120,10 @@ export class WardrobeComponent implements OnInit {
 
   onSubmit() {
     this.calculateCostByBrand();
-    window.scroll({ 
-      top: 100, 
-      left: 0, 
-      behavior: 'smooth' 
+    window.scroll({
+      top: 100,
+      left: 0,
+      behavior: 'smooth'
     });
   }
 }
