@@ -24,7 +24,7 @@ export class WardrobeComponent implements OnInit {
   product3Brands: ProductMaster[];
   product4Brands: ProductMaster[];
   product5Brands: ProductMaster[];
-  product6Brands: ProductMaster[];
+  // product6Brands: ProductMaster[];
   product7Brands: ProductMaster[];
   product8Brands: ProductMaster[];
   product9Brands: ProductMaster[];
@@ -70,8 +70,8 @@ export class WardrobeComponent implements OnInit {
     this.product5Brands = this.wardrobeProducts.filter(x => x.categoryCode === '105');
     this.formData.selectedBrand5 = _.first(this.product5Brands.filter(x => x.isDefault));
 
-    this.product6Brands = this.wardrobeProducts.filter(x => x.categoryCode === '106');
-    this.formData.selectedBrand6 = _.first(this.product6Brands.filter(x => x.isDefault));
+    // this.product6Brands = this.wardrobeProducts.filter(x => x.categoryCode === '106');
+    // this.formData.selectedBrand6 = _.first(this.product6Brands.filter(x => x.isDefault));
 
     this.product7Brands = this.wardrobeProducts.filter(x => x.categoryCode === '107');
     this.formData.selectedBrand7 = _.first(this.product7Brands.filter(x => x.isDefault));
@@ -92,10 +92,9 @@ export class WardrobeComponent implements OnInit {
     totalCost = this.formData.selectedBrand3 ? totalCost + (this.formData.selectedBrand3.mrp * this.formData.selectedBrand3.multiplier) * (area / 20) : totalCost;
     totalCost = this.formData.selectedBrand4 ? totalCost + (this.formData.selectedBrand4.mrp * this.formData.selectedBrand4.multiplier) * (area / 6) : totalCost;
     totalCost = this.formData.selectedBrand5 ? totalCost + (this.formData.selectedBrand5.mrp * this.formData.selectedBrand5.multiplier) * (area / 12) : totalCost;
-    totalCost = this.formData.selectedBrand6 ? totalCost + (this.formData.selectedBrand6.mrp * this.formData.selectedBrand6.multiplier) * (area / this.formData.selectedBrand6.divisor) : totalCost;
     totalCost = this.formData.selectedBrand7 ? totalCost + (this.formData.selectedBrand7.mrp * this.formData.selectedBrand7.multiplier) * (area / 10) : totalCost;
     totalCost = this.formData.selectedBrand8 ? totalCost + (this.formData.selectedBrand8.mrp * this.formData.selectedBrand8.multiplier) * (area / this.formData.selectedBrand8.divisor) : totalCost;
-    totalCost = this.formData.selectedBrand9 ? (totalCost + this.formData.selectedBrand9.mrp) : totalCost;
+    totalCost = this.formData.selectedBrand9 ? (totalCost + 190 * area) : totalCost;
     totalCost = Math.round(totalCost);
     this.wardrobePrice.emit(totalCost);
     this.formData.totalPrice = totalCost;

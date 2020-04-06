@@ -46,6 +46,8 @@ Update ProductMaster set  Divisor = 3 Where CategoryCode = 104;
 Update ProductMaster set  Divisor = 13 Where CategoryCode = 105;
 Update ProductMaster set  Divisor = 13 Where CategoryCode = 106;
 Update ProductMaster set  Divisor = 3 Where CategoryCode = 107;
+Update ProductMaster set  Mrp = 550 Where ProductID = 108;
+INSERT INTo CategoryMaster Values('Locks', '108', 1)
 
 
 
