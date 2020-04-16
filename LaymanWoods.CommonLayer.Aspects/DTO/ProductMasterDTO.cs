@@ -39,8 +39,6 @@ namespace LaymanWoods.CommonLayer.Aspects.DTO
         public string SKUName { get; set; }
 
         public bool IsDefault { get; set; }
-        public decimal? Multiplier { get; set; }
-        public decimal? Divisor { get; set; }
 
         public decimal? MRP { get; set; }
 
@@ -63,6 +61,5 @@ namespace LaymanWoods.CommonLayer.Aspects.DTO
 
         public int? MeasurementUnit { get; set; }
 
-        public virtual CategoryMasterDTO CategoryMaster { get; set; }
     }
 }

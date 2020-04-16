@@ -1,8 +1,10 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { dataTypeEnum } from 'src/app/shared/enums/app.enums';
+import { dataTypeEnum, WebPartTypeEnum, InteriorEnum, CalculationCostTypeEnum } from 'src/app/shared/enums/app.enums';
 import * as _ from 'underscore';
 import { ProductMaster } from 'src/app/shared/model/product';
 import { ProductsService } from 'src/app/shared/services/products.services';
+import { CompleteInteriorListing } from 'src/app/shared/model/interior';
+import { CategoryMaster } from 'src/app/shared/model/product-category';
 
 @Component({
   selector: 'app-paint',
@@ -18,24 +20,43 @@ export class PaintComponent implements OnInit {
 
   dataType: any = dataTypeEnum;
   formData: any = {};
+  interiorCategories: CompleteInteriorListing[];
+
   constructor(private readonly service: ProductsService) { }
 
-  paintTypes: ProductMaster[];
-
   ngOnInit() {
+    this.service.getInteriorCategories(+InteriorEnum.Paint).subscribe(result => {
+      this.interiorCategories = result;
+      this.getProductFormData();
+    });
+  }
 
-    this.service.getProductsByCategory(400).subscribe(result => {
-      this.paintTypes = result.singleResult;
-
-      this.formData.totalPrice = 0;
-      this.formData.area = 0;
-      this.formData.selectedType = _.first(this.paintTypes);
-    })
-
+  getProductFormData() {
+    this.formData.totalPrice = 0;
+    this.formData.area = 0;
+    this.formData.categories = new Array<CompleteInteriorListing>();
+    this.interiorCategories.forEach(c => {
+      c.selectedProduct = new ProductMaster();
+      const defaultProduct = c.products.filter(x => x.isDefault);
+      c.selectedProduct = _.first(defaultProduct.length ? defaultProduct : c.products);
+    });
+    this.formData.categories = this.interiorCategories;
   }
 
   calculateCost() {
-    this.formData.totalPrice = this.formData.area * this.formData.selectedType.mrp;
+    let totalCost: number = 0;
+    this.interiorCategories.forEach(x => {
+      if (x.selectedProduct) {
+        if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.AreaMultiply) {
+          totalCost = totalCost + (x.selectedProduct.mrp * x.multiplier) * (this.formData.area / x.divisor);
+        } else if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.Quantity) {
+          totalCost = totalCost + x.selectedProduct.mrp;
+        }
+        console.log(x.selectedProduct.title + ': (' + x.selectedProduct.mrp + "*" + x.multiplier + ') * (' + this.formData.area + '/' + x.divisor + ')');
+      }
+    });
+
+    this.formData.totalPrice = Math.round(totalCost)
     this.paintPrice.emit(this.formData.totalPrice);
   }
 
@@ -44,7 +65,7 @@ export class PaintComponent implements OnInit {
   }
 
   reset(): any {
-    this.formData = {};
+    this.getProductFormData();
     this.paintPrice.emit(0);
   }
 
@@ -52,8 +73,7 @@ export class PaintComponent implements OnInit {
     this.calculateCost();
     window.scroll({
       top: 100,
-      left: 0,
-      behavior: 'smooth'
+      left: 0
     });
   }
 

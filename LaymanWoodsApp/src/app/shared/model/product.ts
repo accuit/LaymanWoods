@@ -7,9 +7,9 @@ export class ProductMaster {
     basicModelCode: string;
     basicModelName: string;
     color: number;
-    sKUCode: string;
-    sKUName: string;
-    mrp: string;
+    skuCode: string;
+    skuName: string;
+    mrp: number;
     isDeleted: boolean;
     isActive: boolean;
     isDefault: boolean;
@@ -18,6 +18,8 @@ export class ProductMaster {
     measurementUnit: number;
     multiplier: number;
     divisor: number;
+    isSelected: boolean
+    isChecked: boolean;
 }
 
 export class ProductHelp {

@@ -7,6 +7,7 @@ import { APIResponse } from '../model/core.model';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { CompleteInteriorListing } from '../model/interior';
 
 @Injectable()
 export class ProductsService {
@@ -37,6 +38,17 @@ export class ProductsService {
 
   getCategories(): Observable<CategoryMaster[]> {
     return this.httpClient.get<APIResponse>(this.baseUrl + 'api/product/getCategories/', { headers: this.headers })
+      .pipe(
+        map(res => {
+          if (!res.isSuccess) {
+            throw new Error(res.message);
+          }
+          return res.singleResult;
+        }));
+  }
+
+  getInteriorCategories(interiorID: number): Observable<CompleteInteriorListing[]> {
+    return this.httpClient.get<APIResponse>(this.baseUrl + 'api/product/get-mappings/'+ interiorID, { headers: this.headers })
       .pipe(
         map(res => {
           if (!res.isSuccess) {

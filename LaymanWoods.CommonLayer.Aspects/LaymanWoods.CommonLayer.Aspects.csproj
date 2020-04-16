@@ -66,12 +66,16 @@
   <ItemGroup>
     <Compile Include="AopEngine.cs" />
     <Compile Include="AspectEnums.cs" />
+    <Compile Include="DTO\InteriorAndCategoryMappingDTO.cs" />
     <Compile Include="DTO\CategoryMasterDTO.cs" />
     <Compile Include="DTO\CommonSetupDTO.cs" />
     <Compile Include="DTO\EmailServiceDTO.cs" />
     <Compile Include="DTO\EmailTemplateDTO.cs" />
+    <Compile Include="DTO\InteriorCategoryDTO.cs" />
+    <Compile Include="DTO\InteriorProductsDTO.cs" />
     <Compile Include="DTO\OTPDTO.cs" />
     <Compile Include="DTO\ProductHelpDTO.cs" />
+    <Compile Include="DTO\CompleteInteriorListingDTO.cs" />
     <Compile Include="DTO\ProductMasterDTO.cs" />
     <Compile Include="DTO\Response.cs" />
     <Compile Include="IMapper.cs" />

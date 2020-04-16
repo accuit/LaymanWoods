@@ -108,7 +108,7 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
         /// <returns>Obejct of EmailTemplate</returns>
         public EmailTemplate GetEmailTemplate(AspectEnums.EmailTemplateType TemplateTypeID)
         {
-            return LaymanWoodsDbContext.EmailTemplates.FirstOrDefault(k => k.TemplateID == (int)TemplateTypeID && k.IsActive);
+            return DbContext.EmailTemplates.FirstOrDefault(k => k.TemplateID == (int)TemplateTypeID && k.IsActive);
         }
 
         /// <summary>
@@ -123,8 +123,8 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
             // Use this validation to restrict user to generate multiple OTPs
             //if (ValidateEmployee(otp.UserID, AspectEnums.EmployeeValidationType.LastAttemptDuration))
             //{
-            LaymanWoodsDbContext.OTPMasters.Add(otp);
-            IsSuccess = LaymanWoodsDbContext.SaveChanges() > 0;
+            DbContext.OTPMasters.Add(otp);
+            IsSuccess = DbContext.SaveChanges() > 0;
             //}
             return IsSuccess;
 
@@ -139,7 +139,7 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
         /// <returns>reurns true if user have enterered latest OTP</returns>
         public bool AuthenticateOTP(long userid, string otp, out string GuidString, out int MaxAttempts)
         {
-            OTPMaster ObjOTP = LaymanWoodsDbContext.OTPMasters.OrderByDescending(k => k.CreatedDate).FirstOrDefault(k => k.UserID == userid);
+            OTPMaster ObjOTP = DbContext.OTPMasters.OrderByDescending(k => k.CreatedDate).FirstOrDefault(k => k.UserID == userid);
 
             GuidString = "";
             MaxAttempts = 0;
@@ -154,8 +154,8 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
                 else
                 {
                     ObjOTP.Attempts = ++MaxAttempts;
-                    LaymanWoodsDbContext.Entry<OTPMaster>(ObjOTP).State = System.Data.Entity.EntityState.Modified;
-                    LaymanWoodsDbContext.SaveChanges(); // TBD
+                    DbContext.Entry<OTPMaster>(ObjOTP).State = System.Data.Entity.EntityState.Modified;
+                    DbContext.SaveChanges(); // TBD
                 }
             }
 
@@ -189,7 +189,7 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
 
             DateTime StartTime = DateTime.Now.Subtract(new TimeSpan(OTPExirationHrs, 0, 0));
             DateTime EndTime = DateTime.Now.AddMinutes(1);
-            OTPMaster objOTP = LaymanWoodsDbContext.OTPMasters.FirstOrDefault(k => k.CreatedDate >= StartTime && k.CreatedDate <= EndTime && k.GUID == GUID);
+            OTPMaster objOTP = DbContext.OTPMasters.FirstOrDefault(k => k.CreatedDate >= StartTime && k.CreatedDate <= EndTime && k.GUID == GUID);
             if (objOTP != null)
                 return true;
             else

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
-import { Dimension } from '../shared/enums/app.enums';
+import { DimensionEnum } from '../shared/enums/app.enums';
 import { Unit } from '../shared/model/core.model';
 import { Kitchen } from '../calculator/kitchen/kitchen.component';
 import { IpxRadioButtonGroupDirective } from '../shared/directive/radio/radio-group.directive';
@@ -24,8 +24,8 @@ class Person {
 
 export class DevPagesComponent implements OnInit {
   textValue = 'Hello Text';
-  dimension = Dimension.LENGTH;
-  A: Unit = { feet: 0, inches: 0, type: Dimension.LENGTH };
+  dimension = DimensionEnum.LENGTH;
+  A: Unit = { feet: 0, inches: 0, type: DimensionEnum.LENGTH };
   kitchens: Kitchen[] = [
     { sides: 2, value: 'L', name: 'L Shape', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ7ab3mQ1hTGaubD5ikYglCyqCrvx0AYAU4wRCbF5Vvy6x9MWan' },
     { sides: 2, value: 'U', name: 'U Shape', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRacRyScjIqmYZnjbU6tvqKrIWmB9PtAuSSQh7wnuziq3MygiFw' },

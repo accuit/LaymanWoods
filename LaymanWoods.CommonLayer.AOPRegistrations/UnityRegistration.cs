@@ -65,26 +65,38 @@ namespace LaymanWoods.CommonLayer.AOPRegistrations
         private static MapperConfiguration MapBOEntities()
         {
 
-            var config = new MapperConfiguration(cfg =>
+            var config = new MapperConfiguration(map =>
             {
                 //Create all maps here
-                cfg.CreateMap<CommonSetup, CommonSetupDTO>();
-                cfg.CreateMap<CommonSetupDTO, CommonSetup>();
+                map.CreateMap<CommonSetup, CommonSetupDTO>();
+                map.CreateMap<CommonSetupDTO, CommonSetup>();
 
-                cfg.CreateMap<EmailTemplate, EmailTemplateDTO>();
-                cfg.CreateMap<EmailTemplateDTO, EmailTemplate>();
+                map.CreateMap<EmailTemplate, EmailTemplateDTO>();
+                map.CreateMap<EmailTemplateDTO, EmailTemplate>();
 
-                cfg.CreateMap<OTPMaster, OTPDTO>();
-                cfg.CreateMap<OTPDTO, OTPMaster>();
+                map.CreateMap<OTPMaster, OTPDTO>();
+                map.CreateMap<OTPDTO, OTPMaster>();
 
-                cfg.CreateMap<CategoryMaster, CategoryMasterDTO>();
-                cfg.CreateMap<CategoryMasterDTO, CategoryMaster>();
+                map.CreateMap<CategoryMaster, CategoryMasterDTO>();
+                map.CreateMap<CategoryMasterDTO, CategoryMaster>();
 
-                cfg.CreateMap<ProductMaster, ProductMasterDTO>();
-                cfg.CreateMap<ProductMasterDTO, ProductMaster>();
+                map.CreateMap<ProductMaster, ProductMasterDTO>();
+                map.CreateMap<ProductMasterDTO, ProductMaster>();
 
-                cfg.CreateMap<ProductHelp, ProductHelpDTO>();
-                cfg.CreateMap<ProductHelpDTO, ProductHelp>();
+                map.CreateMap<ProductHelp, ProductHelpDTO>();
+                map.CreateMap<ProductHelpDTO, ProductHelp>();
+
+                map.CreateMap<InteriorAndCategoryMapping, InteriorAndCategoryMappingDTO>();
+                map.CreateMap<InteriorAndCategoryMappingDTO, InteriorAndCategoryMapping>();
+
+                map.CreateMap<InteriorCategory, InteriorCategoryDTO>();
+                map.CreateMap<InteriorCategoryDTO, InteriorCategory>();
+
+                map.CreateMap<InteriorProduct, InteriorProductDTO>();
+                map.CreateMap<InteriorProductDTO, InteriorProduct>();
+
+                map.CreateMap<CompleteInteriorListingDTO, CompleteInteriorListing>();
+                map.CreateMap<CompleteInteriorListing, CompleteInteriorListingDTO>();
             });
 
             return config;

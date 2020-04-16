@@ -1,8 +1,10 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Dimension } from 'src/app/shared/enums/app.enums';
+import { DimensionEnum, InteriorEnum, CalculationCostTypeEnum } from 'src/app/shared/enums/app.enums';
 import { ProductMaster } from 'src/app/shared/model/product';
 import * as _ from 'underscore';
 import { ProductsService } from 'src/app/shared/services/products.services';
+import { CategoryMaster } from 'src/app/shared/model/product-category';
+import { CompleteInteriorListing } from 'src/app/shared/model/interior';
 
 @Component({
   selector: 'app-wardrobe',
@@ -16,29 +18,31 @@ export class WardrobeComponent implements OnInit {
   @Input('next') nextProduct: number;
 
   wardrobeProducts: ProductMaster[];
+  categories: CategoryMaster[];
+  interiorCategories: CompleteInteriorListing[];
   kitchenCategoryID = 1;
   wardrobe: any;
   formData: any = {};
-  product1Brands: ProductMaster[];
-  product2Brands: ProductMaster[];
-  product3Brands: ProductMaster[];
-  product4Brands: ProductMaster[];
-  product5Brands: ProductMaster[];
-  // product6Brands: ProductMaster[];
-  product7Brands: ProductMaster[];
-  product8Brands: ProductMaster[];
-  product9Brands: ProductMaster[];
 
   constructor(private readonly service: ProductsService) { }
 
   ngOnInit() {
     this.initializeFormData();
-    this.service.getProducts().subscribe(result => {
-      console.log(result);
-      this.wardrobeProducts = result;
-      this.initializeBrands();
-    })
 
+    this.service.getInteriorCategories(+InteriorEnum.Wardrobe).subscribe(result => {
+      this.interiorCategories = result;
+      this.getProductFormData();
+    });
+  }
+
+  getProductFormData() {
+    this.formData.categories = new Array<CategoryMaster>();
+    this.interiorCategories.forEach(c => {
+      c.selectedProduct = new ProductMaster();
+      const defaultProduct = c.products.filter(x => x.isDefault);
+      c.selectedProduct = _.first(defaultProduct.length ? defaultProduct : c.products);
+    });
+    this.formData.categories = this.interiorCategories;
   }
 
   initializeFormData() {
@@ -46,55 +50,29 @@ export class WardrobeComponent implements OnInit {
     this.formData.isSlider = 'No'
     this.formData.totalArea = 0;
 
-    this.formData.A = { feet: 10, inches: 0, type: Dimension.LENGTH };
-    this.formData.B = { feet: 10, inches: 0, type: Dimension.WIDTH }
+    this.formData.A = { feet: 10, inches: 0, type: DimensionEnum.LENGTH };
+    this.formData.B = { feet: 10, inches: 0, type: DimensionEnum.WIDTH }
   }
 
   addAnotherProduct(prod) {
     this.addAnother.emit(prod);
   }
 
-  initializeBrands() {
-    this.product1Brands = this.wardrobeProducts.filter(x => x.categoryCode === '101');
-    this.formData.selectedBrand1 = _.first(this.product1Brands.filter(x => x.isDefault));
-
-    this.product2Brands = this.wardrobeProducts.filter(x => x.categoryCode === '102');
-    this.formData.selectedBrand2 = _.first(this.product2Brands.filter(x => x.isDefault));
-
-    this.product3Brands = this.wardrobeProducts.filter(x => x.categoryCode === '103');
-    this.formData.selectedBrand3 = _.first(this.product3Brands.filter(x => x.isDefault));
-
-    this.product4Brands = this.wardrobeProducts.filter(x => x.categoryCode === '104');
-    this.formData.selectedBrand4 = _.first(this.product4Brands.filter(x => x.isDefault));
-
-    this.product5Brands = this.wardrobeProducts.filter(x => x.categoryCode === '105');
-    this.formData.selectedBrand5 = _.first(this.product5Brands.filter(x => x.isDefault));
-
-    // this.product6Brands = this.wardrobeProducts.filter(x => x.categoryCode === '106');
-    // this.formData.selectedBrand6 = _.first(this.product6Brands.filter(x => x.isDefault));
-
-    this.product7Brands = this.wardrobeProducts.filter(x => x.categoryCode === '107');
-    this.formData.selectedBrand7 = _.first(this.product7Brands.filter(x => x.isDefault));
-
-    this.product8Brands = this.wardrobeProducts.filter(x => x.categoryCode === '200');
-    this.formData.selectedBrand8 = _.first(this.product8Brands.filter(x => x.isDefault));
-
-    this.product9Brands = this.wardrobeProducts.filter(x => x.categoryCode === '300');
-    this.formData.selectedBrand9 = _.first(this.product9Brands.filter(x => x.isDefault));
-
-  }
-
   calculateCostByBrand(): number {
     const area = this.calculateArea();
     let totalCost: number = 0;
-    totalCost = this.formData.selectedBrand1 ? (+this.formData.selectedBrand1.mrp * this.formData.selectedBrand1.multiplier) * (area / this.formData.selectedBrand1.divisor) : 0;
-    totalCost = this.formData.selectedBrand2 ? totalCost + (this.formData.selectedBrand2.mrp * this.formData.selectedBrand2.multiplier) * (area / this.formData.selectedBrand2.divisor) : totalCost;
-    totalCost = this.formData.selectedBrand3 ? totalCost + (this.formData.selectedBrand3.mrp * this.formData.selectedBrand3.multiplier) * (area / 20) : totalCost;
-    totalCost = this.formData.selectedBrand4 ? totalCost + (this.formData.selectedBrand4.mrp * this.formData.selectedBrand4.multiplier) * (area / 6) : totalCost;
-    totalCost = this.formData.selectedBrand5 ? totalCost + (this.formData.selectedBrand5.mrp * this.formData.selectedBrand5.multiplier) * (area / 12) : totalCost;
-    totalCost = this.formData.selectedBrand7 ? totalCost + (this.formData.selectedBrand7.mrp * this.formData.selectedBrand7.multiplier) * (area / 10) : totalCost;
-    totalCost = this.formData.selectedBrand8 ? totalCost + (this.formData.selectedBrand8.mrp * this.formData.selectedBrand8.multiplier) * (area / this.formData.selectedBrand8.divisor) : totalCost;
-    totalCost = this.formData.selectedBrand9 ? (totalCost + 190 * area) : totalCost;
+
+    this.interiorCategories.forEach(x => {
+      if (x.selectedProduct) {
+        if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.AreaMultiply) {
+          totalCost = totalCost + (x.selectedProduct.mrp * x.multiplier) * (area / x.divisor);
+        } else if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.Quantity) {
+          totalCost = totalCost + x.selectedProduct.mrp;
+        }
+        console.log(x.selectedProduct.title + ': (' + x.selectedProduct.mrp + "*" + x.multiplier + ') * (' + area + '/' + x.divisor + ')');
+      }
+    });
+
     totalCost = Math.round(totalCost);
     this.wardrobePrice.emit(totalCost);
     this.formData.totalPrice = totalCost;
@@ -112,17 +90,16 @@ export class WardrobeComponent implements OnInit {
   };
 
   reset() {
-    this.formData = {};
     this.wardrobePrice.emit(0);
     this.initializeFormData();
+    this.getProductFormData();
   }
 
   onSubmit() {
     this.calculateCostByBrand();
     window.scroll({
       top: 100,
-      left: 0,
-      behavior: 'smooth'
+      left: 0
     });
   }
 }

@@ -25,7 +25,7 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
 
         public UserMaster UserLogin(string email, string password)
         {
-            return LaymanWoodsDbContext.UserMasters.Where(x => x.EmailID == email && x.Password == password).FirstOrDefault();
+            return DbContext.UserMasters.Where(x => x.EmailID == email && x.Password == password).FirstOrDefault();
         }
 
         //public int SubmitUser(UserMaster user)

@@ -1,35 +1,32 @@
-<div class="col-md-12">
+<div>
     <div>
         <span class="step-title">STEP 2: Input Area Measurements</span>
     </div>
 
-    <ipx-combo-textbox [label1]="'Feet'" [label2]="'Inches'" [textField1]="'feet'" [textField2]="'inches'"
-        [label2]="'Inches'" [name]="'A'" [(ngModel)]="formData.A" (valueChanged)="formData.totalArea = calculateArea()"
-        [minValue]="'0'" [maxValue]="100" [placeholder1]="'Feet'" [placeholder2]="'Inches'">
+    <ipx-combo-textbox [label1]="'Feet'" [label2]="'Inches'" [textField1]="'feet'" [textField2]="'inches'" [label2]="'Inches'" [name]="'A'" [(ngModel)]="formData.A" [minValue]="'0'" [maxValue]="100" [placeholder1]="'Feet'" [placeholder2]="'Inches'">
     </ipx-combo-textbox>
 
-    <ipx-combo-textbox [label1]="'Feet'" [label2]="'Inches'" [textField1]="'feet'" [textField2]="'inches'"
-        [label2]="'Inches'" [name]="'B'" [(ngModel)]="formData.B" (valueChanged)="formData.totalArea = calculateArea()"
-        [minValue]="'0'" [maxValue]="100" [placeholder1]="'Feet'" [placeholder2]="'Inches'">
+    <ipx-combo-textbox [label1]="'Feet'" [label2]="'Inches'" [textField1]="'feet'" [textField2]="'inches'" [label2]="'Inches'" [name]="'B'" [(ngModel)]="formData.B" [minValue]="'0'" [maxValue]="100" [placeholder1]="'Feet'" [placeholder2]="'Inches'">
     </ipx-combo-textbox>
 </div>
 
-<div class="col-md-12" style="padding-bottom: 50px;">
+<div style="padding-bottom: 50px;">
     <div>
         <span class="step-title">STEP 3: Type of False Ceiling</span>
     </div>
-
-    <ipx-dropdown [options]="[{id: 1, name: 'Cover'} , {id: 2, name: 'Corner'}]" [label]="'Type of False Ceiling'" 
-        [displayField]="'name'" [(ngModel)]="formData.type"></ipx-dropdown>
-
+    <div class="row">
+        <div *ngFor="let c of formData.categories">
+            <ipx-dropdown *ngIf="c.webPartType === 1" [options]="c.products" [label]="c.category.title" [displayField]="'name'" [(ngModel)]="c.selectedProduct">
+            </ipx-dropdown>
+        </div>
+    </div>
 </div>
 
 
 <div class="row" style="margin: 10% 6% 0 0">
-  <div class="col-md-8 text-center"> 
-    <button type="submit" class="btn btn-default btn-md btn-block" (click)="onSubmit()">Submit <i class="icon-paper-plane"></i></button>
-  </div> 
+    <div class="col-md-8 text-center">
+        <button type="submit" class="btn btn-default btn-md btn-block" (click)="onSubmit()">Submit <i class="icon-paper-plane"></i></button>
+    </div>
 </div>
 
 <app-add-another-button show-add-another="false" (reset)="reset()" (addAnother)="addAnotherProduct($event)" [next]="nextProduct"></app-add-another-button>
-  
