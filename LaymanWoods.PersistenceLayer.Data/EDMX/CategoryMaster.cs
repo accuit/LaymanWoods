@@ -12,6 +12,7 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CategoryMaster()
         {
+            ProductHelps = new HashSet<ProductHelp>();
             ProductMasters = new HashSet<ProductMaster>();
         }
 
@@ -25,8 +26,12 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
         [Required]
         [StringLength(50)]
         public string CategoryCode { get; set; }
-
+        [StringLength(150)]
+        public string Title { get; set; }
         public int? CompanyID { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductHelp> ProductHelps { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductMaster> ProductMasters { get; set; }

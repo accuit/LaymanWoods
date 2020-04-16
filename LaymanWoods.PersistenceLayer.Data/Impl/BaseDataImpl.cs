@@ -26,7 +26,7 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
         /// <summary>
         /// Property to get db context instance of Entity Framework Database
         /// </summary>
-        public LaymanWoodsModel LaymanWoodsDbContext
+        public LaymanWoodsModel DbContext
         {
             get
             {

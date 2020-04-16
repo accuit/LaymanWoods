@@ -9,6 +9,12 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
     [Table("ProductMaster")]
     public partial class ProductMaster
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ProductMaster()
+        {
+            ProductHelps = new HashSet<ProductHelp>();
+        }
+
         [Key]
         public int ProductID { get; set; }
 
@@ -60,12 +66,13 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
 
         public int CompanyID { get; set; }
 
-        public bool IsDefault { get; set; }
-        public decimal? Multiplier { get; set; }
-        public decimal? Divisor { get; set; }
-
         public int? MeasurementUnit { get; set; }
 
+        public bool? IsDefault { get; set; }
+
         public virtual CategoryMaster CategoryMaster { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductHelp> ProductHelps { get; set; }
     }
 }

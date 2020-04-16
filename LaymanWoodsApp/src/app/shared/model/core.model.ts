@@ -1,9 +1,9 @@
-import { Dimension } from '../enums/app.enums';
+import { DimensionEnum } from '../enums/app.enums';
 
 export class Unit {
     feet: number;
     inches: number;
-    type: Dimension
+    type: DimensionEnum
 }
 
 export class APIResponse {

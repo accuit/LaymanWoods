@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace LaymanWoods.CommonLayer.Aspects.DTO
 {
@@ -11,6 +9,10 @@ namespace LaymanWoods.CommonLayer.Aspects.DTO
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
         public string CategoryCode { get; set; }
+        [StringLength(150)]
+        public string Title { get; set; }
         public Nullable<int> CompanyID { get; set; }
+        public List<ProductMasterDTO> ProductMasters { get; set; }
+
     }
 }

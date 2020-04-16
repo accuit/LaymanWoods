@@ -21,9 +21,20 @@ namespace LaymanWoods.BusinessLayer.Base.Manager
 
         #endregion
 
+        public List<InteriorCategoryDTO> GetInteriorCategories()
+        {
+            List<InteriorCategory> result = ProductRepository.GetInteriorCategories();
+            return mapper.Map<List<InteriorCategoryDTO>>(result);
+        }
+
+        public List<CompleteInteriorListingDTO> GetInteriorCategoryMapping(int id)
+        {
+            List<CompleteInteriorListing> result = ProductRepository.GetInteriorCategoryMapping(id);
+            return mapper.Map<List<CompleteInteriorListingDTO>>(result);
+        }
+
         public List<CategoryMasterDTO> GetAllCategories()
         {
-            List<CategoryMasterDTO> categories = new List<CategoryMasterDTO>();
             List<CategoryMaster> result = ProductRepository.GetAllCategories();
             return mapper.Map<List<CategoryMasterDTO>>(result);
         }

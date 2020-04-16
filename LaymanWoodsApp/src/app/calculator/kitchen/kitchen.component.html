@@ -1,21 +1,17 @@
 <!-- .product -->
 <div class="row">
-
     <div class="col-md-12">
-
         <div class="step-title">
             <span>STEP 2: Choose the Layout of Kitchen</span >
     </div>
-
     <div class="description">
               <label class="radio-inline" *ngFor="let type of kitchens">
                 <input type="radio" name="kitchenType" (click)="formData.selectedKitchen = type" (change)="onKitchenChange(type)"
                 [checked]="type.name === formData.selectedKitchen.name">{{ type.name }}
               </label>
-
     </div>
     <div class="post-image opacity"><img [src]="formData.selectedKitchen.imageUrl"
-            style="max-width: 700px; max-height: 300px;" [alt]="formData.selectedKitchen.name" [title]="formData.selectedKitchen.name"></div>
+            style="width: 500px; height: 300px;" [alt]="formData.selectedKitchen.name" [title]="formData.selectedKitchen.name"></div>
     </div>
 
 <div class="col-md-12">
@@ -53,28 +49,21 @@
             <span>STEP 5: Material Quality / Brand Selection </span>
         </div>
         <div class="row">
-
             <div class="form-group">
-                <div class="col-sm-4">
+                <div class="col-sm-5">
                     <h4>Material</h4>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-5">
                     <h4>Brand</h4>
                 </div>
             </div>
 
-            <ipx-dropdown [options]="product1Brands" [label]="'Ply and Board'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand1"></ipx-dropdown>
-            <ipx-dropdown [options]="product2Brands" [label]="'Inner Laminate'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand2"></ipx-dropdown>
-            <ipx-dropdown [options]="product3Brands" [label]="'Outer Finish'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand3"></ipx-dropdown>
-            <ipx-dropdown [options]="product8Brands" [label]="'Carpenter Cost'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand8"></ipx-dropdown>
-            <ipx-dropdown [options]="product4Brands" [label]="'Hinges'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand4"></ipx-dropdown>
-            <ipx-dropdown [options]="product5Brands" [label]="'Channels'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand5"></ipx-dropdown>
-            <ipx-dropdown [options]="product6Brands" [label]="'Baskets'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand6"></ipx-dropdown>
-            <ipx-dropdown [options]="product7Brands" [label]="'Handles'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand7"></ipx-dropdown>
-            <ipx-dropdown [options]="product9Brands" [label]="'Others'" [displayField]="'name'" [(ngModel)]="formData.selectedBrand9"></ipx-dropdown>
+            <div *ngFor="let c of formData.categories">
+                <ipx-dropdown *ngIf="c.webPartType === 1" [options]="c.products" [label]="c.category.title" [displayField]="'name'" [(ngModel)]="c.selectedProduct" (change)="specialProductRules(c.selectedProduct)">
+                </ipx-dropdown>
 
+            </div>
         </div>
-
     </div>
 
     <div class="col-md-12">
@@ -83,10 +72,14 @@
             <span class="price"> Extra Hardware Accessories</span>
         </div>
 
-        <label *ngFor="let acc of formData.accessories" class="checkbox-inline" style="margin-left: 10px;">
-        <input type="checkbox" name="acc.productId" id="acc.productId" [(ngModel)]="acc.isChecked" value="acc.productId"> 
-        {{ acc.name}}
-      </label>
+        <div *ngFor="let c of formData.categories">
+            <div *ngIf="c.webPartType === 3">
+                <label *ngFor="let p of c.products" class="checkbox-inline" style="margin-left: 10px;">
+                <input type="checkbox" name="p.productId" id="p.productId" [(ngModel)]="p.isChecked" value="p.productId"> 
+                {{ p.name}}
+             </label>
+            </div>
+        </div>
     </div>
 
 </div>

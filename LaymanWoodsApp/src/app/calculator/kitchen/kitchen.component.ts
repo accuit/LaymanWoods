@@ -1,9 +1,10 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ProductMaster } from 'src/app/shared/model/product';
-import { Dimension } from 'src/app/shared/enums/app.enums';
+import { DimensionEnum, WebPartTypeEnum, InteriorEnum, CalculationCostTypeEnum } from 'src/app/shared/enums/app.enums';
 import * as _ from 'underscore';
 import { ProductsService } from 'src/app/shared/services/products.services';
+import { CompleteInteriorListing } from 'src/app/shared/model/interior';
 
 @Component({
   selector: 'app-kitchen',
@@ -19,6 +20,7 @@ export class KitchenComponent implements OnInit {
   kitchenProducts: ProductMaster[];
   kitchenCategoryID = 1;
   layout = 'L';
+  interiorCategories: CompleteInteriorListing[];
 
   kitchens: Kitchen[] = [
     { sides: 2, value: 'L', name: 'L Shape', imageUrl: 'https://interioreradotin.files.wordpress.com/2019/02/l-shape-kitchen-banner-4.jpg?w=775' },
@@ -30,25 +32,34 @@ export class KitchenComponent implements OnInit {
   selectedKitchen: Kitchen;
   formData: any = {};
 
-  product1Brands: ProductMaster[];
-  product2Brands: ProductMaster[];
-  product3Brands: ProductMaster[];
-  product4Brands: ProductMaster[];
-  product5Brands: ProductMaster[];
-  product6Brands: ProductMaster[];
-  product7Brands: ProductMaster[];
-  product8Brands: ProductMaster[];
-  product9Brands: ProductMaster[];
-
   constructor(private readonly service: ProductsService) { }
 
   ngOnInit() {
     this.initializeFormData();
-    this.service.getProducts().subscribe(result => {
-      console.log(result);
-      this.kitchenProducts = result;
-      this.initializeBrands();
-    })
+    this.service.getInteriorCategories(+InteriorEnum.Kitchen).subscribe(result => {
+      this.interiorCategories = result;
+      this.getProductFormData();
+    });
+  }
+
+  getProductFormData() {
+    this.formData.categories = new Array<CompleteInteriorListing>();
+    this.interiorCategories.forEach(c => {
+      c.selectedProduct = new ProductMaster();
+      const defaultProduct = c.products.filter(x => x.isDefault);
+      c.selectedProduct = _.first(defaultProduct.length ? defaultProduct : c.products);
+      if (c.webPartType === WebPartTypeEnum.Checkbox) {
+        c.selectedProduct = null;
+        c.products.forEach((x) => { x.isChecked = false; });
+      }
+    });
+    this.formData.categories = this.interiorCategories;
+  }
+
+  specialProductRules(product: ProductMaster): void {
+    if (product.skuCode === 'ENTC') {
+      this.interiorCategories.splice(6, 1); //x => x.category.categoryCode != '106');
+    }
   }
 
   initializeFormData() {
@@ -57,75 +68,46 @@ export class KitchenComponent implements OnInit {
     this.formData.selectedKitchen = _.first(this.kitchens);
     this.formData.kitchenHeight = 'Standard';
 
-    this.formData.A = { feet: 10, inches: 0, type: Dimension.LENGTH };
-    this.formData.B = this.formData.selectedKitchen.sides > 1 ? { feet: 10, inches: 0, type: Dimension.WIDTH } : null;
-    this.formData.C = this.formData.selectedKitchen.sides > 2 ? { feet: 10, inches: 0, type: Dimension.HEIGHT } : null;
-  }
-
-  initializeBrands() {
-    this.product1Brands = this.kitchenProducts.filter(x => x.categoryCode === '101');
-    this.formData.selectedBrand1 = _.first(this.product1Brands.filter(x => x.isDefault));
-
-    this.product2Brands = this.kitchenProducts.filter(x => x.categoryCode === '102');
-    this.formData.selectedBrand2 = _.first(this.product2Brands.filter(x => x.isDefault));
-
-    this.product3Brands = this.kitchenProducts.filter(x => x.categoryCode === '103');
-    this.formData.selectedBrand3 = _.first(this.product3Brands.filter(x => x.isDefault));
-
-    this.product4Brands = this.kitchenProducts.filter(x => x.categoryCode === '104');
-    this.formData.selectedBrand4 = _.first(this.product4Brands.filter(x => x.isDefault));
-
-    this.product5Brands = this.kitchenProducts.filter(x => x.categoryCode === '105');
-    this.formData.selectedBrand5 = _.first(this.product5Brands.filter(x => x.isDefault));
-
-    this.product6Brands = this.kitchenProducts.filter(x => x.categoryCode === '106');
-    this.formData.selectedBrand6 = _.first(this.product6Brands.filter(x => x.isDefault));
-
-    this.product7Brands = this.kitchenProducts.filter(x => x.categoryCode === '107');
-    this.formData.selectedBrand7 = _.first(this.product7Brands.filter(x => x.isDefault));
-
-    this.product8Brands = this.kitchenProducts.filter(x => x.categoryCode === '200');
-    this.formData.selectedBrand8 = _.first(this.product8Brands.filter(x => x.isDefault));
-
-    this.product9Brands = this.kitchenProducts.filter(x => x.categoryCode === '300');
-    this.formData.selectedBrand9 = _.first(this.product9Brands.filter(x => x.isDefault));
-
-    this.formData.accessories = this.kitchenProducts.filter(x => x.categoryCode === '100');
-    this.formData.accessories.forEach((x) => { x.isChecked = false; });
-
+    this.formData.A = { feet: 10, inches: 0, type: DimensionEnum.LENGTH };
+    this.formData.B = this.formData.selectedKitchen.sides > 1 ? { feet: 10, inches: 0, type: DimensionEnum.WIDTH } : null;
+    this.formData.C = this.formData.selectedKitchen.sides > 2 ? { feet: 10, inches: 0, type: DimensionEnum.HEIGHT } : null;
   }
 
   onKitchenChange(event) {
     this.formData.selectedKitchen = event;
-    this.formData.B = this.formData.selectedKitchen.sides > 1 ? { feet: 0, inches: 0, type: Dimension.WIDTH } : null;
-    this.formData.C = this.formData.selectedKitchen.sides > 2 ? { feet: 0, inches: 0, type: Dimension.HEIGHT } : null;
+    this.formData.B = this.formData.selectedKitchen.sides > 1 ? { feet: 10, inches: 0, type: DimensionEnum.WIDTH } : null;
+    this.formData.C = this.formData.selectedKitchen.sides > 2 ? { feet: 10, inches: 0, type: DimensionEnum.HEIGHT } : null;
   }
 
   calculateCostByBrand(): number {
     const area = this.calculateArea();
     let totalCost: number = 0;
-    totalCost = this.formData.selectedBrand1 ? (+this.formData.selectedBrand1.mrp * this.formData.selectedBrand1.multiplier) * (area / this.formData.selectedBrand1.divisor) : 0;
-    totalCost = this.formData.selectedBrand2 ? totalCost + (this.formData.selectedBrand2.mrp * this.formData.selectedBrand2.multiplier) * (area / this.formData.selectedBrand2.divisor) : totalCost;
-    totalCost = this.formData.selectedBrand3 ? totalCost + (this.formData.selectedBrand3.mrp * this.formData.selectedBrand3.multiplier) * (area / this.formData.selectedBrand3.divisor) : totalCost;
-    totalCost = this.formData.selectedBrand4 ? totalCost + (this.formData.selectedBrand4.mrp * this.formData.selectedBrand4.multiplier) * (area / this.formData.selectedBrand4.divisor) : totalCost;
-    totalCost = this.formData.selectedBrand5 ? totalCost + (this.formData.selectedBrand5.mrp * this.formData.selectedBrand5.multiplier) * (area / this.formData.selectedBrand5.divisor) : totalCost;
-    totalCost = this.formData.selectedBrand6 ? totalCost + (this.formData.selectedBrand6.mrp * this.formData.selectedBrand6.multiplier) * (area / this.formData.selectedBrand6.divisor) : totalCost;
-    totalCost = this.formData.selectedBrand7 ? totalCost + (this.formData.selectedBrand7.mrp * this.formData.selectedBrand7.multiplier) * (area / this.formData.selectedBrand7.divisor) : totalCost;
-    totalCost = this.formData.selectedBrand8 ? totalCost + (this.formData.selectedBrand8.mrp * this.formData.selectedBrand8.multiplier) * (area / this.formData.selectedBrand8.divisor) : totalCost;
+    this.interiorCategories.forEach(x => {
+      if (x.selectedProduct) {
+        if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.AreaMultiply) {
+          totalCost = totalCost + (x.selectedProduct.mrp * x.multiplier) * (area / x.divisor);
+        } else if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.Quantity) {
+          totalCost = totalCost + x.selectedProduct.mrp;
+        }
+        console.log(x.selectedProduct.title + ': (' + x.selectedProduct.mrp + "*" + x.multiplier + ') * (' + area + '/' + x.divisor + ')');
+     
+      }
+      
+      x.products.forEach(x => {
+        totalCost = x.isChecked ? totalCost + x.mrp : totalCost;
+      });
+    });
 
-    totalCost = Math.round(totalCost) + this.calculateAccessories();
-    totalCost = this.formData.selectedBrand9 ? (totalCost + this.formData.selectedBrand9.mrp) : totalCost;
+    totalCost = Math.round(totalCost)
     this.kitchenPrice.emit(totalCost);
     this.formData.totalPrice = totalCost;
     return totalCost;
   }
 
   reset() {
-    this.formData = {};
     this.kitchenPrice.emit(0);
     this.initializeFormData();
-    this.formData.accessories = this.kitchenProducts.filter(x => x.categoryCode === '100');
-    this.formData.accessories.forEach((x) => { x.isChecked = false; });
+    this.getProductFormData();
   }
 
   onSubmit() {

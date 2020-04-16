@@ -12,18 +12,25 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
         {
         }
 
+        public virtual DbSet<C__MigrationHistory> MigrationHistory { get; set; }
         public virtual DbSet<CategoryMaster> CategoryMasters { get; set; }
         public virtual DbSet<CommonSetup> CommonSetups { get; set; }
+        public virtual DbSet<Email> Emails { get; set; }
         public virtual DbSet<EmailTemplate> EmailTemplates { get; set; }
+        public virtual DbSet<InteriorAndCategoryMapping> InteriorAndCategoryMappings { get; set; }
+        public virtual DbSet<InteriorCategory> InteriorCategories { get; set; }
+        public virtual DbSet<InteriorProduct> InteriorProducts { get; set; }
         public virtual DbSet<OTPMaster> OTPMasters { get; set; }
+        public virtual DbSet<ProductHelp> ProductHelps { get; set; }
         public virtual DbSet<ProductMaster> ProductMasters { get; set; }
         public virtual DbSet<UserMaster> UserMasters { get; set; }
         public virtual DbSet<DictionaryEncryptDecrypt> DictionaryEncryptDecrypts { get; set; }
 
-        public virtual DbSet<ProductHelp> ProductHelps { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer<LaymanWoodsModel>(null);
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<CategoryMaster>()
                 .Property(e => e.CategoryName)
                 .IsUnicode(false);
@@ -36,6 +43,11 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
                 .HasMany(e => e.ProductMasters)
                 .WithRequired(e => e.CategoryMaster)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<InteriorCategory>()
+            .HasMany(e => e.InteriorProducts)
+            .WithRequired(e => e.InteriorCategory)
+            .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<CommonSetup>()
                 .Property(e => e.MainType)
@@ -53,6 +65,34 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
                 .Property(e => e.Description)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Email>()
+                .Property(e => e.FirstName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Email>()
+                .Property(e => e.LastName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Email>()
+                .Property(e => e.Mobile)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Email>()
+                .Property(e => e.EmailAddress)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Email>()
+                .Property(e => e.Message)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Email>()
+                .Property(e => e.Address)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Email>()
+                .Property(e => e.Pincode)
+                .IsUnicode(false);
+
             modelBuilder.Entity<EmailTemplate>()
                 .Property(e => e.Name)
                 .IsUnicode(false);
@@ -65,12 +105,64 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
                 .Property(e => e.Subject)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<InteriorAndCategoryMapping>()
+                .Property(e => e.CategoryCode)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<InteriorCategory>()
+                .Property(e => e.Name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<InteriorCategory>()
+                .Property(e => e.Title)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<InteriorCategory>()
+                .Property(e => e.Image)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<InteriorProduct>()
+                .Property(e => e.Name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<InteriorProduct>()
+                .Property(e => e.Title)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<InteriorProduct>()
+                .Property(e => e.Image)
+                .IsUnicode(false);
+
             modelBuilder.Entity<OTPMaster>()
                 .Property(e => e.GUID)
                 .IsUnicode(false);
 
             modelBuilder.Entity<OTPMaster>()
                 .Property(e => e.OTP)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ProductHelp>()
+                .Property(e => e.Title)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ProductHelp>()
+                .Property(e => e.ImageUrl)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ProductHelp>()
+                .Property(e => e.Description)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ProductHelp>()
+                .Property(e => e.AdditionalInfo)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ProductHelp>()
+                .Property(e => e.Specification)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ProductHelp>()
+                .Property(e => e.CategoryCode)
                 .IsUnicode(false);
 
             modelBuilder.Entity<ProductMaster>()
