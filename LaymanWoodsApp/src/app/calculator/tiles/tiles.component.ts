@@ -50,10 +50,10 @@ export class TilesComponent implements OnInit {
         } else if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.Quantity) {
           totalCost = totalCost + x.selectedProduct.mrp;
         }
-        console.log(x.selectedProduct.title + ': (' + x.selectedProduct.mrp + "*" + x.multiplier + ') * (' + this.formData.area + '/' + x.divisor + ')');
-
+        console.log(x.selectedProduct.title + ' ( ' + x.selectedProduct.measurementUnit + ' )' + ': (' + x.selectedProduct.mrp + "*" + x.multiplier + ') * (' + this.formData.area + '/' + x.divisor + ') Total: ' + totalCost);
       }
     });
+    this.formData.totalPrice = totalCost;
     this.tilesPrice.emit(this.formData.totalPrice);
   }
 
@@ -69,10 +69,6 @@ export class TilesComponent implements OnInit {
 
   onSubmit(): any {
     this.calculateCost();
-    window.scroll({
-      top: 100,
-      left: 0
-    });
   }
 
 }

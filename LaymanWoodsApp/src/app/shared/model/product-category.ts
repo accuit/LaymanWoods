@@ -1,5 +1,4 @@
 import { ProductMaster } from './product';
-import { WebPartTypeEnum } from '../enums/app.enums';
 
 export class CategoryMaster {
     categoryID: string;

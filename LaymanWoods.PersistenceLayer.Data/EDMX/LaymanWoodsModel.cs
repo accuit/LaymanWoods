@@ -182,14 +182,6 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
                 .IsUnicode(false);
 
             modelBuilder.Entity<ProductMaster>()
-                .Property(e => e.BasicModelCode)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ProductMaster>()
-                .Property(e => e.BasicModelName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ProductMaster>()
                 .Property(e => e.SKUCode)
                 .IsUnicode(false);
 

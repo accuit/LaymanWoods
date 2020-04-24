@@ -21,6 +21,7 @@ export class KitchenComponent implements OnInit {
   kitchenCategoryID = 1;
   layout = 'L';
   interiorCategories: CompleteInteriorListing[];
+  specialCategory: any;
 
   kitchens: Kitchen[] = [
     { sides: 2, value: 'L', name: 'L Shape', imageUrl: 'https://interioreradotin.files.wordpress.com/2019/02/l-shape-kitchen-banner-4.jpg?w=775' },
@@ -48,18 +49,26 @@ export class KitchenComponent implements OnInit {
       c.selectedProduct = new ProductMaster();
       const defaultProduct = c.products.filter(x => x.isDefault);
       c.selectedProduct = _.first(defaultProduct.length ? defaultProduct : c.products);
+      c.selectedProduct.isSelected = true;
       if (c.webPartType === WebPartTypeEnum.Checkbox) {
         c.selectedProduct = null;
         c.products.forEach((x) => { x.isChecked = false; });
       }
     });
-    this.formData.categories = this.interiorCategories;
+    this.formData.categories = this.interiorCategories.sort((x, y) => +x.category.categoryCode - +y.category.categoryCode);;
+    this.specialCategory = this.formData.categories.filter(x => x.category.categoryCode === '106')[0];
   }
 
-  specialProductRules(product: ProductMaster): void {
-    if (product.skuCode === 'ENTC') {
-      this.interiorCategories.splice(6, 1); //x => x.category.categoryCode != '106');
+  specialProductRules(c: CompleteInteriorListing): void {
+    const isEnnoExist = this.formData.categories.some(x => x.selectedProduct && x.selectedProduct.skuCode === 'ENTC');
+    if (isEnnoExist) {
+      this.formData.categories = this.formData.categories.filter(x => x.category.categoryCode != '106');
+    } else if (this.formData.categories.indexOf(this.specialCategory) < 0) {
+      this.formData.categories.push(this.specialCategory);
     }
+
+    this.formData.categories.sort((x, y) => +x.category.categoryCode - +y.category.categoryCode);
+    this.calculateCost();
   }
 
   initializeFormData() {
@@ -79,29 +88,27 @@ export class KitchenComponent implements OnInit {
     this.formData.C = this.formData.selectedKitchen.sides > 2 ? { feet: 10, inches: 0, type: DimensionEnum.HEIGHT } : null;
   }
 
-  calculateCostByBrand(): number {
+  calculateCost(): number {
     const area = this.calculateArea();
     let totalCost: number = 0;
-    this.interiorCategories.forEach(x => {
+    this.formData.categories.forEach(x => {
       if (x.selectedProduct) {
         if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.AreaMultiply) {
           totalCost = totalCost + (x.selectedProduct.mrp * x.multiplier) * (area / x.divisor);
         } else if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.Quantity) {
           totalCost = totalCost + x.selectedProduct.mrp;
         }
-        console.log(x.selectedProduct.title + ': (' + x.selectedProduct.mrp + "*" + x.multiplier + ') * (' + area + '/' + x.divisor + ')');
-     
+        console.log(x.selectedProduct.title + ' ( ' + x.selectedProduct.measurementUnit + ' )' + ': (' + x.selectedProduct.mrp + "*" + x.multiplier + ') * (' + area + '/' + x.divisor + ') Total: ' + totalCost);
       }
-      
-      x.products.forEach(x => {
-        totalCost = x.isChecked ? totalCost + x.mrp : totalCost;
+
+      x.products.filter(x => x.isChecked).forEach(x => {
+        totalCost = totalCost + x.mrp;
+        console.log(x.title + ': (' + x.mrp + "*" + area + ') Total: ' + totalCost);
       });
     });
 
-    totalCost = Math.round(totalCost)
-    this.kitchenPrice.emit(totalCost);
-    this.formData.totalPrice = totalCost;
-    return totalCost;
+    return Math.round(totalCost)
+
   }
 
   reset() {
@@ -111,7 +118,8 @@ export class KitchenComponent implements OnInit {
   }
 
   onSubmit() {
-    this.calculateCostByBrand();
+    this.formData.totalPrice = this.calculateCost();
+    this.kitchenPrice.emit(this.formData.totalPrice);
   }
 
   calculateArea = (): number => {

@@ -34,12 +34,6 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
         [StringLength(10)]
         public string CategoryCode { get; set; }
 
-        [StringLength(50)]
-        public string BasicModelCode { get; set; }
-
-        [StringLength(100)]
-        public string BasicModelName { get; set; }
-
         public int Color { get; set; }
 
         [StringLength(50)]

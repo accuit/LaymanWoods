@@ -4,8 +4,6 @@ export class ProductMaster {
     title: string;
     imageUrl: string;
     categoryCode: string;
-    basicModelCode: string;
-    basicModelName: string;
     color: number;
     skuCode: string;
     skuName: string;
@@ -16,8 +14,6 @@ export class ProductMaster {
     categoryID: number;
     companyID: number;
     measurementUnit: number;
-    multiplier: number;
-    divisor: number;
     isSelected: boolean
     isChecked: boolean;
 }

@@ -12,17 +12,18 @@ import { ElementBaseComponent } from '../element.base/element.base.component';
 export class IpxDropdownComponent extends ElementBaseComponent implements OnInit {
   @Input() label: string;
   @Input() labelValue: string;
+  @Input() keyField: string;
+  @Input() displayField: string;
+  @Input() optionalValue: string;
+  @Input() disabled: boolean;
+  @Input('show-help') showHelp = true;
+  @ViewChild('selectref', { static: false }) select: ElementRef;
   @Input() set options(values: Array<any>) {
     this._options = values;
     if (this._options && this._options.length > 0) {
       this._resetInvalidSeletion(this._options);
     }
   }
-  @Input() keyField: string;
-  @Input() displayField: string;
-  @Input() optionalValue: string;
-  @Input('show-help') showHelp = true;
-  @ViewChild('selectref', { static: false }) select: ElementRef;
   isOptional: boolean;
   identifier: string;
   applyTranslate: boolean;

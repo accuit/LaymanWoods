@@ -25,7 +25,7 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
                        {
                            InteriorCatgID = m.InteriorID,
                            Category = c,
-                           Products = c.ProductMasters.Where(x => !x.IsDeleted).ToList(),
+                           Products = c.ProductMasters.Where(x => !x.IsDeleted && x.CategoryCode == m.CategoryCode).ToList(),
                            Multiplier = m.Multiplier,
                            Divisor = m.Divisor,
                            WebPartType = m.WebPartType,

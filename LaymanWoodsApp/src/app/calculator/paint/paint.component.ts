@@ -33,7 +33,7 @@ export class PaintComponent implements OnInit {
 
   getProductFormData() {
     this.formData.totalPrice = 0;
-    this.formData.area = 0;
+    this.formData.area = 100;
     this.formData.categories = new Array<CompleteInteriorListing>();
     this.interiorCategories.forEach(c => {
       c.selectedProduct = new ProductMaster();
@@ -45,14 +45,14 @@ export class PaintComponent implements OnInit {
 
   calculateCost() {
     let totalCost: number = 0;
-    this.interiorCategories.forEach(x => {
+    this.formData.categories.forEach(x => {
       if (x.selectedProduct) {
         if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.AreaMultiply) {
           totalCost = totalCost + (x.selectedProduct.mrp * x.multiplier) * (this.formData.area / x.divisor);
         } else if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.Quantity) {
           totalCost = totalCost + x.selectedProduct.mrp;
         }
-        console.log(x.selectedProduct.title + ': (' + x.selectedProduct.mrp + "*" + x.multiplier + ') * (' + this.formData.area + '/' + x.divisor + ')');
+        console.log(x.selectedProduct.title + ' ( ' + x.selectedProduct.measurementUnit + ' )' + ': (' + x.selectedProduct.mrp + "*" + x.multiplier + ') * (' + this.formData.area + '/' + x.divisor + ') Total: ' + totalCost);
       }
     });
 
@@ -71,10 +71,6 @@ export class PaintComponent implements OnInit {
 
   onSubmit(): any {
     this.calculateCost();
-    window.scroll({
-      top: 100,
-      left: 0
-    });
   }
 
 }

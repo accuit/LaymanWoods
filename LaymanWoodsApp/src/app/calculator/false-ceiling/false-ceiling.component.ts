@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { DimensionEnum, InteriorEnum } from 'src/app/shared/enums/app.enums';
+import { DimensionEnum, InteriorEnum, CalculationCostTypeEnum } from 'src/app/shared/enums/app.enums';
 import { ProductsService } from 'src/app/shared/services/products.services';
 import { CompleteInteriorListing } from 'src/app/shared/model/interior';
 import { ProductMaster } from 'src/app/shared/model/product';
@@ -62,17 +62,20 @@ export class FalseCeilingComponent implements OnInit {
   };
 
   calculatePrice() {
-    const area = this.calculateArea();
-    const basicPrice = area * 120;
-    const sideA: number = +this.formData.A.feet + +(this.formData.A.inches / 12);
-    const sideB: number = +this.formData.B.feet + +(this.formData.B.inches / 12);
-    const coverPrice = 2 * area * 240;
-    const mouldingPrice: number = 40 * 2 * area;
-    const C = .25;
-    const wallPOP: number = 22 * (2 * area + 2 * sideB * C + C * sideA);
+    this.formData.area = this.calculateArea();
+    let totalCost = 0;
+    this.formData.categories.forEach(x => {
+      if (x.selectedProduct) {
+        if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.AreaMultiply) {
+          totalCost = totalCost + (x.selectedProduct.mrp * x.multiplier) * (this.formData.area / x.divisor);
+        } else if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.Quantity) {
+          totalCost = totalCost + x.selectedProduct.mrp;
+        }
+        console.log(x.selectedProduct.title + ' ( ' + x.selectedProduct.measurementUnit + ' )' + ': (' + x.selectedProduct.mrp + "*" + x.multiplier + ') * (' + this.formData.area + '/' + x.divisor + ') Total: ' + totalCost);
+      }
+    });
 
-    this.formData.totalPrice = basicPrice + mouldingPrice + wallPOP;
-
+    this.formData.totalPrice = Math.round(totalCost)
     this.ceilingPrice.emit(this.formData.totalPrice);
   }
 
@@ -83,11 +86,6 @@ export class FalseCeilingComponent implements OnInit {
 
   onSubmit(): any {
     this.calculatePrice();
-    window.scroll({
-      top: 100,
-      left: 0,
-      behavior: 'smooth'
-    });
   }
 
 }

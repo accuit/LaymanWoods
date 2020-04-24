@@ -62,14 +62,14 @@ export class WardrobeComponent implements OnInit {
     const area = this.calculateArea();
     let totalCost: number = 0;
 
-    this.interiorCategories.forEach(x => {
+    this.formData.categories.forEach(x => {
       if (x.selectedProduct) {
         if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.AreaMultiply) {
           totalCost = totalCost + (x.selectedProduct.mrp * x.multiplier) * (area / x.divisor);
         } else if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.Quantity) {
           totalCost = totalCost + x.selectedProduct.mrp;
         }
-        console.log(x.selectedProduct.title + ': (' + x.selectedProduct.mrp + "*" + x.multiplier + ') * (' + area + '/' + x.divisor + ')');
+        console.log(x.selectedProduct.title + ' ( ' + x.selectedProduct.measurementUnit + ' )' + ': (' + x.selectedProduct.mrp + "*" + x.multiplier + ') * (' + area + '/' + x.divisor + ') Total: ' + totalCost);
       }
     });
 
