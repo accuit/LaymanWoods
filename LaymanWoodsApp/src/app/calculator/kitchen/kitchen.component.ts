@@ -46,10 +46,12 @@ export class KitchenComponent implements OnInit {
   getProductFormData() {
     this.formData.categories = new Array<CompleteInteriorListing>();
     this.interiorCategories.forEach(c => {
+      console.log(c);
       c.selectedProduct = new ProductMaster();
       const defaultProduct = c.products.filter(x => x.isDefault);
       c.selectedProduct = _.first(defaultProduct.length ? defaultProduct : c.products);
-      c.selectedProduct.isSelected = true;
+      if (c.selectedProduct)
+        c.selectedProduct.isSelected = true;
       if (c.webPartType === WebPartTypeEnum.Checkbox) {
         c.selectedProduct = null;
         c.products.forEach((x) => { x.isChecked = false; });

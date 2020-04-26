@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-title-header',
@@ -14,14 +14,16 @@ export class TitleHeaderComponent implements OnInit, AfterViewInit {
   @Input('parent') parent: string;
   @Input('parent-path') parentPath: string;
   @Input('current-page') current: string;
-  constructor(private readonly el: ElementRef) { }
+  @ViewChild('image', { static: true }) imageEl: ElementRef;
+
+  constructor(private readonly el: ElementRef, private readonly renderer: Renderer2) { }
 
   ngOnInit() {
     this.bgImage = '' ? 'http://wex.com.pk/images/calculator-banner.png' : this.bgImage;
   }
 
   ngAfterViewInit() {
-
+    this.renderer.setAttribute(this.imageEl.nativeElement, 'data-background', this.bgImage);
   }
 
 }
