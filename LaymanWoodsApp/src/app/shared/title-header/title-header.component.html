@@ -1,4 +1,4 @@
-<div class="page-header page-title-left page-title-transparent">
+<div *ngIf="type==='image'" class="page-header page-title-left page-title-transparent">
     <div #image class="image-bg content-in" [ngStyle]="{'background-image': 'url(' + bgImage + ')'}"></div>
     <div class="container white">
         <div class="col-md-12">
@@ -12,4 +12,9 @@
             </ul>
         </div>
     </div>
+</div>
+
+<div *ngIf="loadVideo" class="youtube-section">
+    <iframe width="100%" height="100%" [src]="url | sanitize: 'resourceUrl'" frameborder="2"></iframe>
+    <!-- <div class="overlay"></div> -->
 </div>
