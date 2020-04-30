@@ -9,7 +9,7 @@ export class CalculatorComponent implements OnInit, AfterContentInit {
 
   formData: any = {};
   @ViewChild('scrollToPrice', {static: true}) el : ElementRef; 
-
+  constructor() { }
 
   ngOnInit() {
     this.formData.totalPrice = 0;
