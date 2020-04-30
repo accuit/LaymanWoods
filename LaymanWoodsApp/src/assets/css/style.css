@@ -3916,9 +3916,7 @@
 											.page-header .image-bg {
 											    min-height: inherit;
 											}
-											/******************************************************************************
-  Pages
-*******************************************************************************/
+											/*************Pages******************/
 											
 											.page-header {
 											    border-bottom: 1px solid #e1e1e1;
@@ -3959,6 +3957,19 @@
 											    transition: opacity 0.2s linear 0s;
 											}
 											/* Background Video */
+											
+											.youtube-section {
+											    margin: -2% -3% 0 -5%;
+											    height: 600px;
+											    width: 1580px;
+											}
+											
+											@media (max-width:991px) {
+											    .youtube-section {
+											        width: 380px;
+											        margin-left: inherit;
+											    }
+											}
 											
 											#video-controls {
 											    top: 50%;
@@ -4005,7 +4016,7 @@
 											
 											.video-section {
 											    overflow: hidden;
-											    padding: 76px 0;
+											    width: 100%;
 											    position: relative;
 											    transition: opacity 0.2s linear 0s;
 											}
@@ -4014,15 +4025,13 @@
 											.video-section .video_item img {
 											    background-size: cover;
 											    bottom: 0;
-											    height: auto;
-											    max-width: inherit;
-											    min-height: 100%;
-											    min-width: 100%;
+											    height: 800px;
+											    width: 100%;
 											    position: absolute;
 											    right: 0;
 											    vertical-align: top;
-											    width: auto;
-											    z-index: -100;
+											    /* width: auto; */
+											    /* z-index: -100;*/
 											}
 											/* Custom Video BG */
 											
@@ -4038,10 +4047,10 @@
 											
 											#my-video.video-bg:after {
 											    position: absolute;
-											    /* background: rgba(0, 0, 0, 0.6); */
+											    background: rgba(0, 0, 0, 0.6);
 											    content: "";
 											    width: 100%;
-											    height: 100%;
+											    height: 750px;
 											    left: 0;
 											    right: 0;
 											    top: 0;
