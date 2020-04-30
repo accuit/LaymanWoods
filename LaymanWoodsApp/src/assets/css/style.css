@@ -3959,15 +3959,12 @@
 											/* Background Video */
 											
 											.youtube-section {
-											    margin: -2% -3% 0 -5%;
-											    height: 600px;
-											    width: 1580px;
+											    height: 630px;
 											}
 											
 											@media (max-width:991px) {
 											    .youtube-section {
-											        width: 380px;
-											        margin-left: inherit;
+											        height: 400px;
 											    }
 											}
 											
