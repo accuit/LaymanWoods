@@ -1,22 +1,19 @@
 <app-menu-header></app-menu-header>
 
-<app-title-header type="advance" title="Price Calculator"
-    bg-image="https://www.rkarchitect.in/wp-content/uploads/2019/08/interior_banner.jpg" parent="Home"
-    [parent-path]="'/home'" subTitle="Calculate estimated price." current-page="calculator"></app-title-header>
+<app-title-header title="Price Calculator" url="http://laymanwood.in/assets/img/calculator.jpg" parent="Home" [parent-path]="'/home'" subTitle="Calculate estimated price." current-page="calculator"></app-title-header>
 
 <section class="page-section">
     <div class="container shop">
         <div class="row">
             <div class="col-sm-12 col-md-8 product-page">
                 <div class="row">
-                    
+
                     <!-- .product -->
                     <div class="col-md-12">
                         <div class="description">
                             <p>
-                                <strong>Laymanwoods</strong> introduces the most transparent way to estimate the price of your modular
-                            kitchen, wardrobes, false cieling, paint , tile work etc... You can also let our interior experts
-                            work with you to personalize a product that exactly fits your home, taste and budget.
+                                <strong>Laymanwoods</strong> introduces the most transparent way to estimate the price of your modular kitchen, wardrobes, false cieling, paint , tile work etc... You can also let our interior experts work with you to personalize
+                                a product that exactly fits your home, taste and budget.
                             </p>
                         </div>
                         <div>
@@ -38,7 +35,7 @@
                 </div>
             </div>
             <div #scrollToPrice>
-                <app-price-estimate  [title]="'Estimated Price'" [items]="formData.products" [value]="formData.totalPrice"></app-price-estimate>
+                <app-price-estimate [title]="'Estimated Price'" [items]="formData.products" [value]="formData.totalPrice"></app-price-estimate>
             </div>
         </div>
     </div>

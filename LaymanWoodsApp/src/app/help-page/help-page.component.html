@@ -1,9 +1,11 @@
-<app-title-header type="advance" [title]="helpContent? helpContent.title: 'Product Help'"
-    bg-image="https://www.rkarchitect.in/wp-content/uploads/2019/08/interior_banner.jpg" parent="Home"
-    [parent-path]="'/home'" subTitle="Help Product" current-page="Help"></app-title-header>
+<app-title-header type="video" [title]="helpContent? helpContent.title: 'Product Help'" url="https://www.youtube.com/embed/-01MgCYYy6c?version=3
+    &start=1
+    &loop=1
+    &playlist=-01MgCYYy6c
+    &autoplay=1
+    &controls=0" parent="Home" [parent-path]="'/home'" subTitle="Help Product" current-page="Help"></app-title-header>
 
-<div *ngIf="noDataFound" class="row" style="margin-left: 20%;"> <img width="800" height="400"
-        src="https://i.pinimg.com/originals/88/36/65/8836650a57e0c941b4ccdc8a19dee887.png">
+<div *ngIf="noDataFound" class="row" style="margin-left: 20%;"> <img width="800" height="400" src="https://i.pinimg.com/originals/88/36/65/8836650a57e0c941b4ccdc8a19dee887.png">
 </div>
 
 <section *ngIf="helpContent" class="page-section">
@@ -15,37 +17,34 @@
                         <div class="single-product">
                             <img id="zoom-product" [src]="helpContent.imageUrl" width="500" height="600" data-zoom-image="img/sections/shop/w1-1.jpg">
                             <div id="zoom-product-thumb" class="zoom-product-thumb">
-                                <div class="owl-carousel navigation-shop dark-switch lr-pad-20 owl-theme"
-                                    data-pagination="false" data-autoplay="true" data-navigation="true" data-items="3"
-                                    data-tablet="4" data-mobile="3" style="opacity: 1; display: block;">
+                                <div class="owl-carousel navigation-shop dark-switch lr-pad-20 owl-theme" data-pagination="false" data-autoplay="true" data-navigation="true" data-items="3" data-tablet="4" data-mobile="3" style="opacity: 1; display: block;">
                                     <div class="owl-wrapper-outer">
-                                        <div class="owl-wrapper"
-                                            style="width: 1090px; left: 0px; display: block; transition: all 1000ms ease 0s; transform: translate3d(0px, 0px, 0px);">
-                                            <div class="owl-item" style="width: 109px;"><a href="#"
-                                                    data-image="img/sections/shop/w1-0.jpg"
-                                                    data-zoom-image="img/sections/shop/w1-0.jpg">
+                                        <div class="owl-wrapper" style="width: 1090px; left: 0px; display: block; transition: all 1000ms ease 0s; transform: translate3d(0px, 0px, 0px);">
+                                            <div class="owl-item" style="width: 109px;">
+                                                <a href="#" data-image="img/sections/shop/w1-0.jpg" data-zoom-image="img/sections/shop/w1-0.jpg">
                                                     <img id="img_01" src="http://placehold.it/80x16">
-                                                </a></div>
-                                            <div class="owl-item" style="width: 109px;"><a href="#"
-                                                    data-image="img/sections/shop/w1-1.jpg"
-                                                    data-zoom-image="img/sections/shop/w1-1.jpg">
+                                                </a>
+                                            </div>
+                                            <div class="owl-item" style="width: 109px;">
+                                                <a href="#" data-image="img/sections/shop/w1-1.jpg" data-zoom-image="img/sections/shop/w1-1.jpg">
                                                     <img id="img_01" src="http://placehold.it/80x16">
-                                                </a></div>
-                                            <div class="owl-item" style="width: 109px;"><a href="#"
-                                                    data-image="img/sections/shop/w1-2.jpg"
-                                                    data-zoom-image="img/sections/shop/w1-2.jpg">
+                                                </a>
+                                            </div>
+                                            <div class="owl-item" style="width: 109px;">
+                                                <a href="#" data-image="img/sections/shop/w1-2.jpg" data-zoom-image="img/sections/shop/w1-2.jpg">
                                                     <img id="img_01" src="http://placehold.it/80x16">
-                                                </a></div>
-                                            <div class="owl-item" style="width: 109px;"><a href="#"
-                                                    data-image="img/sections/shop/w1-1.jpg"
-                                                    data-zoom-image="img/sections/shop/w1-1.jpg">
+                                                </a>
+                                            </div>
+                                            <div class="owl-item" style="width: 109px;">
+                                                <a href="#" data-image="img/sections/shop/w1-1.jpg" data-zoom-image="img/sections/shop/w1-1.jpg">
                                                     <img id="img_01" src="http://placehold.it/80x16">
-                                                </a></div>
-                                            <div class="owl-item" style="width: 109px;"><a href="#"
-                                                    data-image="img/sections/shop/w1-2.jpg"
-                                                    data-zoom-image="img/sections/shop/w1-2.jpg">
+                                                </a>
+                                            </div>
+                                            <div class="owl-item" style="width: 109px;">
+                                                <a href="#" data-image="img/sections/shop/w1-2.jpg" data-zoom-image="img/sections/shop/w1-2.jpg">
                                                     <img id="img_01" src="http://placehold.it/80x16">
-                                                </a></div>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -68,35 +67,6 @@
                         <div class="product-meta-details">
                             <!-- <span class="product-code">SKU: {{product.categoryCode}}</span> -->
                             <!-- <span class="product-code pull-right">Category: Watch, Men Watch</span> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="row top-pad-80">
-                    <div class="col-md-12">
-                        <div role="tabpanel">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active">
-                                    <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Additional
-                                        Info</a>
-                                </li>
-                            </ul>
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="home">
-                                    <h5>Description</h5>
-                                    <div [innerHtml]="helpContent.description">
-                                    </div>
-                                </div>
-                                <div role="tabpanel" class="tab-pane" id="profile">
-                                    <h5>Additional Info</h5>
-                                    <div [innerHtml]="helpContent.additionalInfo">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

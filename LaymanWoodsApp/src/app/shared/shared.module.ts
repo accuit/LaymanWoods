@@ -8,10 +8,11 @@ import { ComponentsModule } from './components/components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DirectiveModule } from './directive/directive.module';
 import { ProductsService } from './services/products.services';
+import { SanitizeUrlPipe } from './pipes/sanitize-url.pipe';
 
 
 @NgModule({
-  declarations: [MenuHeaderComponent, TopHeaderComponent, TitleHeaderComponent],
+  declarations: [MenuHeaderComponent, TopHeaderComponent, TitleHeaderComponent, SanitizeUrlPipe],
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -25,7 +26,8 @@ import { ProductsService } from './services/products.services';
     DirectiveModule,
     MenuHeaderComponent,
     TopHeaderComponent,
-    TitleHeaderComponent
+    TitleHeaderComponent,
+    SanitizeUrlPipe
   ],
   providers: [
     ProductsService

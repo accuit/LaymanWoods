@@ -502,7 +502,7 @@
 		background-attachment:initial !important;
 	}
 	.image-bg {
-		-webkit-background-size:initial !important;
+		/* -webkit-background-size:initial !important; */
 	}
 	.grid-col-4 .grid-item,
 	.grid-col-4 .grid-sizer {
