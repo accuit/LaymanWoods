@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent {
   @ViewChild('videoplayer', { static: true }) videoplayer: ElementRef;
 
   ngAfterViewInit() {
@@ -13,8 +13,9 @@ export class HomeComponent implements AfterViewInit {
   }
 
   onClick() {
-    const player: HTMLVideoElement = this.videoplayer.nativeElement;
-    player.play();
+    if (this.videoplayer.nativeElement) {
+      const player: HTMLVideoElement = this.videoplayer.nativeElement;
+      player.play();
+    }
   }
-
 }

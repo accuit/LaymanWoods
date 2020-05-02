@@ -3,13 +3,11 @@
 <section id="my-video" class="row">
     <div class="col-md-12 container-fluid">
         <div class="video-section video_item">
-            <!-- <img src="assets/img/coming-soon.jpg" alt="calculator"> -->
-            <video #videoplayer muted autoplay loop (click)="onClick()" poster="img/sections/bg/full-img2.jpg">
+            <video #videoplayer (click)="onClick()" [muted]="true" autoplay="autoplay" loop="loop" poster="img/sections/bg/full-img2.jpg">
                 <source src="http://laymanwood.in/assets/videos/slider.webm" type="video/webm"/>         
-                <source src="http://laymanwood.in/assets/videos/slider.mp4" type="video/mp4"> 
-                            
-                    </video>
-            <!-- <div class="overlay"></div> -->
+                <source src="http://laymanwood.in/assets/videos/slider.mp4" type="video/mp4">     
+            </video>
+            <div (click)="onClick()" class="overlay"></div>
         </div>
         <div class="bg-color get-a-quote text-left" id="get-quote">
             <div class="container">
