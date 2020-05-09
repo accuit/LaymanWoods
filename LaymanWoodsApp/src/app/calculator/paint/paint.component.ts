@@ -47,7 +47,7 @@ export class PaintComponent implements OnInit {
     let totalCost: number = 0;
     this.formData.categories.forEach(x => {
       if (x.selectedProduct) {
-        if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.AreaMultiply) {
+        if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.AreaAdd) {
           totalCost = totalCost + (x.selectedProduct.mrp * x.multiplier) * (this.formData.area / x.divisor);
         } else if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.Quantity) {
           totalCost = totalCost + x.selectedProduct.mrp;

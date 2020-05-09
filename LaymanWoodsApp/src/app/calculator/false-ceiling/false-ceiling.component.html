@@ -16,7 +16,7 @@
     </div>
     <div class="row">
         <div *ngFor="let c of formData.categories">
-            <ipx-dropdown *ngIf="c.webPartType === 1" [options]="c.products" [label]="c.category.title" [displayField]="'name'" [(ngModel)]="c.selectedProduct">
+            <ipx-dropdown *ngIf="c.webPartType === 1" [options]="c.products" [label]="c.category.title" [displayField]="'title'" [(ngModel)]="c.selectedProduct">
             </ipx-dropdown>
         </div>
     </div>

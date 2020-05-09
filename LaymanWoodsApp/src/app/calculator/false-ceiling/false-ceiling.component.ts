@@ -17,7 +17,6 @@ export class FalseCeilingComponent implements OnInit {
 
   formData: any = {};
   interiorCategories: CompleteInteriorListing[];
-
   constructor(private readonly service: ProductsService) { }
 
   ngOnInit() {
@@ -52,25 +51,27 @@ export class FalseCeilingComponent implements OnInit {
     this.addAnother.emit(prod);
   }
 
-  calculateArea = (): number => {
+  calculateArea = (type: CalculationCostTypeEnum): number => {
     const sideA = (+this.formData.A.feet + (+this.formData.A.inches) / 12); // Feet
     const sideB = (+this.formData.B.feet + (+this.formData.B.inches) / 12); // Feet
-    const area = Math.round(sideA + sideB);
-    this.formData.area = area;
-    return area;
+
+    if (type === +CalculationCostTypeEnum.AreaMultiply) {
+      this.formData.area = Math.round(sideA * sideB);
+    } else if (type === +CalculationCostTypeEnum.AreaAdd) {
+      this.formData.area = Math.round(sideA + sideB);
+    } else {
+      this.formData.area = 1; // this will be multiplied with mrp
+    }
+
+    return this.formData.area;
 
   };
 
   calculatePrice() {
-    this.formData.area = this.calculateArea();
     let totalCost = 0;
     this.formData.categories.forEach(x => {
       if (x.selectedProduct) {
-        if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.AreaMultiply) {
-          totalCost = totalCost + (x.selectedProduct.mrp * x.multiplier) * (this.formData.area / x.divisor);
-        } else if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.Quantity) {
-          totalCost = totalCost + x.selectedProduct.mrp;
-        }
+        totalCost = totalCost + (x.selectedProduct.mrp * x.multiplier) * (this.calculateArea(x.selectedProduct.measurementUnit) / x.divisor);
         console.log(x.selectedProduct.title + ' ( ' + x.selectedProduct.measurementUnit + ' )' + ': (' + x.selectedProduct.mrp + "*" + x.multiplier + ') * (' + this.formData.area + '/' + x.divisor + ') Total: ' + totalCost);
       }
     });
@@ -78,6 +79,7 @@ export class FalseCeilingComponent implements OnInit {
     this.formData.totalPrice = Math.round(totalCost)
     this.ceilingPrice.emit(this.formData.totalPrice);
   }
+
 
   reset(): any {
     this.getProductFormData();

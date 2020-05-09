@@ -3,22 +3,27 @@
 <section id="my-video" class="row">
     <div class="col-md-12 container-fluid">
         <div class="video-section video_item">
-            <video #videoplayer (click)="onClick()" [muted]="true" autoplay="autoplay" loop="loop" poster="img/sections/bg/full-img2.jpg">
+            <video #videoplayer (click)="onClick()" [muted]="true" autoplay="autoplay" loop="loop" poster="assets/img/sections/bg/full-img2.jpg">
                 <source src="http://laymanwood.in/assets/videos/slider.webm" type="video/webm"/>         
                 <source src="http://laymanwood.in/assets/videos/slider.mp4" type="video/mp4">     
             </video>
             <div (click)="onClick()" class="overlay"></div>
         </div>
-        <div class="bg-color get-a-quote text-left" id="get-quote">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 animated pulse visible" data-animation="pulse"><a style="color:#dca11c; font-family: Georgia, 'Times New Roman', Times, serif;" href="/contact-us">GET FREE ESTIMATES</a></div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 <!-- slider -->
+
+<div class="page-header page-title-left page-title-pattern" style="border-color: #555555; box-shadow: none; background-color: #ffc400;">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="col-md-10">
+                <h1 class="title">GET FREE ESTIMATE</h1>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-success btn-lg btn-estimate" type="button">PRICE CALCULATOR</button></div>
+        </div>
+    </div>
+</div>
 
 <section class="page-section">
     <div class="section-title" data-animation="fadeInUp">
@@ -77,8 +82,7 @@
                         <!-- Title -->
                         <h5 class=" title text-center tb-margin-10">Building Construction</h5>
                         <!-- Text -->
-                        <div>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
-                        </div>
+
                     </a>
                 </div>
             </div>
@@ -89,9 +93,7 @@
                         <img src="assets/img/sections/services/Kitchen.jpg" alt="" width="400" height="273" />
                         <!-- Title -->
                         <h5 class="title  text-center tb-margin-10">Modular Kitchen & Wardrobes</h5>
-                        <!-- Text -->
-                        <div>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
-                        </div>
+
                     </a>
                 </div>
             </div>
@@ -102,9 +104,7 @@
                         <img src="assets/img/sections/services/house-renovation.jpg" alt="" width="400" height="273" />
                         <!-- Title -->
                         <h5 class="title  text-center tb-margin-10">House Renovation</h5>
-                        <!-- Text -->
-                        <div>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
-                        </div>
+
                     </a>
                 </div>
             </div>
@@ -115,9 +115,7 @@
                         <img src="assets/img/sections/services/interior-design.jpg" alt="" width="400" height="273" />
                         <!-- Title -->
                         <h5 class="title text-center tb-margin-10">Interior Designing</h5>
-                        <!-- Text -->
-                        <div>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
-                        </div>
+
                     </a>
                 </div>
             </div>
@@ -128,9 +126,7 @@
                         <img src="assets/img/sections/services/painting.jpg" alt="" width="400" height="273" />
                         <!-- Title -->
                         <h5 class="title text-center tb-margin-10">Tiling and Painting</h5>
-                        <!-- Text -->
-                        <div>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
-                        </div>
+
                     </a>
                 </div>
             </div>
@@ -141,9 +137,7 @@
                         <img src="assets/img/sections/services/furniture.jpg" alt="" width="400" height="273" />
                         <!-- Title -->
                         <h5 class="title text-center tb-margin-10">Furniture</h5>
-                        <!-- Text -->
-                        <div>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste.
-                        </div>
+
                     </a>
                 </div>
             </div>
@@ -159,14 +153,16 @@
     <div class="container work-section">
         <div class="section-title white" data-animation="fadeInUp">
             <!-- Heading -->
-            <h2 class="title">Latest Works</h2>
+            <h2 class="title">Design Ideas</h2>
         </div>
         <div id="options" class="filter-menu" data-animation="fadeInUp">
             <ul class="option-set nav nav-pills">
-                <li class="filter active" data-filter="all">All Works</li>
-                <li class="filter" data-filter=".web">Interior</li>
+                <li class="filter active" data-filter="all">All</li>
                 <li class="filter" data-filter=".html">Kitchen</li>
-                <li class="filter" data-filter=".wp">Wardrobes</li>
+                <li class="filter" data-filter=".wp">Wardrobe</li>
+                <li class="filter" data-filter=".web">Room Interior</li>
+                <li class="filter" data-filter=".livr">Living Area</li>
+                <li class="filter" data-filter=".fcel">False Ceiling</li>
             </ul>
         </div>
     </div>
@@ -332,50 +328,126 @@
             </div>
         </div>
         <!-- Item 8 Ends-->
+        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all web">
+            <div class="grid">
+                <img src="assets/img/sections/portfolio/kitchen1.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <div class="figcaption">
+                    <div class="caption-block text-center">
+                        <h4>Lorem ipsum dolor sit amet</h4>
+                        <p>Interior</p>
+                    </div>
+                    <!-- Image Popup-->
+                    <a href="assets/img/sections/portfolio/kitchen1.jpg" data-rel="prettyPhoto[portfolio]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a href="portfolio-single.html">
+                        <i class="fa fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item 9 Ends-->
+        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all fcel">
+            <div class="grid">
+                <img src="assets/img/sections/portfolio/kitchen1.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <div class="figcaption">
+                    <div class="caption-block text-center">
+                        <h4>Lorem ipsum dolor sit amet</h4>
+                        <p>Interior</p>
+                    </div>
+                    <!-- Image Popup-->
+                    <a href="assets/img/sections/portfolio/kitchen1.jpg" data-rel="prettyPhoto[portfolio]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a href="portfolio-single.html">
+                        <i class="fa fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item 10 Ends-->
+        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all livr">
+            <div class="grid">
+                <img src="assets/img/sections/portfolio/kitchen5.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <div class="figcaption">
+                    <div class="caption-block">
+                        <h4>Lorem ipsum dolor sit amets</h4>
+                        <p>Energy</p>
+                    </div>
+                    <!-- Image Popup-->
+                    <a href="assets/img/sections/portfolio/kitchen5.jpg" data-rel="prettyPhoto[portfolio]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a href="portfolio-single.html">
+                        <i class="fa fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item 11 Ends-->
     </div>
     <!-- Mix Container -->
 </section>
 
-<div id="get-quote" class="bg-color get-a-quote black text-center">
+<section id="clients" class="page-section top-pad-10 bottom-pad-20">
+    <div class="container">
+        <div class="row" data-animation="fadeInUp">
+            <div class="col-md-12 text-center">
+                <div class="owl-carousel navigation-1" data-pagination="false" data-items="6" data-autoplay="true" data-navigation="true">
+                    <a href="#"><img src="assets/img/partners/hettich.png" width="170" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/centuryply.png" width="170" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/godrej.png" width="170" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/blum.png" width="170" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/godrej.png" width="170" height="170" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- clients -->
+<div id="get-quote" class="bg-color get-a-quote white text-center">
     <div class="container">
         <div class="row">
-            <div class="col-md-12" data-animation="pulse">Get A Free Quote / Need a Help ?
-                <a class="black" [routerLink]="'/contact-us'">Contact Us</a></div>
+            <div class="col-md-12" data-animation="pulse">
+                Get A Free Quote / Need a Help ? <a class="black" href="/contact-us">Contact Us </a>
+            </div>
         </div>
     </div>
 </div>
+
 <!-- request -->
 <section id="contact-us" class="page-section">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-md-8">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4" data-animation="fadeInLeft">
-                        <address>
-                            <h5 class="title"><i class="icon-map-pin text-color"></i> Address</h5>
-                            Suit 15, Steller IT Park, Sector 62,<br>
-                            Noida, U.P., <br>
-                            INDIA. <br>
-                            zipcode - 201309.
-                        </address>
-                    </div>
-                    <div class="col-sm-6 col-md-4" data-animation="fadeInUp">
-                        <h5 class="title"><i class="icon-phone10 text-color"></i> Phone</h5>
-                        <div>Support : +0123 (345) 6789</div>
-                        <div>Sales : +0123 (345) 6789</div>
-                        <div>Admin : +0123 (345) 6789</div>
-                    </div>
-                    <div class="col-sm-6 col-md-4" data-animation="fadeInRight">
-                        <h5 class="title"><i class="icon-envelope7 text-color"></i> Email Addresses</h5>
-                        <div>Support : support@laymanwoods.com</div>
-                        <div>Sales : sales@laymanwoods.com</div>
-                        <div>Admin : admin@laymanwoods.com</div>
-                    </div>
+            <div class="col-md-8 contact-info">
+                <div class="row text-center">
+                    <address class="col-sm-4 col-md-4">
+                        <i class="fa fa-map-marker i-9x icons-circle text-color light-bg hover-black"></i>
+                        <div class="title">Address</div>
+                        Suit 15, Steller IT Park, Sector 62,<br>
+                            Noida, U.P., INDIA.<br>
+                            Zipcode - 201309.
+                    </address>
+                    <address class="col-sm-3 col-md-3">
+                        <i class="fa fa-microphone i-9x icons-circle text-color light-bg hover-black"></i>
+                        <div class="title">Phones</div>
+                        <div>Support : 965 (765) 6789</div>
+                        <div>Sales : 945 (345) 6789</div>
+                        <div>Admin : 915 (345) 6789</div>
+                    </address>
+                    <address class="col-sm-5 col-md-5">
+                        <i class="fa fa-envelope i-9x icons-circle text-color light-bg hover-black"></i>
+                        <div class="title">Email Address</div>
+                        <div>Support : <a href="mailto:support@example.com">support@laymanwoods.com</a></div>
+                        <div>Sales : <a href="mailto:support@example.com">sales@laymanwoods.com</a></div>
+                        <div>Admin : <a href="mailto:support@example.com">admin@laymanwoods.com</a></div>
+                    </address>
                 </div>
                 <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Fusce odio ante, consectetur nec dictum at, cursus congue orci. Donec vel tellus eget massa lacinia pulvinar ut eu lectus. Quisque elit augue, gravida sit amet egestas quis, vehicula nec magna. Vivamus nec nulla magna, et fringilla arcu.
+                    Sed ac quam at elit feugiat semper eu at nulla. Morbi vel urna non massa faucibus mollis.</p>
+                <p>Phasellus vulputate, lectus eu consequat scelerisque, felis odio consequat enim, ut vulputate elit lacus nec ipsum. Vivamus non sollicitudin eros. Nunc ut pulvinar felis. Ut lectus orci, cursus ac semper nec, lobortis nec urna. </p>
+                <br>
             </div>
             <div class="col-md-6 col-md-4" data-animation="fadeInUp">
                 <h3 class="title">Contact Form</h3>

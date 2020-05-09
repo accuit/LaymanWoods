@@ -18,20 +18,20 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
 
         public List<CompleteInteriorListing> GetInteriorCategoryMapping(int id)
         {
-            var data = from m in DbContext.InteriorAndCategoryMappings
+            var data = (from m in DbContext.InteriorAndCategoryMappings
                        join c in DbContext.CategoryMasters.Include("ProductMasters") on m.CategoryCode equals c.CategoryCode
                        where m.InteriorID == id && m.IsDeleted == false
                        select new CompleteInteriorListing
                        {
                            InteriorCatgID = m.InteriorID,
                            Category = c,
-                           Products = c.ProductMasters.Where(x => !x.IsDeleted && x.CategoryCode == m.CategoryCode).ToList(),
+                           Products = c.ProductMasters.Where(x => !x.IsDeleted).ToList(),
                            Multiplier = m.Multiplier,
                            Divisor = m.Divisor,
                            WebPartType = m.WebPartType,
                            isMultiSelect = m.isMultiSelect,
                            IsDefault = m.IsDefault
-                       };
+                       }).ToList();
 
 
             return data.ToList();

@@ -28,8 +28,8 @@ export enum InteriorEnum {
 
 export enum CalculationCostTypeEnum {
     Quantity = 1,
-    AreaMultiply = 2,
-    AreaPlus = 3,
+    AreaAdd = 2,
+    AreaMultiply = 3,
     Volume = 4,
     Custom = 5
 }

@@ -64,7 +64,7 @@ export class WardrobeComponent implements OnInit {
 
     this.formData.categories.forEach(x => {
       if (x.selectedProduct) {
-        if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.AreaMultiply) {
+        if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.AreaAdd) {
           totalCost = totalCost + (x.selectedProduct.mrp * x.multiplier) * (area / x.divisor);
         } else if (x.selectedProduct.measurementUnit === +CalculationCostTypeEnum.Quantity) {
           totalCost = totalCost + x.selectedProduct.mrp;

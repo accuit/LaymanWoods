@@ -1,4 +1,5 @@
-<app-title-header type="advance" title="Contact Us" url="https://www.rkarchitect.in/wp-content/uploads/2019/08/interior_banner.jpg" parent="Home" [parent-path]="'/home'" subTitle="Write your queries and feedback" current-page="contact-us"></app-title-header>
+<app-title-header title="Contact Us" url="https://www.rkarchitect.in/wp-content/uploads/2019/08/interior_banner.jpg" parent="Home" [parent-path]="'/home'" subTitle="Write your queries and feedback" current-page="contact-us">
+</app-title-header>
 
 <section id="contact-us" class="page-section">
     <div class="container">
@@ -8,19 +9,31 @@
                     <address class="col-sm-4 col-md-4">
                         <i class="fa fa-map-marker i-9x icons-circle text-color light-bg hover-black"></i>
                         <div class="title">Address</div>
-                        49 Archdale, 2B Charleston, New York City, USA
+                        Suit 15, Steller IT Park, Sector 62,<br>
+                        Noida, U.P.,<br>
+                        INDIA.<br>
+                        zipcode - 201309.
                     </address>
                     <address class="col-sm-4 col-md-4">
                         <i class="fa fa-microphone i-9x icons-circle text-color light-bg hover-black"></i>
                         <div class="title">Phones</div>
-                        <div>Support: +123 (345) 6789</div>
+                        <div>Support : +0123 (345) 6789</div>
+                        <div>Sales : +0123 (345) 6789</div>
+                        <div>Admin : +0123 (345) 6789</div>
                     </address>
                     <address class="col-sm-4 col-md-4">
                         <i class="fa fa-envelope i-9x icons-circle text-color light-bg hover-black"></i>
-                        <div class="title">Email Addresses</div>
-                        <div>Support: <a href="mailto:support@example.com">support@example.com</a></div>
+                        <div class="title">Email Address</div>
+                        <div>Support : <a href="mailto:support@example.com">support@laymanwoods.com</a></div>
+                        <div>Sales : <a href="mailto:support@example.com">sales@laymanwoods.com</a></div>
+                        <div>Admin : <a href="mailto:support@example.com">admin@laymanwoods.com</a></div>
                     </address>
                 </div>
+                <hr>
+                <p>Fusce odio ante, consectetur nec dictum at, cursus congue orci. Donec vel tellus eget massa lacinia pulvinar ut eu lectus. Quisque elit augue, gravida sit amet egestas quis, vehicula nec magna. Vivamus nec nulla magna, et fringilla arcu.
+                    Sed ac quam at elit feugiat semper eu at nulla. Morbi vel urna non massa faucibus mollis.</p>
+                <p>Phasellus vulputate, lectus eu consequat scelerisque, felis odio consequat enim, ut vulputate elit lacus nec ipsum. Vivamus non sollicitudin eros. Nunc ut pulvinar felis. Ut lectus orci, cursus ac semper nec, lobortis nec urna. </p>
+                <br>
             </div>
         </div>
         <hr class="pad-10">
@@ -34,21 +47,24 @@
                         <input type="text" style="display: none;" formControlName="companyID" class="input-name form-control" />
 
                         <div class="input-text form-group has-feedback" [ngClass]="{'has-error': submitted && f.name.errors}">
-                            <label *ngIf="submitted && f.name.errors" class="control-label" for="inputError1">Full Name is mandatory</label>
+                            <label *ngIf="submitted && f.name.errors" class="control-label" for="inputError1">Full Name
+                                is mandatory</label>
                             <input type="text" formControlName="name" class="input-name form-control" placeholder="Full Name" />
                             <span *ngIf="submitted && f.name.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                             <span *ngIf="submitted && !f.name.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </div>
                         <!-- Field 2 -->
                         <div class="input-email form-group has-feedback" [ngClass]="{'has-error': submitted && f.email.errors}">
-                            <label *ngIf="submitted && f.email.errors" class="control-label" for="inputError1">Please enter valid email address.</label>
+                            <label *ngIf="submitted && f.email.errors" class="control-label" for="inputError1">Please
+                                enter valid email address.</label>
                             <input type="email" formControlName="email" class="input-email form-control" placeholder="Email" />
                             <span *ngIf="submitted && f.email.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                             <span *ngIf="submitted && !f.email.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </div>
                         <!-- Field 3 -->
                         <div class="input-email form-group has-feedback" [ngClass]="{'has-error': submitted && f.phone.errors}">
-                            <label *ngIf="submitted && f.phone.errors" class="control-label" for="inputError1">Please enter 10 digit mobile number.</label>
+                            <label *ngIf="submitted && f.phone.errors" class="control-label" for="inputError1">Please
+                                enter 10 digit mobile number.</label>
                             <input type="text" formControlName="phone" class="input-phone form-control" placeholder="10 Digit Mobile No." />
                             <span *ngIf="submitted && f.phone.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                             <span *ngIf="submitted && !f.phone.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
@@ -68,7 +84,8 @@
                             </div>
                         </div>
                         <!-- Button -->
-                        <button class="btn btn-default btn-block" [attr.disabled]="(submitted && enquiryForm.invalid) ? 'disabled': null " type="submit">Send Now <i class="icon-paper-plane"></i></button>
+                        <button class="btn btn-default btn-block" [attr.disabled]="(submitted && enquiryForm.invalid) ? 'disabled': null " type="submit">Send
+                            Now <i class="icon-paper-plane"></i></button>
 
                     </form>
 
@@ -82,12 +99,14 @@
                                 <span *ngIf="!isSuccess && otpSubmitted" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                             </div>
                         </div>
-                        <button *ngIf="!isSuccess && otpSent" [attr.disabled]="(verifying) ? 'disabled': null " class="btn btn-default btn-block" type="submit">Verify and Submit <i class="icon-paper-plane"></i></button>
+                        <button *ngIf="!isSuccess && otpSent" [attr.disabled]="(verifying) ? 'disabled': null " class="btn btn-default btn-block" type="submit">Verify and Submit <i
+                                class="icon-paper-plane"></i></button>
                         <div *ngIf="verifying" class="alert alert-info" role="alert">Verifying OTP. Please wait...</div>
                         <div *ngIf="isSuccess" role="alert" class="alert alert-success">
                             <strong>Well done!</strong> Your message has been sent Successfully! <a class="alert-link" href="/">Go Home.</a>.
                         </div>
-                        <div *ngIf="!isSuccess && !verifying && otpSubmitted" class="alert alert-danger" role="alert">Ohh snap! OTP is not matched.</div>
+                        <div *ngIf="!isSuccess && !verifying && otpSubmitted" class="alert alert-danger" role="alert">
+                            Ohh snap! OTP is not matched.</div>
                     </form>
 
                     <!-- Form Ends -->
@@ -95,9 +114,9 @@
             </div>
             <div class="col-md-8">
                 <div class="map-section">
-                    <div class="map-canvas" data-zoom="12" data-lat="-35.2835" data-lng="149.128" data-type="roadmap" data-hue="#ffc400" data-title="Austin" data-content="Company Name<br>
+                    <div class="map-canvas" data-zoom="12" data-lat="28.6129513" data-lng="77.3602615" data-type="roadmap" data-hue="#ffc400" data-title="Layman Woods Stellar IT Park Noida" data-content="Layman Woods<br>
                         Contact: +012 (345) 6789<br>
-                        <a href='mailto:info@youremail.com'>info@youremail.com</a>" style="height: 336px;">
+                        <a href='mailto:info@laymanwoods.com'>info@laymanwoods.com</a>" style="height: 336px;">
                     </div>
                 </div>
             </div>
