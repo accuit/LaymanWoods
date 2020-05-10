@@ -1,56 +1,512 @@
-﻿@{
-    ViewBag.Title = "Home";
+<section id="my-video" class="row">
+    <div class="col-md-12 container-fluid">
+        <div class="video-section video_item">
+            <video id="video"onload="loadVideo()" onclick="VideoPlay()" muted="muted" autoplay="autoplay" loop="loop" poster="src/assets/img/sections/bg/full-img2.jpg">
+                <source src="http://laymanwood.in/assets/videos/slider.webm" type="video/webm" />
+            </video>
+        </div>
+    </div>
+</section>
+<!-- slider -->
+
+<div class="page-header page-title-left page-title-pattern" style="border-color: #555555; box-shadow: none; background-color: #ffc400;">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="col-md-10">
+                <h1 class="title">GET FREE ESTIMATE</h1>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-success btn-lg btn-estimate" type="button">PRICE CALCULATOR</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="page-section">
+    <div class="section-title" data-animation="fadeInUp">
+        <!-- Heading -->
+        <h2 class="title">About Us </h2>
+    </div>
+    <div class="container">
+
+        <h4 class="text-center">MASTER PIC DESIGNS MADE WITH CREATIVE PROFESSIONALS</h4>
+        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quisquam, culpa, soluta hic aperiam porro ipsum nisi optio necessitatibus commodi dolorum sapiente voluptatem officiis similique maiores!</p>
+        <div class="row text-center">
+            <div class="col-sm-3 col-md-3">
+                <i class="icon-users medium text-color fa-2x icons-circle border-color"></i>
+                <h4>Who We Are?</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dapibus facilisis cvallis.</p>
+                <hr />
+                <button class="btn btn-default">Read More..</button>
+            </div>
+            <div class="col-sm-3 col-md-3">
+                <i class="icon-presentation2 medium text-color fa-2x icons-circle border-color"></i>
+                <h4>Why Choose Us?</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dapibus facilisis cvallis.</p>
+                <hr />
+                <button class="btn btn-default">Read More..</button>
+            </div>
+            <div class="col-sm-3 col-md-3">
+                <i class="icon-target9 medium text-color fa-2x icons-circle border-color"></i>
+                <h4>Our Mission</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dapibus facilisis cvallis.</p>
+                <hr />
+                <button class="btn btn-default">Read More..</button>
+            </div>
+            <div class="col-sm-3 col-md-3">
+                <i class="icon-lightbulb4 medium text-color fa-2x icons-circle border-color"></i>
+                <h4>What we Do?</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dapibus facilisis cvallis.</p>
+                <hr />
+                <button class="btn btn-default">Read More..</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section">
+    <div class="container">
+        <div class="section-title" data-animation="fadeInUp">
+            <!-- Heading -->
+            <h2 class="title">Our Services</h2>
+        </div>
+        <div class="row ">
+            <div class="col-sm-6 col-md-4" data-animation="fadeInLeft">
+                <div class="boxed-block light-bg opacity pad-20 bottom-margin-30">
+                    <a href="#">
+                        <!-- image -->
+                        <img src="src/assets/img/sections/services/building-construction.jpg" alt="" width="400" height="273" />
+                        <!-- Title -->
+                        <h5 class=" title text-center tb-margin-10">Building Construction</h5>
+                        <!-- Text -->
+
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4" data-animation="fadeInUp">
+                <div class="boxed-block light-bg opacity pad-20 bottom-margin-30">
+                    <a href="#">
+                        <!-- image -->
+                        <img src="src/assets/img/sections/services/Kitchen.jpg" alt="" width="400" height="273" />
+                        <!-- Title -->
+                        <h5 class="title  text-center tb-margin-10">Modular Kitchen & Wardrobes</h5>
+
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4" data-animation="fadeInRight">
+                <div class="boxed-block light-bg opacity pad-20 bottom-margin-30">
+                    <a href="#">
+                        <!-- image -->
+                        <img src="src/assets/img/sections/services/house-renovation.jpg" alt="" width="400" height="273" />
+                        <!-- Title -->
+                        <h5 class="title  text-center tb-margin-10">House Renovation</h5>
+
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4" data-animation="fadeInLeft">
+                <div class="boxed-block light-bg opacity pad-20 bottom-margin-30">
+                    <a href="#">
+                        <!-- image -->
+                        <img src="src/assets/img/sections/services/interior-design.jpg" alt="" width="400" height="273" />
+                        <!-- Title -->
+                        <h5 class="title text-center tb-margin-10">Interior Designing</h5>
+
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4" data-animation="fadeInUp">
+                <div class="boxed-block light-bg opacity pad-20 bottom-margin-30">
+                    <a href="#">
+                        <!-- image -->
+                        <img src="src/assets/img/sections/services/painting.jpg" alt="" width="400" height="273" />
+                        <!-- Title -->
+                        <h5 class="title text-center tb-margin-10">Tiling and Painting</h5>
+
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4" data-animation="fadeInRight">
+                <div class="boxed-block light-bg opacity pad-20 bottom-margin-30">
+                    <a href="#">
+                        <!-- image -->
+                        <img src="src/assets/img/sections/services/furniture.jpg" alt="" width="400" height="273" />
+                        <!-- Title -->
+                        <h5 class="title text-center tb-margin-10">Furniture</h5>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</section>
+<!-- services  -->
+<section class="page-section">
+    <div class="image-bg content-in fixed" data-background="src/assets/img/sections/bg/bg.jpg">
+        <div class="overlay"></div>
+    </div>
+    <div class="container work-section">
+        <div class="section-title white" data-animation="fadeInUp">
+            <!-- Heading -->
+            <h2 class="title">Design Ideas</h2>
+        </div>
+        <div id="options" class="filter-menu" data-animation="fadeInUp">
+            <ul class="option-set nav nav-pills">
+                <li class="filter active" data-filter="all">All</li>
+                <li class="filter" data-filter=".html">Kitchen</li>
+                <li class="filter" data-filter=".wp">Wardrobe</li>
+                <li class="filter" data-filter=".web">Room Interior</li>
+                <li class="filter" data-filter=".livr">Living Area</li>
+                <li class="filter" data-filter=".fcel">False Ceiling</li>
+            </ul>
+        </div>
+    </div>
+    <!-- filter -->
+    <div id="mix-container" class="portfolio-grid" data-animation="fadeInUp">
+        <!-- Item 1 -->
+        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all html">
+            <div class="grid">
+                <img src="src/assets/img/sections/portfolio/kitchen1.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <div class="figcaption">
+                    <div class="caption-block">
+                        <h4>Lorem ipsum dolor sit amet</h4>
+                        <p>Buildings</p>
+                    </div>
+                    <!-- Image Popup-->
+                    <a href="src/assets/img/sections/portfolio/kitchen1.jpg" data-rel="prettyPhoto[portfolio]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a href="portfolio-single.html">
+                        <i class="fa fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item 1 Ends-->
+        <!-- Item 2 -->
+        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all html">
+            <div class="grid">
+                <img src="src/assets/img/sections/portfolio/kitchen2.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <div class="figcaption">
+                    <div class="caption-block">
+                        <h4>Lorem ipsum dolor sit amet</h4>
+                        <p>Buildings</p>
+                    </div>
+                    <!-- Image Popup-->
+                    <a href="src/assets/img/sections/portfolio/kitchen2.jpg" data-rel="prettyPhoto[portfolio]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a href="portfolio-single.html">
+                        <i class="fa fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item 2 Ends-->
+        <!-- Item 3 -->
+        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all html">
+            <div class="grid">
+                <img src="src/assets/img/sections/portfolio/kitchen3.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <div class="figcaption">
+                    <div class="caption-block">
+                        <h4>Lorem ipsum dolor sit amet</h4>
+                        <p>Buildings</p>
+                    </div>
+                    <!-- Image Popup-->
+                    <a href="src/assets/img/sections/portfolio/kitchen3.jpg" data-rel="prettyPhoto[portfolio]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a href="portfolio-single.html">
+                        <i class="fa fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item 3 Ends-->
+        <!-- Item 4 -->
+        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all html">
+            <div class="grid">
+                <img src="src/assets/img/sections/portfolio/kitchen4.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <div class="figcaption">
+                    <div class="caption-block">
+                        <h4>Lorem ipsum dolor sit amet</h4>
+                        <p>Interior</p>
+                    </div>
+                    <!-- Image Popup-->
+                    <a href="src/assets/img/sections/portfolio/kitchen4.jpg" data-rel="prettyPhoto[portfolio]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a href="portfolio-single.html">
+                        <i class="fa fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item 4 Ends-->
+        <!-- Item 5 -->
+        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all wp html">
+            <div class="grid">
+                <img src="src/assets/img/sections/portfolio/kitchen5.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <div class="figcaption">
+                    <div class="caption-block">
+                        <h4>Lorem ipsum dolor sit amets</h4>
+                        <p>Energy</p>
+                    </div>
+                    <!-- Image Popup-->
+                    <a href="src/assets/img/sections/portfolio/kitchen5.jpg" data-rel="prettyPhoto[portfolio]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a href="portfolio-single.html">
+                        <i class="fa fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item 5 Ends-->
+        <!-- Item 6 -->
+        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all html wp">
+            <div class="grid">
+                <img src="src/assets/img/sections/portfolio/wardrobe1.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <div class="figcaption">
+                    <div class="caption-block">
+                        <h4>Lorem ipsum dolor sit amet</h4>
+                        <p>Energy</p>
+                    </div>
+                    <!-- Image Popup-->
+                    <a href="src/assets/img/sections/portfolio/wardrobe1.jpg" data-rel="prettyPhoto[portfolio]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a href="portfolio-single.html">
+                        <i class="fa fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item 6 Ends-->
+        <!-- Item 7 -->
+        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all web wp">
+            <div class="grid">
+                <img src="src/assets/img/sections/portfolio/wardrobe2.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <div class="figcaption">
+                    <div class="caption-block">
+                        <h4>Lorem ipsum dolor sit amet</h4>
+                        <p>Interior</p>
+                    </div>
+                    <!-- Image Popup-->
+                    <a href="src/assets/img/sections/portfolio/wardrobe2.jpg" data-rel="prettyPhoto[portfolio]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a href="portfolio-single.html">
+                        <i class="fa fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item 7 Ends-->
+        <!-- Item 8 -->
+        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all web wp">
+            <div class="grid">
+                <img src="src/assets/img/sections/portfolio/kitchen1.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <div class="figcaption">
+                    <div class="caption-block text-center">
+                        <h4>Lorem ipsum dolor sit amet</h4>
+                        <p>Interior</p>
+                    </div>
+                    <!-- Image Popup-->
+                    <a href="src/assets/img/sections/portfolio/kitchen1.jpg" data-rel="prettyPhoto[portfolio]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a href="portfolio-single.html">
+                        <i class="fa fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item 8 Ends-->
+        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all web">
+            <div class="grid">
+                <img src="src/assets/img/sections/portfolio/kitchen1.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <div class="figcaption">
+                    <div class="caption-block text-center">
+                        <h4>Lorem ipsum dolor sit amet</h4>
+                        <p>Interior</p>
+                    </div>
+                    <!-- Image Popup-->
+                    <a href="src/assets/img/sections/portfolio/kitchen1.jpg" data-rel="prettyPhoto[portfolio]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a href="portfolio-single.html">
+                        <i class="fa fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item 9 Ends-->
+        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all fcel">
+            <div class="grid">
+                <img src="src/assets/img/sections/portfolio/kitchen1.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <div class="figcaption">
+                    <div class="caption-block text-center">
+                        <h4>Lorem ipsum dolor sit amet</h4>
+                        <p>Interior</p>
+                    </div>
+                    <!-- Image Popup-->
+                    <a href="src/assets/img/sections/portfolio/kitchen1.jpg" data-rel="prettyPhoto[portfolio]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a href="portfolio-single.html">
+                        <i class="fa fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item 10 Ends-->
+        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all livr">
+            <div class="grid">
+                <img src="src/assets/img/sections/portfolio/kitchen5.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <div class="figcaption">
+                    <div class="caption-block">
+                        <h4>Lorem ipsum dolor sit amets</h4>
+                        <p>Energy</p>
+                    </div>
+                    <!-- Image Popup-->
+                    <a href="src/assets/img/sections/portfolio/kitchen5.jpg" data-rel="prettyPhoto[portfolio]">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <a href="portfolio-single.html">
+                        <i class="fa fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item 11 Ends-->
+    </div>
+    <!-- Mix Container -->
+</section>
+
+<section id="clients" class="page-section top-pad-10 bottom-pad-20">
+    <div class="container">
+        <div class="row" data-animation="fadeInUp">
+            <div class="col-md-12 text-center">
+                <div class="owl-carousel navigation-1" data-pagination="false" data-items="6" data-autoplay="true" data-navigation="true">
+                    <a href="#"><img src="src/assets/img/partners/hettich.png" width="170" height="170" alt=""></a>
+                    <a href="#"><img src="src/assets/img/partners/centuryply.png" width="170" height="170" alt=""></a>
+                    <a href="#"><img src="src/assets/img/partners/godrej.png" width="170" height="170" alt=""></a>
+                    <a href="#"><img src="src/assets/img/partners/blum.png" width="170" height="170" alt=""></a>
+                    <a href="#"><img src="src/assets/img/partners/godrej.png" width="170" height="170" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- clients -->
+<div id="get-quote" class="bg-color get-a-quote white text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" data-animation="pulse">
+                Get A Free Quote / Need a Help ? <a class="black" href="/contact-us">Contact Us </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- request -->
+<section id="contact-us" class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 contact-info">
+                <div class="row text-center">
+                    <address class="col-sm-4 col-md-4">
+                        <i class="fa fa-map-marker i-9x icons-circle text-color light-bg hover-black"></i>
+                        <div class="title">Address</div>
+                        Suit 15, Steller IT Park, Sector 62,<br>
+                        Noida, U.P., INDIA.<br>
+                        Zipcode - 201309.
+                    </address>
+                    <address class="col-sm-3 col-md-3">
+                        <i class="fa fa-microphone i-9x icons-circle text-color light-bg hover-black"></i>
+                        <div class="title">Phones</div>
+                        <div>Support : 965 (765) 6789</div>
+                        <div>Sales : 945 (345) 6789</div>
+                        <div>Admin : 915 (345) 6789</div>
+                    </address>
+                    <address class="col-sm-5 col-md-5">
+                        <i class="fa fa-envelope i-9x icons-circle text-color light-bg hover-black"></i>
+                        <div class="title">Email Address</div>
+                        <div>Support : <a href="mailto:support@example.com">support@laymanwoods.com</a></div>
+                        <div>Sales : <a href="mailto:support@example.com">sales@laymanwoods.com</a></div>
+                        <div>Admin : <a href="mailto:support@example.com">admin@laymanwoods.com</a></div>
+                    </address>
+                </div>
+                <hr>
+                <p>
+                    Fusce odio ante, consectetur nec dictum at, cursus congue orci. Donec vel tellus eget massa lacinia pulvinar ut eu lectus. Quisque elit augue, gravida sit amet egestas quis, vehicula nec magna. Vivamus nec nulla magna, et fringilla arcu.
+                    Sed ac quam at elit feugiat semper eu at nulla. Morbi vel urna non massa faucibus mollis.
+                </p>
+                <p>Phasellus vulputate, lectus eu consequat scelerisque, felis odio consequat enim, ut vulputate elit lacus nec ipsum. Vivamus non sollicitudin eros. Nunc ut pulvinar felis. Ut lectus orci, cursus ac semper nec, lobortis nec urna. </p>
+                <br>
+            </div>
+            <div class="col-md-6 col-md-4" data-animation="fadeInUp">
+                <h3 class="title">Contact Form</h3>
+                <p class="form-message" style="display: none;"></p>
+                <div class="contact-form">
+                    <!-- Form Begins -->
+                    <form role="form" name="contactform" id="contactform" method="post" action="php/contact-form.php">
+                        <!-- Field 1 -->
+                        <div class="input-text form-group">
+                            <input type="text" name="contact_name" class="input-name form-control" placeholder="Full Name" />
+                        </div>
+                        <!-- Field 2 -->
+                        <div class="input-email form-group">
+                            <input type="email" name="contact_email" class="input-email form-control" placeholder="Email" />
+                        </div>
+                        <!-- Field 3 -->
+                        <div class="input-email form-group">
+                            <input type="text" name="contact_phone" class="input-phone form-control" placeholder="Phone" />
+                        </div>
+                        <!-- Field 4 -->
+                        <div class="textarea-message form-group">
+                            <textarea name="contact_message" class="textarea-message form-control" placeholder="Message" rows="1"></textarea>
+                        </div>
+                        <!-- Button -->
+                        <button class="btn btn-default" type="submit">Send Now <i class="icon-paper-plane"></i></button>
+                    </form>
+                </div>
+
+                <!-- Form Ends -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- contact -->
+<section id="map" data-animation="fadeInUp">
+    <div class="map-section">
+        <div class="map-canvas" data-zoom="12" data-lat="28.6208" data-lng="77.3639" data-type="roadmap" data-hue="#ffc400" data-title="Noida" data-content="Layman Woods<br>
+            Contact: +91 (892) 936-88-85<br>
+            <a href='mailto:info@laymanwoods.com'>info@laymanwoods.com</a>" style="height: 376px;">
+        </div>
+    </div>
+</section>
+<!-- map -->
+
+@section scripts {
+    <script type="text/javascript">
+        function VideoPlay() {
+            var video = $('#video');
+            video.click();
+            video.play();
+      }
+
+      function loadVideo() {
+         var video = $('#video');
+            video.play();
+      }
+        //$(document).ready(function () {
+        //    var video = $('#video');
+        //    video.click();
+        //    video.play();
+        //});
+    </script>
 }
-
-@*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
-    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js">
-
-    </script>*@
-
-@*<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet"
-          href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css" />
-    <script type="text/javascript"
-            src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript"
-            src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>*@
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
-<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-<script>
-
-    $(document).ready(function () {
-        //  debugger;
-        $.noConflict();
-        //Call EmpDetails jsonResult Method
-        $.getJSON("http://localhost:49743/Home/EmpDetails",
-            function (json) {
-                var tr;
-                //Append each row to html table
-                for (var i = 0; i < json.length; i++) {
-                    tr = $('<tr/>');
-                    tr.append("<td>" + json[i].cfirstname + "</td>");
-                    tr.append("<td>" + json[i].clastname + "</td>");
-                    tr.append("<td>" + json[i].cemailaddress + "</td>");
-                    tr.append("<td>" + json[i].cpassword + "</td>");
-                    //  $('#myTable').append(tr);
-                    $('table').append(tr);
-                }
-                $('#EmpInfo').DataTable();
-            });
-
-    });
-</script>
-<div style="margin-top:100px;"></div>
-<table id="EmpInfo" class="table table-bordered table-condensed table-hover table-striped">
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email ID</th>
-            <th>Password</th>
-        </tr>
-    </thead>
-    <tbody></tbody>
-</table>
-@*<td>@item.cfirstname</td><td>@item.clastname</td><td>@item.cemailaddress</td><td>@item.cpassword</td>*@

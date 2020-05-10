@@ -1,0 +1,8 @@
+<div class="input-wrap" [ngClass]="{'edited':controledited()}">
+    <input type="checkbox" [ngModelOptions]="{standalone: true}" [(ngModel)]="value" [disabled]="disabled">
+    <label (click)="onClick()">
+        <span *ngIf="label" >{{ label }}</span>
+    </label>
+    <!-- <ipx-inline-dialog *ngIf="info" [content]="info | translate" [tooltipPlacement]="'right'"
+        [title]="infoData | translate"></ipx-inline-dialog> -->
+</div>

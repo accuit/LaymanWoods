@@ -1,6 +1,8 @@
 ﻿using LaymanWoods.CommonLayer.AOPRegistrations;
 using System.Web.Http;
 using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
 
 namespace MVC_Ecommerce
 {
@@ -11,6 +13,8 @@ namespace MVC_Ecommerce
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             UnityRegistration.InitializeAopContainer();
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }

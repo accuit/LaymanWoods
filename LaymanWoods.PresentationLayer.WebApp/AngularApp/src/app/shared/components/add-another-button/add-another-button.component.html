@@ -1,0 +1,13 @@
+
+
+
+<div class="row" style="margin-top: 5%">
+    <div class=" col-md-8 text-center">
+      <button type="button" class="btn btn-md btn-danger" (click)="resetForm($event)">Reset Form</button>
+      
+      <div *ngIf="showAnother" class="inline-block l-pad-p-15">
+          <button type="button" class="btn btn-md btn-danger" (click)="addAnotherProduct()">Next Product</button>
+        </div>
+    </div> 
+    
+  </div>

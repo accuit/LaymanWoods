@@ -1,0 +1,144 @@
+<div id="page">
+
+    <!-- Page Loader -->
+    <div id="pageloader">
+        <div class="loader-item fa fa-spin text-color"></div>
+    </div>
+    <!-- Sticky Navbar -->
+    <header id="sticker" class="sticky-navigation">
+        <!-- Sticky Menu -->
+        <div class="sticky-menu relative">
+            <!-- navbar -->
+            <div id="navigation" class="navbar navbar-default navbar-bg-light" role="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <app-top-header></app-top-header>
+                            <!-- Navbar Collapse -->
+                            <div id="topnav" class="navbar-collapse collapse">
+                                <!-- nav -->
+                                <ul class="nav navbar-nav">
+                                    <li><a href="/" routerLinkActive="active" class="scroll">Home</a></li>
+                                    <li><a href="about-us" routerLinkActive="active" class="scroll">About</a></li>
+                                    <li><a href="services" [routerLinkActive]="'active'" class="scroll">Services</a></li>
+                                    <li><a href="calculator" [routerLinkActive]="'active'" class="scroll">Price Calculator</a></li>
+                                    <li><a href="contact-us" [routerLinkActive]="'active'" class="scroll">Contact us</a></li>
+                                    <li><a href="contact-us" class="btn btn-lg btn-success" style="right: 15px;top: 0%;width: auto;background-color: #0d0b0d;font-weight: 600;color: #ffc400;padding: 5px 29px 5px 30px;margin-left: 20px;" type="button">BE ENTREPRENEUR</a></li>
+                                </ul>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                        </div>
+                        <!-- /.col-md-12 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container -->
+            </div>
+            <!-- navbar -->
+        </div>
+        <!-- Sticky Menu -->
+    </header>
+    <!-- Sticky Navbar -->
+    <!--- Menu -->
+    <router-outlet></router-outlet>
+
+    <footer id="footer">
+        <div class="footer-widget">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3 widget bottom-xs-pad-20">
+                        <div class="widget-title">
+                            <!-- Title -->
+                            <h3 class="title">About Us</h3>
+                        </div>
+                        <!-- Text -->
+                        <p> We like to provide great service for all kind of interior work !</p>
+                        <!-- Address -->
+                        <p><strong>Office:</strong> <br> No. 12, Steller IT Park Building,<br> Sector 62, Noida, INDIA.</p>
+                        <!-- Phone -->
+                        <p><strong>Call Us:</strong> +91 (892) 936-88-85
+
+                        </p>
+
+                        <div class="footer-logo">
+                            <!-- Image -->
+                            <img src="assets/img/logo.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 widget bottom-xs-pad-20">
+                        <div class="widget-title">
+                            <!-- Title -->
+                            <h3 class="title">Blogroll</h3>
+                        </div>
+                        <nav>
+                            <ul>
+                                <!-- List Items -->
+                                <li><a href="/laminate_type.html">Laminates Types</a></li>
+                                <li><a href="/carcase_material.html">Board vs Ply vs MDF </a></li>
+                                <li><a href="/hinge_type.html">Hinges & Channels</a></li>
+                                <li><a href="/faq.html">FAQ</a></li>
+                                <li><a href="/hardwares.html">Hardwares</a></li>
+                                <li><a href="/lw_blog.html">Useful Blog</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 widget">
+                        <div class="widget-title">
+                            <!-- Title -->
+                            <h3 class="title">Important Links</h3>
+                        </div>
+                        <nav>
+                            <ul>
+                                <!-- List Items -->
+                                <li><a href="https://web.hettich.com/fileadmin/Company_website/HIN/Media/Furniture_Fittings_and_Applications_Oct_19.pdf">Hettich Catalogue</a></li>
+                                <li><a href="https://inoxdecor.com/media/wysiwyg/pdf/catalog.pdf">INOX Catalogue</a></li>
+                                <li><a href="https://www.actiontesa.com/products/?catId=65&pId=52">HDHMR</a></li>
+                                <li><a href="https://www.sugatsune.com/">SUGATSUNE Hardware</a></li>
+                                <li><a href="https://www.asianpaints.com/products/wall-coverings/designer-collection.html?f=Collection%3Asabyasachi">Asian Paints</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 widget bottom-xs-pad-20">
+                        <div class="widget-title">
+                            <!-- Title -->
+                            <h3 class="title">Quick Links</h3>
+                        </div>
+                        <nav>
+                            <ul>
+                                <!-- List Items -->
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/about-us">About Us</a></li>
+                                <li><a href="/calculator">Calculator</a></li>
+                                <li><a href="/services">Services</a></li>
+                                <li><a href="/contact-us">Contact Us</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- .newsletter -->
+                </div>
+            </div>
+        </div>
+        <!-- footer-top -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <!-- Copyrights -->
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        &copy; 2018 <a href="#">www.laymanwoods.com</a>. Interior Design Agency.
+                        <br>
+                        <!-- Terms Link -->
+                        <a href="#">Terms of Use</a> / <a href="#"> Privacy Policy</a>
+                    </div>
+                    <div class="col-xs-2  col-sm-6 col-md-6 text-right page-scroll gray-bg icons-circle i-3x">
+                        <!-- Goto Top -->
+                        <a href="#page">
+                            <i class="glyphicon glyphicon-arrow-up"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer-bottom -->
+    </footer>
+    <!-- footer -->
+</div>

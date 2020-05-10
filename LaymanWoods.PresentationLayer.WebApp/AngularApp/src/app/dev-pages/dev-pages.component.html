@@ -1,0 +1,47 @@
+<div id="topnav" class="navbar-collapse collapse">
+    <!-- nav -->
+    <ul class="nav navbar-nav">
+
+        <li><a [routerLink]="'/example-page'" class="scroll">Example Page</a></li>
+        <li><a [routerLink]="'combo-text'" class="scroll">Combo Text Box</a></li>
+        <li><a href="#services" class="scroll">Services</a></li>
+        <li><a href="#works" class="scroll">Portfolio</a></li>
+        <li><a [routerLink]="['/calculator']" class="scroll">Price Calculator</a></li>
+        <li><a href="#team" class="scroll">Team</a></li>
+        <li><a href="#news" class="scroll">Blog</a></li>
+        <li><a href="#contact-us" class="scroll">Contact us</a></li>
+    </ul>
+</div><!-- /.navbar-collapse -->
+<!--- Menu -->
+
+ <div data-example-id="form-control-column-sizing" class="bs-example">
+    <ipx-text-field type="text" label="text sample" placeholder="text value" [(ngModel)]="textValue"></ipx-text-field>
+    {{ textValue | json}}
+</div>
+
+
+<!-- 
+<div data-example-id="form-control-column-sizing" class="bs-example">
+    <ipx-text-field type="text" placeholder="text value" [formControl]="phone"></ipx-text-field>
+    {{phone.value | json}}
+</div>  -->
+
+<!-- <div data-example-id="form-control-column-sizing" class="bs-example">
+    <ipx-combo-textbox [dimension]="dimension" name="A" [(ngModel)]="A"></ipx-combo-textbox>
+    {{A | json}}
+</div> -->
+<!-- 
+
+<div data-example-id="form-control-column-sizing" class="bs-example">
+    <ipx-radio-group #radioGroupZZ name="radiogroupZZ" value="L" required="true" (change)="onRadioChange($event)">
+        <ipx-radio class="radio-sample" *ngFor="let item of kitchens" value="{{item.value}}">
+            {{item.name}}
+        </ipx-radio>
+    </ipx-radio-group>
+   Selected item:  {{selectedValue | json}}
+</div> -->
+<br>
+<br>
+
+
+

@@ -1,0 +1,43 @@
+<app-menu-header></app-menu-header>
+
+<app-title-header title="Price Calculator" url="http://laymanwood.in/assets/img/calculator.jpg" parent="Home" [parent-path]="'/home'" subTitle="Calculate estimated price." current-page="calculator"></app-title-header>
+
+<section class="page-section">
+    <div class="container shop">
+        <div class="row">
+            <div class="col-sm-12 col-md-8 product-page">
+                <div class="row">
+
+                    <!-- .product -->
+                    <div class="col-md-12">
+                        <div class="description">
+                            <p>
+                                <strong>Laymanwoods</strong> introduces the most transparent way to estimate the price of your modular kitchen, wardrobes, false cieling, paint , tile work etc... You can also let our interior experts work with you to personalize
+                                a product that exactly fits your home, taste and budget.
+                            </p>
+                        </div>
+                        <div>
+                            <span class="step-title">STEP 1 : Choose the proudct i.e. Kitchen, Wardrobe, Paint ,Tile work etc....</span>
+                        </div>
+                        <div class="description">
+                            <label class="radio-inline" *ngFor="let item of formData.products">
+                                <input type="radio" name="product" (click)="formData.product = item"
+                                    (change)="onRadioChange(item)"
+                                    [checked]="item.value === formData.product.value">{{ item.value }}
+                            </label>
+                        </div>
+                        <app-kitchen *ngIf="formData.product.key === 1" (addAnother)="nextproduct($event)" next="2" (kitchenPrice)="getPrice($event, 1)"></app-kitchen>
+                        <app-wardrobe *ngIf="formData.product.key === 2" next="3" (addAnother)="nextproduct($event)" (wardrobePrice)="getPrice($event, 2)"></app-wardrobe>
+                        <app-false-ceiling *ngIf="formData.product.key === 3" next="4" (addAnother)="nextproduct($event)" (ceilingPrice)="getPrice($event, 3)"></app-false-ceiling>
+                        <app-paint *ngIf="formData.product.key === 4" next="5" (addAnother)="nextproduct($event)" (paintPrice)="getPrice($event, 4)"></app-paint>
+                        <app-tiles *ngIf="formData.product.key === 5" (tilesPrice)="getPrice($event, 5)"></app-tiles>
+                    </div>
+                </div>
+            </div>
+            <div #scrollToPrice>
+                <app-price-estimate [title]="'Estimated Price'" [items]="formData.products" [value]="formData.totalPrice"></app-price-estimate>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- page-section -->

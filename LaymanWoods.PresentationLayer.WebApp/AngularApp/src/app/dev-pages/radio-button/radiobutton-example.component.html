@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-sm-4">
+        <h4 class="sample-title">Radio buttons without group</h4>
+      <div class="input-wrap-group">
+        <span  class="pull-left input-wrap">Jurisdition</span>
+        <ipx-radio-button apply-edited label="jurisdictions.maintenance.overview.types.country" [value]="0" [(ngModel)]="formData.type" name="typeCountry" #country="ngModel">
+        </ipx-radio-button>
+        <ipx-radio-button apply-edited label="jurisdictions.maintenance.overview.types.group" [value]="1" [(ngModel)]="formData.type" name="typeGroup" #group="ngModel">
+        </ipx-radio-button>
+        <ipx-radio-button apply-edited label="jurisdictions.maintenance.overview.types.ipOnly" [value]="3" [(ngModel)]="formData.type" name="typeIpOnly" disabled="disabled">
+        </ipx-radio-button>
+
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <br>
+      {{ formData.type | json }} Touched?: {{ country.control.touched | json }} <br> <br> Touched?:  {{ group.control.touched | json }} 
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <form #radioForm="ngForm">
+      <h4 class="sample-title">Radio group in Template Driven form</h4>
+      <div class="col-sm-4">
+        <label for="radioGroupSeasons">Favorite Options </label>
+        <ipx-radio-button-group id="radioGroupOptions" name="radioGroupOptions" [(ngModel)]="optionResult.favoriteOption">
+          <ipx-radio-button apply-edited class="radio-sample" *ngFor="let item of options;  trackBy: item;" value="{{ item }}">
+            {{ item }}
+          </ipx-radio-button>
+        </ipx-radio-button-group>
+      </div>
+      <div class="col-sm-4"> {{ diagnostic }}</div>
+    </form>
+  </div>
+  
+  <div class="row">
+      <div class="col-sm-4">
+        <h4 class="sample-title">Radio group without data model</h4>
+        <ipx-radio-button-group name="radiogroupZZ" value="Bar" required="true" (change)="onRadioChange($event)">
+            <ipx-radio-button class="radio-sample" *ngFor="let item of ['Foo', 'Bar', 'Baz']" value="{{ item }}">
+                {{ item }}
+              </ipx-radio-button>
+          </ipx-radio-button-group>
+      </div>
+      <div class="col-sm-4"> Selected Value: {{ selectedValue }} </div>
+  </div>
+  
+  
+  
