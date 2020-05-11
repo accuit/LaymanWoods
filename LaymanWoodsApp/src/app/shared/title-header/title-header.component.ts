@@ -25,7 +25,10 @@ export class TitleHeaderComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.loadVideo = this.type === 'video' ? true : false;
+    setTimeout(() => {
+      this.loadVideo = this.type === 'video' ? true : false;
+    }, 200);
+   
     if (this.imageEl) {
       this.renderer.setAttribute(this.imageEl.nativeElement, 'data-background', this.url);
     }

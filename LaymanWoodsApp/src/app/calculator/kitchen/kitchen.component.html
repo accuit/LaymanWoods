@@ -59,7 +59,7 @@
             </div>
 
             <div *ngFor="let c of formData.categories">
-                <ipx-dropdown *ngIf="c.webPartType === 1" [options]="c.products" [label]="c.category.title" [displayField]="'name'" [(ngModel)]="c.selectedProduct" (change)="specialProductRules(c)">
+                <ipx-dropdown *ngIf="c.webPartType === 1" [options]="c.products" [label]="c.category.title" [displayField]="'title'" [(ngModel)]="c.selectedProduct" (change)="specialProductRules(c)">
                 </ipx-dropdown>
             </div>
         </div>

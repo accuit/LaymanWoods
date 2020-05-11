@@ -18,7 +18,8 @@ export class ContactComponent implements OnInit {
   otpSent = false;
   isSuccess = false;
   verifying = false;
-
+  mobile: string;
+  reSent = false;
   constructor(private readonly formBuilder: FormBuilder,
     private readonly service: NotificationService) { }
 
@@ -65,12 +66,21 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit(): any {
-
     this.submitted = true;
     if (this.enquiryForm.invalid) {
       return;
     }
-    this.service.sendOtp(this.enquiryForm.value.phone)
+    this.mobile = this.enquiryForm.value.phone;
+    this.sendOTP(this.mobile);
+  }
+
+  resendOTP(): void {
+    this.reSent = true;
+    this.sendOTP(this.mobile);
+  }
+
+  sendOTP(mobile): any {
+    this.service.sendOtp(mobile)
       .then((res: any) => {
         this.otpResponse = res;
         if (res.Status === 'Success') {
@@ -82,12 +92,8 @@ export class ContactComponent implements OnInit {
           this.otpResponse.otpStatus = 'Failed';
           return;
         }
-
       }).catch((error) => {
         console.log("Request rejected with " + JSON.stringify(error));
       });
   }
-
 }
-
-

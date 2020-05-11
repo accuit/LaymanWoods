@@ -23,7 +23,7 @@ export class HelpPageComponent implements OnInit {
 
   }
 
-  getData(code, id) {
+  getData(code = '0', id) {
     this.service.getProductHelp(code, id).subscribe((res: APIResponse) => {
       if (res.isSuccess)
         this.helpContent = res.singleResult;

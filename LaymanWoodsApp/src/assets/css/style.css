@@ -1389,7 +1389,7 @@
 											
 											.image-bg.content-in {
 											    background-repeat: no-repeat;
-											    background-position: center top;
+											    background-position: center center;
 											    -webkit-background-size: cover;
 											    background-size: cover;
 											    bottom: 0;
@@ -3921,7 +3921,7 @@
 											
 											.page-title-left.dark,
 											.page-title-left.dark .breadcrumb>li>a {
-											    background: #252525;
+											    /* background: #252525; */
 											    color: #fff;
 											}
 											
@@ -3936,16 +3936,16 @@
 											}
 											
 											.page-header .image-bg {
-											    min-height: inherit;
+											    min-height: 100px;
 											}
 											/******************************************************************************
   Pages
 *******************************************************************************/
 											
 											.page-header {
-											    border-bottom: 1px solid #e1e1e1;
-											    border-top: 1px solid #e1e1e1;
-											    padding: 30px 0;
+											    /* border-bottom: 1px solid #e1e1e1;
+											    border-top: 1px solid #e1e1e1; */
+											    padding: 11px 0;
 											    background-color: #f2f2f2;
 											    margin: 0px;
 											}

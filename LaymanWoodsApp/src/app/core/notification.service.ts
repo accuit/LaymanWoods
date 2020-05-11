@@ -22,13 +22,7 @@ export class NotificationService {
   }
 
   sendOtp(mobile: string): any {
-
     return this.httpClient.get(this.notificationUrl + mobile + '/AUTOGEN').toPromise();
-    // promise.then((response) => {
-    //   return response;
-    // }).catch((error) => {
-    //   console.log("Request rejected with " + JSON.stringify(error));
-    // });
   }
 
 

@@ -1,12 +1,12 @@
 .btn-estimate {
-    position: absolute;
-    right: 15px;
+    // position: absolute;
+    // right: 15px;
     top: 0%;
     width: auto;
     background-color: #2a292b;
-    font-weight: 600;
+    font-weight: 500;
     color: #ffc400;
-    padding: 15px 25px 15px 25px;
+    padding: 10px 20px 10px 20px;
 }
 
 .top-bar-section.top-bar-bg-color,
@@ -18,4 +18,13 @@
 .image-bg .overlay-color,
 .overlay-color {
     background-color: #0d0b0d;
+}
+
+h2 {
+    font-size: 35px;
+    margin: 0 0 4px;
+}
+
+.title {
+    font-family: cambria;
 }

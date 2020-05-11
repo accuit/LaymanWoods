@@ -1,9 +1,9 @@
-<app-title-header type="video" [title]="helpContent? helpContent.title: 'Product Help'" url="https://www.youtube.com/embed/-01MgCYYy6c?version=3
+<app-title-header *ngIf="helpContent" type="video" [title]="helpContent? helpContent.title: 'Product Help'" [url]="helpContent.imageUrl+'?version=3
     &start=1
     &loop=1
     &playlist=-01MgCYYy6c
     &autoplay=1
-    &controls=0" parent="Home" [parent-path]="'/home'" subTitle="Help Product" current-page="Help"></app-title-header>
+    &controls=0'" parent="Home" [parent-path]="'/home'" subTitle="Help Product" current-page="Help"></app-title-header>
 
 <div *ngIf="noDataFound" class="row" style="margin-left: 20%;"> <img width="800" height="400" src="https://i.pinimg.com/originals/88/36/65/8836650a57e0c941b4ccdc8a19dee887.png">
 </div>

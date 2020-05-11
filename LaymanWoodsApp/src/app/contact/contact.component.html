@@ -30,13 +30,8 @@
                     </address>
                 </div>
                 <hr>
-                <p>Fusce odio ante, consectetur nec dictum at, cursus congue orci. Donec vel tellus eget massa lacinia pulvinar ut eu lectus. Quisque elit augue, gravida sit amet egestas quis, vehicula nec magna. Vivamus nec nulla magna, et fringilla arcu.
-                    Sed ac quam at elit feugiat semper eu at nulla. Morbi vel urna non massa faucibus mollis.</p>
-                <p>Phasellus vulputate, lectus eu consequat scelerisque, felis odio consequat enim, ut vulputate elit lacus nec ipsum. Vivamus non sollicitudin eros. Nunc ut pulvinar felis. Ut lectus orci, cursus ac semper nec, lobortis nec urna. </p>
-                <br>
             </div>
         </div>
-        <hr class="pad-10">
         <div class="row">
             <div class="col-md-4">
                 <!-- <p class="form-message" style="display: none;"></p> -->
@@ -95,12 +90,14 @@
                                 <div class="input-group-addon">6 Digit OTP</div>
                                 <input type="text" class="form-control" formControlName="otp" id="exampleInputAmount" placeholder="Enter 6 digit OTP ">
                                 <span *ngIf="submitted && fotp.otp.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                                <span *ngIf="isSuccess" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                                <span *ngIf="!isSuccess && otpSubmitted" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                                <span *ngIf="isSuccess" class=" form-control-feedback" aria-hidden="true"></span>
+                                <span *ngIf="!isSuccess && otpSubmitted" class="form-control-feedback" aria-hidden="true"></span>
                             </div>
                         </div>
                         <button *ngIf="!isSuccess && otpSent" [attr.disabled]="(verifying) ? 'disabled': null " class="btn btn-default btn-block" type="submit">Verify and Submit <i
                                 class="icon-paper-plane"></i></button>
+                        <button *ngIf="!isSuccess && otpSent" [attr.disabled]="reSent ? 'disabled': null" (click)="resendOTP()" class="btn btn-default btn-block" type="submit">Resend <i
+                                    class="icon-paper-plane"></i></button>
                         <div *ngIf="verifying" class="alert alert-info" role="alert">Verifying OTP. Please wait...</div>
                         <div *ngIf="isSuccess" role="alert" class="alert alert-success">
                             <strong>Well done!</strong> Your message has been sent Successfully! <a class="alert-link" href="/">Go Home.</a>.

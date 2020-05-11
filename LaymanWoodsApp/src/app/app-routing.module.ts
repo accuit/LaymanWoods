@@ -10,6 +10,7 @@ import { HelpPageComponent } from "./help-page/help-page.component";
 import { TalkToExpertComponent } from "./talk-to-expert/talk-to-expert.component";
 import { CalculatorComponent } from "./calculator/calculator.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { EntrepreneurComponent } from './entrepreneur/entrepreneur.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: "talk-to-expert",
     component: TalkToExpertComponent
+  },
+  {
+    path: "be-entrepreneur",
+    component: EntrepreneurComponent
   },
   {
     path: "**",

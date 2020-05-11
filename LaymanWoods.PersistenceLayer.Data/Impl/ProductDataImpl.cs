@@ -63,7 +63,15 @@ namespace LaymanWoods.PersistenceLayer.Data.Impl
 
         public ProductHelp GetProductHelp(int productID, string code)
         {
-            return DbContext.ProductHelps.Where(x => !x.IsDeleted && (x.ProductID == productID || x.CategoryCode == code)).FirstOrDefault();
+            if (productID == 0)
+            {
+                return DbContext.ProductHelps.Where(x => !x.IsDeleted && x.CategoryCode == code).FirstOrDefault();
+            }
+            else
+            {
+                return DbContext.ProductHelps.Where(x => !x.IsDeleted && x.ProductID == productID).FirstOrDefault();
+            }
+           
         }
     }
 }

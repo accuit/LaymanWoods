@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TalkToExpertComponent } from './talk-to-expert/talk-to-expert.component';
 import { NotificationService } from './core/notification.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EntrepreneurComponent } from './entrepreneur/entrepreneur.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ServiceDetailsComponent,
     HelpPageComponent,
     TalkToExpertComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EntrepreneurComponent
   ],
   imports: [
     BrowserModule,
