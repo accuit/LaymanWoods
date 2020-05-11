@@ -1,15 +1,14 @@
 USE [LaymanWoods]
 GO
 
-INSERT INTO [dbo].[ProductMaster] VALUES(
- 'Evershine Ennotech' ,'Evershine Ennotech' ,'NA' ,'105' ,'Evershine Ennotech' ,1 ,NULL ,NULL ,3500 , GetDate() ,1 ,NULL ,NULL ,0 ,1,6,1,2)
-GO
 
-
-INSERT [dbo].[CategoryMaster] ([CategoryName], [CategoryCode], [CompanyID], [WebPartType], [isMultiSelect], [Title]) VALUES ( N'Kitchen Tiles', N'501', 1, 1, 0, N'Kitchen Tiles')
-INSERT [dbo].[CategoryMaster] ([CategoryName], [CategoryCode], [CompanyID], [WebPartType], [isMultiSelect], [Title]) VALUES ( N'Granite Tiles', N'502', 1, 1, 0, N'Granite Tiles')
-
-
+Update CategoryMaster Set Title = 'Granite' Where CategoryCode = 502
+Update ProductMaster Set Title = 'Handles, Favicol, Tape, Cartriage, Screws etc…' Where CategoryCode = 300;
+Update ProductMaster Set isDeleted = 1, isActive = 0 Where CategoryCode = 700;
+Update ProductMaster Set SKUCode = 'FCL', MRP=720 Where CategoryCode = 600 AND Name = 'False Ceiling';
+Update ProductMaster Set SKUCode = 'PPP', MeasurementUnit = 3 Where CategoryCode = 600 AND Name = 'Plain POP';
+Update ProductMaster Set SKUCode = 'MLP', Title='Moulding POP', MRP=240 Where CategoryCode = 600 AND Name = 'Moulding Price';
+Update ProductMaster Set MeasurementUnit = 3 Where CategoryCode = 500 AND isDeleted = 0;
 
 
 
