@@ -1,99 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { NotificationService, OTP } from '../core/notification.service';
-import { APIResponse } from '../shared/model/core.model';
+import { Component } from '@angular/core';
+import { MouseEvent } from '@agm/core';
+
+// just an interface for type safety.
+interface marker {
+	lat: number;
+	lng: number;
+	label?: string;
+	draggable: boolean;
+}
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
+ // google maps zoom level
+ zoom: number = 15;
+  
+ // initial center position for the map
+ lat: number = 22.5267089;
+ lng: number = 88.3449872;
 
-  enquiryForm: FormGroup;
-  otpForm: FormGroup;
-  otpResponse: OTP;
-  submitted = false;
-  otpSubmitted = false;
-  otpSent = false;
-  isSuccess = false;
-  verifying = false;
-  mobile: string;
-  reSent = false;
-  constructor(private readonly formBuilder: FormBuilder,
-    private readonly service: NotificationService) { }
+ markerDragEnd(m: marker, $event: MouseEvent) {
+  console.log('dragEnd', m, $event);
+}
 
-  ngOnInit() {
-    this.enquiryForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      otp: ['', [Validators.minLength(6), Validators.maxLength(6)]],
-      message: [''],
-      companyID: [1]
-    })
-
-    this.otpForm = this.formBuilder.group({
-      otp: ['', [Validators.minLength(6), Validators.maxLength(6)]]
-    })
+markers: marker[] = [
+  {
+    lat: 22.5272919,
+    lng: 88.3501469,
+    label: 'A',
+    draggable: false
   }
+]
 
-  get f() {
-    return this.enquiryForm.controls;
-  }
-  get fotp() {
-    return this.otpForm.controls;
-  }
-
-  onVerifyOTP() {
-    this.otpSubmitted = true;
-    this.verifying = true;
-    this.otpResponse.otp = this.otpForm.value.otp;
-    this.service.verifyOtp(this.otpResponse)
-      .then((res: APIResponse) => {
-        if (res.isSuccess) {
-          this.isSuccess = res.isSuccess;
-        } else {
-          this.isSuccess = false;
-        }
-
-      }).catch((error) => {
-        this.isSuccess = false;
-        console.log("Request rejected with " + JSON.stringify(error));
-      })
-
-    this.verifying = false;
-  }
-
-  onSubmit(): any {
-    this.submitted = true;
-    if (this.enquiryForm.invalid) {
-      return;
-    }
-    this.mobile = this.enquiryForm.value.phone;
-    this.sendOTP(this.mobile);
-  }
-
-  resendOTP(): void {
-    this.reSent = true;
-    this.sendOTP(this.mobile);
-  }
-
-  sendOTP(mobile): any {
-    this.service.sendOtp(mobile)
-      .then((res: any) => {
-        this.otpResponse = res;
-        if (res.Status === 'Success') {
-          this.otpSent = true;
-          this.otpResponse.userID = this.enquiryForm.value.phone;
-          this.otpResponse.otpStatus = 'Sent';
-          this.otpResponse.guid = res.Details;
-        } else {
-          this.otpResponse.otpStatus = 'Failed';
-          return;
-        }
-      }).catch((error) => {
-        console.log("Request rejected with " + JSON.stringify(error));
-      });
-  }
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalculatorModule } from './calculator/calculator.module';
@@ -44,7 +44,10 @@ import { EntrepreneurComponent } from './entrepreneur/entrepreneur.component';
     CalculatorModule,
     SharedModule,
     DevPagesModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDq1dRHnjM4CT3EOz-aS1agoe7i7iqdynU'
+    })
   ],
   providers: [NotificationService],
   bootstrap: [AppComponent, HomeComponent, AboutComponent, PortfolioComponent, ServicesComponent]

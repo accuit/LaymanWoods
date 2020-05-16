@@ -1,4 +1,4 @@
-<app-title-header title="Contact Us" url="https://www.rkarchitect.in/wp-content/uploads/2019/08/interior_banner.jpg" parent="Home" [parent-path]="'/home'" subTitle="Write your queries and feedback" current-page="contact-us">
+<app-title-header title="Contact Us" url="assets/img/contact-us-banner.jpg" parent="Home" [parent-path]="'/home'" subTitle="Write your queries and feedback" current-page="contact-us">
 </app-title-header>
 
 <section id="contact-us" class="page-section">
@@ -35,86 +35,29 @@
         <div class="row">
             <div class="col-md-4">
                 <!-- <p class="form-message" style="display: none;"></p> -->
-                <div class="contact-form">
-                    <!-- Form Begins -->
-                    <form *ngIf="!otpSent" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
-                        <!-- Field 1 -->
-                        <input type="text" style="display: none;" formControlName="companyID" class="input-name form-control" />
-
-                        <div class="input-text form-group has-feedback" [ngClass]="{'has-error': submitted && f.name.errors}">
-                            <label *ngIf="submitted && f.name.errors" class="control-label" for="inputError1">Full Name
-                                is mandatory</label>
-                            <input type="text" formControlName="name" class="input-name form-control" placeholder="Full Name" />
-                            <span *ngIf="submitted && f.name.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                            <span *ngIf="submitted && !f.name.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                        </div>
-                        <!-- Field 2 -->
-                        <div class="input-email form-group has-feedback" [ngClass]="{'has-error': submitted && f.email.errors}">
-                            <label *ngIf="submitted && f.email.errors" class="control-label" for="inputError1">Please
-                                enter valid email address.</label>
-                            <input type="email" formControlName="email" class="input-email form-control" placeholder="Email" />
-                            <span *ngIf="submitted && f.email.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                            <span *ngIf="submitted && !f.email.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                        </div>
-                        <!-- Field 3 -->
-                        <div class="input-email form-group has-feedback" [ngClass]="{'has-error': submitted && f.phone.errors}">
-                            <label *ngIf="submitted && f.phone.errors" class="control-label" for="inputError1">Please
-                                enter 10 digit mobile number.</label>
-                            <input type="text" formControlName="phone" class="input-phone form-control" placeholder="10 Digit Mobile No." />
-                            <span *ngIf="submitted && f.phone.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                            <span *ngIf="submitted && !f.phone.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                        </div>
-                        <!-- Field 4 -->
-                        <div class="textarea-message form-group has-feedback" [ngClass]="{'has-error': submitted && f.message.errors}">
-                            <textarea formControlName="message" class="textarea-message hight-82 form-control" placeholder="Message" rows="2"></textarea>
-                            <span *ngIf="submitted && f.message.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                            <span *ngIf="submitted && !f.message.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                        </div>
-                        <div *ngIf="submitted && otpSent" class="form-group has-feedback" [ngClass]="{'has-error': submitted && f.otp.errors}">
-                            <label class="sr-only" for="exampleInputAmount">OTP</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">OTP</div>
-                                <input type="text" class="form-control" formControlName="otp" id="exampleInputAmount" placeholder="Enter 6 digit OTP ">
-                                <span *ngIf="submitted && f.otp.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                            </div>
-                        </div>
-                        <!-- Button -->
-                        <button class="btn btn-default btn-block" [attr.disabled]="(submitted && enquiryForm.invalid) ? 'disabled': null " type="submit">Send
-                            Now <i class="icon-paper-plane"></i></button>
-
-                    </form>
-
-                    <form *ngIf="submitted && otpSent" [formGroup]="otpForm" (ngSubmit)="onVerifyOTP()">
-                        <div *ngIf="!isSuccess && otpSent" class="form-group has-feedback" [ngClass]="{'has-error': submitted && fotp.otp.errors, 'has-success': isSuccess}">
-                            <div class="input-group">
-                                <div class="input-group-addon">6 Digit OTP</div>
-                                <input type="text" class="form-control" formControlName="otp" id="exampleInputAmount" placeholder="Enter 6 digit OTP ">
-                                <span *ngIf="submitted && fotp.otp.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                                <span *ngIf="isSuccess" class=" form-control-feedback" aria-hidden="true"></span>
-                                <span *ngIf="!isSuccess && otpSubmitted" class="form-control-feedback" aria-hidden="true"></span>
-                            </div>
-                        </div>
-                        <button *ngIf="!isSuccess && otpSent" [attr.disabled]="(verifying) ? 'disabled': null " class="btn btn-default btn-block" type="submit">Verify and Submit <i
-                                class="icon-paper-plane"></i></button>
-                        <button *ngIf="!isSuccess && otpSent" [attr.disabled]="reSent ? 'disabled': null" (click)="resendOTP()" class="btn btn-default btn-block" type="submit">Resend <i
-                                    class="icon-paper-plane"></i></button>
-                        <div *ngIf="verifying" class="alert alert-info" role="alert">Verifying OTP. Please wait...</div>
-                        <div *ngIf="isSuccess" role="alert" class="alert alert-success">
-                            <strong>Well done!</strong> Your message has been sent Successfully! <a class="alert-link" href="/">Go Home.</a>.
-                        </div>
-                        <div *ngIf="!isSuccess && !verifying && otpSubmitted" class="alert alert-danger" role="alert">
-                            Ohh snap! OTP is not matched.</div>
-                    </form>
-
-                    <!-- Form Ends -->
-                </div>
+                <ipx-contact-form></ipx-contact-form>
             </div>
             <div class="col-md-8">
                 <div class="map-section">
-                    <div class="map-canvas" data-zoom="12" data-lat="28.6129513" data-lng="77.3602615" data-type="roadmap" data-hue="#ffc400" data-title="Layman Woods Stellar IT Park Noida" data-content="Layman Woods<br>
-                        Contact: +012 (345) 6789<br>
-                        <a href='mailto:info@laymanwoods.com'>info@laymanwoods.com</a>" style="height: 336px;">
-                    </div>
+                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
+
+                        <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+
+                            <agm-info-window>
+                                <strong>4C, Rajshekhar Bose Sarani, Bakul Bagan, Bhowanipore, Kolkata, West Bengal 700025
+                          <p>landmark: Opposite Chittaranjan Sishu Sadan</p></strong>
+                            </agm-info-window>
+
+                        </agm-marker>
+
+                        <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true" [editable]="true">
+                        </agm-circle>
+
+                    </agm-map>
+                    <!-- <div class="map-canvas" data-zoom="12" data-lat="28.6208" data-lng="77.3639" data-type="roadmap" data-hue="#ffc400" data-title="Noida" data-content="Layman Woods<br>
+                        Contact: +91 (892) 936-88-85<br>
+                        <a href='mailto:info@laymanwoods.com'>info@laymanwoods.com</a>" style="height: 376px;">
+                    </div> -->
                 </div>
             </div>
             <!-- map -->

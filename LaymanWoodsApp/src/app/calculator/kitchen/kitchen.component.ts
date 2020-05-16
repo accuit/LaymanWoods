@@ -24,10 +24,10 @@ export class KitchenComponent implements OnInit {
   specialCategory: any;
 
   kitchens: Kitchen[] = [
-    { sides: 2, value: 'L', name: 'L Shape', imageUrl: 'https://interioreradotin.files.wordpress.com/2019/02/l-shape-kitchen-banner-4.jpg?w=775' },
-    { sides: 3, value: 'U', name: 'U Shape', imageUrl: 'http://digitalb2btrade.com/static/listing-image/1551787072u-shape.jpg' },
-    { sides: 1, value: 'I', name: 'Single Side I Shape', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSp-Ob2Re5RoosQmTW08Wqco81kD3Pytyere6Bi4xBXOd3Z_T2a' },
-    { sides: 2, value: 'P', name: 'Parallel Shape', imageUrl: 'http://royalkitchenworld.com/wp-content/uploads/2017/03/gallary_16_3.jpg' },
+    { sides: 2, value: 'L', name: 'L Shape', imageUrl: 'assets/img/kitchen/l-shape.jpg' },
+    { sides: 3, value: 'U', name: 'U Shape', imageUrl: 'assets/img/kitchen/u-shape.jpg' },
+    { sides: 1, value: 'I', name: 'Single Side I Shape', imageUrl: 'assets/img/kitchen/i-shape.jpg' },
+    { sides: 2, value: 'P', name: 'Parallel Shape', imageUrl: 'assets/img/kitchen/p-shape.jpg' },
   ];
 
   selectedKitchen: Kitchen;
