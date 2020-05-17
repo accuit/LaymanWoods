@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="AopEngine.cs" />
     <Compile Include="AspectEnums.cs" />
+    <Compile Include="DTO\ContactEnquiryDTO.cs" />
+    <Compile Include="DTO\EntrepreneurEnquiryDTO.cs" />
     <Compile Include="DTO\InteriorAndCategoryMappingDTO.cs" />
     <Compile Include="DTO\CategoryMasterDTO.cs" />
     <Compile Include="DTO\CommonSetupDTO.cs" />

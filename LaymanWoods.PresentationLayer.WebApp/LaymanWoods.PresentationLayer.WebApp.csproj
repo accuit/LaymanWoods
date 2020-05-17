@@ -224,6 +224,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\RolesModel.cs" />
@@ -237,6 +238,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Helpers\EmailTemplates\BusinessEnquiry.html" />
+    <Content Include="Helpers\EmailTemplates\DoctorAppointmentConfirmation.html" />
+    <Content Include="Helpers\EmailTemplates\ContactEnquiry.html" />
+    <Content Include="Helpers\EmailTemplates\OnlineEnquiryResponse.html" />
+    <Content Include="Helpers\EmailTemplates\Student_Enquiry.html" />
+    <Content Include="Helpers\EmailTemplates\UserBookingConfirmation.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />

@@ -36,6 +36,7 @@ namespace LaymanWoods.CommonLayer.AOPRegistrations
             AopEngine.Container.RegisterType<IUserRepository, UserDataImpl>(GetPersistenceRegisterInstanceName(AspectEnums.PeristenceInstanceNames.UserDataImpl, AspectEnums.ApplicationName.LaymanWoods));
             AopEngine.Container.RegisterType<ISecurityRepository, SecurityDataImpl>(GetPersistenceRegisterInstanceName(AspectEnums.PeristenceInstanceNames.SecurityDataImpl, AspectEnums.ApplicationName.LaymanWoods));
             AopEngine.Container.RegisterType<IProductRepository, ProductDataImpl>(GetPersistenceRegisterInstanceName(AspectEnums.PeristenceInstanceNames.ProductDataImpl, AspectEnums.ApplicationName.LaymanWoods));
+            AopEngine.Container.RegisterType<INotificationRepository, NotificationDataImpl>(GetPersistenceRegisterInstanceName(AspectEnums.PeristenceInstanceNames.NotificationDataImpl, AspectEnums.ApplicationName.LaymanWoods));
         }
 
         private static string GetPersistenceRegisterInstanceName(AspectEnums.PeristenceInstanceNames aspectName, AspectEnums.ApplicationName application)
@@ -53,6 +54,7 @@ namespace LaymanWoods.CommonLayer.AOPRegistrations
             AopEngine.Container.RegisterType<IUserService, UserManager>(GetBusinessRegisterInstanceName(AspectEnums.AspectInstanceNames.UserManager, AspectEnums.ApplicationName.LaymanWoods));
             AopEngine.Container.RegisterType<ISecurityService, SecurityManager>(GetBusinessRegisterInstanceName(AspectEnums.AspectInstanceNames.SecurityManager, AspectEnums.ApplicationName.LaymanWoods));
             AopEngine.Container.RegisterType<IProductService, ProductManager>(GetBusinessRegisterInstanceName(AspectEnums.AspectInstanceNames.ProductManager, AspectEnums.ApplicationName.LaymanWoods));
+            AopEngine.Container.RegisterType<INotificationService, NotificationManager>(GetBusinessRegisterInstanceName(AspectEnums.AspectInstanceNames.NotificationManager, AspectEnums.ApplicationName.LaymanWoods));
         }
 
         private static void MapEntities()
@@ -97,6 +99,12 @@ namespace LaymanWoods.CommonLayer.AOPRegistrations
 
                 map.CreateMap<CompleteInteriorListingDTO, CompleteInteriorListing>();
                 map.CreateMap<CompleteInteriorListing, CompleteInteriorListingDTO>();
+
+                map.CreateMap<EntrepreneurEnquiryDTO, EntrepreneurEnquiry>();
+                map.CreateMap<EntrepreneurEnquiry, EntrepreneurEnquiryDTO>();
+
+                map.CreateMap<ContactEnquiryDTO, ContactEnquiry>();
+                map.CreateMap<ContactEnquiry, ContactEnquiryDTO>();
             });
 
             return config;

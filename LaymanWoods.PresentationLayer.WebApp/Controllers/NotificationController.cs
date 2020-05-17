@@ -15,11 +15,63 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
     [RoutePrefix("api/notification")]
     public class NotificationController : BaseAPIController
     {
-        [Route("values")]
-        public IEnumerable<string> Get()
+
+        [HttpPost]
+        [Route("contact-us-enquiry")]
+        public JsonResponse<int> ContactUsEnquiry(ContactEnquiryDTO enquiry)
         {
-            return new string[] { "value1", "value2" };
+            JsonResponse<int> response = new JsonResponse<int>();
+
+            try
+            {
+                enquiry.Status = (int)AspectEnums.EnquiryStatus.Received;
+                response.SingleResult = NotificationBusinessInstance.SubmitContactEnquiry(enquiry);
+                response.IsSuccess = response.SingleResult > 0? true: false;
+
+                if (response.IsSuccess)
+                {
+                    response.StatusCode = "200";
+                    response.Message = "Your enquiry is successfully posted.  We will send you email shortly.";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.StatusCode = "500";
+                response.Message = "Your enquiry is failed.";
+            }
+
+            return response;
         }
+
+        [HttpPost]
+        [Route("business-enquiry")]
+        public JsonResponse<int> EntrepreneurEnquiry(EntrepreneurEnquiryDTO enquiry)
+        {
+            JsonResponse<int> response = new JsonResponse<int>();
+
+            try
+            {
+                enquiry.Status = (int)AspectEnums.EnquiryStatus.Received;
+                response.SingleResult = NotificationBusinessInstance.SubmitEntrepreneurEnquiry(enquiry);
+                response.IsSuccess = response.SingleResult > 0 ? true : false;
+
+                if (response.IsSuccess)
+                {
+                    response.StatusCode = "200";
+                    response.Message = "Your enquiry is successfully posted.  We will send you email shortly.";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.StatusCode = "500";
+                response.Message = "Your enquiry is failed.";
+            }
+
+            return response;
+        }
+
 
         [Route("login/{email}/{password}")]
         [HttpGet]

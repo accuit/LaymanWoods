@@ -10,7 +10,7 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
         private IUserService userBusinessInstance;
         private ISecurityService securityBusinessInstance;
         private IProductService productBusinessInstance;
-
+        private INotificationService notificationBusinessInstance;
         public IUserService UserBusinessInstance
         {
             get
@@ -44,6 +44,18 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
                     productBusinessInstance = AopEngine.Resolve<IProductService>(AspectEnums.AspectInstanceNames.ProductManager, AspectEnums.ApplicationName.LaymanWoods);
                 }
                 return productBusinessInstance;
+            }
+        }
+
+        public INotificationService NotificationBusinessInstance
+        {
+            get
+            {
+                if (notificationBusinessInstance == null)
+                {
+                    notificationBusinessInstance = AopEngine.Resolve<INotificationService>(AspectEnums.AspectInstanceNames.NotificationManager, AspectEnums.ApplicationName.LaymanWoods);
+                }
+                return notificationBusinessInstance;
             }
         }
 

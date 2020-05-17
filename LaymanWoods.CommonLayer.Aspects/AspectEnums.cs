@@ -17,14 +17,16 @@ namespace LaymanWoods.CommonLayer.Aspects
         {
             UserManager,
             SecurityManager,
-            ProductManager
+            ProductManager,
+            NotificationManager
         }
 
         public enum PeristenceInstanceNames
         {
             UserDataImpl,
             SecurityDataImpl,
-            ProductDataImpl
+            ProductDataImpl,
+            NotificationDataImpl
         }
 
         public enum RoleType
@@ -57,11 +59,20 @@ namespace LaymanWoods.CommonLayer.Aspects
             LastAttemptDuration
         }
 
+        public enum EnquiryStatus
+        {
+            None = 0,
+            Received = 1,
+            InProcess = 2,
+            Delivered = 3,
+            Failed = 4,
+        }
+
         public enum EmailStatus
         {
             None = 0,
             Pending = 1,
-            InProcess = 2,
+            Sent = 2,
             Delivered = 3,
             Failed = 4,
         }

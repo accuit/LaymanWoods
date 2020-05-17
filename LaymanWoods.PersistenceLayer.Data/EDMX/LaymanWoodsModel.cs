@@ -25,6 +25,8 @@ namespace LaymanWoods.PersistenceLayer.Data.EDMX
         public virtual DbSet<ProductMaster> ProductMasters { get; set; }
         public virtual DbSet<UserMaster> UserMasters { get; set; }
         public virtual DbSet<DictionaryEncryptDecrypt> DictionaryEncryptDecrypts { get; set; }
+        public virtual DbSet<ContactEnquiry> ContactEnquiries { get; set; }
+        public virtual DbSet<EntrepreneurEnquiry> EntrepreneurEnquiries { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
