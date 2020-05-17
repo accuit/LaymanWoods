@@ -2,6 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { OTP, NotificationService } from 'src/app/core/notification.service';
 import { APIResponse } from '../../model/core.model';
+import { MouseEvent } from '@agm/core';
+
+// just an interface for type safety.
+interface marker {
+	lat: number;
+	lng: number;
+	label?: string;
+	draggable: boolean;
+}
 
 @Component({
   selector: 'ipx-contact-form',
@@ -53,6 +62,7 @@ export class IpxContactFormComponent implements OnInit {
       .then((res: APIResponse) => {
         if (res.isSuccess) {
           this.isSuccess = res.isSuccess;
+          this.service.contactEnquiry(this.enquiryForm.value);
         } else {
           this.isSuccess = false;
         }

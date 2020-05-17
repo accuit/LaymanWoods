@@ -1,43 +1,102 @@
-<app-title-header title="BE ENTREPRENEUR" url="http://laymanwood.in/assets/img/calculator.jpg" parent="Home" [parent-path]="'/home'" subTitle="Fullfill your dream. join Us!" current-page="be-entrpreneur">
+<app-title-header title="BE ENTREPRENEUR" url="assets/img/calculator.jpg" parent="Home" [parent-path]="'/home'" subTitle="Fullfill your dream. join Us!" current-page="be-entrpreneur">
 </app-title-header>
 
 <section class="page-section">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-md-6">
+            <div class="col-sm-8 col-md-8">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <div class="youtube-section">
                         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/meWV7SLoFfI?rel=0&autoplay=1&loop=1&playlist=meWV7SLoFfI" frameborder="2"></iframe>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-6">
-                <h4>Layman Woods / CEO</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, dolorum sapiente voluptatem officiis similique maiores!</p>
-                <div class="row">
-                    <div class="row">
-                        <div class="col-md-4 text-center progress-circular" data-appear-animation="fadeInLeftBig">
-                            <div class="piechart" data-percent="90" data-barcolor="#ffc400" data-trackcolor="#ffffff" data-linewidth="8" data-size="140">
-                                <span>90</span>
-                                <canvas height="140" width="140"></canvas></div>
-                            <p class="black">Wordpress</p>
+            <div class="col-md-4">
+                <!-- <p class="form-message" style="display: none;"></p> -->
+                <div class="contact-form">
+                    <!-- Form Begins -->
+                    <form *ngIf="!otpSent" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
+                        <!-- Field 1 -->
+                        <input type="text" style="display: none;" formControlName="companyID" class="input-name form-control" />
+
+                        <div class="input-text form-group has-feedback" [ngClass]="{'has-error': submitted && f.name.errors}">
+                            <label *ngIf="submitted && f.name.errors" class="control-label" for="inputError1">Full Name
+                                is mandatory</label>
+                            <input type="text" formControlName="name" class="input-name form-control" placeholder="Full Name" />
+                            <span *ngIf="submitted && f.name.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                            <span *ngIf="submitted && !f.name.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </div>
-                        <div class="col-md-4 text-center progress-circular" data-appear-animation="fadeInLeft">
-                            <div class="piechart" data-percent="60" data-barcolor="#ffc400" data-trackcolor="#ffffff" data-linewidth="8" data-size="140">
-                                <span>60</span>
-                                <canvas height="140" width="140"></canvas></div>
-                            <p class="black">CSS3</p>
+                        <div class="input-text form-group has-feedback" [ngClass]="{'has-error': submitted && f.name.errors}">
+                            <label *ngIf="submitted && f.profession.errors" class="control-label" for="inputError1">Profession
+                                is mandatory</label>
+                            <input type="text" formControlName="profession" class="input-name form-control" placeholder="Current Profession" />
+                            <span *ngIf="submitted && f.profession.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                            <span *ngIf="submitted && !f.profession.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </div>
-                        <div class="col-md-4 text-center progress-circular" data-appear-animation="fadeInRight">
-                            <div class="piechart" data-percent="75" data-barcolor="#ffc400" data-trackcolor="#ffffff" data-linewidth="8" data-size="140">
-                                <span>75</span>
-                                <canvas height="140" width="140"></canvas></div>
-                            <p class="black">HTML5</p>
+                        <div class="input-text form-group has-feedback" [ngClass]="{'has-error': submitted && f.name.errors}">
+                            <label *ngIf="submitted && f.location.errors" class="control-label" for="inputError1">Location
+                                is mandatory</label>
+                            <input type="text" formControlName="location" class="input-name form-control" placeholder="Location" />
+                            <span *ngIf="submitted && f.location.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                            <span *ngIf="submitted && !f.location.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </div>
+                        <div class="input-text form-group has-feedback" [ngClass]="{'has-error': submitted && f.investment.errors}">
+                            <label *ngIf="submitted && f.name.errors" class="control-label" for="inputError1">Investment
+                                is mandatory</label>
+                            <ipx-dropdown [options]="investmentAmount" [show-help]="false" [label]="" [displayField]="'title'" [formControl]="investment">
+                            </ipx-dropdown>
+                            <span *ngIf="submitted && f.investment.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                            <span *ngIf="submitted && !f.investment.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                        <!-- Field 2 -->
+                        <div class="input-email form-group has-feedback" [ngClass]="{'has-error': submitted && f.email.errors}">
+                            <label *ngIf="submitted && f.email.errors" class="control-label" for="inputError1">Please
+                                enter valid email address.</label>
+                            <input type="email" formControlName="email" class="input-email form-control" placeholder="Email" />
+                            <span *ngIf="submitted && f.email.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                            <span *ngIf="submitted && !f.email.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                        <!-- Field 3 -->
+                        <div class="input-email form-group has-feedback" [ngClass]="{'has-error': submitted && f.mobile.errors}">
+                            <label *ngIf="submitted && f.mobile.errors" class="control-label" for="inputError1">Please
+                                enter 10 digit mobile number.</label>
+                            <input type="text" formControlName="mobile" class="input-mobile form-control" placeholder="10 Digit Mobile No." />
+                            <span *ngIf="submitted && f.mobile.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                            <span *ngIf="submitted && !f.mobile.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                        <!-- Button -->
+                        <button class="btn btn-default btn-block" [attr.disabled]="(submitted && enquiryForm.invalid) ? 'disabled': null " type="submit">Send
+                            Now <i class="icon-paper-plane"></i></button>
+
+                    </form>
+
+                    <!-- <form *ngIf="submitted && otpSent" [formGroup]="otpForm" (ngSubmit)="onVerifyOTP()">
+                        <div *ngIf="!isSuccess && otpSent" class="form-group has-feedback" [ngClass]="{'has-error': submitted && fotp.otp.errors, 'has-success': isSuccess}">
+                            <div class="input-group">
+                                <div class="input-group-addon">6 Digit OTP</div>
+                                <input type="text" class="form-control" formControlName="otp" id="exampleInputAmount" placeholder="Enter 6 digit OTP ">
+                                <span *ngIf="submitted && fotp.otp.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                                <span *ngIf="isSuccess" class=" form-control-feedback" aria-hidden="true"></span>
+                                <span *ngIf="!isSuccess && otpSubmitted" class="form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                        <button *ngIf="!isSuccess && otpSent" [attr.disabled]="(verifying) ? 'disabled': null " class="btn btn-default btn-block" type="submit">Verify and Submit <i
+                                class="icon-paper-plane"></i></button>
+                        <button *ngIf="!isSuccess && otpSent" [attr.disabled]="reSent ? 'disabled': null" (click)="resendOTP()" class="btn btn-default btn-block" type="submit">Resend <i
+                                    class="icon-paper-plane"></i></button>
+                        <div *ngIf="verifying" class="alert alert-info" role="alert">Verifying OTP. Please wait...</div>
+                       
+                        <div *ngIf="!isSuccess && !verifying && otpSubmitted" class="alert alert-danger" role="alert">
+                            Ohh snap! OTP is not matched.</div>
+                    </form> -->
+                    <div *ngIf="isSuccess" role="alert" class="alert alert-success">
+                        <strong>Well done!</strong> Your message has been sent Successfully! <a class="alert-link" href="/">Go Home.</a>.
                     </div>
+                    <div *ngIf="!isSuccess && submitted && !verifying" class="alert alert-danger" role="alert">
+                        Ohh snap! Something went wrong.</div>
+                    <!-- Form Ends -->
                 </div>
             </div>
         </div>
-
     </div>
 </section>

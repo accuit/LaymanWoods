@@ -3,12 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { APIResponse } from '../shared/model/core.model';
+import { APIResponse, Enquiry } from '../shared/model/core.model';
 
 @Injectable()
 export class NotificationService {
 
-  baseUrl = environment.apiUrl;
+  baseUrl = environment.apiUrl + 'api/notification/';
   headers: HttpHeaders;
   notificationUrl = 'https://2factor.in/API/V1/070815b0-3e08-11ea-9fa5-0200cd936042/SMS/';
 
@@ -25,17 +25,24 @@ export class NotificationService {
     return this.httpClient.get(this.notificationUrl + mobile + '/AUTOGEN').toPromise();
   }
 
+  contactEnquiry(enquiry: Enquiry) {
+    return this.httpClient.post(this.baseUrl + 'contact-us-enquiry', enquiry).toPromise();
+  }
+
+  businessEnquiry(enquiry: Enquiry) {
+    return this.httpClient.post(this.baseUrl + 'business-enquiry', enquiry);
+  }
 
   verifyOtp(obj: OTP): any {
 
-    return this.httpClient.post<any>(this.baseUrl + 'api/notification/verify-otp', obj, { headers: this.headers }).toPromise();
-      // .pipe(
-      //   map((res: APIResponse) => {
-      //     if (!res.isSuccess) {
-      //       throw new Error('Something Went Wrong! Please try again');
-      //     }
-      //     return res;
-      //   }));
+    return this.httpClient.post<any>(this.baseUrl + 'verify-otp', obj, { headers: this.headers }).toPromise();
+    // .pipe(
+    //   map((res: APIResponse) => {
+    //     if (!res.isSuccess) {
+    //       throw new Error('Something Went Wrong! Please try again');
+    //     }
+    //     return res;
+    //   }));
   }
 
   sendNotification(): Observable<any> {
