@@ -26,7 +26,7 @@ export class NotificationService {
   }
 
   contactEnquiry(enquiry: Enquiry) {
-    return this.httpClient.post(this.baseUrl + 'contact-us-enquiry', enquiry).toPromise();
+    return this.httpClient.post(this.baseUrl + 'contact-us-enquiry', enquiry);
   }
 
   businessEnquiry(enquiry: Enquiry) {

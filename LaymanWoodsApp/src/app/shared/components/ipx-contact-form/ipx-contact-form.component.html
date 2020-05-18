@@ -14,14 +14,14 @@
                     <address class="col-sm-4 col-md-4">
                         <i class="fa fa-microphone i-9x icons-circle text-color light-bg hover-black"></i>
                         <div class="title">Phones</div>
-                        <div>Support : +0123 (345) 6789</div>
-                        <div>Sales : +0123 (345) 6789</div>
-                        <div>Admin : +0123 (345) 6789</div>
+                        <div>Support : +91 8928368885</div>
+                        <div>Sales : +91 9891129060</div>
+                        <div>Admin : +91 8860964008</div>
                     </address>
                     <address class="col-sm-4 col-md-4">
                         <i class="fa fa-envelope i-9x icons-circle text-color light-bg hover-black"></i>
                         <div class="title">Email Address</div>
-                        <div>Support : <a href="mailto:support@example.com">support@laymanwoods.com</a></div>
+                        <div>Support : <a href="mailto:support@example.com">info@laymanwoods.com</a></div>
                         <div>Sales : <a href="mailto:support@example.com">sales@laymanwoods.com</a></div>
                         <div>Admin : <a href="mailto:support@example.com">admin@laymanwoods.com</a></div>
                     </address>
@@ -54,12 +54,12 @@
                             <span *ngIf="submitted && !f.email.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </div>
                         <!-- Field 3 -->
-                        <div class="input-email form-group has-feedback" [ngClass]="{'has-error': submitted && f.phone.errors}">
-                            <label *ngIf="submitted && f.phone.errors" class="control-label" for="inputError1">Please
+                        <div class="input-email form-group has-feedback" [ngClass]="{'has-error': submitted && f.mobile.errors}">
+                            <label *ngIf="submitted && f.mobile.errors" class="control-label" for="inputError1">Please
                                 enter 10 digit mobile number.</label>
-                            <input type="text" formControlName="phone" class="input-phone form-control" placeholder="10 Digit Mobile No." />
-                            <span *ngIf="submitted && f.phone.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                            <span *ngIf="submitted && !f.phone.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                            <input type="text" formControlName="mobile" class="input-phone form-control" placeholder="10 Digit Mobile No." />
+                            <span *ngIf="submitted && f.mobile.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                            <span *ngIf="submitted && !f.mobile.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </div>
                         <!-- Field 4 -->
                         <div class="textarea-message form-group has-feedback" [ngClass]="{'has-error': submitted && f.message.errors}">
@@ -78,7 +78,6 @@
                         <!-- Button -->
                         <button class="btn btn-default btn-block" [attr.disabled]="(submitted && enquiryForm.invalid) ? 'disabled': null " type="submit">Send
                             Now <i class="icon-paper-plane"></i></button>
-
                     </form>
 
                     <form *ngIf="submitted && otpSent" [formGroup]="otpForm" (ngSubmit)="onVerifyOTP()">
@@ -102,13 +101,16 @@
                         <div *ngIf="!isSuccess && !verifying && otpSubmitted" class="alert alert-danger" role="alert">
                             Ohh snap! OTP is not matched.</div>
                     </form>
-
+                    <div *ngIf="isSuccess" role="alert" class="alert alert-success">
+                        <strong>Congratulations!</strong> Your message has been sent Successfully! <a class="alert-link" href="/">Go Home.</a>.
+                    </div>
+                    <div *ngIf="!isSuccess && submitted && !verifying" class="alert alert-danger" role="alert">
+                        Ohh snap! Something went wrong.</div>
                     <!-- Form Ends -->
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="map-section">
-
                     <div class="map-canvas" data-zoom="12" data-lat="28.6208" data-lng="77.3639" data-type="roadmap" data-hue="#ffc400" data-title="Noida" data-content="Layman Woods<br>
                         Contact: +91 (892) 936-88-85<br>
                         <a href='mailto:info@laymanwoods.com'>info@laymanwoods.com</a>" style="height: 376px;">

@@ -15,7 +15,7 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
 {
     public class EmailHelper
     {
-       
+
         public int PrepareAndSendContactEmail(ContactEnquiryDTO model)
         {
 
@@ -24,7 +24,7 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
             {
                 body = reader.ReadToEnd();
             }
-            body = body.Replace("{Name}", model.Name );
+            body = body.Replace("{Name}", model.Name);
             body = body.Replace("{Date}", DateTime.Now.ToShortDateString());
             body = body.Replace("{Email}", model.Email);
             body = body.Replace("{Mobile}", model.Mobile);
@@ -35,6 +35,7 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
             email.ToEmail = model.Email;
             email.Status = (int)AspectEnums.EmailStatus.Pending;
             email.Body = body;
+            email.ToName = model.Name;
             email.Priority = 2;
             email.IsAttachment = false;
             return SendEmail(email, Convert.ToInt32(model.CompanyID));
@@ -44,7 +45,7 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
         {
 
             string body = string.Empty;
-            using (StreamReader reader = new StreamReader(System.Web.HttpContext.Current.Server.MapPath("~/Helpers/EmailTemplates/ContactEnquiry.html")))
+            using (StreamReader reader = new StreamReader(System.Web.HttpContext.Current.Server.MapPath("~/Helpers/EmailTemplates/BusinessEnquiry.html")))
             {
                 body = reader.ReadToEnd();
             }
@@ -62,28 +63,30 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
             email.ToEmail = model.Email;
             email.Status = (int)AspectEnums.EmailStatus.Pending;
             email.Body = body;
+            email.ToName = model.Name;
             email.Priority = 2;
             email.IsAttachment = false;
             return SendEmail(email, Convert.ToInt32(model.CompanyID));
         }
 
 
-        public int SendEmail(EmailServiceDTO emailmodel, int companyId)
+        public int SendEmail(EmailServiceDTO email, int companyId)
         {
-            string fromPass, fromAddress, fromName = "";
+            string fromPass = string.Empty;
 
             MailMessage message = new MailMessage();
             SmtpClient smtpClient = new SmtpClient();
             bool isDebugMode = ConfigurationManager.AppSettings["IsDebugMode"] == "Y" ? true : false;
-            message.Subject = string.IsNullOrEmpty(emailmodel.Subject) ? ConfigurationManager.AppSettings["Subject"].ToString() : emailmodel.Subject;
+            message.Subject = string.IsNullOrEmpty(email.Subject) ? ConfigurationManager.AppSettings["Subject"].ToString() : email.Subject;
+            email.BccEmail = ConfigurationManager.AppSettings["BCCAddress"].ToString();
+            email.CcEmail = ConfigurationManager.AppSettings["CCAddress"].ToString();
+
             try
             {
-
-
                 if (isDebugMode)
                 {
                     message.To.Add(ConfigurationManager.AppSettings["DbugToEmail"].ToString());
-                    fromAddress = ConfigurationManager.AppSettings["DbugFromEmail"].ToString();
+                    email.FromEmail = ConfigurationManager.AppSettings["DbugFromEmail"].ToString();
                     smtpClient.EnableSsl = ConfigurationManager.AppSettings["DbugIsSSL"].ToString() == "Y" ? true : false;
                     fromPass = ConfigurationManager.AppSettings["DbugFromPass"];
                     smtpClient.Host = ConfigurationManager.AppSettings["DbugSMTPHost"]; //"relay-hosting.secureserver.net";   //-- Donot change.
@@ -93,19 +96,21 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
                 else
                 {
                     smtpClient.EnableSsl = ConfigurationManager.AppSettings["IsSSL"].ToString() == "Y" ? true : false;
-                    fromName = ConfigurationManager.AppSettings["FromName"].ToString(); 
-                    fromAddress = ConfigurationManager.AppSettings["FromName"].ToString();
+                    email.FromName = ConfigurationManager.AppSettings["FromName"].ToString();
+                    email.FromEmail = ConfigurationManager.AppSettings["FromEmail"].ToString();
                     fromPass = ConfigurationManager.AppSettings["Password"].ToString();
                     smtpClient.Port = Convert.ToInt32(ConfigurationManager.AppSettings["SMTPPort"]);
                     smtpClient.Host = ConfigurationManager.AppSettings["SMTPHost"].ToString();
-                    message.To.Add(emailmodel.ToEmail);
+                    message.To.Add(email.ToEmail);
                 }
                 //log.Info("Sending Email to : " + message.To + " from account " + fromAddress + " having host and port: " + smtpClient.Host + " & " + smtpClient.Port );
-                smtpClient.Credentials = new NetworkCredential(fromAddress, fromPass);
+                smtpClient.Credentials = new NetworkCredential(email.FromEmail, fromPass);
                 message.BodyEncoding = Encoding.UTF8;
-                message.From = new MailAddress(fromAddress, fromName);
+                message.From = new MailAddress(email.FromEmail, email.FromName);
                 message.IsBodyHtml = true;
-                message.Body = emailmodel.Body;
+                message.Body = email.Body;
+                message.Bcc.Add(email.BccEmail);
+                message.CC.Add(email.CcEmail);
                 smtpClient.Send(message);
                 message.Dispose();
                 return (int)AspectEnums.EmailStatus.Sent;

@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using LaymanWoods.PresentationLayer.WebApp.Helpers;
 
 namespace LaymanWoods.PresentationLayer.WebApp.Controllers
 {
@@ -30,6 +31,8 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
 
                 if (response.IsSuccess)
                 {
+                    EmailHelper helper = new EmailHelper();
+                    helper.PrepareAndSendContactEmail(enquiry);
                     response.StatusCode = "200";
                     response.Message = "Your enquiry is successfully posted.  We will send you email shortly.";
                 }
@@ -58,6 +61,8 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
 
                 if (response.IsSuccess)
                 {
+                    EmailHelper helper = new EmailHelper();
+                    helper.PrepareAndSendEntrepreneurEmail(enquiry);
                     response.StatusCode = "200";
                     response.Message = "Your enquiry is successfully posted.  We will send you email shortly.";
                 }

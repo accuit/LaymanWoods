@@ -6,10 +6,10 @@ import { MouseEvent } from '@agm/core';
 
 // just an interface for type safety.
 interface marker {
-	lat: number;
-	lng: number;
-	label?: string;
-	draggable: boolean;
+  lat: number;
+  lng: number;
+  label?: string;
+  draggable: boolean;
 }
 
 @Component({
@@ -36,7 +36,7 @@ export class IpxContactFormComponent implements OnInit {
     this.enquiryForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      mobile: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       otp: ['', [Validators.minLength(6), Validators.maxLength(6)]],
       message: [''],
       companyID: [1]
@@ -62,7 +62,7 @@ export class IpxContactFormComponent implements OnInit {
       .then((res: APIResponse) => {
         if (res.isSuccess) {
           this.isSuccess = res.isSuccess;
-          this.service.contactEnquiry(this.enquiryForm.value);
+
         } else {
           this.isSuccess = false;
         }
@@ -81,12 +81,27 @@ export class IpxContactFormComponent implements OnInit {
       return;
     }
     this.mobile = this.enquiryForm.value.phone;
-    this.sendOTP(this.mobile);
+    //this.sendOTP(this.mobile);
+    this.submitEnquiryDetails();
   }
 
   resendOTP(): void {
     this.reSent = true;
     this.sendOTP(this.mobile);
+  }
+
+  submitEnquiryDetails() {
+    this.service.contactEnquiry(this.enquiryForm.value)
+      .subscribe((res: APIResponse) => {
+        if (res.isSuccess) {
+          this.isSuccess = true;
+          this.verifying = false;
+          this.enquiryForm.reset();
+          this.submitted = false;
+        } else {
+          this.isSuccess = false;
+        }
+      })
   }
 
   sendOTP(mobile): any {
