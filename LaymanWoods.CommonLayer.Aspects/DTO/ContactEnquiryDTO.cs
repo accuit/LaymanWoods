@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LaymanWoods.CommonLayer.Aspects.DTO
 {
-    [DataContract]
+
     public class ContactEnquiryDTO
     {
         public long ID { get; set; }

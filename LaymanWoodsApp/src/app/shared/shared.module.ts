@@ -10,7 +10,6 @@ import { DirectiveModule } from './directive/directive.module';
 import { ProductsService } from './services/products.services';
 import { SanitizeUrlPipe } from './pipes/sanitize-url.pipe';
 
-
 @NgModule({
   declarations: [MenuHeaderComponent, TopHeaderComponent, TitleHeaderComponent, SanitizeUrlPipe],
   imports: [

@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-md-12">
         <div class="form-group">
-            <label style="font-weight: 500;" class="col-sm-4 control-label" [attr.for]="identifier"> {{label}}</label>
-            <div class="col-sm-6">
+            <label *ngIf="label" style="font-weight: 500;" class="col-sm-4 control-label" [attr.for]="identifier"> {{label}}</label>
+            <div [ngClass]="{'col-sm-6': label}">
                 <select class="form-control" [ngModelOptions]="{standalone: true}" [attr.id]="identifier" [(ngModel)]="value" (change)="change(value)" #selectref [ngClass]="{ 'edited' :controledited()}">
                 <!-- <option *ngIf="isOptional" value="">{{ optionalValue }}</option> -->
                 <!-- <option>-- Select a Brand --</option> -->

@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   environmentName: 'QA',
-  apiUrl: 'http://laymanwood.in/'
+  apiUrl: 'http://laymanwoods.co.in/'
 };

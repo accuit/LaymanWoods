@@ -14,3 +14,13 @@ export class APIResponse {
     singleResult: any;
     statusCode: string;
 }
+
+export class Enquiry {
+    companyID: number;
+    email: string;
+    investment: string;
+    location: string;
+    name: string;
+    mobile: string;
+    profession: string;
+}

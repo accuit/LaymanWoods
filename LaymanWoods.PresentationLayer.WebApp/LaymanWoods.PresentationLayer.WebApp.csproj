@@ -239,14 +239,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Helpers\EmailTemplates\BusinessEnquiry.html" />
-    <Content Include="Helpers\EmailTemplates\DoctorAppointmentConfirmation.html" />
     <Content Include="Helpers\EmailTemplates\ContactEnquiry.html" />
-    <Content Include="Helpers\EmailTemplates\OnlineEnquiryResponse.html" />
-    <Content Include="Helpers\EmailTemplates\Student_Enquiry.html" />
-    <Content Include="Helpers\EmailTemplates\UserBookingConfirmation.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\API_Publish.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
