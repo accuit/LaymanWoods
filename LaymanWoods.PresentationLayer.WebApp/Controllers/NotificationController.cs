@@ -10,6 +10,7 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using LaymanWoods.PresentationLayer.WebApp.Helpers;
+using LaymanWoods.CommonLayer.Log;
 
 namespace LaymanWoods.PresentationLayer.WebApp.Controllers
 {
@@ -22,7 +23,7 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
         public JsonResponse<int> ContactUsEnquiry(ContactEnquiryDTO enquiry)
         {
             JsonResponse<int> response = new JsonResponse<int>();
-
+            ActivityLog.SetLog("[START][ContactUsEnquiry]", LogLoc.INFO);
             try
             {
                 enquiry.Status = (int)AspectEnums.EnquiryStatus.Received;
@@ -39,11 +40,12 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
             }
             catch (Exception ex)
             {
+                ActivityLog.SetLog("Message: "+ ex.Message + "Inner Ex: "+ ex.InnerException, LogLoc.ERROR);
                 response.IsSuccess = false;
                 response.StatusCode = "500";
                 response.Message = "Your enquiry is failed.";
             }
-
+            ActivityLog.SetLog("[END][ContactUsEnquiry]", LogLoc.INFO);
             return response;
         }
 
@@ -52,7 +54,7 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
         public JsonResponse<int> EntrepreneurEnquiry(EntrepreneurEnquiryDTO enquiry)
         {
             JsonResponse<int> response = new JsonResponse<int>();
-
+            ActivityLog.SetLog("[START][EntrepreneurEnquiry]", LogLoc.INFO);
             try
             {
                 enquiry.Status = (int)AspectEnums.EnquiryStatus.Received;
@@ -69,11 +71,12 @@ namespace LaymanWoods.PresentationLayer.WebApp.Controllers
             }
             catch (Exception ex)
             {
+                ActivityLog.SetLog("Message: " + ex.Message + "Inner Ex: " + ex.InnerException, LogLoc.ERROR);
                 response.IsSuccess = false;
                 response.StatusCode = "500";
                 response.Message = "Your enquiry is failed.";
             }
-
+            ActivityLog.SetLog("[END][EntrepreneurEnquiry]", LogLoc.INFO);
             return response;
         }
 

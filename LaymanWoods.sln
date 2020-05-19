@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.779
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaymanWoods.PresentationLayer.WebApp", "LaymanWoods.PresentationLayer.WebApp\LaymanWoods.PresentationLayer.WebApp.csproj", "{45EEAB90-E4E8-4822-A255-869BC70C7A0A}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaymanWoods.CommonLayer.AOPRegistrations", "LaymanWoods.CommonLayer.AOPRegistrations\LaymanWoods.CommonLayer.AOPRegistrations.csproj", "{A4BA07CA-94DC-47F2-8820-80F6AEDDE970}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaymanWoods.BusinessLayer.ServiceImpl", "LaymanWoods.BusinessLayer.ServiceImpl\LaymanWoods.BusinessLayer.ServiceImpl.csproj", "{C7699E0F-9757-4BDE-BA3A-848DFBDF7CC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaymanWoods.CommonLayer.AuditLog", "LaymanWoods.CommonLayer.AuditLog\LaymanWoods.CommonLayer.AuditLog.csproj", "{518FD54B-A499-4650-B0D0-332F26652A78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{C7699E0F-9757-4BDE-BA3A-848DFBDF7CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7699E0F-9757-4BDE-BA3A-848DFBDF7CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7699E0F-9757-4BDE-BA3A-848DFBDF7CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{518FD54B-A499-4650-B0D0-332F26652A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{518FD54B-A499-4650-B0D0-332F26652A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{518FD54B-A499-4650-B0D0-332F26652A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{518FD54B-A499-4650-B0D0-332F26652A78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{F7EAEEC0-35D1-4412-AC38-48C8AC010A60} = {A554B16D-2F18-4478-9A40-AF5D511A648A}
 		{A4BA07CA-94DC-47F2-8820-80F6AEDDE970} = {3E098861-BA2C-46AE-A62F-FEAD84222B8B}
 		{C7699E0F-9757-4BDE-BA3A-848DFBDF7CC2} = {FAE724CC-81E7-4CE4-B8E3-31AF983374BF}
+		{518FD54B-A499-4650-B0D0-332F26652A78} = {3E098861-BA2C-46AE-A62F-FEAD84222B8B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2C4286B-25E0-422B-B68A-784BE4E28E03}
