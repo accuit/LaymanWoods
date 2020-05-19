@@ -11,6 +11,7 @@ namespace MVC_Ecommerce
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             UnityRegistration.InitializeAopContainer();
+            _ = log4net.Config.XmlConfigurator.Configure();
         }
     }
 }

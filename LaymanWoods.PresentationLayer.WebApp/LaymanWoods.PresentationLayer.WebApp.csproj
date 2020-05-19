@@ -55,6 +55,10 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -318,6 +322,10 @@
     <ProjectReference Include="..\LaymanWoods.CommonLayer.Aspects\LaymanWoods.CommonLayer.Aspects.csproj">
       <Project>{6BE56F1B-C58C-483D-9729-E86D82ACD144}</Project>
       <Name>LaymanWoods.CommonLayer.Aspects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LaymanWoods.CommonLayer.AuditLog\LaymanWoods.CommonLayer.AuditLog.csproj">
+      <Project>{518fd54b-a499-4650-b0d0-332f26652a78}</Project>
+      <Name>LaymanWoods.CommonLayer.AuditLog</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

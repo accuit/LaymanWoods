@@ -1,24 +1,21 @@
-﻿using AutoMapper;
-using LaymanWoods.CommonLayer.Aspects;
+﻿using LaymanWoods.CommonLayer.Aspects;
 using LaymanWoods.CommonLayer.Aspects.DTO;
+using LaymanWoods.CommonLayer.Log;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
-using System.Web;
 
 namespace LaymanWoods.PresentationLayer.WebApp.Helpers
 {
     public class EmailHelper
     {
-
         public int PrepareAndSendContactEmail(ContactEnquiryDTO model)
         {
-
+            ActivityLog.SetLog("[START][PrepareAndSendContactEmail]", LogLoc.INFO);
             string body = string.Empty;
             using (StreamReader reader = new StreamReader(System.Web.HttpContext.Current.Server.MapPath("~/Helpers/EmailTemplates/ContactEnquiry.html")))
             {
@@ -38,12 +35,13 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
             email.ToName = model.Name;
             email.Priority = 2;
             email.IsAttachment = false;
+            ActivityLog.SetLog("[FINISH][PrepareAndSendContactEmail]", LogLoc.INFO);
             return SendEmail(email, Convert.ToInt32(model.CompanyID));
         }
 
         public int PrepareAndSendEntrepreneurEmail(EntrepreneurEnquiryDTO model)
         {
-
+            ActivityLog.SetLog("[START][PrepareAndSendEntrepreneurEmail]", LogLoc.INFO);
             string body = string.Empty;
             using (StreamReader reader = new StreamReader(System.Web.HttpContext.Current.Server.MapPath("~/Helpers/EmailTemplates/BusinessEnquiry.html")))
             {
@@ -66,6 +64,7 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
             email.ToName = model.Name;
             email.Priority = 2;
             email.IsAttachment = false;
+            ActivityLog.SetLog("[END][PrepareAndSendEntrepreneurEmail]", LogLoc.INFO);
             return SendEmail(email, Convert.ToInt32(model.CompanyID));
         }
 
@@ -73,7 +72,7 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
         public int SendEmail(EmailServiceDTO email, int companyId)
         {
             string fromPass = string.Empty;
-
+            ActivityLog.SetLog("[SendEmail Email]", LogLoc.INFO);
             MailMessage message = new MailMessage();
             SmtpClient smtpClient = new SmtpClient();
             bool isDebugMode = ConfigurationManager.AppSettings["IsDebugMode"] == "Y" ? true : false;
@@ -103,7 +102,7 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
                     smtpClient.Host = ConfigurationManager.AppSettings["SMTPHost"].ToString();
                     message.To.Add(email.ToEmail);
                 }
-                //log.Info("Sending Email to : " + message.To + " from account " + fromAddress + " having host and port: " + smtpClient.Host + " & " + smtpClient.Port );
+                ActivityLog.SetLog("Sending Email to : " + message.To + " from account " + email.FromEmail + " having host and port: " + smtpClient.Host + " & " + smtpClient.Port, LogLoc.INFO);
                 smtpClient.Credentials = new NetworkCredential(email.FromEmail, fromPass);
                 message.BodyEncoding = Encoding.UTF8;
                 message.From = new MailAddress(email.FromEmail, email.FromName);
@@ -114,11 +113,10 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
                 smtpClient.Send(message);
                 message.Dispose();
                 return (int)AspectEnums.EmailStatus.Sent;
-
             }
             catch (Exception ex)
             {
-                //log.Error("Error Sending Email " + ex.InnerException);
+                ActivityLog.SetLog("Error Sending Email " + ex.InnerException, LogLoc.ERROR);
                 return (int)AspectEnums.EmailStatus.Failed;
             }
             finally
