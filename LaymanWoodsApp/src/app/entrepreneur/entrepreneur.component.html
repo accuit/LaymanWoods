@@ -41,10 +41,11 @@
                             <span *ngIf="submitted && !f.location.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </div>
                         <div class="input-text form-group has-feedback" [ngClass]="{'has-error': submitted && f.investment.errors}">
-                            <label *ngIf="submitted && f.name.errors" class="control-label" for="inputError1">Investment
+                            <label *ngIf="submitted && f.investment.errors" class="control-label" for="inputError1">Investment
                                 is mandatory</label>
-                            <ipx-dropdown [options]="investmentAmount" [show-help]="false" [label]="" [displayField]="'title'" [formControl]="investment">
-                            </ipx-dropdown>
+                            <select class="form-control" formControlName="investment">
+                            <option *ngFor="let c of investmentAmount" [ngValue]="c.id">{{ c.title }}</option>
+                        </select>
                             <span *ngIf="submitted && f.investment.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                             <span *ngIf="submitted && !f.investment.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </div>
@@ -67,7 +68,6 @@
                         <!-- Button -->
                         <button class="btn btn-default btn-block" [attr.disabled]="(submitted && enquiryForm.invalid) ? 'disabled': null " type="submit">Send
                             Now <i class="icon-paper-plane"></i></button>
-
                     </form>
 
                     <!-- <form *ngIf="submitted && otpSent" [formGroup]="otpForm" (ngSubmit)="onVerifyOTP()">

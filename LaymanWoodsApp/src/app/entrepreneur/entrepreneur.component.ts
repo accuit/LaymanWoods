@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { NotificationService, OTP } from '../core/notification.service';
 import { APIResponse } from '../shared/model/core.model';
 
@@ -38,6 +38,7 @@ export class EntrepreneurComponent implements OnInit {
     });
 
     this.investmentAmount = [
+      { id: 0, title: 'Amount Planning To Invest' },
       { id: 2.500000, title: '2.5 Lac' },
       { id: 500000, title: '5 Lac' },
       { id: 1000000, title: '10 Lac' },
@@ -53,17 +54,13 @@ export class EntrepreneurComponent implements OnInit {
     return this.enquiryForm.controls;
   }
 
-  get investment() {
-    return this.enquiryForm.controls['investment'];
-  }
-
   onSubmit(): any {
     this.submitted = true;
     this.verifying = true;
     if (this.enquiryForm.invalid) {
       return;
     }
-    this.enquiryForm.patchValue({investment: this.investment.value.id})
+
     this.service.businessEnquiry(this.enquiryForm.value)
       .subscribe((res: APIResponse) => {
         if (res.isSuccess) {

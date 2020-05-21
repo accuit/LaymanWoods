@@ -38,6 +38,9 @@ export class WardrobeComponent implements OnInit {
   getProductFormData() {
     this.formData.categories = new Array<CategoryMaster>();
     this.interiorCategories.forEach(c => {
+      if(c.category.categoryCode === '105'){
+        c.products = c.products.filter(y => y.skuCode != 'ENTC');
+      }
       c.selectedProduct = new ProductMaster();
       const defaultProduct = c.products.filter(x => x.isDefault);
       c.selectedProduct = _.first(defaultProduct.length ? defaultProduct : c.products);

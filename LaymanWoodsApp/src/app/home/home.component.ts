@@ -7,7 +7,13 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 })
 export class HomeComponent {
   @ViewChild('videoplayer', { static: true }) videoplayer: ElementRef;
-
+  portfoliImages = {
+    kitchen: Array(23),
+    wardrobes: Array(12),
+    livingrooms: Array(15),
+    pop: Array(19),
+    bedrooms: Array(15),
+  }
   ngAfterViewInit() {
     this.videoplayer.nativeElement.click();
   }
@@ -18,4 +24,6 @@ export class HomeComponent {
       player.play();
     }
   }
+
+
 }

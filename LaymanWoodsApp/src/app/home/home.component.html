@@ -32,7 +32,7 @@
     </div>
     <div class="container work-section">
 
-        <h4 class="text-center">MASTER PIC DESIGNS MADE WITH CREATIVE PROFESSIONALS</h4>
+        <h4 class="text-center">MASTER INTERIOR DESIGNS MADE WITH CREATIVE PROFESSIONALS</h4>
         <p class="text-center">A layman is a person without professional or specialized knowledge in a particular subject. Here at LAYMANWOODS, we assist people those who are looking for professional, for their interior/woodwork to get done. We, not only provide interior designing
             services but we also educate our client to understand the difference between two different material in terms of price as well as their application so that the client can choose the right material as per their planned budget.</p>
 
@@ -130,27 +130,27 @@
         <div id="options" class="filter-menu" data-animation="fadeInUp">
             <ul class="option-set nav nav-pills">
                 <li class="filter active" data-filter="all">All</li>
-                <li class="filter" data-filter=".html">Kitchen</li>
-                <li class="filter" data-filter=".wp">Wardrobe</li>
-                <li class="filter" data-filter=".web">Room Interior</li>
+                <li class="filter" data-filter=".ktchn">Kitchen</li>
+                <li class="filter" data-filter=".wrdb">Wardrobe</li>
+                <li class="filter" data-filter=".bdrm">BedRoom</li>
                 <li class="filter" data-filter=".livr">Living Area</li>
-                <li class="filter" data-filter=".fcel">False Ceiling</li>
+                <li class="filter" data-filter=".pop">False Ceiling</li>
             </ul>
         </div>
     </div>
     <!-- filter -->
     <div id="mix-container" class="portfolio-grid" data-animation="fadeInUp">
         <!-- Item 1 -->
-        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all html">
+        <div style="max-height: 250px;" *ngFor="let ktchn of portfoliImages.kitchen; let i = index;" class="grids col-xs-12 col-sm-6 col-md-3 mix all ktchn">
             <div class="grid">
-                <img src="assets/img/sections/portfolio/kitchen1.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <img src="assets/img/sections/portfolio/kitchen/kit-{{i+1}}.jpg" width="400" height="250px" alt="Recent Work" class="img-responsive" />
                 <div class="figcaption">
                     <div class="caption-block">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <p>Buildings</p>
+                        <!-- <h4>Lorem ipsum dolor sit amet</h4> -->
+                        <p>Kitchen</p>
                     </div>
                     <!-- Image Popup-->
-                    <a href="assets/img/sections/portfolio/kitchen1.jpg" data-rel="prettyPhoto[portfolio]">
+                    <a href="assets/img/sections/portfolio/kitchen/kit-{{i}}.jpg" data-rel="prettyPhoto[portfolio]">
                         <i class="fa fa-search"></i>
                     </a>
                     <a href="portfolio-single.html">
@@ -159,138 +159,17 @@
                 </div>
             </div>
         </div>
-        <!-- Item 1 Ends-->
-        <!-- Item 2 -->
-        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all html">
-            <div class="grid">
-                <img src="assets/img/sections/portfolio/kitchen2.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
-                <div class="figcaption">
-                    <div class="caption-block">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <p>Buildings</p>
-                    </div>
-                    <!-- Image Popup-->
-                    <a href="assets/img/sections/portfolio/kitchen2.jpg" data-rel="prettyPhoto[portfolio]">
-                        <i class="fa fa-search"></i>
-                    </a>
-                    <a href="portfolio-single.html">
-                        <i class="fa fa-link"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- Item 2 Ends-->
-        <!-- Item 3 -->
-        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all html">
-            <div class="grid">
-                <img src="assets/img/sections/portfolio/kitchen3.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
-                <div class="figcaption">
-                    <div class="caption-block">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <p>Buildings</p>
-                    </div>
-                    <!-- Image Popup-->
-                    <a href="assets/img/sections/portfolio/kitchen3.jpg" data-rel="prettyPhoto[portfolio]">
-                        <i class="fa fa-search"></i>
-                    </a>
-                    <a href="portfolio-single.html">
-                        <i class="fa fa-link"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- Item 3 Ends-->
-        <!-- Item 4 -->
-        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all html">
-            <div class="grid">
-                <img src="assets/img/sections/portfolio/kitchen4.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
-                <div class="figcaption">
-                    <div class="caption-block">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <p>Interior</p>
-                    </div>
-                    <!-- Image Popup-->
-                    <a href="assets/img/sections/portfolio/kitchen4.jpg" data-rel="prettyPhoto[portfolio]">
-                        <i class="fa fa-search"></i>
-                    </a>
-                    <a href="portfolio-single.html">
-                        <i class="fa fa-link"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- Item 4 Ends-->
-        <!-- Item 5 -->
-        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all wp html">
-            <div class="grid">
-                <img src="assets/img/sections/portfolio/kitchen5.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
-                <div class="figcaption">
-                    <div class="caption-block">
-                        <h4>Lorem ipsum dolor sit amets</h4>
-                        <p>Energy</p>
-                    </div>
-                    <!-- Image Popup-->
-                    <a href="assets/img/sections/portfolio/kitchen5.jpg" data-rel="prettyPhoto[portfolio]">
-                        <i class="fa fa-search"></i>
-                    </a>
-                    <a href="portfolio-single.html">
-                        <i class="fa fa-link"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- Item 5 Ends-->
-        <!-- Item 6 -->
-        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all html wp">
-            <div class="grid">
-                <img src="assets/img/sections/portfolio/wardrobe1.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
-                <div class="figcaption">
-                    <div class="caption-block">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <p>Energy</p>
-                    </div>
-                    <!-- Image Popup-->
-                    <a href="assets/img/sections/portfolio/wardrobe1.jpg" data-rel="prettyPhoto[portfolio]">
-                        <i class="fa fa-search"></i>
-                    </a>
-                    <a href="portfolio-single.html">
-                        <i class="fa fa-link"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- Item 6 Ends-->
-        <!-- Item 7 -->
-        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all web wp">
-            <div class="grid">
-                <img src="assets/img/sections/portfolio/wardrobe2.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
-                <div class="figcaption">
-                    <div class="caption-block">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <p>Interior</p>
-                    </div>
-                    <!-- Image Popup-->
-                    <a href="assets/img/sections/portfolio/wardrobe2.jpg" data-rel="prettyPhoto[portfolio]">
-                        <i class="fa fa-search"></i>
-                    </a>
-                    <a href="portfolio-single.html">
-                        <i class="fa fa-link"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- Item 7 Ends-->
         <!-- Item 8 -->
-        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all web wp">
+        <div style="max-height: 250px;" *ngFor="let wb of portfoliImages.wardrobes; let i = index;" class="grids col-xs-12 col-sm-6 col-md-3 mix all wrdb">
             <div class="grid">
-                <img src="assets/img/sections/portfolio/kitchen1.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <img src="assets/img/sections/portfolio/wardrobes/wb-{{i+1}}.jpg" width="400" height="250px" alt="Recent Work" class="img-responsive" />
                 <div class="figcaption">
                     <div class="caption-block text-center">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <p>Interior</p>
+                        <!-- <h4>Lorem ipsum dolor sit amet</h4> -->
+                        <p>Wardrobe</p>
                     </div>
                     <!-- Image Popup-->
-                    <a href="assets/img/sections/portfolio/kitchen1.jpg" data-rel="prettyPhoto[portfolio]">
+                    <a href="assets/img/sections/portfolio/wardrobes/wb-{{i+1}}.jpg" data-rel="prettyPhoto[portfolio]">
                         <i class="fa fa-search"></i>
                     </a>
                     <a href="portfolio-single.html">
@@ -300,16 +179,16 @@
             </div>
         </div>
         <!-- Item 8 Ends-->
-        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all web">
+        <div style="max-height: 250px;" *ngFor="let bdrm of portfoliImages.bedrooms; let i = index;" class="grids col-xs-12 col-sm-6 col-md-3 mix all bdrm">
             <div class="grid">
-                <img src="assets/img/sections/portfolio/kitchen1.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <img src="assets/img/sections/portfolio/bedrooms/bed-{{i+1}}.png" width="400" height="250" alt="Recent Work" class="img-responsive" />
                 <div class="figcaption">
                     <div class="caption-block text-center">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <p>Interior</p>
+                        <!-- <h4>Lorem ipsum dolor sit amet</h4> -->
+                        <p>Bed Room</p>
                     </div>
                     <!-- Image Popup-->
-                    <a href="assets/img/sections/portfolio/kitchen1.jpg" data-rel="prettyPhoto[portfolio]">
+                    <a href="assets/img/sections/portfolio/bedrooms/bed-{{i+1}}.png" data-rel="prettyPhoto[portfolio]">
                         <i class="fa fa-search"></i>
                     </a>
                     <a href="portfolio-single.html">
@@ -319,16 +198,16 @@
             </div>
         </div>
         <!-- Item 9 Ends-->
-        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all fcel">
+        <div style="max-height: 200px;" *ngFor="let pop of portfoliImages.pop; let i = index;" class="grids col-xs-12 col-sm-6 col-md-3 mix all pop">
             <div class="grid">
-                <img src="assets/img/sections/portfolio/kitchen1.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <img src="assets/img/sections/portfolio/pop/pop-{{i+1}}.jpg" width="370" height="200px" alt="Recent Work" class="img-responsive" />
                 <div class="figcaption">
                     <div class="caption-block text-center">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <p>Interior</p>
+                        <!-- <h4>Lorem ipsum dolor sit amet</h4> -->
+                        <p>False Ceiling</p>
                     </div>
                     <!-- Image Popup-->
-                    <a href="assets/img/sections/portfolio/kitchen1.jpg" data-rel="prettyPhoto[portfolio]">
+                    <a href="assets/img/sections/portfolio/pop/pop-{{i+1}}.jpg" data-rel="prettyPhoto[portfolio]">
                         <i class="fa fa-search"></i>
                     </a>
                     <a href="portfolio-single.html">
@@ -338,16 +217,16 @@
             </div>
         </div>
         <!-- Item 10 Ends-->
-        <div class="grids col-xs-12 col-sm-6 col-md-3 mix all livr">
+        <div style="max-height: 250px;" *ngFor="let livr of portfoliImages.livingrooms; let i = index;" class="grids col-xs-12 col-sm-6 col-md-3 mix all livr">
             <div class="grid">
-                <img src="assets/img/sections/portfolio/kitchen5.jpg" width="400" height="273" alt="Recent Work" class="img-responsive" />
+                <img src="assets/img/sections/portfolio/living/liv-{{i+1}}.jpg" width="400" height="250" alt="Recent Work" class="img-responsive" />
                 <div class="figcaption">
                     <div class="caption-block">
-                        <h4>Lorem ipsum dolor sit amets</h4>
-                        <p>Energy</p>
+                        <!-- <h4>Lorem ipsum dolor sit amets</h4> -->
+                        <p>Living Room</p>
                     </div>
                     <!-- Image Popup-->
-                    <a href="assets/img/sections/portfolio/kitchen5.jpg" data-rel="prettyPhoto[portfolio]">
+                    <a href="assets/img/sections/portfolio/living/liv-{{i+1}}.jpg" data-rel="prettyPhoto[portfolio]">
                         <i class="fa fa-search"></i>
                     </a>
                     <a href="portfolio-single.html">
@@ -370,20 +249,20 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="owl-carousel navigation-1" data-pagination="false" data-items="6" data-autoplay="true" data-navigation="true">
-                    <a href="#"><img src="assets/img/partners/hettich.png" width="170" height="170" alt=""></a>
-                    <a href="#"><img src="assets/img/partners/centuryply.png" width="170" height="170" alt=""></a>
-                    <a href="#"><img src="assets/img/partners/godrej.png" width="170" height="170" alt=""></a>
-                    <a href="#"><img src="assets/img/partners/blum.png" width="170" height="170" alt=""></a>
-                    <a href="#"><img src="assets/img/partners/carysil.png" width="170" height="170" alt=""></a>
-                    <a href="#"><img src="assets/img/partners/evershine.png" width="170" height="170" alt=""></a>
-                    <a href="#"><img src="assets/img/partners/greenlam.png" width="170" height="170" alt=""></a>
-                    <a href="#"><img src="assets/img/partners/hafele.png" width="170" height="170" alt=""></a>
-                    <a href="#"><img src="assets/img/partners/inox.png" width="170" height="170" alt=""></a>
-                    <a href="#"><img src="assets/img/partners/kajaria.png" width="170" height="170" alt=""></a>
-                    <a href="#"><img src="assets/img/partners/merino.png" width="170" height="170" alt=""></a>
-                    <a href="#"><img src="assets/img/partners/sugatsune.png" width="170" height="170" alt=""></a>
-                    <a href="#"><img src="assets/img/partners/tesa.png" width="170" height="170" alt=""></a>
-                    <a href="#"><img src="assets/img/partners/venus.png" width="170" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/hettich.png" width="120" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/centuryply.png" width="120" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/godrej.png" width="120" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/blum.png" width="120" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/carysil.png" width="120" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/evershine.png" width="120" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/greenlam.png" width="120" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/hafele.png" width="120" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/inox.png" width="120" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/kajaria.png" width="120" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/merino.png" width="120" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/sugatsune.png" width="120" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/tesa.png" width="120" height="170" alt=""></a>
+                    <a href="#"><img src="assets/img/partners/venus.png" width="120" height="170" alt=""></a>
                 </div>
             </div>
         </div>

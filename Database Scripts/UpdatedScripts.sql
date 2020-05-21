@@ -9,6 +9,9 @@ Update ProductMaster Set SKUCode = 'FCL', MRP=720 Where CategoryCode = 600 AND N
 Update ProductMaster Set SKUCode = 'PPP', MeasurementUnit = 3 Where CategoryCode = 600 AND Name = 'Plain POP';
 Update ProductMaster Set SKUCode = 'MLP', Title='Moulding POP', MRP=240 Where CategoryCode = 600 AND Name = 'Moulding Price';
 Update ProductMaster Set MeasurementUnit = 3 Where CategoryCode = 500 AND isDeleted = 0;
+Delete from InteriorAndCategoryMapping Where CategoryCode = 107 and InteriorID = 1;
+
+
 
 
 
