@@ -12,7 +12,12 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <!-- <p class="form-message" style="display: none;"></p> -->
+                <h3>Send Us Your Interest!</h3>
+                <div *ngIf="isSuccess" role="alert" class="alert alert-success">
+                    <strong>Congratulations!</strong> Your message has been sent Successfully! <a class="alert-link" href="/">Go Home.</a>.
+                </div>
+                <div *ngIf="!isSuccess && submitted && !verifying" class="alert alert-danger" role="alert">
+                    Ohh snap! Something went wrong.</div>
                 <div class="contact-form">
                     <!-- Form Begins -->
                     <form *ngIf="!otpSent" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
@@ -26,28 +31,28 @@
                             <span *ngIf="submitted && f.name.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                             <span *ngIf="submitted && !f.name.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </div>
-                        <div class="input-text form-group has-feedback" [ngClass]="{'has-error': submitted && f.name.errors}">
-                            <label *ngIf="submitted && f.profession.errors" class="control-label" for="inputError1">Profession
-                                is mandatory</label>
+                        <div class="input-text form-group has-feedback">
+                            <!-- <label *ngIf="submitted && f.profession.errors" class="control-label" for="inputError1">Profession
+                                is mandatory</label> -->
                             <input type="text" formControlName="profession" class="input-name form-control" placeholder="Current Profession" />
-                            <span *ngIf="submitted && f.profession.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                            <span *ngIf="submitted && !f.profession.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                            <!-- <span *ngIf="submitted && f.profession.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                            <span *ngIf="submitted && !f.profession.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span> -->
                         </div>
-                        <div class="input-text form-group has-feedback" [ngClass]="{'has-error': submitted && f.name.errors}">
-                            <label *ngIf="submitted && f.location.errors" class="control-label" for="inputError1">Location
-                                is mandatory</label>
+                        <div class="input-text form-group has-feedback">
+                            <!-- <label *ngIf="submitted && f.location.errors" class="control-label" for="inputError1">Location
+                                is mandatory</label> -->
                             <input type="text" formControlName="location" class="input-name form-control" placeholder="Location" />
-                            <span *ngIf="submitted && f.location.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                            <span *ngIf="submitted && !f.location.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                            <!-- <span *ngIf="submitted && f.location.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                            <span *ngIf="submitted && !f.location.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span> -->
                         </div>
                         <div class="input-text form-group has-feedback" [ngClass]="{'has-error': submitted && f.investment.errors}">
                             <label *ngIf="submitted && f.investment.errors" class="control-label" for="inputError1">Investment
                                 is mandatory</label>
                             <select class="form-control" formControlName="investment">
-                            <option *ngFor="let c of investmentAmount" [ngValue]="c.id">{{ c.title }}</option>
+                                <option *ngFor="let c of investmentAmount" [ngValue]="c.id">{{ c.title }}</option>
                         </select>
-                            <span *ngIf="submitted && f.investment.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                            <span *ngIf="submitted && !f.investment.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                            <span *ngIf="submitted && (f.investment.errors)" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                            <span *ngIf="submitted && !(f.investment.errors)" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </div>
                         <!-- Field 2 -->
                         <div class="input-email form-group has-feedback" [ngClass]="{'has-error': submitted && f.email.errors}">
@@ -65,8 +70,9 @@
                             <span *ngIf="submitted && f.mobile.errors" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                             <span *ngIf="submitted && !f.mobile.errors" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         </div>
+
                         <!-- Button -->
-                        <button class="btn btn-default btn-block" [attr.disabled]="(submitted && enquiryForm.invalid) ? 'disabled': null " type="submit">Send
+                        <button class="btn btn-default btn-block" [attr.disabled]="(submitted && enquiryForm.invalid)? 'disabled': null " type="submit">Send
                             Now <i class="icon-paper-plane"></i></button>
                     </form>
 
@@ -89,11 +95,7 @@
                         <div *ngIf="!isSuccess && !verifying && otpSubmitted" class="alert alert-danger" role="alert">
                             Ohh snap! OTP is not matched.</div>
                     </form> -->
-                    <div *ngIf="isSuccess" role="alert" class="alert alert-success">
-                        <strong>Congratulations!</strong> Your message has been sent Successfully! <a class="alert-link" href="/">Go Home.</a>.
-                    </div>
-                    <div *ngIf="!isSuccess && submitted && !verifying" class="alert alert-danger" role="alert">
-                        Ohh snap! Something went wrong.</div>
+
                     <!-- Form Ends -->
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { NotificationService, OTP } from '../core/notification.service';
 import { APIResponse } from '../shared/model/core.model';
 
@@ -29,14 +29,11 @@ export class EntrepreneurComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       mobile: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      //otp: ['', [Validators.minLength(6), Validators.maxLength(6)]],
-      // message: [''],
-      investment: [this.investmentAmount[0], Validators.required],
+      investment: [0, [this.investmentValidator]],
       location: [''],
       profession: [''],
       companyID: [1]
     });
-
     this.investmentAmount = [
       { id: 0, title: 'Amount Planning To Invest' },
       { id: 2.500000, title: '2.5 Lac' },
@@ -54,6 +51,24 @@ export class EntrepreneurComponent implements OnInit {
     return this.enquiryForm.controls;
   }
 
+  initializeForm(): any {
+    this.enquiryForm.patchValue({ investment: 0 });
+  }
+
+  private readonly investmentValidator = (control: AbstractControl): ValidationErrors | null => {
+    if (control.value === 0) {
+      return { required: true }
+    }
+    return null;
+  };
+
+  private reset() {
+    this.enquiryForm.reset();
+    this.initializeForm();
+    this.submitted = false;
+    this.verifying = false;
+  }
+
   onSubmit(): any {
     this.submitted = true;
     this.verifying = true;
@@ -65,10 +80,8 @@ export class EntrepreneurComponent implements OnInit {
       .subscribe((res: APIResponse) => {
         if (res.isSuccess) {
           this.isSuccess = true;
-          this.verifying = false;
-          this.enquiryForm.reset();
-          this.submitted = false;
-        } else{
+          this.reset();
+        } else {
           this.isSuccess = false;
         }
       })
