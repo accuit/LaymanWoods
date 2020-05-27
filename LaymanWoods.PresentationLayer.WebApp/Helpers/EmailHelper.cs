@@ -25,7 +25,7 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
             body = body.Replace("{Date}", DateTime.Now.ToShortDateString());
             body = body.Replace("{Email}", model.Email);
             body = body.Replace("{Mobile}", model.Mobile);
-            body = body.Replace("{Address}", model.Address);
+            body = body.Replace("{Message}", model.Message);
             body = body.Replace("{PinCode}", model.Pincode);
 
             EmailServiceDTO email = new EmailServiceDTO();
@@ -36,7 +36,7 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
             email.Priority = 2;
             email.IsAttachment = false;
             ActivityLog.SetLog("[FINISH][PrepareAndSendContactEmail]", LogLoc.INFO);
-            return SendEmail(email, Convert.ToInt32(model.CompanyID));
+            return SendEmail(email);
         }
 
         public int PrepareAndSendEntrepreneurEmail(EntrepreneurEnquiryDTO model)
@@ -65,14 +65,14 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
             email.Priority = 2;
             email.IsAttachment = false;
             ActivityLog.SetLog("[END][PrepareAndSendEntrepreneurEmail]", LogLoc.INFO);
-            return SendEmail(email, Convert.ToInt32(model.CompanyID));
+            return SendEmail(email);
         }
 
 
-        public int SendEmail(EmailServiceDTO email, int companyId)
+        public int SendEmail(EmailServiceDTO email)
         {
             string fromPass = string.Empty;
-            ActivityLog.SetLog("[SendEmail Email]", LogLoc.INFO);
+            ActivityLog.SetLog("[STARTED] SendEmail", LogLoc.INFO);
             MailMessage message = new MailMessage();
             SmtpClient smtpClient = new SmtpClient();
             bool isDebugMode = ConfigurationManager.AppSettings["IsDebugMode"] == "Y" ? true : false;
@@ -109,23 +109,25 @@ namespace LaymanWoods.PresentationLayer.WebApp.Helpers
                 message.IsBodyHtml = true;
                 message.Body = email.Body;
                 message.Bcc.Add(email.BccEmail);
-                message.CC.Add(email.CcEmail);
+                if (email.CcEmail != string.Empty)
+                    message.CC.Add(email.CcEmail);
                 smtpClient.Send(message);
                 message.Dispose();
+                ActivityLog.SetLog("[SUCCESS] SendEmail", LogLoc.INFO);
                 return (int)AspectEnums.EmailStatus.Sent;
             }
             catch (Exception ex)
             {
-                ActivityLog.SetLog("Error Sending Email " + ex.InnerException, LogLoc.ERROR);
+                ActivityLog.SetLog("[FAILURE] Sending Email " + ex.Message.ToString() + ex.InnerException.ToString(), LogLoc.ERROR);
                 return (int)AspectEnums.EmailStatus.Failed;
             }
             finally
             {
                 message.Dispose();
                 smtpClient.Dispose();
+                ActivityLog.SetLog("[FINISHED] SendEmail", LogLoc.INFO);
             }
         }
-
 
     }
 

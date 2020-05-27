@@ -14,6 +14,7 @@ export class TitleHeaderComponent implements OnInit, AfterViewInit {
   @Input('parent') parent: string;
   @Input('parent-path') parentPath: string;
   @Input('current-page') current: string;
+  @Input('imgHeight') imgHeight = '150px';
   @ViewChild('imageEl', { static: false }) imageEl: ElementRef;
 
   constructor(private readonly renderer: Renderer2) { }

@@ -48,7 +48,11 @@
         <div class="step-title">
             <span>STEP 5: Material Quality / Brand Selection </span>
         </div>
-        <div class="row">
+        <div *ngIf="!formData.categories" id="sectionloader">
+            <div class="loader-item-single fa fa-spin text-color">
+            </div>
+        </div>
+        <div *ngIf="formData.categories" class="row">
             <div class="form-group">
                 <div class="col-sm-5">
                     <h4>Material</h4>
@@ -57,22 +61,23 @@
                     <h4>Brand</h4>
                 </div>
             </div>
-
             <div *ngFor="let c of formData.categories">
-                <ipx-dropdown *ngIf="c.webPartType === 1" [options]="c.products" [label]="c.category.title" [displayField]="'title'" [(ngModel)]="c.selectedProduct" (change)="specialProductRules(c)">
+                <ipx-dropdown *ngIf="c.webPartType===1" [options]="c.products" [label]="c.category.title" [displayField]=" 'title'" [(ngModel)]="c.selectedProduct" (change)="specialProductRules(c)">
                 </ipx-dropdown>
             </div>
         </div>
     </div>
 
     <div class="col-md-12">
-        <div class="price-details">
-            <h3>Step 6</h3>
-            <span class="price"> Extra Hardware Accessories</span>
+        <div class="step-title">
+            <span>STEP 6: Extra Hardware Accessories</span>
         </div>
-
+        <div *ngIf="!formData.categories" id="sectionloader">
+            <div class="loader-item-single fa fa-spin text-color">
+            </div>
+        </div>
         <div *ngFor="let c of formData.categories">
-            <div *ngIf="c.webPartType === 3">
+            <div *ngIf="c.webPartType===3">
                 <label *ngFor="let p of c.products" class="checkbox-inline" style="margin-left: 10px;">
                 <input type="checkbox" name="p.productId" id="p.productId" [(ngModel)]="p.isChecked" value="p.productId"> 
                 {{ p.name}}

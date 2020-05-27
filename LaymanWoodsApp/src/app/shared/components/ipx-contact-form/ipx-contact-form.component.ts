@@ -26,6 +26,7 @@ export class IpxContactFormComponent implements OnInit {
   otpSubmitted = false;
   otpSent = false;
   isSuccess = false;
+  isError = false;
   verifying = false;
   mobile: string;
   reSent = false;
@@ -99,6 +100,7 @@ export class IpxContactFormComponent implements OnInit {
           this.enquiryForm.reset();
           this.submitted = false;
         } else {
+          this.isError = true;
           this.isSuccess = false;
         }
       })

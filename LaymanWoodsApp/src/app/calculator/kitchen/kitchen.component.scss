@@ -1,0 +1,26 @@
+.loader-item-single {
+    background: none repeat scroll 0 0 #ffffff;
+    border-bottom: 3px solid rgba(0, 0, 0, 0) !important;
+    border-left: 3px solid;
+    border-radius: 200px;
+    -moz-border-radius: 200px;
+    -webkit-border-radius: 200px;
+    -o-border-radius: 200px;
+    -ms-border-radius: 200px;
+    border-right: 3px solid;
+    border-top: 3px solid;
+    height: 40px;
+    left: 50%;
+    text-align: center;
+    top: 50%;
+    width: 40px;
+}
+
+#sectionloader {
+    background-color: #FFFFFF;
+    height: 100%;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    margin: 50px 0 0 50px;
+}

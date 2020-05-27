@@ -104,7 +104,7 @@
                     <div *ngIf="isSuccess" role="alert" class="alert alert-success">
                         <strong>Congratulations!</strong> Your message has been sent Successfully! <a class="alert-link" href="/">Go Home.</a>.
                     </div>
-                    <div *ngIf="!isSuccess && submitted && !verifying" class="alert alert-danger" role="alert">
+                    <div *ngIf="isError && submitted" class="alert alert-danger" role="alert">
                         Ohh snap! Something went wrong.</div>
                     <!-- Form Ends -->
                 </div>
