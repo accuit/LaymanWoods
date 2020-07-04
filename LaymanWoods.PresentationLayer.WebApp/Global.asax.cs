@@ -2,7 +2,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace MVC_Ecommerce
+namespace LaymanWoods.PresentationLayer.WebApp
 {
     public class MvcApplication : System.Web.HttpApplication
     {

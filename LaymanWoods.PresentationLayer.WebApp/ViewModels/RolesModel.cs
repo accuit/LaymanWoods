@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MVC_Ecommerce.ViewModels
+namespace LaymanWoods.PresentationLayer.WebApp.ViewModels
 {
     public class RolesModel
     {

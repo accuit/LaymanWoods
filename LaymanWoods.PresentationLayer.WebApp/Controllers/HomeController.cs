@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using LaymanWoods.CommonLayer.Aspects;
 using LaymanWoods.PresentationLayer.WebApp.CustomFilters;
 
-namespace MVC_Ecommerce.Controllers
+namespace LaymanWoods.PresentationLayer.WebApp.Controllers
 {
     //[AuthorizePage((int)AspectEnums.RoleType.Employee)]
     public class HomeController : BaseController

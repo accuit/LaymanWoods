@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace MVC_Ecommerce
+namespace LaymanWoods.PresentationLayer.WebApp
 {
     public class FilterConfig
     {

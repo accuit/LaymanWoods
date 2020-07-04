@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace MVC_Ecommerce
+namespace LaymanWoods.PresentationLayer.WebApp
 {
     public class RouteConfig
     {

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace MVC_Ecommerce
+namespace LaymanWoods.PresentationLayer.WebApp
 {
     public class BundleConfig
     {

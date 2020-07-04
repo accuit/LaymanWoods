@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MVC_Ecommerce.Controllers
+namespace LaymanWoods.PresentationLayer.WebApp.Controllers
 {
     public class AccountController : BaseController
     {

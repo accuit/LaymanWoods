@@ -7,9 +7,9 @@
 //using System.Web;
 //using System.Web.Mvc;
 //
-//using MVC_Ecommerce.ViewModels;
+//using LaymanWoods.PresentationLayer.WebApp.ViewModels;
 
-//namespace MVC_Ecommerce.Controllers
+//namespace LaymanWoods.PresentationLayer.WebApp.Controllers
 //{
 //    //[AuthorizePage((int)AspectEnums.RoleType.Admin)]
 //    public class RoleMastersController : BaseController
